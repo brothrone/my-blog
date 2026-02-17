@@ -500,27 +500,27 @@ nav a:hover { color: var(--text); }
 .post-header {
   max-width: 720px;
   margin: 0 auto;
-  padding: 80px 40px 50px;
+  padding: 60px 40px 40px;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .post-meta {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .post-date {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .post-tag {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -532,9 +532,9 @@ nav a:hover { color: var(--text); }
 
 .post-header h1 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.02em;
 }
 
@@ -545,49 +545,49 @@ nav a:hover { color: var(--text); }
 }
 
 .post-content p {
-  font-size: 1rem;
-  line-height: 1.95;
+  font-size: 0.9rem;
+  line-height: 1.85;
   color: #3a3a3c;
-  margin-bottom: 28px;
-  padding-left: 16px;
+  margin-bottom: 20px;
+  padding-left: 14px;
   border-left: 2px solid var(--border);
 }
 
 .post-content h2 {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 400;
   letter-spacing: -0.01em;
-  margin: 56px 0 16px;
+  margin: 44px 0 14px;
   padding-left: 0;
   border-left: none;
 }
 
 .post-content h3 {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 400;
-  margin: 40px 0 12px;
+  margin: 32px 0 10px;
   padding-left: 0;
   border-left: none;
 }
 
 .post-content img {
   display: block;
-  max-width: 520px;
+  max-width: 480px;
   width: 100%;
   height: auto;
-  margin: 36px 0 36px 16px;
-  border-radius: 12px;
+  margin: 28px 0 28px 14px;
+  border-radius: 10px;
 }
 
 .post-content blockquote {
   border-left: 2px solid var(--text-muted);
-  padding: 4px 0 4px 24px;
-  margin: 36px 0;
+  padding: 4px 0 4px 20px;
+  margin: 28px 0;
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: var(--text-muted);
 }
 
@@ -595,9 +595,9 @@ nav a:hover { color: var(--text); }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  margin-top: 48px;
+  margin-top: 40px;
   transition: color 0.2s;
 }
 
