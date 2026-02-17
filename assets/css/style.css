@@ -325,10 +325,12 @@ nav a:hover {
    =========================== */
 .post-content img {
   display: block;
-  max-width: 60%;
+  max-width: 480px;
+  width: 100%;
   height: auto;
-  margin: 32px auto;
-  border-radius: 4px;
+  margin: 32px 0 32px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 /* ===========================
