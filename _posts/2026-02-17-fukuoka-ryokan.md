@@ -3,102 +3,196 @@ layout: post
 title: "[후쿠오카 료칸] 오이타 유후노쇼"
 date: 2026-02-17 09:00:00 +0900
 category: 호텔리뷰
-tags: [호텔리뷰, 일본, 료칸]
+tags:
+  - 호텔리뷰
+  - 일본
+  - 료칸
 image: /assets/images/fuk_1/fuk_a6.jpeg
 ---
 
 후쿠오카 공항에서 버스를 타고, 3시간가량 뒤에 유후인 역에 도착했다.
+![유후인 역](/assets/images/fuk_1/fuk_a_20.jpeg)
 
-![유후인 역](/assets/images/fuk_1/fuk_a1.jpeg)
+
 
 되게 오랜만에 오는 유후인. 지난번 유후인 여행이 너무너무 행복해서 뭔가 여기 오면 고향에 온 기분이다.
 
+  
+
 어느새 코로나도 끝나고 갈 수 있을지도 의문이었던 일본을 오니 실감 안 나면서도 행복했음. 불과 일주일 전엔 군대였는데..
+
+  
 
 ## 유후인 세븐일레븐
 
-![세븐일레븐](/assets/images/fuk_1/fuk_a2.jpeg)
+  
+
+![세븐일레븐](/assets/images/fuk_1/fuk_a_19.jpeg)
+
+  
 
 유후인 가서 꼭 들르는 세븐일레븐이다. 유후인 역을 마주 보고 오른쪽으로 조금만 가면 나오는데, 여기 편의점 커피가 진짜 맛있다 ☕️
 
-![편의점](/assets/images/fuk_1/fuk_a3.jpeg)
+  
 
-![편의점 내부](/assets/images/fuk_1/fuk_a4.jpeg)
+![편의점](/assets/images/fuk_1/fuk_a_17.jpeg)
+
+  
+
+![편의점 결제](/assets/images/fuk_1/fuk_a_18.jpeg)
+
+  
 
 숙소에 가려면 산 골짜기 깊은 곳으로 가야 해서 편의점을 털고 가야 한다. 물론 료칸에서 나오는 가이세키도 너무 맛있지만, 편의점 음식도 포기 못함.
 
-![택시](/assets/images/fuk_1/fuk_a5.jpeg)
+  
+
+![택시](/assets/images/fuk_1/fuk_a_6.jpeg)
+
+  
 
 택시 타고 깊은 산골짜기로..
 
-![설경](/assets/images/fuk_1/fuk_a6.jpeg)
+  
+
+![설경](/assets/images/fuk_1/fuk_a_2.jpeg)
+
+  
 
 눈이 온 지 얼마 안 돼서 산이 눈으로 덮여있었다.
 
+  
+
 ---
+
+  
 
 ## 유후노쇼 료칸
 
-![료칸 외관](/assets/images/fuk_1/fuk_a7.jpeg)
+  
+
+![료칸 외관](/assets/images/fuk_1/fuk_a_4.jpeg)
+
+  
 
 전에 가족끼리 한 번 왔었는데, 너무 좋았던 료칸이라 재방문했다. 거의 5년 만에 온 건데 똑같았다!
 
-![료칸 설경](/assets/images/fuk_1/fuk_a8.jpeg)
+  
+
+![료칸 설경](/assets/images/fuk_1/fuk_a_5.jpeg)
+
+  
 
 그때도 눈 왔었는데.
 
-![료칸 내부](/assets/images/fuk_1/fuk_a9.jpeg)
+  
 
-![료칸 내부2](/assets/images/fuk_1/fuk_a10.jpeg)
+![료칸 내부](/assets/images/fuk_1/fuk_a_1.jpeg)
+
+  
+
+![료칸 내부2](/assets/images/fuk_1/fuk_a_3.jpeg)
+
+  
 
 료칸 내부 모습. 일행이 6명이라 방 두 개를 잡았다. 마침 운 좋게도 전에 왔을 때 묵었던 방이랑 똑같은 곳! 료칸 방 안에 미니 온천이 있어서 좋았다.
 
-![외부 모습](/assets/images/fuk_1/fuk_a11.jpeg)
+  
+
+![외부 모습](/assets/images/fuk_1/fuk_a_16.jpeg)
+
+  
 
 외부 모습.
 
-![두 번째 방](/assets/images/fuk_1/fuk_a12.jpeg)
+  
+
+![두 번째 방](/assets/images/fuk_1/fuk_a_8.jpeg)
+
+  
 
 이곳은 두 번째 방이다. 첫 번째 방보단 좁지만 두 명이 이용한다.
 
-![웰컴 푸드](/assets/images/fuk_1/fuk_a13.jpeg)
+  
+
+![웰컴 푸드](/assets/images/fuk_1/fuk_a_15.jpeg)
+
+  
 
 이 웰컴 푸드는 아직 있었다!! 존맛. 옆에 보온병에 담겨있는 차도 꿀맛임.
 
-![온천](/assets/images/fuk_1/fuk_a14.jpeg)
+  
+
+![온천](/assets/images/fuk_1/fuk_a_9.jpeg)
+
+  
 
 바로 방에 있는 온천을 이용했다. 얼마 만의 온천이냐 ㅜㅜ
 
-![온천 뷰](/assets/images/fuk_1/fuk_a15.jpeg)
+  
+
+![온천 뷰](/assets/images/fuk_1/fuk_a_7.jpeg)
+
+  
 
 방 안에 있는 온천에서 보이는 풍경. 눈 와서 더 이쁘다.
 
+  
+
 ---
+
+  
 
 ## 료칸 가이세키
 
+  
+
 일본에서 료칸을 가면 가장 기대되는 곳 중 하나인 가이세키. 일본에서의 코스 요리인데, 여기 가이세키가 너무 맛있었음.
 
-![가이세키 상차림](/assets/images/fuk_1/fuk_a16.jpeg)
+  
+
+![가이세키 상차림](/assets/images/fuk_1/fuk_a_14.jpeg)
+
+  
 
 안내를 따라 가면 이렇게 상이 차려져 있다. 일본 전통 음식, 닭고기, 소고기, 말고기 이렇게 있다.
 
+  
+
 일본 가이세키를 먹으면 양념 향신료가 아닌 재료 고유한 맛이 그대로 느껴져서 다양한 맛을 볼 수 있어 좋다.
 
-![가이세키2](/assets/images/fuk_1/fuk_a17.jpeg)
+  
 
-![가이세키3](/assets/images/fuk_1/fuk_a18.jpeg)
+![가이세키2](/assets/images/fuk_1/fuk_a_10.jpeg)
+
+  
+
+![가이세키3](/assets/images/fuk_1/fuk_a_12.jpeg)
+
+  
 
 코스 요리로 계속 나오는데, 코로나 이전에 왔을 때보다 양도 좀 적고 메뉴 몇 개가 없어져서 아쉬웠다.
 
-![화로 라떼](/assets/images/fuk_1/fuk_a19.jpeg)
+  
+
+![화로 라떼](/assets/images/fuk_1/fuk_a_13.jpeg)
+
+  
 
 식당 밖으로 나오면 중앙에 화로가 있는데, 여기서 라떼 뽑아먹으면 극락이다. 추운 날, 화로 앞에서 라떼 ☕️
 
-![노천탕](/assets/images/fuk_1/fuk_a20.jpeg)
+  
+
+![노천탕](/assets/images/fuk_1/fuk_a_11.jpeg)
+
+  
 
 밥 먹고 바로 야외 노천탕하러 제공되는 유카타를 입고 나왔다. 쌓여있는 눈으로 눈사람도 만들고 사진도 찍었다.
 
+  
+
 밖에 기온은 영하인데, 온천에 들어가 있으면 추위가 하나도 안 느껴지고, 여름에 에어컨 켜고 이불 덮는 행복함의 10배 정도 행복하다.
+
+  
 
 이번에도 여기서 1박 밖에 안 했는데, 너무 좋은 료칸이어서 언젠가는 다시 한번은 더 오지 않을까 싶다. 일단 다른 곳도 많이 가보고 ㅎㅎ..
