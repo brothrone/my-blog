@@ -1,6 +1,7 @@
-title: "My Blog"
-description: "생각을 기록하는 나만의 공간"
-url: ""
+title: "Brothrone Travel"
+description: "항공, 호텔, 여행 꿀팁을 사진과 함께 공유하는 여행 블로그"
+author: "Brothrone"
+url: "https://brothrone.netlify.app"
 
 # 빌드 설정
 markdown: kramdown
@@ -9,6 +10,7 @@ permalink: /posts/:title/
 # 플러그인
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # 제외 파일
 exclude:
