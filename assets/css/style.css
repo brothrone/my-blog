@@ -321,6 +321,31 @@ nav a:hover {
 }
 
 /* ===========================
+   사진 스타일
+   =========================== */
+.post-content img {
+  display: block;
+  max-width: 60%;
+  height: auto;
+  margin: 32px auto;
+  border-radius: 4px;
+}
+
+/* ===========================
+   글 들여쓰기
+   =========================== */
+.post-content p {
+  padding-left: 16px;
+  border-left: 3px solid var(--border);
+}
+
+.post-content h2,
+.post-content h3 {
+  padding-left: 0;
+  border-left: none;
+}
+
+/* ===========================
    댓글 섹션
    =========================== */
 .comments {
