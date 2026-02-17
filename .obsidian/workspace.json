@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-02-17-fukuoka-ryokan.md",
+                "file": "_posts/2026-02-17-seattle-aviation-museum.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-17-fukuoka-ryokan"
+              "title": "2026-02-17-seattle-aviation-museum"
             }
           }
         ]
@@ -185,9 +185,13 @@
   },
   "active": "66c4ac4c811fa595",
   "lastOpenFiles": [
+    "contact.html",
+    "_layouts/index.html",
+    "categories.html",
+    "category/travel.md",
+    "_posts/2026-02-17-fukuoka-ryokan.md",
     "_posts/2026-02-17-seattle-aviation-museum.md",
     "Untitled.canvas",
-    "_posts/2026-02-17-fukuoka-ryokan.md",
     "assets/images/Untitled.base"
   ]
 }

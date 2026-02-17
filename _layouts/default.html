@@ -48,10 +48,69 @@
     <div class="header-inner">
       <a href="{{ '/' | relative_url }}" class="logo">BROTHRONE</a>
       <nav>
+        <a href="{{ '/categories' | relative_url }}">전체 카테고리</a>
         <a href="{{ '/' | relative_url }}">Journal</a>
         <a href="{{ '/about' | relative_url }}">About</a>
+        <a href="https://blog.naver.com/brothrone" target="_blank">Naver</a>
+        <a href="{{ '/contact' | relative_url }}">Contact</a>
+        <button class="search-btn" onclick="toggleSearch()">🔍</button>
       </nav>
     </div>
+
+    <!-- 검색 바 -->
+    <div class="search-bar" id="searchBar">
+      <div class="search-inner">
+        <input type="text" id="searchInput" placeholder="검색어를 입력하세요..." oninput="searchPosts()" />
+        <button onclick="toggleSearch()">✕</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <script>
+      // 검색 데이터
+      const posts = [
+        {% for post in site.posts %}
+        {
+          title: {{ post.title | jsonify }},
+          url: {{ post.url | relative_url | jsonify }},
+          excerpt: {{ post.excerpt | strip_html | truncate: 100 | jsonify }},
+          date: {{ post.date | date: "%Y. %m. %d" | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ];
+
+      function toggleSearch() {
+        const bar = document.getElementById('searchBar');
+        const input = document.getElementById('searchInput');
+        bar.classList.toggle('active');
+        if (bar.classList.contains('active')) {
+          input.focus();
+        } else {
+          input.value = '';
+          document.getElementById('searchResults').innerHTML = '';
+        }
+      }
+
+      function searchPosts() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const results = document.getElementById('searchResults');
+        if (!query) { results.innerHTML = ''; return; }
+        const filtered = posts.filter(p =>
+          p.title.toLowerCase().includes(query) ||
+          p.excerpt.toLowerCase().includes(query)
+        );
+        if (filtered.length === 0) {
+          results.innerHTML = '<p class="no-result">검색 결과가 없어요.</p>';
+          return;
+        }
+        results.innerHTML = filtered.map(p => `
+          <a href="${p.url}" class="search-result-item">
+            <span class="search-result-date">${p.date}</span>
+            <span class="search-result-title">${p.title}</span>
+          </a>
+        `).join('');
+      }
+    </script>
   </header>
 
   <main>{{ content }}</main>

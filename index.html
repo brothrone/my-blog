@@ -12,6 +12,14 @@ layout: default
 
   <!-- 히어로 안 카테고리 바 -->
   <div class="hero-cats">
+    <a href="/category/travel/" class="hero-cat">
+      <span class="hero-cat-icon">🌏</span>
+      <div>
+        <div class="hero-cat-name">여행</div>
+        <div class="hero-cat-sub">Travel</div>
+      </div>
+    </a>
+    <div class="hero-cat-divider"></div>
     <a href="/category/airline-review/" class="hero-cat">
       <span class="hero-cat-icon">✈️</span>
       <div>
@@ -46,26 +54,27 @@ layout: default
   </div>
 </section>
 
-<!-- 피처드 (첫 번째 글 크게) -->
-{% assign first_post = site.posts.first %}
-{% if first_post %}
+<!-- 피처드 (고정 글) -->
+{% assign featured_post = site.posts | where: "slug", "fukuoka-ryokan" | first %}
+{% unless featured_post %}{% assign featured_post = site.posts.first %}{% endunless %}
+{% if featured_post %}
 <section class="featured">
-  <a href="{{ first_post.url | relative_url }}" class="featured-link">
-    {% if first_post.image %}
-    <div class="featured-img" style="background-image: url('{{ first_post.image }}')"></div>
+  <a href="{{ featured_post.url | relative_url }}" class="featured-link">
+    {% if featured_post.image %}
+    <div class="featured-img" style="background-image: url('{{ featured_post.image }}')"></div>
     {% else %}
     <div class="featured-img featured-img--empty"></div>
     {% endif %}
     <div class="featured-body">
       <div class="featured-meta">
-        <span>{{ first_post.date | date: "%B %d, %Y" }}</span>
-        {% for tag in first_post.tags limit:1 %}
+        <span>{{ featured_post.date | date: "%B %d, %Y" }}</span>
+        {% for tag in featured_post.tags limit:1 %}
           <span class="dot">·</span>
           <span>{{ tag }}</span>
         {% endfor %}
       </div>
-      <h2 class="featured-title">{{ first_post.title }}</h2>
-      <p class="featured-excerpt">{{ first_post.excerpt | strip_html | truncate: 140 }}</p>
+      <h2 class="featured-title">{{ featured_post.title }}</h2>
+      <p class="featured-excerpt">{{ featured_post.excerpt | strip_html | truncate: 140 }}</p>
       <span class="featured-cta">Read Story →</span>
     </div>
   </a>
