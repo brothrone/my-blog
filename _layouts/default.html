@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ5T1WKVT3"></script>
@@ -18,26 +18,22 @@
 </head>
 <body>
 
-  <!-- 헤더 -->
   <header class="site-header">
-    <div class="container">
-      <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+    <div class="header-inner">
+      <a href="{{ '/' | relative_url }}" class="logo">BROTHRONE</a>
       <nav>
-        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/' | relative_url }}">Journal</a>
         <a href="{{ '/about' | relative_url }}">About</a>
       </nav>
     </div>
   </header>
 
-  <!-- 본문 -->
-  <main>
-    {{ content }}
-  </main>
+  <main>{{ content }}</main>
 
-  <!-- 푸터 -->
   <footer class="site-footer">
-    <div class="container">
-      <p>© {{ site.time | date: "%Y" }} {{ site.title }} · Made with Jekyll & ☕</p>
+    <div class="footer-inner">
+      <span class="footer-logo">BROTHRONE</span>
+      <p>© {{ site.time | date: "%Y" }} · Travel &amp; Aviation</p>
     </div>
   </footer>
 
