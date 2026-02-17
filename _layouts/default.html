@@ -50,7 +50,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="{{ '/' | relative_url }}" class="logo">BROTHRONE</a>
-      <nav>
+      <nav class="desktop-nav">
         <a href="{{ '/categories' | relative_url }}">전체 카테고리</a>
         <a href="{{ '/' | relative_url }}">Journal</a>
         <a href="{{ '/about' | relative_url }}">About</a>
@@ -58,6 +58,20 @@
         <a href="{{ '/contact' | relative_url }}">Contact</a>
         <button class="search-btn" onclick="toggleSearch()">🔍</button>
       </nav>
+      <!-- 모바일 -->
+      <div class="mobile-nav">
+        <button class="search-btn" onclick="toggleSearch()">🔍</button>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+      </div>
+    </div>
+
+    <!-- 모바일 드롭다운 메뉴 -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="{{ '/categories' | relative_url }}" onclick="toggleMenu()">전체 카테고리</a>
+      <a href="{{ '/' | relative_url }}" onclick="toggleMenu()">Journal</a>
+      <a href="{{ '/about' | relative_url }}" onclick="toggleMenu()">About</a>
+      <a href="https://blog.naver.com/brothrone" target="_blank" onclick="toggleMenu()">Naver</a>
+      <a href="{{ '/contact' | relative_url }}" onclick="toggleMenu()">Contact</a>
     </div>
 
     <!-- 검색 바 -->
@@ -82,7 +96,9 @@
         {% endfor %}
       ];
 
-      function toggleSearch() {
+      function toggleMenu() {
+        document.getElementById('mobileMenu').classList.toggle('active');
+      }
         const bar = document.getElementById('searchBar');
         const input = document.getElementById('searchInput');
         bar.classList.toggle('active');
