@@ -320,6 +320,16 @@ nav a:hover {
 }
 
 /* ===========================
+   댓글 섹션
+   =========================== */
+.comments {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  padding-bottom: 80px;
+}
+
+/* ===========================
    애니메이션
    =========================== */
 @keyframes fadeUp {
