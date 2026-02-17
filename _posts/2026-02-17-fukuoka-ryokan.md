@@ -7,7 +7,7 @@ tags:
   - 호텔리뷰
   - 일본
   - 료칸
-image: /assets/images/fuk_1/fuk_a6.jpeg
+image: /assets/images/fuk_1/fuk_a_6.jpeg
 ---
 
 후쿠오카 공항에서 오이타현 직행버스를 타고, 3시간 뒤에 유후인 역에 도착했다.
