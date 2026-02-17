@@ -2,6 +2,11 @@
 layout: default
 ---
 
+{% if page.image %}
+<!-- 대표 사진 preload -->
+<link rel="preload" as="image" href="{{ page.image }}" />
+{% endif %}
+
 <div class="container">
   <div class="post-header">
     <div class="post-meta">
@@ -39,3 +44,10 @@ layout: default
     </script>
   </div>
 </div>
+
+<!-- 글 내 이미지 lazy loading -->
+<script>
+  document.querySelectorAll('.post-content img').forEach(img => {
+    img.setAttribute('loading', 'lazy');
+  });
+</script>
