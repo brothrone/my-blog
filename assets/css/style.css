@@ -2,15 +2,16 @@
    CSS 변수 (색상 & 폰트 설정)
    =========================== */
 :root {
-  --bg: #fafaf8;
-  --text: #1a1a1a;
-  --text-muted: #888;
-  --accent: #c17a3b;
-  --border: #e8e8e4;
+  --bg: #ffffff;
+  --text: #333333;
+  --text-muted: #888888;
+  --accent: #03c75a;
+  --accent-dark: #02a84c;
+  --border: #e5e5e5;
   --max-width: 720px;
 
-  --font-serif: 'DM Serif Display', 'Noto Serif KR', serif;
-  --font-sans: 'DM Sans', 'Apple SD Gothic Neo', sans-serif;
+  --font-serif: 'Nanum Myeongjo', 'Noto Serif KR', serif;
+  --font-sans: 'Nanum Gothic', 'Apple SD Gothic Neo', sans-serif;
 }
 
 /* ===========================
