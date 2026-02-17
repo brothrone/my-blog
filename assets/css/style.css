@@ -151,6 +151,176 @@ nav a:hover { color: var(--text); }
 }
 
 /* ===========================
+   히어로 안 카테고리 바
+   =========================== */
+.hero-cats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  border-top: 1px solid rgba(255,255,255,0.25);
+}
+
+.hero-cat {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 32px;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.hero-cat:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.hero-cat-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.hero-cat-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.hero-cat-sub {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-top: 2px;
+}
+
+.hero-cat-divider {
+  width: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 16px 0;
+}
+
+@media (max-width: 700px) {
+  .hero-cats {
+    flex-wrap: wrap;
+  }
+  .hero-cat {
+    flex: 1 1 50%;
+    padding: 16px 20px;
+  }
+  .hero-cat-divider {
+    display: none;
+  }
+}
+
+/* ===========================
+   카테고리 섹션 (구형 - 미사용)
+   =========================== */
+.categories {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 36px 20px;
+  background: var(--surface);
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  background: #fff;
+  border-color: var(--border);
+}
+
+.cat-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.cat-name {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.cat-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* 카테고리 페이지 */
+.cat-page {}
+
+.cat-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 40px 50px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.cat-icon-lg {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.cat-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.cat-header .cat-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.cat-header .back-link {
+  display: inline-block;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 700px) {
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================
    피처드 (첫 번째 글)
    =========================== */
 .featured {

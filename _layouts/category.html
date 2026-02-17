@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div class="cat-page">
+  <div class="cat-header">
+    <a href="{{ '/' | relative_url }}" class="back-link">← Home</a>
+    <span class="cat-icon-lg">{{ page.icon }}</span>
+    <h1 class="cat-title">{{ page.cat_title }}</h1>
+    <p class="cat-desc">{{ page.description }}</p>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="card-grid">
+      {% assign posts = site.posts | where: "category", page.category_name %}
+      {% for post in posts %}
+      <a href="{{ post.url | relative_url }}" class="card">
+        {% if post.image %}
+        <div class="card-img" style="background-image: url('{{ post.image }}')"></div>
+        {% else %}
+        <div class="card-img card-img--empty"></div>
+        {% endif %}
+        <div class="card-body">
+          <div class="card-meta">
+            {{ post.date | date: "%Y. %m. %d" }}
+          </div>
+          <h3 class="card-title">{{ post.title }}</h3>
+          <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 70 }}</p>
+        </div>
+      </a>
+      {% endfor %}
+      {% if posts.size == 0 %}
+      <p class="no-posts">아직 작성된 글이 없어요.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
