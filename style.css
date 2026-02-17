@@ -1,0 +1,351 @@
+/* ===========================
+   CSS 변수 (색상 & 폰트 설정)
+   =========================== */
+:root {
+  --bg: #fafaf8;
+  --text: #1a1a1a;
+  --text-muted: #888;
+  --accent: #c17a3b;
+  --border: #e8e8e4;
+  --max-width: 720px;
+
+  --font-serif: 'DM Serif Display', 'Noto Serif KR', serif;
+  --font-sans: 'DM Sans', 'Apple SD Gothic Neo', sans-serif;
+}
+
+/* ===========================
+   기본 리셋
+   =========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===========================
+   레이아웃
+   =========================== */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===========================
+   헤더
+   =========================== */
+.site-header {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.logo:hover {
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+/* ===========================
+   히어로 섹션
+   =========================== */
+.hero {
+  padding: 80px 0 60px;
+  position: relative;
+}
+
+.hero-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.hero-line {
+  max-width: var(--max-width);
+  margin: 60px auto 0;
+  padding: 0 24px;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ===========================
+   글 목록
+   =========================== */
+.post-list {
+  padding: 60px 0 100px;
+}
+
+.post-card {
+  padding: 40px 0;
+  animation: fadeUp 0.5s ease both;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.post-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.post-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.post-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+
+.post-title:hover {
+  color: var(--accent);
+}
+
+.post-excerpt {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.post-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  transition: letter-spacing 0.2s;
+}
+
+.post-link:hover {
+  letter-spacing: 0.06em;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.no-posts {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding: 40px 0;
+}
+
+/* ===========================
+   글 상세 페이지
+   =========================== */
+.post-header {
+  padding: 70px 0 50px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 50px;
+}
+
+.post-header .post-meta {
+  margin-bottom: 20px;
+}
+
+.post-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.post-content {
+  padding-bottom: 100px;
+}
+
+.post-content p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 28px;
+}
+
+.post-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  margin: 50px 0 16px;
+}
+
+.post-content blockquote {
+  border-left: 2px solid var(--accent);
+  padding: 4px 0 4px 24px;
+  margin: 32px 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 40px 0 0;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--text);
+}
+
+/* ===========================
+   About 페이지
+   =========================== */
+.about-section {
+  padding: 80px 0 100px;
+}
+
+.about-section h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+
+.about-section em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.about-section p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+/* ===========================
+   푸터
+   =========================== */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+}
+
+.site-footer p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ===========================
+   애니메이션
+   =========================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   반응형 (모바일)
+   =========================== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 50px 0 40px;
+  }
+
+  .post-title {
+    font-size: 1.3rem;
+  }
+
+  nav {
+    gap: 16px;
+  }
+}
