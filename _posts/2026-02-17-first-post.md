@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "첫 번째 글 — 블로그를 시작하며"
+title: "첫 번째 글 "
 date: 2026-02-17
 tags: [생각]
 ---
