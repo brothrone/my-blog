@@ -3,6 +3,7 @@ layout: post
 title: "시애틀 항공기 박물관 — 세계 최대 규모를 직접 가보다"
 date: 2026-02-17
 tags: [여행, 항공]
+image: /assets/images/seattle_boeing/boeing1.jpeg
 ---
 
 시애틀에 있는 항공기 박물관에 다녀왔다.
