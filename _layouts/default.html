@@ -30,6 +30,8 @@
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <!-- Google Search Console 인증 -->
   <meta name="google-site-verification" content="Yg-oBW33kqUu_fm4r_wgdF2HJy_65oZNGp8-dKPCwgI" />
+  <!-- 네이버 서치어드바이저 인증 -->
+  <meta name="naver-site-verification" content="6e6b886ed780f4f9569e2f22be8224ee8d5849c8" />
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
   <!-- 폰트 preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -84,7 +86,6 @@
     </div>
 
     <script>
-      // 검색 데이터
       const posts = [
         {% for post in site.posts %}
         {
@@ -99,6 +100,8 @@
       function toggleMenu() {
         document.getElementById('mobileMenu').classList.toggle('active');
       }
+
+      function toggleSearch() {
         const bar = document.getElementById('searchBar');
         const input = document.getElementById('searchInput');
         bar.classList.toggle('active');
