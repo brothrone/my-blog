@@ -51,7 +51,11 @@ layout: default
 {% unless featured_post %}{% assign featured_post = site.posts.first %}{% endunless %}
 {% if featured_post %}
 <section class="featured">
+  {% if featured_post.naver_url %}
+  <a href="{{ featured_post.naver_url }}" target="_blank" class="featured-link">
+  {% else %}
   <a href="{{ featured_post.url | relative_url }}" class="featured-link">
+  {% endif %}
     {% if featured_post.image %}
     <div class="featured-img" style="background-image: url('{{ featured_post.image }}')"></div>
     {% else %}
@@ -59,7 +63,7 @@ layout: default
     {% endif %}
     <div class="featured-body">
       <div class="featured-meta">
-        <span>{{ featured_post.date | date: "%B %d, %Y" }}</span>
+        <span>{{ featured_post.date | date: "%Y. %m. %d" }}</span>
         {% for tag in featured_post.tags limit:1 %}
           <span class="dot">·</span>
           <span>{{ tag }}</span>
@@ -67,7 +71,11 @@ layout: default
       </div>
       <h2 class="featured-title">{{ featured_post.title }}</h2>
       <p class="featured-excerpt">{{ featured_post.excerpt | strip_html | truncate: 140 }}</p>
+      {% if featured_post.naver_url %}
+      <span class="featured-cta">네이버 블로그에서 보기 →</span>
+      {% else %}
       <span class="featured-cta">Read Story →</span>
+      {% endif %}
     </div>
   </a>
 </section>
@@ -82,7 +90,11 @@ layout: default
 <div class="grid-wrap">
   <div class="card-grid">
     {% for post in site.posts offset:1 %}
+    {% if post.naver_url %}
+    <a href="{{ post.naver_url }}" target="_blank" class="card">
+    {% else %}
     <a href="{{ post.url | relative_url }}" class="card">
+    {% endif %}
       {% if post.image %}
       <div class="card-img" style="background-image: url('{{ post.image }}')"></div>
       {% else %}

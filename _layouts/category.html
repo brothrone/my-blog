@@ -14,7 +14,11 @@ layout: default
     <div class="card-grid">
       {% assign posts = site.posts | where: "category", page.category_name %}
       {% for post in posts %}
+      {% if post.naver_url %}
+      <a href="{{ post.naver_url }}" target="_blank" class="card">
+      {% else %}
       <a href="{{ post.url | relative_url }}" class="card">
+      {% endif %}
         {% if post.image %}
         <div class="card-img" style="background-image: url('{{ post.image }}')"></div>
         {% else %}
