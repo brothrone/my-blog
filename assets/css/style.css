@@ -1024,8 +1024,8 @@ nav a:hover { color: var(--text); }
 @media (max-width: 600px) {
   .hero {
     background-image: url('/assets/images/sapporo-mobile.jpeg');
-    height: 75vh;
-    min-height: 450px;
+    height: 100vh;  /* 75vh → 100vh (화면 전체 높이) */
+    min-height: 600px;  /* 450px → 600px */
   }
 }
 
