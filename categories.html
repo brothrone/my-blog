@@ -11,6 +11,15 @@ permalink: /categories/
   </div>
 
   <div class="all-cats-grid">
+    <a href="/travel-map/" class="all-cat-card highlight-card">
+      <span class="all-cat-icon">🗺️</span>
+      <div class="all-cat-info">
+        <h3>여행 지도</h3>
+        <p>Travel Map</p>
+      </div>
+      <span class="all-cat-arrow">→</span>
+    </a>
+    
     <a href="/category/airline-review/" class="all-cat-card">
       <span class="all-cat-icon">✈️</span>
       <div class="all-cat-info">
@@ -48,3 +57,26 @@ permalink: /categories/
     </a>
   </div>
 </div>
+
+<style>
+.highlight-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+}
+
+.highlight-card .all-cat-icon {
+  font-size: 2.5rem;
+}
+
+.highlight-card .all-cat-info h3,
+.highlight-card .all-cat-info p,
+.highlight-card .all-cat-arrow {
+  color: white !important;
+}
+
+.highlight-card:hover {
+  transform: translateX(6px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+}
+</style>

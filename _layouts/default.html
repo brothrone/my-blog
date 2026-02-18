@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO 기본 -->
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} · {{ site.description }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
   <meta name="author" content="{{ site.author }}" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
   <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
@@ -19,7 +17,6 @@
   <meta property="og:image" content="{{ page.image | absolute_url }}" />
   {% endif %}
 
-  <!-- 트위터 카드 -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
   <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
@@ -35,7 +32,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ5T1WKVT3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -44,7 +40,6 @@
     gtag('config', 'G-BQ5T1WKVT3');
   </script>
   
-  <!-- 여행 지도 강조 스타일 -->
   <style>
     .nav-map-btn {
       position: relative;
@@ -80,30 +75,27 @@
     <div class="header-inner">
       <a href="{{ '/' | relative_url }}" class="logo">BROTHRONE</a>
       <nav class="desktop-nav">
-        <a href="{{ '/categories' | relative_url }}">카테고리</a>
         <a href="{{ '/travel-map' | relative_url }}" class="nav-map-btn">여행 지도</a>
+        <a href="{{ '/categories' | relative_url }}">카테고리</a>
         <a href="{{ '/about' | relative_url }}">About</a>
         <a href="https://blog.naver.com/brothrone" target="_blank">Naver</a>
         <a href="{{ '/contact' | relative_url }}">Contact</a>
         <button class="search-btn" onclick="toggleSearch()">🔍</button>
       </nav>
-      <!-- 모바일 -->
       <div class="mobile-nav">
         <button class="search-btn" onclick="toggleSearch()">🔍</button>
         <button class="hamburger" onclick="toggleMenu()">☰</button>
       </div>
     </div>
 
-    <!-- 모바일 드롭다운 메뉴 -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="{{ '/categories' | relative_url }}" onclick="toggleMenu()">카테고리</a>
       <a href="{{ '/travel-map' | relative_url }}" onclick="toggleMenu()" class="nav-map-btn">여행 지도</a>
+      <a href="{{ '/categories' | relative_url }}" onclick="toggleMenu()">카테고리</a>
       <a href="{{ '/about' | relative_url }}" onclick="toggleMenu()">About</a>
       <a href="https://blog.naver.com/brothrone" target="_blank" onclick="toggleMenu()">Naver</a>
       <a href="{{ '/contact' | relative_url }}" onclick="toggleMenu()">Contact</a>
     </div>
 
-    <!-- 검색 바 -->
     <div class="search-bar" id="searchBar">
       <div class="search-inner">
         <input type="text" id="searchInput" placeholder="검색어를 입력하세요..." oninput="searchPosts()" />
@@ -171,7 +163,6 @@
     </div>
   </footer>
 
-  <!-- 읽기 진행률 바 & 맨 위로 버튼 -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.post-content')) {

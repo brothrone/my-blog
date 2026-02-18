@@ -4,6 +4,11 @@ title: 여행 지도
 permalink: /travel-map/
 ---
 
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
 <div class="travel-map-page">
   <div class="map-header">
     <h1>Travel Map</h1>
@@ -68,144 +73,146 @@ permalink: /travel-map/
   </div>
 </div>
 
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
 <!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
 
 <script>
 // 지도 초기화
-const map = L.map('map', {
-  center: [30, 20],
-  zoom: 2,
-  minZoom: 2,
-  maxZoom: 10,
-  scrollWheelZoom: true
-});
-
-// 타일 레이어
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '© OpenStreetMap contributors © CARTO',
-  subdomains: 'abcd',
-  maxZoom: 20
-}).addTo(map);
-
-// 커스텀 아이콘
-const customIcon = (color) => L.divIcon({
-  className: 'custom-marker',
-  html: `<div style="background-color: ${color}; width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"><div style="width: 10px; height: 10px; background: white; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg);"></div></div>`,
-  iconSize: [30, 30],
-  iconAnchor: [15, 30],
-  popupAnchor: [0, -30]
-});
-
-// 여행지 데이터
-const places = [
-  {
-    name: '시애틀',
-    country: '🇺🇸 미국',
-    coords: [47.6062, -122.3321],
-    color: '#FF6B6B',
-    posts: [
-      { title: '델타항공 ICN-SEA 탑승기', url: '/posts/delta-icn-sea' },
-      { title: '시애틀 항공 박물관', url: '/posts/seattle-aviation-museum' }
-    ]
-  },
-  {
-    name: '샌프란시스코',
-    country: '🇺🇸 미국',
-    coords: [37.7749, -122.4194],
-    color: '#FF6B6B',
-    posts: [
-      { title: '미국서부여행 #9', url: '#' }
-    ]
-  },
-  {
-    name: '후쿠오카',
-    country: '🇯🇵 일본',
-    coords: [33.5904, 130.4017],
-    color: '#4ECDC4',
-    posts: [
-      { title: '유후인 료칸 후기', url: '/posts/fukuoka-ryokan' },
-      { title: '유후인 #2', url: '#' }
-    ]
-  },
-  {
-    name: '싱가포르',
-    country: '🇸🇬 싱가포르',
-    coords: [1.3521, 103.8198],
-    color: '#95E1D3',
-    posts: [
-      { title: '싱가포르 #1', url: '#' },
-      { title: '싱가포르 #2', url: '#' }
-    ]
-  },
-  {
-    name: '런던',
-    country: '🇬🇧 영국',
-    coords: [51.5074, -0.1278],
-    color: '#F38181',
-    posts: [
-      { title: '런던 #1', url: '#' },
-      { title: '런던 #2', url: '#' }
-    ]
-  },
-  {
-    name: '파리',
-    country: '🇫🇷 프랑스',
-    coords: [48.8566, 2.3522],
-    color: '#AA96DA',
-    posts: [
-      { title: '프랑스 #1', url: '#' },
-      { title: '프랑스 #2', url: '#' },
-      { title: '프랑스 #3', url: '#' }
-    ]
-  }
-];
-
-// 마커 추가
-places.forEach(place => {
-  const marker = L.marker(place.coords, {
-    icon: customIcon(place.color)
-  }).addTo(map);
-  
-  // 팝업 내용
-  const popupContent = `
-    <div class="map-popup">
-      <h3>${place.country} ${place.name}</h3>
-      <div class="popup-posts">
-        ${place.posts.map(post => 
-          `<a href="${post.url}" class="popup-post-link">${post.title} →</a>`
-        ).join('')}
-      </div>
-    </div>
-  `;
-  
-  marker.bindPopup(popupContent, {
-    maxWidth: 250,
-    className: 'custom-popup'
+document.addEventListener('DOMContentLoaded', function() {
+  const map = L.map('map', {
+    center: [30, 20],
+    zoom: 2,
+    minZoom: 2,
+    maxZoom: 10,
+    scrollWheelZoom: true
   });
-});
 
-// 국가 카드 클릭 이벤트
-document.querySelectorAll('.country-card').forEach(card => {
-  card.addEventListener('click', function() {
-    const country = this.dataset.country;
-    const countryCoords = {
-      'usa': [37.0902, -95.7129],
-      'japan': [36.2048, 138.2529],
-      'singapore': [1.3521, 103.8198],
-      'uk': [55.3781, -3.4360],
-      'france': [46.2276, 2.2137],
-      'korea': [37.5665, 126.9780]
-    };
-    
-    if (countryCoords[country]) {
-      map.flyTo(countryCoords[country], 5, {
-        duration: 1.5
-      });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  const customIcon = (color) => L.divIcon({
+    className: 'custom-marker',
+    html: `<div style="background-color: ${color}; width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"><div style="width: 10px; height: 10px; background: white; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg);"></div></div>`,
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+    popupAnchor: [0, -30]
+  });
+
+  const places = [
+    {
+      name: '시애틀',
+      country: '🇺🇸 미국',
+      coords: [47.6062, -122.3321],
+      color: '#FF6B6B',
+      posts: [
+        { title: '델타항공 ICN-SEA 탑승기', url: '/posts/delta-icn-sea' },
+        { title: '시애틀 항공 박물관', url: '/posts/seattle-aviation-museum' }
+      ]
+    },
+    {
+      name: '샌프란시스코',
+      country: '🇺🇸 미국',
+      coords: [37.7749, -122.4194],
+      color: '#FF6B6B',
+      posts: [{ title: '미국서부여행 #9', url: '#' }]
+    },
+    {
+      name: '후쿠오카',
+      country: '🇯🇵 일본',
+      coords: [33.5904, 130.4017],
+      color: '#4ECDC4',
+      posts: [
+        { title: '유후인 료칸 후기', url: '/posts/fukuoka-ryokan' },
+        { title: '유후인 #2', url: '#' }
+      ]
+    },
+    {
+      name: '싱가포르',
+      country: '🇸🇬 싱가포르',
+      coords: [1.3521, 103.8198],
+      color: '#95E1D3',
+      posts: [
+        { title: '싱가포르 #1', url: '#' },
+        { title: '싱가포르 #2', url: '#' }
+      ]
+    },
+    {
+      name: '런던',
+      country: '🇬🇧 영국',
+      coords: [51.5074, -0.1278],
+      color: '#F38181',
+      posts: [
+        { title: '런던 #1', url: '#' },
+        { title: '런던 #2', url: '#' }
+      ]
+    },
+    {
+      name: '파리',
+      country: '🇫🇷 프랑스',
+      coords: [48.8566, 2.3522],
+      color: '#AA96DA',
+      posts: [
+        { title: '프랑스 #1', url: '#' },
+        { title: '프랑스 #2', url: '#' },
+        { title: '프랑스 #3', url: '#' }
+      ]
     }
+  ];
+
+  places.forEach(place => {
+    const marker = L.marker(place.coords, {
+      icon: customIcon(place.color)
+    }).addTo(map);
+    
+    const popupContent = `
+      <div class="map-popup">
+        <h3>${place.country} ${place.name}</h3>
+        <div class="popup-posts">
+          ${place.posts.map(post => 
+            `<a href="${post.url}" class="popup-post-link">${post.title} →</a>`
+          ).join('')}
+        </div>
+      </div>
+    `;
+    
+    marker.bindPopup(popupContent, {
+      maxWidth: 250,
+      className: 'custom-popup'
+    });
+  });
+
+  // 국가 카드 클릭 이벤트 (상단 스크롤 추가)
+  document.querySelectorAll('.country-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const country = this.dataset.country;
+      const countryCoords = {
+        'usa': [37.0902, -95.7129],
+        'japan': [36.2048, 138.2529],
+        'singapore': [1.3521, 103.8198],
+        'uk': [55.3781, -3.4360],
+        'france': [46.2276, 2.2137],
+        'korea': [37.5665, 126.9780]
+      };
+      
+      if (countryCoords[country]) {
+        // 먼저 상단으로 스크롤
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        
+        // 약간 딜레이 후 지도 줌
+        setTimeout(() => {
+          map.flyTo(countryCoords[country], 5, {
+            duration: 1.5
+          });
+        }, 300);
+      }
+    });
   });
 });
 </script>
@@ -270,6 +277,7 @@ document.querySelectorAll('.country-card').forEach(card => {
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   margin-bottom: 60px;
+  z-index: 1;
 }
 
 .country-list {
@@ -326,7 +334,6 @@ document.querySelectorAll('.country-card').forEach(card => {
   border-radius: 20px;
 }
 
-/* 팝업 스타일 */
 .map-popup h3 {
   font-size: 0.95rem;
   font-weight: 500;
@@ -353,6 +360,15 @@ document.querySelectorAll('.country-card').forEach(card => {
 
 .popup-post-link:last-child {
   border-bottom: none;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.leaflet-control-zoom a {
+  border-radius: 8px !important;
 }
 
 @media (max-width: 768px) {

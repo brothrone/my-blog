@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-02-17-seattle-aviation-museum.md",
+                "file": "_posts/2024-03-27-38.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-17-seattle-aviation-museum"
+              "title": "2024-03-27-38"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:혼자 유럽 자유여행 3주 경비 총정리",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -183,8 +184,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "43377bb552d2c67f",
+  "active": "8659cc09b191d7f5",
   "lastOpenFiles": [
+    "_posts/2023-08-27-30.md",
+    "_posts/2023-08-26-29.md",
+    "_posts/2023-08-22-37.md",
+    "_posts/2023-03-04-32.md",
+    "_posts/2023-08-21-35.md",
+    "_posts/2023-03-03-26.md",
+    "_posts/2023-02-05-25.md",
+    "_posts/2023-01-23-22.md",
+    "_posts/2022-09-10-18.md",
+    "_posts/2026-02-17-seattle-aviation-museum.md",
     "_posts/2023-01-15-delta-icn-sea.md",
     "assets/images/naver/usa_27.jpeg",
     "assets/images/naver/IMG_3703.jpeg",
@@ -199,7 +210,6 @@
     "assets/images/naver",
     "assets/images/무제 폴더",
     "_posts/2026-02-17-fukuoka-ryokan.md",
-    "_posts/2026-02-17-seattle-aviation-museum.md",
     "assets/images/Untitled 1.base",
     "Untitled.canvas",
     "_posts/dl196.md",
