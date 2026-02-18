@@ -10,21 +10,59 @@ layout: default
   <div class="post-header">
     <div class="post-meta">
       <span class="post-date">{{ page.date | date: "%Y. %m. %d" }}</span>
+      {% if page.category %}
+        <a href="{{ '/categories/' | append: page.category | relative_url }}" class="post-tag">{{ page.category }}</a>
+      {% endif %}
       {% if page.tags %}
         {% for tag in page.tags %}
-          <span class="post-tag">{{ tag }}</span>
+          <a href="{{ '/tags/' | append: tag | relative_url }}" class="post-tag">#{{ tag }}</a>
         {% endfor %}
       {% endif %}
     </div>
     <h1>{{ page.title }}</h1>
   </div>
 
-  <article class="post-content">
+  <!-- ★ 시리즈 박스 -->
+  {% if page.series %}
+    {% assign series_posts = site.posts | where: "series", page.series | sort: "series_no" %}
+    {% if series_posts.size > 1 %}
+    <div class="series-box" style="padding: 24px 28px; margin: 0 auto 32px; max-width: 720px; margin-left: auto; margin-right: auto;">
+      <div class="series-box-header">
+        <div>
+          <div class="series-box-title">시리즈</div>
+          <div class="series-box-name">{{ page.series }}</div>
+        </div>
+        <button class="series-toggle" onclick="toggleSeries(this)">목록 보기</button>
+      </div>
+      <div class="series-list" id="seriesList">
+        {% for sp in series_posts %}
+        <a href="{{ sp.url | relative_url }}" class="series-item {% if sp.url == page.url %}current{% endif %}">
+          <span class="num">{{ forloop.index }}</span>
+          <span>{{ sp.title }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- ★ 목차 (TOC) — 자동 생성 -->
+  <div class="toc-wrap" id="tocWrap" style="display:none;">
+    <div class="toc-box" id="tocBox">
+      <div class="toc-header" onclick="toggleToc()">
+        <span class="toc-title">📋 목차</span>
+        <span class="toc-arrow">▼</span>
+      </div>
+      <nav class="toc-list" id="tocList"></nav>
+    </div>
+  </div>
+
+  <article class="post-content" id="postContent">
     {{ content }}
     <a href="{{ '/' | relative_url }}" class="back-link">← 목록으로 돌아가기</a>
   </article>
 
-  <!-- 소셜 공유 버튼 -->
+  <!-- ★ 소셜 공유 버튼 -->
   <div class="share-buttons">
     <span class="share-label">공유하기</span>
     <button class="share-btn kakao" onclick="shareKakao()" aria-label="카카오톡 공유">
@@ -48,8 +86,7 @@ layout: default
         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
       </svg>
     </button>
-    <!-- ★ Web Share API 버튼 (모바일 네이티브 공유) -->
-    <button class="share-btn native" onclick="shareNative()" aria-label="공유" id="nativeShareBtn" style="display:none;">
+    <button class="share-btn" onclick="shareNative()" aria-label="공유" id="nativeShareBtn" style="display:none;">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="18" cy="5" r="3"></circle>
         <circle cx="6" cy="12" r="3"></circle>
@@ -60,27 +97,43 @@ layout: default
     </button>
   </div>
 
-  <!-- 관련글 -->
-  {% assign related_posts = site.posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | limit: 4 %}
-  {% if related_posts.size > 0 %}
+  <!-- ★ 이전글/다음글 네비게이션 -->
+  <div class="post-nav">
+    {% if page.previous.url %}
+    <a href="{{ page.previous.url | relative_url }}" class="post-nav-item prev">
+      <div class="post-nav-label">← 이전 글</div>
+      <div class="post-nav-title">{{ page.previous.title }}</div>
+    </a>
+    {% else %}
+    <div></div>
+    {% endif %}
+    {% if page.next.url %}
+    <a href="{{ page.next.url | relative_url }}" class="post-nav-item next">
+      <div class="post-nav-label" style="justify-content: flex-end;">다음 글 →</div>
+      <div class="post-nav-title">{{ page.next.title }}</div>
+    </a>
+    {% else %}
+    <div></div>
+    {% endif %}
+  </div>
+
+  <!-- ★ 관련글 -->
+  {% assign related = site.posts | where: "category", page.category | where_exp: "p", "p.url != page.url" | limit: 4 %}
+  {% if related.size > 0 %}
   <div class="related-posts">
     <h2>관련 글</h2>
     <div class="related-grid">
-      {% for post in related_posts %}
-      {% if post.naver_url %}
-      <a href="{{ post.naver_url }}" target="_blank" class="related-card">
-      {% else %}
-      <a href="{{ post.url | relative_url }}" class="related-card">
-      {% endif %}
-        <div class="related-card-meta">{{ post.date | date: "%Y. %m. %d" }}</div>
-        <div class="related-card-title">{{ post.title }}</div>
+      {% for p in related %}
+      <a href="{{ p.url | relative_url }}" class="related-card">
+        <div class="related-card-meta">{{ p.date | date: "%Y. %m. %d" }}</div>
+        <div class="related-card-title">{{ p.title }}</div>
       </a>
       {% endfor %}
     </div>
   </div>
   {% endif %}
 
-  <!-- Disqus 댓글 -->
+  <!-- Disqus -->
   <div class="comments">
     <div id="disqus_thread"></div>
     <script>
@@ -95,29 +148,91 @@ layout: default
       (d.head || d.body).appendChild(s);
     })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </div>
 
 <script>
-  const pageUrl = "{{ page.url | absolute_url }}";
-  const pageTitle = "{{ page.title | escape }}";
-  const pageImage = "{{ page.image | absolute_url }}";
-  const pageDescription = "{{ page.excerpt | strip_html | truncate: 100 | escape }}";
+  var pageUrl = "{{ page.url | absolute_url }}";
+  var pageTitle = "{{ page.title | escape }}";
+  var pageImage = "{{ page.image | absolute_url }}";
+  var pageDesc = "{{ page.excerpt | strip_html | truncate: 100 | escape }}";
 
-  // ★ 카카오 — SDK 로드 확인 후 초기화
-  function initKakao() {
-    if (window.Kakao && !window.Kakao.isInitialized()) {
-      // 카카오 디벨로퍼스에서 발급받은 JavaScript 앱 키를 아래에 입력하세요
-      // https://developers.kakao.com 에서 앱 생성 후 키 확인
-      Kakao.init('YOUR_KAKAO_APP_KEY');
+  /* ★ 시리즈 토글 */
+  function toggleSeries(btn) {
+    var list = document.getElementById('seriesList');
+    var open = list.classList.toggle('open');
+    btn.textContent = open ? '목록 접기' : '목록 보기';
+    // 현재 글 위치로 스크롤
+    if (open) {
+      var cur = list.querySelector('.series-item.current');
+      if (cur) cur.scrollIntoView({ block: 'nearest' });
     }
   }
 
+  /* ★ TOC 자동 생성 */
+  document.addEventListener('DOMContentLoaded', function() {
+    var content = document.getElementById('postContent');
+    var headings = content.querySelectorAll('h2, h3');
+    if (headings.length < 2) return; // 헤딩 2개 미만이면 TOC 숨김
+
+    var tocList = document.getElementById('tocList');
+    var ol = document.createElement('ol');
+    ol.style.cssText = 'list-style:none;padding:12px 0 0;';
+
+    var currentH2Li = null;
+    var subUl = null;
+
+    headings.forEach(function(h, idx) {
+      // ID 자동 부여
+      if (!h.id) {
+        h.id = 'heading-' + idx;
+      }
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // 모바일 오프셋 보정
+        window.scrollBy(0, -60);
+      });
+
+      var li = document.createElement('li');
+      li.appendChild(a);
+
+      if (h.tagName === 'H2') {
+        ol.appendChild(li);
+        currentH2Li = li;
+        subUl = null;
+      } else if (h.tagName === 'H3') {
+        if (!subUl) {
+          subUl = document.createElement('ul');
+          subUl.style.cssText = 'list-style:none;padding:0;';
+          if (currentH2Li) currentH2Li.appendChild(subUl);
+          else ol.appendChild(subUl);
+        }
+        subUl.appendChild(li);
+      }
+    });
+
+    tocList.appendChild(ol);
+    document.getElementById('tocWrap').style.display = 'block';
+    // 기본적으로 열어두기
+    document.getElementById('tocBox').classList.add('open');
+  });
+
+  function toggleToc() {
+    document.getElementById('tocBox').classList.toggle('open');
+  }
+
+  /* ★ 카카오 공유 */
+  function initKakao() {
+    if (window.Kakao && !window.Kakao.isInitialized()) {
+      Kakao.init('YOUR_KAKAO_APP_KEY'); // ← 여기에 JavaScript 앱 키 입력
+    }
+  }
   function shareKakao() {
-    // 카카오 키가 없으면 네이티브 공유 또는 URL 복사로 대체
     if (!window.Kakao || !window.Kakao.isInitialized()) {
-      alert('카카오 공유를 사용하려면 카카오 앱 키가 필요합니다.\nURL을 복사해서 공유해 주세요.');
       copyURL();
       return;
     }
@@ -125,106 +240,59 @@ layout: default
       objectType: 'feed',
       content: {
         title: pageTitle,
-        description: pageDescription,
+        description: pageDesc,
         imageUrl: pageImage,
         link: { mobileWebUrl: pageUrl, webUrl: pageUrl },
       },
-      buttons: [{
-        title: '글 보기',
-        link: { mobileWebUrl: pageUrl, webUrl: pageUrl },
-      }],
+      buttons: [{ title: '글 보기', link: { mobileWebUrl: pageUrl, webUrl: pageUrl } }],
     });
   }
-
   function shareTwitter() {
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(pageTitle)}&url=${encodeURIComponent(pageUrl)}`;
-    window.open(url, '_blank', 'width=550,height=450,noopener,noreferrer');
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(pageTitle) + '&url=' + encodeURIComponent(pageUrl), '_blank', 'width=550,height=450,noopener');
   }
-
   function shareFacebook() {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
-    window.open(url, '_blank', 'width=550,height=450,noopener,noreferrer');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl), '_blank', 'width=550,height=450,noopener');
   }
-
   function copyURL() {
-    // ★ clipboard API + fallback 처리
-    const btn = document.getElementById('copyBtn');
+    var btn = document.getElementById('copyBtn');
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(pageUrl).then(() => {
-        showCopied(btn);
-      }).catch(() => {
-        fallbackCopy(btn);
-      });
+      navigator.clipboard.writeText(pageUrl).then(function() { showCopied(btn); }).catch(function() { fallbackCopy(btn); });
     } else {
       fallbackCopy(btn);
     }
   }
-
   function fallbackCopy(btn) {
-    // 구형 브라우저 대응
-    const textarea = document.createElement('textarea');
-    textarea.value = pageUrl;
-    textarea.style.cssText = 'position:fixed;opacity:0;';
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-      document.execCommand('copy');
-      showCopied(btn);
-    } catch(e) {
-      alert('URL: ' + pageUrl);
-    }
-    document.body.removeChild(textarea);
+    var ta = document.createElement('textarea');
+    ta.value = pageUrl;
+    ta.style.cssText = 'position:fixed;opacity:0;';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showCopied(btn); } catch(e) { alert('URL: ' + pageUrl); }
+    document.body.removeChild(ta);
   }
-
   function showCopied(btn) {
     btn.classList.add('copied');
     btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-    setTimeout(() => {
+    setTimeout(function() {
       btn.classList.remove('copied');
       btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>';
     }, 2000);
   }
-
-  // ★ 모바일 Web Share API 지원 시 네이티브 공유 버튼 표시
   function shareNative() {
     if (navigator.share) {
-      navigator.share({
-        title: pageTitle,
-        text: pageDescription,
-        url: pageUrl,
-      });
+      navigator.share({ title: pageTitle, text: pageDesc, url: pageUrl });
     }
   }
-
-  // 모바일이면 네이티브 공유 버튼 표시
   if (navigator.share) {
     document.getElementById('nativeShareBtn').style.display = 'flex';
   }
 
   // 카카오 SDK 비동기 로드
   (function() {
-    var script = document.createElement('script');
-    script.src = 'https://developers.kakao.com/sdk/js/kakao.min.js';
-    script.defer = true;
-    script.onload = initKakao;
-    document.head.appendChild(script);
+    var s = document.createElement('script');
+    s.src = 'https://developers.kakao.com/sdk/js/kakao.min.js';
+    s.defer = true;
+    s.onload = initKakao;
+    document.head.appendChild(s);
   })();
-</script>
-
-<!-- ★ 포스트 이미지 lazy loading -->
-<script defer>
-  document.querySelectorAll('.post-content img').forEach(img => {
-    if (!img.hasAttribute('loading')) {
-      img.setAttribute('loading', 'lazy');
-    }
-    // ★ WebP 지원 확인 후 src 교체
-    const src = img.getAttribute('src');
-    if (src && src.match(/\.(jpg|jpeg|png)$/i)) {
-      const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-      const testImg = new Image();
-      testImg.onload = function() { img.src = webpSrc; };
-      testImg.onerror = function() { /* 원본 유지 */ };
-      testImg.src = webpSrc;
-    }
-  });
 </script>
