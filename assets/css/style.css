@@ -887,24 +887,6 @@ nav a:hover { color: var(--text); }
 .back-link:hover { color: var(--text); }
 
 /* ===========================
-   나란히 이미지
-   =========================== */
-.img-row {
-  display: flex;
-  gap: 10px;
-  margin: 28px 0 28px 14px;
-}
-
-.img-row img {
-  flex: 1;
-  width: 0;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin: 0;
-}
-
-/* ===========================
    댓글
    =========================== */
 .comments {
@@ -1035,14 +1017,21 @@ nav a:hover { color: var(--text); }
   .post-header, .post-content, .comments, .about-section { padding-left: 20px; padding-right: 20px; }
   .footer-inner { padding: 0 20px; flex-direction: column; gap: 8px; text-align: center; }
   .all-cats-page, .contact-page { padding-left: 20px; padding-right: 20px; }
+}
 
-  .img-row {
-    flex-direction: column;
+
+/* 모바일 전용 히어로 이미지 */
+@media (max-width: 600px) {
+  .hero {
+    background-image: url('/assets/images/sapporo-mobile.jpeg');
+    height: 75vh;
+    min-height: 450px;
   }
+}
 
-  .img-row img {
-    width: 100%;
-    height: 240px;
+@media (max-width: 960px) and (min-width: 601px) {
+  .hero {
+    background-image: url('/assets/images/sapporo-tablet.jpeg');
   }
 }
 
@@ -1066,4 +1055,41 @@ nav a:hover { color: var(--text); }
   font-size: 0.95rem;
   padding: 60px 0;
   text-align: center;
+}
+
+
+/* ===========================
+   방문자 카운터
+   =========================== */
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-right img {
+  height: 20px;
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .footer-left {
+    align-items: center;
+  }
 }
