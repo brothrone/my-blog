@@ -20,8 +20,22 @@
               "icon": "lucide-file",
               "title": "2026-02-17-seattle-aviation-museum"
             }
+          },
+          {
+            "id": "817ed5c7e22e14b6",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "assets/images/Untitled 1.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "Untitled 1"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -74,7 +88,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -183,15 +198,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "66c4ac4c811fa595",
+  "active": "817ed5c7e22e14b6",
   "lastOpenFiles": [
-    "contact.html",
-    "_layouts/index.html",
-    "categories.html",
-    "category/travel.md",
-    "_posts/2026-02-17-fukuoka-ryokan.md",
-    "_posts/2026-02-17-seattle-aviation-museum.md",
+    "assets/images/Untitled 1.base",
     "Untitled.canvas",
-    "assets/images/Untitled.base"
+    "_posts/2023-01-15-delta-icn-sea.md",
+    "_posts/2026-02-17-seattle-aviation-museum.md",
+    "_posts/dl196.md",
+    "assets/images/airline-review/dl196/아카이브.zip",
+    "assets/images/airline-review/dl196/dl196_9.jpeg",
+    "assets/images/airline-review/dl196/dl196_8.jpeg",
+    "assets/images/airline-review/dl196/dl196_7.jpeg",
+    "assets/images/airline-review/dl196/dl196_6.jpeg",
+    "assets/images/airline-review/dl196/dl196_5.jpeg",
+    "assets/images/airline-review/dl196/dl196_4.jpeg",
+    "assets/images/airline-review/dl196/dl196_3.jpeg",
+    "assets/images/airline-review/dl196/dl196_23.jpeg",
+    "assets/images/airline-review/dl196/dl196_22.jpeg",
+    "assets/images/airline-review/dl196/dl196_21.jpeg",
+    "assets/images/airline-review/dl196",
+    "assets/images/Untitled.base",
+    "assets/images/airline-review/1",
+    "assets/images/airline-review/무제 폴더",
+    "assets/images/hotel-tips",
+    "assets/images/무제 폴더",
+    "assets/images/airline-tips",
+    "assets/images/hotel-review",
+    "assets/images/airline-review",
+    "category/travel.md",
+    "_posts/2026-02-17-fukuoka-ryokan.md"
   ]
 }
