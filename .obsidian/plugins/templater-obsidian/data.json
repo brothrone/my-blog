@@ -15,12 +15,16 @@
   "enable_folder_templates": true,
   "folder_templates": [
     {
-      "folder": "_posts",
-      "template": "Templates/Jekyll_Post.md"
+      "folder": "_posts/airline-review",
+      "template": "Templates/Jekyll_Post_airline-review.md"
     },
     {
-      "folder": "",
-      "template": ""
+      "folder": "_posts/hotel-review",
+      "template": "Templates/Jekyll_Post_hotel-review.md"
+    },
+    {
+      "folder": "_posts/travel",
+      "template": "Templates/Jekyll_Post_travel-review.md"
     }
   ],
   "enable_file_templates": false,

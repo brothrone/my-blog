@@ -1,11 +1,14 @@
 ---
 layout: post
-title: 델타항공 인천-시애틀 이코노미 탑승기
+title: "[탑승기] 델타항공 인천-시애틀 이코노미 탑승기"
 date: 2023-01-15
 category: 항공리뷰
 tags:
   - 미국
   - 항공리뷰
+  - 델타항공
+  - 미국여행
+  - 탑승기
 image: /assets/images/airline-review/dl196/dl196_1.jpeg
 ---
 
