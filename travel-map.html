@@ -15,15 +15,15 @@ permalink: /travel-map/
     <p>여행지를 지도에서 확인해보세요</p>
     <div class="map-stats">
       <div class="stat-item">
-        <span class="stat-number">6</span>
+        <span class="stat-number">7</span>
         <span class="stat-label">국가</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">15+</span>
+        <span class="stat-number">16+</span>
         <span class="stat-label">도시</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">45</span>
+        <span class="stat-number">46</span>
         <span class="stat-label">여행기</span>
       </div>
     </div>
@@ -63,6 +63,12 @@ permalink: /travel-map/
         <h3>프랑스</h3>
         <span class="post-count">3개 글</span>
       </div>
+
+      <div class="country-card" data-country="newzealand">
+        <div class="country-flag">🇳🇿</div>
+        <h3>뉴질랜드</h3>
+        <span class="post-count">1개 글</span>
+      </div>
       
       <div class="country-card" data-country="korea">
         <div class="country-flag">🇰🇷</div>
@@ -79,7 +85,6 @@ permalink: /travel-map/
      crossorigin=""></script>
 
 <script>
-// 지도 초기화
 document.addEventListener('DOMContentLoaded', function() {
   const map = L.map('map', {
     center: [30, 20],
@@ -121,7 +126,14 @@ document.addEventListener('DOMContentLoaded', function() {
       posts: [{ title: '미국서부여행 #9', url: '#' }]
     },
     {
-      name: '후쿠오카',
+      name: '로스앤젤레스',
+      country: '🇺🇸 미국',
+      coords: [34.0522, -118.2437],
+      color: '#FF6B6B',
+      posts: [{ title: '미국서부여행 #15', url: '#' }]
+    },
+    {
+      name: '후쿠오카 / 유후인',
       country: '🇯🇵 일본',
       coords: [33.5904, 130.4017],
       color: '#4ECDC4',
@@ -160,6 +172,15 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: '프랑스 #2', url: '#' },
         { title: '프랑스 #3', url: '#' }
       ]
+    },
+    {
+      name: '오클랜드',
+      country: '🇳🇿 뉴질랜드',
+      coords: [-36.8485, 174.7633],
+      color: '#56C596',
+      posts: [
+        { title: '[항공리뷰] KE411 인천-오클랜드 리뷰', url: '/posts/ke411' }
+      ]
     }
   ];
 
@@ -185,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // 국가 카드 클릭 이벤트 (상단 스크롤 추가)
+  // 국가 카드 클릭 이벤트
   document.querySelectorAll('.country-card').forEach(card => {
     card.addEventListener('click', function() {
       const country = this.dataset.country;
@@ -195,17 +216,16 @@ document.addEventListener('DOMContentLoaded', function() {
         'singapore': [1.3521, 103.8198],
         'uk': [55.3781, -3.4360],
         'france': [46.2276, 2.2137],
+        'newzealand': [-40.9006, 174.8860],
         'korea': [37.5665, 126.9780]
       };
       
       if (countryCoords[country]) {
-        // 먼저 상단으로 스크롤
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
         });
         
-        // 약간 딜레이 후 지도 줌
         setTimeout(() => {
           map.flyTo(countryCoords[country], 5, {
             duration: 1.5
