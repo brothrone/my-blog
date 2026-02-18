@@ -20,7 +20,7 @@ layout: default
       <a href="{{ post.url | relative_url }}" class="card">
       {% endif %}
         {% if post.image %}
-        <div class="card-img" style="background-image: url('{{ post.image }}')"></div>
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="card-img" loading="lazy">
         {% else %}
         <div class="card-img card-img--empty"></div>
         {% endif %}

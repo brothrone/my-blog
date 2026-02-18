@@ -740,7 +740,7 @@ nav a:hover { color: var(--text); }
   box-shadow: 0 16px 48px rgba(0,0,0,0.1);
 }
 
-.card-img {
+.card-img-old {
   width: 100%;
   height: 220px;
   background-size: cover;
@@ -1091,5 +1091,32 @@ nav a:hover { color: var(--text); }
   
   .footer-left {
     align-items: center;
+  }
+}
+
+/* ===========================
+   이미지 SEO 최적화
+   =========================== */
+.featured-img {
+  width: 50%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center;
+  background-color: #e0e0e5;
+}
+
+.card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  background-color: #e0e0e5;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .featured-img {
+    width: 100%;
+    height: 300px;
   }
 }

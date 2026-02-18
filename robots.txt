@@ -4,4 +4,8 @@ Allow: /
 User-agent: Yeti
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
 Sitemap: https://brothrone.netlify.app/sitemap.xml
+Sitemap: https://brothrone.netlify.app/image-sitemap.xml
