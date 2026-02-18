@@ -1253,3 +1253,100 @@ nav a:hover { color: var(--text); }
     grid-template-columns: 1fr;
   }
 }
+
+/* ===========================
+   소셜 공유 버튼
+   =========================== */
+.share-buttons {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.share-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-right: 8px;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.2rem;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.share-btn.kakao {
+  background: #FEE500;
+  border-color: #FEE500;
+}
+
+.share-btn.kakao:hover {
+  background: #FFD700;
+}
+
+.share-btn.twitter {
+  background: #1DA1F2;
+  border-color: #1DA1F2;
+  color: white;
+}
+
+.share-btn.twitter:hover {
+  background: #1A8CD8;
+}
+
+.share-btn.facebook {
+  background: #1877F2;
+  border-color: #1877F2;
+  color: white;
+}
+
+.share-btn.facebook:hover {
+  background: #166FE5;
+}
+
+.share-btn.copy {
+  background: var(--surface);
+}
+
+.share-btn.copy:hover {
+  background: var(--border);
+}
+
+.share-btn.copy.copied {
+  background: #10B981;
+  border-color: #10B981;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .share-buttons {
+    padding: 0 20px;
+  }
+  
+  .share-label {
+    font-size: 0.8rem;
+  }
+  
+  .share-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
