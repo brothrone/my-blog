@@ -9,21 +9,25 @@ permalink: /travel-map/
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
 
+{% assign total_countries = site.data.places | map: "data_country" | uniq | size %}
+{% assign total_posts = site.data.places | map: "post_count" | sum %}
+{% assign total_cities = site.data.places | size %}
+
 <div class="travel-map-page">
   <div class="map-header">
     <h1>Travel Map</h1>
     <p>여행지를 지도에서 확인해보세요</p>
     <div class="map-stats">
       <div class="stat-item">
-        <span class="stat-number">7</span>
+        <span class="stat-number">{{ total_countries }}</span>
         <span class="stat-label">국가</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">16+</span>
+        <span class="stat-number">{{ total_cities }}+</span>
         <span class="stat-label">도시</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">46</span>
+        <span class="stat-number">{{ total_posts }}</span>
         <span class="stat-label">여행기</span>
       </div>
     </div>
@@ -34,42 +38,17 @@ permalink: /travel-map/
   <div class="country-list">
     <h2>방문한 국가</h2>
     <div class="country-grid">
-      <div class="country-card" data-country="usa">
-        <div class="country-flag">🇺🇸</div>
-        <h3>미국</h3>
-        <span class="post-count">12개 글</span>
-      </div>
-      
-      <div class="country-card" data-country="japan">
-        <div class="country-flag">🇯🇵</div>
-        <h3>일본</h3>
-        <span class="post-count">8개 글</span>
-      </div>
-      
-      <div class="country-card" data-country="singapore">
-        <div class="country-flag">🇸🇬</div>
-        <h3>싱가포르</h3>
-        <span class="post-count">7개 글</span>
-      </div>
-      
-      <div class="country-card" data-country="uk">
-        <div class="country-flag">🇬🇧</div>
-        <h3>영국</h3>
-        <span class="post-count">5개 글</span>
-      </div>
-      
-      <div class="country-card" data-country="france">
-        <div class="country-flag">🇫🇷</div>
-        <h3>프랑스</h3>
-        <span class="post-count">3개 글</span>
-      </div>
-
-      <div class="country-card" data-country="newzealand">
-        <div class="country-flag">🇳🇿</div>
-        <h3>뉴질랜드</h3>
-        <span class="post-count">1개 글</span>
-      </div>
-      
+      {% assign unique_countries = site.data.places | map: "data_country" | uniq %}
+      {% for country_key in unique_countries %}
+        {% assign country_places = site.data.places | where: "data_country", country_key %}
+        {% assign first_place = country_places | first %}
+        {% assign country_post_count = country_places | map: "post_count" | sum %}
+        <div class="country-card" data-country="{{ country_key }}">
+          <div class="country-flag">{{ first_place.flag }}</div>
+          <h3>{{ first_place.country }}</h3>
+          <span class="post-count">{{ country_post_count }}개 글</span>
+        </div>
+      {% endfor %}
       <div class="country-card" data-country="korea">
         <div class="country-flag">🇰🇷</div>
         <h3>한국</h3>
@@ -107,129 +86,60 @@ document.addEventListener('DOMContentLoaded', function() {
     popupAnchor: [0, -30]
   });
 
+  // _data/places.yml 에서 자동 생성
   const places = [
+    {% for place in site.data.places %}
     {
-      name: '시애틀',
-      country: '🇺🇸 미국',
-      coords: [47.6062, -122.3321],
-      color: '#FF6B6B',
+      name: {{ place.name | jsonify }},
+      country: {{ place.flag | jsonify }} + " " + {{ place.country | jsonify }},
+      coords: [{{ place.coords | join: ", " }}],
+      color: {{ place.color | jsonify }},
       posts: [
-        { title: '델타항공 ICN-SEA 탑승기', url: '/posts/delta-icn-sea' },
-        { title: '시애틀 항공 박물관', url: '/posts/seattle-aviation-museum' }
+        {% for post in place.posts %}
+        { title: {{ post.title | jsonify }}, url: {{ post.url | jsonify }} }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
       ]
-    },
-    {
-      name: '샌프란시스코',
-      country: '🇺🇸 미국',
-      coords: [37.7749, -122.4194],
-      color: '#FF6B6B',
-      posts: [{ title: '미국서부여행 #9', url: '#' }]
-    },
-    {
-      name: '로스앤젤레스',
-      country: '🇺🇸 미국',
-      coords: [34.0522, -118.2437],
-      color: '#FF6B6B',
-      posts: [{ title: '미국서부여행 #15', url: '#' }]
-    },
-    {
-      name: '후쿠오카 / 유후인',
-      country: '🇯🇵 일본',
-      coords: [33.5904, 130.4017],
-      color: '#4ECDC4',
-      posts: [
-        { title: '유후인 료칸 후기', url: '/posts/fukuoka-ryokan' },
-        { title: '유후인 #2', url: '#' }
-      ]
-    },
-    {
-      name: '싱가포르',
-      country: '🇸🇬 싱가포르',
-      coords: [1.3521, 103.8198],
-      color: '#95E1D3',
-      posts: [
-        { title: '싱가포르 #1', url: '#' },
-        { title: '싱가포르 #2', url: '#' }
-      ]
-    },
-    {
-      name: '런던',
-      country: '🇬🇧 영국',
-      coords: [51.5074, -0.1278],
-      color: '#F38181',
-      posts: [
-        { title: '런던 #1', url: '#' },
-        { title: '런던 #2', url: '#' }
-      ]
-    },
-    {
-      name: '파리',
-      country: '🇫🇷 프랑스',
-      coords: [48.8566, 2.3522],
-      color: '#AA96DA',
-      posts: [
-        { title: '프랑스 #1', url: '#' },
-        { title: '프랑스 #2', url: '#' },
-        { title: '프랑스 #3', url: '#' }
-      ]
-    },
-    {
-      name: '오클랜드',
-      country: '🇳🇿 뉴질랜드',
-      coords: [-36.8485, 174.7633],
-      color: '#56C596',
-      posts: [
-        { title: '[항공리뷰] KE411 인천-오클랜드 리뷰', url: '/posts/ke411' }
-      ]
-    }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
   ];
+
+  // 국가별 중심 좌표 (카드 클릭 시 이동)
+  const countryCoords = {
+    {% for place in site.data.places %}
+    {{ place.data_country | jsonify }}: [{{ place.center | join: ", " }}],
+    {% endfor %}
+    'korea': [37.5665, 126.9780]
+  };
 
   places.forEach(place => {
     const marker = L.marker(place.coords, {
       icon: customIcon(place.color)
     }).addTo(map);
-    
+
     const popupContent = `
       <div class="map-popup">
         <h3>${place.country} ${place.name}</h3>
         <div class="popup-posts">
-          ${place.posts.map(post => 
+          ${place.posts.map(post =>
             `<a href="${post.url}" class="popup-post-link">${post.title} →</a>`
           ).join('')}
         </div>
       </div>
     `;
-    
+
     marker.bindPopup(popupContent, {
       maxWidth: 250,
       className: 'custom-popup'
     });
   });
 
-  // 국가 카드 클릭 이벤트
   document.querySelectorAll('.country-card').forEach(card => {
     card.addEventListener('click', function() {
       const country = this.dataset.country;
-      const countryCoords = {
-        'usa': [37.0902, -95.7129],
-        'japan': [36.2048, 138.2529],
-        'singapore': [1.3521, 103.8198],
-        'uk': [55.3781, -3.4360],
-        'france': [46.2276, 2.2137],
-        'newzealand': [-40.9006, 174.8860],
-        'korea': [37.5665, 126.9780]
-      };
-      
       if (countryCoords[country]) {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         setTimeout(() => {
-          map.flyTo(countryCoords[country], 5, {
-            duration: 1.5
-          });
+          map.flyTo(countryCoords[country], 5, { duration: 1.5 });
         }, 300);
       }
     });
@@ -374,13 +284,8 @@ document.addEventListener('DOMContentLoaded', function() {
   transition: color 0.2s;
 }
 
-.popup-post-link:hover {
-  color: var(--text);
-}
-
-.popup-post-link:last-child {
-  border-bottom: none;
-}
+.popup-post-link:hover { color: var(--text); }
+.popup-post-link:last-child { border-bottom: none; }
 
 .leaflet-control-zoom {
   border: none !important;
@@ -392,30 +297,14 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 @media (max-width: 768px) {
-  .travel-map-page {
-    padding: 40px 20px 80px;
-  }
-  
-  .map-stats {
-    gap: 24px;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .travel-map {
-    height: 400px;
-  }
-  
-  .country-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .travel-map-page { padding: 40px 20px 80px; }
+  .map-stats { gap: 24px; }
+  .stat-number { font-size: 2rem; }
+  .travel-map { height: 400px; }
+  .country-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
-  .country-grid {
-    grid-template-columns: 1fr;
-  }
+  .country-grid { grid-template-columns: 1fr; }
 }
 </style>

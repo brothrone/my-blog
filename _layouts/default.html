@@ -27,46 +27,88 @@
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <meta name="google-site-verification" content="Yg-oBW33kqUu_fm4r_wgdF2HJy_65oZNGp8-dKPCwgI" />
   <meta name="naver-site-verification" content="6e6b886ed780f4f9569e2f22be8224ee8d5849c8" />
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+
+  <!-- ★ 1. DNS prefetch / preconnect 최우선 배치 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ5T1WKVT3"></script>
+  <!-- ★ 2. 히어로 이미지 preload (홈페이지에서만) -->
+  {% if page.url == "/" %}
+  <link rel="preload" as="image" href="/assets/images/sapporo.webp"
+        media="(min-width: 961px)" />
+  <link rel="preload" as="image" href="/assets/images/sapporo-tablet.jpeg"
+        media="(min-width: 601px) and (max-width: 960px)" />
+  <link rel="preload" as="image" href="/assets/images/sapporo-mobile.jpeg"
+        media="(max-width: 600px)" />
+  {% endif %}
+
+  <!-- ★ 3. 포스트 대표 이미지 preload -->
+  {% if page.image %}
+  <link rel="preload" as="image" href="{{ page.image }}" />
+  {% endif %}
+
+  <!-- ★ 4. CSS preload 후 비동기 로드 -->
+  <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  </noscript>
+
+  <!-- ★ 5. 구글 폰트 — display=swap + 필요한 weight만 로드 -->
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  </noscript>
+
+  <!-- ★ 6. Google Analytics — defer로 메인 렌더링 블로킹 방지 -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-BQ5T1WKVT3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-BQ5T1WKVT3');
+    gtag('config', 'G-BQ5T1WKVT3', { 'send_page_view': false });
+    window.addEventListener('load', function() {
+      gtag('event', 'page_view');
+    });
   </script>
-  
+
   <style>
+    /* ★ 7. 인라인 critical CSS — 폰트 로드 전 레이아웃 깨짐 방지 */
+    body { font-family: 'Noto Sans KR', -apple-system, sans-serif; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(210,210,215,0.5);
+      height: 52px;
+    }
+
     .nav-map-btn {
       position: relative;
-      color: var(--accent) !important;
+      color: #1d1d1f !important;
       font-weight: 500 !important;
     }
-    
+
     .nav-map-btn::before {
       content: '🗺️';
       margin-right: 4px;
       font-size: 0.9rem;
     }
-    
+
     .nav-map-btn::after {
       content: '';
       position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
+      bottom: -4px; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, #1d1d1f, transparent);
       opacity: 0.5;
     }
-    
-    .nav-map-btn:hover::after {
-      opacity: 1;
-    }
+
+    .nav-map-btn:hover::after { opacity: 1; }
   </style>
 </head>
 <body>
@@ -78,7 +120,7 @@
         <a href="{{ '/travel-map' | relative_url }}" class="nav-map-btn">여행 지도</a>
         <a href="{{ '/categories' | relative_url }}">카테고리</a>
         <a href="{{ '/about' | relative_url }}">About</a>
-        <a href="https://blog.naver.com/brothrone" target="_blank">Naver</a>
+        <a href="https://blog.naver.com/brothrone" target="_blank" rel="noopener">Naver</a>
         <a href="{{ '/contact' | relative_url }}">Contact</a>
         <button class="search-btn" onclick="toggleSearch()">🔍</button>
       </nav>
@@ -92,7 +134,7 @@
       <a href="{{ '/travel-map' | relative_url }}" onclick="toggleMenu()" class="nav-map-btn">여행 지도</a>
       <a href="{{ '/categories' | relative_url }}" onclick="toggleMenu()">카테고리</a>
       <a href="{{ '/about' | relative_url }}" onclick="toggleMenu()">About</a>
-      <a href="https://blog.naver.com/brothrone" target="_blank" onclick="toggleMenu()">Naver</a>
+      <a href="https://blog.naver.com/brothrone" target="_blank" rel="noopener" onclick="toggleMenu()">Naver</a>
       <a href="{{ '/contact' | relative_url }}" onclick="toggleMenu()">Contact</a>
     </div>
 
@@ -163,40 +205,38 @@
     </div>
   </footer>
 
-  <script>
+  <!-- ★ 8. JS defer — 렌더링 다 된 후에 실행 -->
+  <script defer>
   document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.post-content')) {
       const progressBar = document.createElement('div');
       progressBar.className = 'reading-progress';
       document.body.appendChild(progressBar);
-      
+
       window.addEventListener('scroll', function() {
         const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         progressBar.style.width = scrolled + '%';
-      });
+      }, { passive: true });
     }
-    
+
     const scrollTopBtn = document.createElement('button');
     scrollTopBtn.className = 'scroll-top';
     scrollTopBtn.innerHTML = '↑';
     scrollTopBtn.setAttribute('aria-label', '맨 위로');
     document.body.appendChild(scrollTopBtn);
-    
+
     window.addEventListener('scroll', function() {
       if (window.pageYOffset > 300) {
         scrollTopBtn.classList.add('visible');
       } else {
         scrollTopBtn.classList.remove('visible');
       }
-    });
-    
+    }, { passive: true });
+
     scrollTopBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
   </script>
