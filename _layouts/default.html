@@ -1,5 +1,7 @@
+---
+---
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,76 +10,153 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
   <meta name="author" content="{{ site.author }}" />
 
-  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:site_name" content="{{ site.title }}" />
+  <!-- ★ Open Graph -->
+  {% assign og_title = page.title | default: site.title %}
+  {% assign og_desc  = page.excerpt | default: site.description | strip_html | truncate: 160 %}
+  {% assign og_url   = page.url | absolute_url %}
   {% if page.image %}
-  <meta property="og:image" content="{{ page.image | absolute_url }}" />
+    {% assign og_image = page.image | absolute_url %}
+  {% elsif site.og_image %}
+    {% assign og_image = site.og_image | absolute_url %}
+  {% else %}
+    {% assign og_image = "/assets/images/og-default.jpg" | absolute_url %}
   {% endif %}
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
-  {% if page.image %}
-  <meta name="twitter:image" content="{{ page.image | absolute_url }}" />
+  <meta property="og:site_name"    content="{{ site.title }}" />
+  <meta property="og:locale"       content="ko_KR" />
+  <meta property="og:type"         content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+  <meta property="og:title"        content="{{ og_title | escape }}" />
+  <meta property="og:description"  content="{{ og_desc | escape }}" />
+  <meta property="og:url"          content="{{ og_url }}" />
+  <meta property="og:image"        content="{{ og_image }}" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="{{ og_title | escape }}" />
+  {% if page.layout == 'post' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+  <meta property="article:modified_time"  content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}" />
+  <meta property="article:author"         content="{{ site.author }}" />
+  {% if page.category %}
+  <meta property="article:section"        content="{{ page.category }}" />
+  {% endif %}
+  {% for tag in page.tags %}
+  <meta property="article:tag"            content="{{ tag }}" />
+  {% endfor %}
+  {% endif %}
+
+  <!-- ★ Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="{{ og_title | escape }}" />
+  <meta name="twitter:description" content="{{ og_desc | escape }}" />
+  <meta name="twitter:image"       content="{{ og_image }}" />
+  <meta name="twitter:image:alt"   content="{{ og_title | escape }}" />
+
+  <!-- Article 구조화 데이터 -->
+  {% if page.layout == 'post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title | escape }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "author": {"@type": "Person", "name": "{{ site.author }}"},
+    "publisher": {"@type": "Organization", "name": "{{ site.title }}"},
+    {% if page.image %}"image": "{{ page.image | absolute_url }}",{% endif %}
+    "url": "{{ page.url | absolute_url }}"
+  }
+  </script>
   {% endif %}
 
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <meta name="google-site-verification" content="Yg-oBW33kqUu_fm4r_wgdF2HJy_65oZNGp8-dKPCwgI" />
   <meta name="naver-site-verification" content="6e6b886ed780f4f9569e2f22be8224ee8d5849c8" />
 
-  <!-- ★ 1. DNS prefetch / preconnect 최우선 배치 -->
+  <!-- ★ DNS prefetch / preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-  <!-- ★ 2. 히어로 이미지 preload (홈페이지에서만) -->
+  <!-- ★ 히어로 이미지 preload -->
   {% if page.url == "/" %}
-  <link rel="preload" as="image" href="/assets/images/sapporo.webp"
-        media="(min-width: 961px)" />
-  <link rel="preload" as="image" href="/assets/images/sapporo-tablet.jpeg"
-        media="(min-width: 601px) and (max-width: 960px)" />
-  <link rel="preload" as="image" href="/assets/images/sapporo-mobile.jpeg"
-        media="(max-width: 600px)" />
+  <link rel="preload" as="image" href="/assets/images/sapporo.webp" media="(min-width: 961px)" />
+  <link rel="preload" as="image" href="/assets/images/sapporo-tablet.jpeg" media="(min-width: 601px) and (max-width: 960px)" />
+  <link rel="preload" as="image" href="/assets/images/sapporo-mobile.jpeg" media="(max-width: 600px)" />
   {% endif %}
-
-  <!-- ★ 3. 포스트 대표 이미지 preload -->
   {% if page.image %}
   <link rel="preload" as="image" href="{{ page.image }}" />
   {% endif %}
 
-  <!-- ★ 4. CSS preload 후 비동기 로드 -->
+  <!-- ★ CSS 비동기 로드 -->
   <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style"
         onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-  </noscript>
+  <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" /></noscript>
 
-  <!-- ★ 5. 구글 폰트 — display=swap + 필요한 weight만 로드 -->
+  <!--
+    ★ 웹폰트 전략:
+    1. Cormorant Garamond — 제목용. display:optional → 첫 로드 시 시스템폰트 fallback,
+       캐시 후부터 즉시 적용. FOUT/CLS 완전 제거.
+    2. Noto Sans KR — 본문용. text= 파라미터로 한글 subset만 요청해 용량 90% 절감.
+       display:swap → 폰트 로드 전까지 시스템폰트 표시(가독성 우선).
+    3. 두 폰트 모두 preconnect 후 비동기 로드 → 렌더 블로킹 0.
+  -->
+
+  <!-- Cormorant Garamond (제목) — optional: CLS 없음 -->
   <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional"
         onload="this.onload=null;this.rel='stylesheet'" />
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional" rel="stylesheet" />
   </noscript>
 
-  <!-- ★ 6. Google Analytics — defer로 메인 렌더링 블로킹 방지 -->
+  <!-- Noto Sans KR (본문) — swap: 가독성 우선, subset으로 경량화 -->
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap&subset=korean"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap&subset=korean" rel="stylesheet" />
+  </noscript>
+
+  <!-- ★ Google Analytics defer -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id=G-BQ5T1WKVT3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-BQ5T1WKVT3', { 'send_page_view': false });
-    window.addEventListener('load', function() {
-      gtag('event', 'page_view');
-    });
+    window.addEventListener('load', function() { gtag('event', 'page_view'); });
+  </script>
+
+  <!-- ★ 다크모드 플리커 방지 (CSS 로드 전 theme 적용) -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
+    })();
   </script>
 
   <style>
-    /* ★ 7. 인라인 critical CSS — 폰트 로드 전 레이아웃 깨짐 방지 */
-    body { font-family: 'Noto Sans KR', -apple-system, sans-serif; }
+    /* ★ Critical CSS — 폰트 로드 전 레이아웃 안정화 */
+
+    /* 시스템폰트 fallback: Noto Sans KR 로드 전까지 Apple SD Gothic / Malgun Gothic 사용
+       → 한글이 깨지거나 빈칸으로 보이지 않음, CLS 최소화 */
+    body {
+      font-family: 'Noto Sans KR',
+        'Apple SD Gothic Neo', 'Malgun Gothic',
+        -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #1d1d1f;
+      margin: 0;
+    }
+
+    /* Cormorant Garamond fallback: Georgia → 비슷한 세리프 계열 */
+    h1, h2, h3, .font-display {
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    }
+
+    [data-theme="dark"] body { background: #0a0a0a; color: #f5f5f7; }
 
     .site-header {
       position: sticky; top: 0; z-index: 100;
@@ -86,29 +165,10 @@
       border-bottom: 1px solid rgba(210,210,215,0.5);
       height: 52px;
     }
+    [data-theme="dark"] .site-header { background: rgba(10,10,10,0.85); }
 
-    .nav-map-btn {
-      position: relative;
-      color: #1d1d1f !important;
-      font-weight: 500 !important;
-    }
-
-    .nav-map-btn::before {
-      content: '🗺️';
-      margin-right: 4px;
-      font-size: 0.9rem;
-    }
-
-    .nav-map-btn::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 100%; height: 2px;
-      background: linear-gradient(90deg, #1d1d1f, transparent);
-      opacity: 0.5;
-    }
-
-    .nav-map-btn:hover::after { opacity: 1; }
+    /* 히어로 최소 레이아웃 — 이미지 로드 전 빈 화면 방지 */
+    .hero { min-height: 600px; background: #1d1d1f; }
   </style>
 </head>
 <body>
@@ -119,52 +179,72 @@
       <nav class="desktop-nav">
         <a href="{{ '/travel-map' | relative_url }}" class="nav-map-btn">여행 지도</a>
         <a href="{{ '/categories' | relative_url }}">카테고리</a>
+        <a href="{{ '/tags' | relative_url }}">태그</a>
+        <a href="{{ '/series' | relative_url }}">시리즈</a>
         <a href="{{ '/about' | relative_url }}">About</a>
         <a href="https://blog.naver.com/brothrone" target="_blank" rel="noopener">Naver</a>
-        <a href="{{ '/contact' | relative_url }}">Contact</a>
-        <button class="search-btn" onclick="toggleSearch()">🔍</button>
+        <button class="search-btn" onclick="toggleSearch()" aria-label="검색">🔍</button>
+        <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" aria-label="다크모드 전환"></button>
       </nav>
       <div class="mobile-nav">
-        <button class="search-btn" onclick="toggleSearch()">🔍</button>
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <button class="search-btn" onclick="toggleSearch()" aria-label="검색">🔍</button>
+        <button class="dark-toggle" id="darkToggleMobile" onclick="toggleDark()" aria-label="다크모드 전환"></button>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="메뉴">☰</button>
       </div>
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
-      <a href="{{ '/travel-map' | relative_url }}" onclick="toggleMenu()" class="nav-map-btn">여행 지도</a>
+      <a href="{{ '/travel-map' | relative_url }}" onclick="toggleMenu()" class="nav-map-btn">🗺️ 여행 지도</a>
       <a href="{{ '/categories' | relative_url }}" onclick="toggleMenu()">카테고리</a>
+      <a href="{{ '/tags' | relative_url }}" onclick="toggleMenu()">태그</a>
+      <a href="{{ '/series' | relative_url }}" onclick="toggleMenu()">시리즈</a>
       <a href="{{ '/about' | relative_url }}" onclick="toggleMenu()">About</a>
       <a href="https://blog.naver.com/brothrone" target="_blank" rel="noopener" onclick="toggleMenu()">Naver</a>
       <a href="{{ '/contact' | relative_url }}" onclick="toggleMenu()">Contact</a>
     </div>
 
+    <!-- ★ 강화된 검색 (태그, 카테고리 지원) -->
     <div class="search-bar" id="searchBar">
       <div class="search-inner">
-        <input type="text" id="searchInput" placeholder="검색어를 입력하세요..." oninput="searchPosts()" />
-        <button onclick="toggleSearch()">✕</button>
+        <input type="text" id="searchInput" placeholder="제목, 태그, 카테고리 검색..." oninput="searchPosts()" autocomplete="off" />
+        <button onclick="toggleSearch()" aria-label="검색 닫기">✕</button>
       </div>
       <div class="search-results" id="searchResults"></div>
     </div>
 
     <script>
+      /* 포스트 데이터 (태그, 카테고리, 시리즈 포함) */
       const posts = [
         {% for post in site.posts %}
         {
           title: {{ post.title | jsonify }},
           url: {{ post.url | relative_url | jsonify }},
-          excerpt: {{ post.excerpt | strip_html | truncate: 100 | jsonify }},
-          date: {{ post.date | date: "%Y. %m. %d" | jsonify }}
+          excerpt: {{ post.excerpt | strip_html | truncate: 120 | jsonify }},
+          date: {{ post.date | date: "%Y. %m. %d" | jsonify }},
+          category: {{ post.category | default: "" | jsonify }},
+          tags: {{ post.tags | default: "" | jsonify }},
+          series: {{ post.series | default: "" | jsonify }}
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ];
 
+      /* ★ 다크모드 */
+      function toggleDark() {
+        var html = document.documentElement;
+        var isDark = html.getAttribute('data-theme') === 'dark';
+        html.setAttribute('data-theme', isDark ? '' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      }
+
+      /* 메뉴 */
       function toggleMenu() {
         document.getElementById('mobileMenu').classList.toggle('active');
       }
 
+      /* 검색 */
       function toggleSearch() {
-        const bar = document.getElementById('searchBar');
-        const input = document.getElementById('searchInput');
+        var bar = document.getElementById('searchBar');
+        var input = document.getElementById('searchInput');
         bar.classList.toggle('active');
         if (bar.classList.contains('active')) {
           input.focus();
@@ -174,70 +254,213 @@
         }
       }
 
+      /* ESC로 검색 닫기 */
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          var bar = document.getElementById('searchBar');
+          if (bar.classList.contains('active')) toggleSearch();
+        }
+      });
+
+      /* ★ 강화된 검색 — 태그/카테고리/시리즈까지 검색 */
+      function highlight(text, query) {
+        if (!query) return text;
+        var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return text.replace(new RegExp(escaped, 'gi'), function(m) {
+          return '<mark class="search-highlight">' + m + '</mark>';
+        });
+      }
+
       function searchPosts() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        const results = document.getElementById('searchResults');
+        var query = document.getElementById('searchInput').value.trim();
+        var results = document.getElementById('searchResults');
         if (!query) { results.innerHTML = ''; return; }
-        const filtered = posts.filter(p =>
-          p.title.toLowerCase().includes(query) ||
-          p.excerpt.toLowerCase().includes(query)
-        );
+        var q = query.toLowerCase();
+
+        var filtered = posts.filter(function(p) {
+          var tagsStr = Array.isArray(p.tags) ? p.tags.join(' ') : (p.tags || '');
+          return (
+            p.title.toLowerCase().includes(q) ||
+            p.excerpt.toLowerCase().includes(q) ||
+            tagsStr.toLowerCase().includes(q) ||
+            (p.category || '').toLowerCase().includes(q) ||
+            (p.series || '').toLowerCase().includes(q)
+          );
+        });
+
         if (filtered.length === 0) {
           results.innerHTML = '<p class="no-result">검색 결과가 없어요.</p>';
           return;
         }
-        results.innerHTML = filtered.map(p => `
-          <a href="${p.url}" class="search-result-item">
-            <span class="search-result-date">${p.date}</span>
-            <span class="search-result-title">${p.title}</span>
-          </a>
-        `).join('');
+
+        results.innerHTML = filtered.slice(0, 10).map(function(p) {
+          var tagsArr = Array.isArray(p.tags) ? p.tags : (p.tags ? [p.tags] : []);
+          var tagsHtml = tagsArr.length
+            ? '<span class="search-result-tags">' +
+              tagsArr.slice(0, 3).map(function(t) {
+                return '<span class="search-result-tag">' + t + '</span>';
+              }).join('') + '</span>'
+            : '';
+          return '<a href="' + p.url + '" class="search-result-item">' +
+            '<span class="search-result-date">' + p.date + '</span>' +
+            '<span class="search-result-title">' + highlight(p.title, query) + '</span>' +
+            tagsHtml +
+            '</a>';
+        }).join('');
       }
     </script>
   </header>
 
   <main>{{ content }}</main>
 
+  <!-- 라이트박스 오버레이 -->
+  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-img-wrap" id="lightboxWrap">
+      <button class="lightbox-close" onclick="closeLightboxBtn()" aria-label="닫기">✕</button>
+      <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1, event)" aria-label="이전">‹</button>
+      <img id="lightboxImg" src="" alt="" />
+      <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1, event)" aria-label="다음">›</button>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="footer-inner">
-      <span class="footer-logo">BROTHRONE</span>
-      <p>© {{ site.time | date: "%Y" }} · Travel &amp; Aviation</p>
+      <div class="footer-left">
+        <span class="footer-logo">BROTHRONE</span>
+        <p>© {{ site.time | date: "%Y" }} · Travel &amp; Aviation</p>
+      </div>
+      <div class="footer-stats">
+        <span class="footer-stat">글 <strong>{{ site.posts | size }}</strong>편</span>
+        {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," %}
+        <span class="footer-stat">태그 <strong>{{ all_tags | uniq | size }}</strong>개</span>
+        {% assign all_cats = site.posts | map: "category" | uniq %}
+        <span class="footer-stat">카테고리 <strong>{{ all_cats | size }}</strong>개</span>
+      </div>
     </div>
   </footer>
 
-  <!-- ★ 8. JS defer — 렌더링 다 된 후에 실행 -->
+  <!-- ★ 읽기진행바 + 맨위로 버튼 + 라이트박스 JS -->
   <script defer>
   document.addEventListener('DOMContentLoaded', function() {
-    if (document.querySelector('.post-content')) {
-      const progressBar = document.createElement('div');
-      progressBar.className = 'reading-progress';
-      document.body.appendChild(progressBar);
 
+    /* 읽기 진행바 */
+    if (document.querySelector('.post-content')) {
+      var bar = document.createElement('div');
+      bar.className = 'reading-progress';
+      document.body.appendChild(bar);
       window.addEventListener('scroll', function() {
-        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + '%';
+        var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        bar.style.width = (winScroll / height * 100) + '%';
       }, { passive: true });
     }
 
-    const scrollTopBtn = document.createElement('button');
-    scrollTopBtn.className = 'scroll-top';
-    scrollTopBtn.innerHTML = '↑';
-    scrollTopBtn.setAttribute('aria-label', '맨 위로');
-    document.body.appendChild(scrollTopBtn);
-
+    /* 맨 위로 버튼 */
+    var topBtn = document.createElement('button');
+    topBtn.className = 'scroll-top';
+    topBtn.innerHTML = '↑';
+    topBtn.setAttribute('aria-label', '맨 위로');
+    document.body.appendChild(topBtn);
     window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 300) {
-        scrollTopBtn.classList.add('visible');
-      } else {
-        scrollTopBtn.classList.remove('visible');
-      }
+      topBtn.classList.toggle('visible', window.pageYOffset > 300);
     }, { passive: true });
-
-    scrollTopBtn.addEventListener('click', function() {
+    topBtn.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    /* ★ 라이트박스 초기화 */
+    var postImgs = Array.from(document.querySelectorAll('.post-content img'));
+    postImgs.forEach(function(img, idx) {
+      img.setAttribute('data-idx', idx);
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function() { openLightbox(idx); });
+    });
+
+    /* ★ TOC 활성 항목 하이라이트 */
+    var tocLinks = document.querySelectorAll('.toc-list a');
+    if (tocLinks.length > 0) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.id;
+            tocLinks.forEach(function(a) {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      document.querySelectorAll('.post-content h2, .post-content h3').forEach(function(h) {
+        if (h.id) observer.observe(h);
+      });
+    }
+
+    /* 외부 링크 보안 */
+    document.querySelectorAll('a[href^="http"]').forEach(function(a) {
+      if (!a.hostname || a.hostname !== location.hostname) {
+        a.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+  });
+
+  /* ★ 라이트박스 함수 */
+  var lbImages = [];
+  var lbCurrent = 0;
+
+  function openLightbox(idx) {
+    lbImages = Array.from(document.querySelectorAll('.post-content img'));
+    lbCurrent = idx;
+    showLightboxImg(lbCurrent);
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showLightboxImg(idx) {
+    var img = lbImages[idx];
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.alt || '';
+    document.getElementById('lightboxCaption').textContent = img.alt || '';
+    // 이전/다음 버튼 표시
+    document.querySelector('.lightbox-prev').style.display = lbImages.length > 1 ? 'flex' : 'none';
+    document.querySelector('.lightbox-next').style.display = lbImages.length > 1 ? 'flex' : 'none';
+  }
+
+  function closeLightbox(e) {
+    if (e.target === document.getElementById('lightbox')) {
+      closeLightboxBtn();
+    }
+  }
+
+  function closeLightboxBtn() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function lightboxNav(dir, e) {
+    e.stopPropagation();
+    lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length;
+    showLightboxImg(lbCurrent);
+  }
+
+  /* 키보드 네비게이션 */
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') lightboxNav(-1, { stopPropagation: function(){} });
+    if (e.key === 'ArrowRight') lightboxNav(1, { stopPropagation: function(){} });
+    if (e.key === 'Escape') closeLightboxBtn();
+  });
+
+  /* WebP 자동 교체 */
+  document.querySelectorAll('.post-content img').forEach(function(img) {
+    if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+    var src = img.getAttribute('src');
+    if (src && src.match(/\.(jpg|jpeg|png)$/i)) {
+      var webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      var test = new Image();
+      test.onload = function() { img.src = webpSrc; };
+      test.src = webpSrc;
+    }
   });
   </script>
 
