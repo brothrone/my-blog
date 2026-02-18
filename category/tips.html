@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div class="cat-page">
+  <div class="cat-header">
+    <a href="{{ '/' | relative_url }}" class="back-link">← Home</a>
+    <span class="cat-icon-lg">💡</span>
+    <h1 class="cat-title">항공/숙박 꿀팁</h1>
+    <p class="cat-desc">항공권 예매, 마일리지, 호텔 예약, 업그레이드 등 여행 준비에 도움이 되는 모든 팁을 공유합니다.</p>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="card-grid">
+      {% assign airline_tips = site.posts | where: "category", "항공팁" %}
+      {% assign hotel_tips = site.posts | where: "category", "숙박팁" %}
+      {% assign all_tips = airline_tips | concat: hotel_tips | sort: "date" | reverse %}
+      
+      {% for post in all_tips %}
+      {% if post.naver_url %}
+      <a href="{{ post.naver_url }}" target="_blank" class="card">
+      {% else %}
+      <a href="{{ post.url | relative_url }}" class="card">
+      {% endif %}
+        {% if post.image %}
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="card-img" loading="lazy">
+        {% else %}
+        <div class="card-img card-img--empty"></div>
+        {% endif %}
+        <div class="card-body">
+          <div class="card-meta">
+            {{ post.date | date: "%Y. %m. %d" }}
+            {% if post.category == "항공팁" %}
+              <span style="margin-left: 8px; font-size: 0.65rem; padding: 2px 8px; background: #e8e8ed; border-radius: 4px;">항공</span>
+            {% elsif post.category == "숙박팁" %}
+              <span style="margin-left: 8px; font-size: 0.65rem; padding: 2px 8px; background: #e8e8ed; border-radius: 4px;">숙박</span>
+            {% endif %}
+          </div>
+          <h3 class="card-title">{{ post.title }}</h3>
+          <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 70 }}</p>
+        </div>
+      </a>
+      {% endfor %}
+      
+      {% if all_tips.size == 0 %}
+      <p class="no-posts">아직 작성된 글이 없어요.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
