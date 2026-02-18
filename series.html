@@ -1,0 +1,42 @@
+---
+layout: default
+title: 시리즈
+permalink: /series/
+---
+
+{% assign all_series = site.posts | map: "series" | compact | uniq | sort %}
+
+<div class="series-page">
+  <div class="series-page-header">
+    <h1>시리즈</h1>
+    <p style="font-size:0.9rem; color:var(--text-muted);">여러 편으로 이어지는 시리즈 글 모음이에요.</p>
+  </div>
+
+  {% if all_series.size > 0 %}
+  <div class="series-cards">
+    {% for series_name in all_series %}
+      {% assign s_posts = site.posts | where: "series", series_name | sort: "series_no" %}
+      {% assign first = s_posts.first %}
+
+      <!-- 시리즈 아이콘: front matter에 series_icon이 있으면 사용, 없으면 기본 -->
+      {% assign s_icon = first.series_icon | default: "📚" %}
+
+      <a href="{{ '/series/' | append: series_name | slugify | relative_url }}" class="series-card">
+        <span class="series-card-icon">{{ s_icon }}</span>
+        <div class="series-card-info">
+          <div class="series-card-name">{{ series_name }}</div>
+          <div class="series-card-count">{{ s_posts.size }}편 · {{ first.category }}</div>
+        </div>
+        <span class="series-card-arrow">→</span>
+      </a>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div style="text-align:center; padding:80px 0; color:var(--text-muted);">
+    <div style="font-size:2rem; margin-bottom:16px;">📚</div>
+    <p>아직 시리즈 글이 없어요.</p>
+    <p style="font-size:0.8rem; margin-top:8px;">포스트 front matter에 <code>series: 시리즈명</code>을 추가해 보세요.</p>
+  </div>
+  {% endif %}
+</div>

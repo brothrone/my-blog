@@ -1,0 +1,111 @@
+---
+layout: default
+title: 태그
+permalink: /tags/
+---
+
+{% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | sort %}
+{% assign unique_tags = all_tags | uniq %}
+
+<div class="tags-page">
+  <div class="tags-header">
+    <h1>태그</h1>
+    <p style="font-size:0.9rem; color:var(--text-muted);">태그를 클릭하면 관련 글을 모아볼 수 있어요.</p>
+  </div>
+
+  <!-- 태그 클라우드 -->
+  <div class="tag-cloud" id="tagCloud">
+    {% for tag in unique_tags %}
+      {% if tag != "" %}
+        {% assign tag_posts = site.posts | where_exp: "p", "p.tags contains tag" %}
+        <button class="tag-cloud-item" onclick="filterTag('{{ tag | escape }}')" data-tag="{{ tag | escape }}">
+          #{{ tag }}
+          <span class="count">{{ tag_posts.size }}</span>
+        </button>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- 태그별 결과 -->
+  <div id="tagResultsContainer">
+    {% for tag in unique_tags %}
+      {% if tag != "" %}
+        {% assign tag_posts = site.posts | where_exp: "p", "p.tags contains tag" %}
+        <div class="tag-results" id="tag-{{ tag | slugify | escape }}" data-tag="{{ tag | escape }}">
+          <div class="section-divider" style="margin-bottom: 24px;">
+            <span>#{{ tag }} · {{ tag_posts.size }}편</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px;">
+            {% for post in tag_posts %}
+            <a href="{{ post.url | relative_url }}" style="display:flex; align-items:center; gap:16px; padding:16px 20px; background:var(--surface); border-radius:12px; border:1px solid transparent; transition:all 0.2s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='transparent'">
+              <span style="font-size:0.7rem; color:var(--text-muted); white-space:nowrap; min-width:80px;">{{ post.date | date: "%Y. %m. %d" }}</span>
+              <span style="font-size:0.9rem; font-weight:500; color:var(--text); flex:1;">{{ post.title }}</span>
+              {% if post.tags %}
+                <span style="display:flex; gap:4px;">
+                  {% for t in post.tags limit:3 %}
+                    <span style="font-size:0.62rem; background:var(--surface2); padding:2px 7px; border-radius:4px; color:var(--text-muted);">#{{ t }}</span>
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div id="tagNoResult" style="display:none; text-align:center; padding:60px 0; color:var(--text-muted); font-size:0.9rem;">
+    해당 태그의 글이 없어요.
+  </div>
+</div>
+
+<script>
+  var activeTag = null;
+
+  function filterTag(tag) {
+    var allResults = document.querySelectorAll('.tag-results');
+    var allBtns = document.querySelectorAll('.tag-cloud-item');
+    var noResult = document.getElementById('tagNoResult');
+
+    if (activeTag === tag) {
+      // 같은 태그 다시 클릭 → 전체 해제
+      activeTag = null;
+      allResults.forEach(function(r) { r.classList.remove('active'); });
+      allBtns.forEach(function(b) { b.classList.remove('active'); });
+      noResult.style.display = 'none';
+      return;
+    }
+
+    activeTag = tag;
+    allBtns.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-tag') === tag);
+    });
+
+    var found = false;
+    allResults.forEach(function(r) {
+      var match = r.getAttribute('data-tag') === tag;
+      r.classList.toggle('active', match);
+      if (match) found = true;
+    });
+
+    noResult.style.display = found ? 'none' : 'block';
+
+    // 결과로 스크롤
+    if (found) {
+      var target = document.querySelector('.tag-results.active');
+      if (target) {
+        setTimeout(function() {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.scrollBy(0, -80);
+        }, 50);
+      }
+    }
+  }
+
+  // URL 해시로 태그 자동 선택
+  window.addEventListener('DOMContentLoaded', function() {
+    var hash = decodeURIComponent(location.hash.replace('#', ''));
+    if (hash) filterTag(hash);
+  });
+</script>
