@@ -144,5 +144,46 @@
     </div>
   </footer>
 
+  <!-- 읽기 진행률 바 & 맨 위로 버튼 -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 읽기 진행률 바 (포스트 페이지만)
+    if (document.querySelector('.post-content')) {
+      const progressBar = document.createElement('div');
+      progressBar.className = 'reading-progress';
+      document.body.appendChild(progressBar);
+      
+      window.addEventListener('scroll', function() {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+      });
+    }
+    
+    // 맨 위로 버튼
+    const scrollTopBtn = document.createElement('button');
+    scrollTopBtn.className = 'scroll-top';
+    scrollTopBtn.innerHTML = '↑';
+    scrollTopBtn.setAttribute('aria-label', '맨 위로');
+    document.body.appendChild(scrollTopBtn);
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+    
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+  </script>
+
 </body>
 </html>

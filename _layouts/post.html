@@ -25,6 +25,26 @@ layout: default
     <a href="{{ '/' | relative_url }}" class="back-link">← 목록으로 돌아가기</a>
   </article>
 
+  <!-- 관련글 -->
+  {% assign related_posts = site.posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | limit: 4 %}
+  {% if related_posts.size > 0 %}
+  <div class="related-posts">
+    <h2>관련 글</h2>
+    <div class="related-grid">
+      {% for post in related_posts %}
+      {% if post.naver_url %}
+      <a href="{{ post.naver_url }}" target="_blank" class="related-card">
+      {% else %}
+      <a href="{{ post.url | relative_url }}" class="related-card">
+      {% endif %}
+        <div class="related-card-meta">{{ post.date | date: "%Y. %m. %d" }}</div>
+        <div class="related-card-title">{{ post.title }}</div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
   <!-- 댓글 섹션 -->
   <div class="comments">
     <script src="https://giscus.app/client.js"
