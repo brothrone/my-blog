@@ -1,0 +1,385 @@
+---
+layout: default
+title: 여행 지도
+permalink: /travel-map/
+---
+
+<div class="travel-map-page">
+  <div class="map-header">
+    <h1>Travel Map</h1>
+    <p>여행지를 지도에서 확인해보세요</p>
+    <div class="map-stats">
+      <div class="stat-item">
+        <span class="stat-number">6</span>
+        <span class="stat-label">국가</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">15+</span>
+        <span class="stat-label">도시</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">45</span>
+        <span class="stat-label">여행기</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="map" class="travel-map"></div>
+
+  <div class="country-list">
+    <h2>방문한 국가</h2>
+    <div class="country-grid">
+      <div class="country-card" data-country="usa">
+        <div class="country-flag">🇺🇸</div>
+        <h3>미국</h3>
+        <span class="post-count">12개 글</span>
+      </div>
+      
+      <div class="country-card" data-country="japan">
+        <div class="country-flag">🇯🇵</div>
+        <h3>일본</h3>
+        <span class="post-count">8개 글</span>
+      </div>
+      
+      <div class="country-card" data-country="singapore">
+        <div class="country-flag">🇸🇬</div>
+        <h3>싱가포르</h3>
+        <span class="post-count">7개 글</span>
+      </div>
+      
+      <div class="country-card" data-country="uk">
+        <div class="country-flag">🇬🇧</div>
+        <h3>영국</h3>
+        <span class="post-count">5개 글</span>
+      </div>
+      
+      <div class="country-card" data-country="france">
+        <div class="country-flag">🇫🇷</div>
+        <h3>프랑스</h3>
+        <span class="post-count">3개 글</span>
+      </div>
+      
+      <div class="country-card" data-country="korea">
+        <div class="country-flag">🇰🇷</div>
+        <h3>한국</h3>
+        <span class="post-count">홈</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// 지도 초기화
+const map = L.map('map', {
+  center: [30, 20],
+  zoom: 2,
+  minZoom: 2,
+  maxZoom: 10,
+  scrollWheelZoom: true
+});
+
+// 타일 레이어
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap contributors © CARTO',
+  subdomains: 'abcd',
+  maxZoom: 20
+}).addTo(map);
+
+// 커스텀 아이콘
+const customIcon = (color) => L.divIcon({
+  className: 'custom-marker',
+  html: `<div style="background-color: ${color}; width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"><div style="width: 10px; height: 10px; background: white; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg);"></div></div>`,
+  iconSize: [30, 30],
+  iconAnchor: [15, 30],
+  popupAnchor: [0, -30]
+});
+
+// 여행지 데이터
+const places = [
+  {
+    name: '시애틀',
+    country: '🇺🇸 미국',
+    coords: [47.6062, -122.3321],
+    color: '#FF6B6B',
+    posts: [
+      { title: '델타항공 ICN-SEA 탑승기', url: '/posts/delta-icn-sea' },
+      { title: '시애틀 항공 박물관', url: '/posts/seattle-aviation-museum' }
+    ]
+  },
+  {
+    name: '샌프란시스코',
+    country: '🇺🇸 미국',
+    coords: [37.7749, -122.4194],
+    color: '#FF6B6B',
+    posts: [
+      { title: '미국서부여행 #9', url: '#' }
+    ]
+  },
+  {
+    name: '후쿠오카',
+    country: '🇯🇵 일본',
+    coords: [33.5904, 130.4017],
+    color: '#4ECDC4',
+    posts: [
+      { title: '유후인 료칸 후기', url: '/posts/fukuoka-ryokan' },
+      { title: '유후인 #2', url: '#' }
+    ]
+  },
+  {
+    name: '싱가포르',
+    country: '🇸🇬 싱가포르',
+    coords: [1.3521, 103.8198],
+    color: '#95E1D3',
+    posts: [
+      { title: '싱가포르 #1', url: '#' },
+      { title: '싱가포르 #2', url: '#' }
+    ]
+  },
+  {
+    name: '런던',
+    country: '🇬🇧 영국',
+    coords: [51.5074, -0.1278],
+    color: '#F38181',
+    posts: [
+      { title: '런던 #1', url: '#' },
+      { title: '런던 #2', url: '#' }
+    ]
+  },
+  {
+    name: '파리',
+    country: '🇫🇷 프랑스',
+    coords: [48.8566, 2.3522],
+    color: '#AA96DA',
+    posts: [
+      { title: '프랑스 #1', url: '#' },
+      { title: '프랑스 #2', url: '#' },
+      { title: '프랑스 #3', url: '#' }
+    ]
+  }
+];
+
+// 마커 추가
+places.forEach(place => {
+  const marker = L.marker(place.coords, {
+    icon: customIcon(place.color)
+  }).addTo(map);
+  
+  // 팝업 내용
+  const popupContent = `
+    <div class="map-popup">
+      <h3>${place.country} ${place.name}</h3>
+      <div class="popup-posts">
+        ${place.posts.map(post => 
+          `<a href="${post.url}" class="popup-post-link">${post.title} →</a>`
+        ).join('')}
+      </div>
+    </div>
+  `;
+  
+  marker.bindPopup(popupContent, {
+    maxWidth: 250,
+    className: 'custom-popup'
+  });
+});
+
+// 국가 카드 클릭 이벤트
+document.querySelectorAll('.country-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const country = this.dataset.country;
+    const countryCoords = {
+      'usa': [37.0902, -95.7129],
+      'japan': [36.2048, 138.2529],
+      'singapore': [1.3521, 103.8198],
+      'uk': [55.3781, -3.4360],
+      'france': [46.2276, 2.2137],
+      'korea': [37.5665, 126.9780]
+    };
+    
+    if (countryCoords[country]) {
+      map.flyTo(countryCoords[country], 5, {
+        duration: 1.5
+      });
+    }
+  });
+});
+</script>
+
+<style>
+.travel-map-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px 100px;
+}
+
+.map-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.map-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.map-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.map-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 32px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.travel-map {
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  margin-bottom: 60px;
+}
+
+.country-list {
+  margin-top: 60px;
+}
+
+.country-list h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.country-card {
+  background: var(--surface);
+  padding: 28px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid transparent;
+}
+
+.country-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  border-color: var(--border);
+}
+
+.country-flag {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.country-card h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.post-count {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--accent);
+  background: rgba(29,29,31,0.05);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* 팝업 스타일 */
+.map-popup h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.popup-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.popup-post-link {
+  font-size: 0.8rem;
+  color: var(--accent);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+
+.popup-post-link:hover {
+  color: var(--text);
+}
+
+.popup-post-link:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .travel-map-page {
+    padding: 40px 20px 80px;
+  }
+  
+  .map-stats {
+    gap: 24px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .travel-map {
+    height: 400px;
+  }
+  
+  .country-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .country-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
