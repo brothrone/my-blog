@@ -9,7 +9,7 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
   <meta name="author" content="{{ site.author }}" />
 
-  <!-- Open Graph (카카오톡, 페이스북 등 공유시 미리보기) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
   <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
@@ -28,12 +28,9 @@
   {% endif %}
 
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
-  <!-- Google Search Console 인증 -->
   <meta name="google-site-verification" content="Yg-oBW33kqUu_fm4r_wgdF2HJy_65oZNGp8-dKPCwgI" />
-  <!-- 네이버 서치어드바이저 인증 -->
   <meta name="naver-site-verification" content="6e6b886ed780f4f9569e2f22be8224ee8d5849c8" />
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-  <!-- 폰트 preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -46,6 +43,36 @@
     gtag('js', new Date());
     gtag('config', 'G-BQ5T1WKVT3');
   </script>
+  
+  <!-- 여행 지도 강조 스타일 -->
+  <style>
+    .nav-map-btn {
+      position: relative;
+      color: var(--accent) !important;
+      font-weight: 500 !important;
+    }
+    
+    .nav-map-btn::before {
+      content: '🗺️';
+      margin-right: 4px;
+      font-size: 0.9rem;
+    }
+    
+    .nav-map-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0.5;
+    }
+    
+    .nav-map-btn:hover::after {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -53,8 +80,8 @@
     <div class="header-inner">
       <a href="{{ '/' | relative_url }}" class="logo">BROTHRONE</a>
       <nav class="desktop-nav">
-        <a href="{{ '/categories' | relative_url }}">전체 카테고리</a>
-        <a href="{{ '/' | relative_url }}">Journal</a>
+        <a href="{{ '/categories' | relative_url }}">카테고리</a>
+        <a href="{{ '/travel-map' | relative_url }}" class="nav-map-btn">여행 지도</a>
         <a href="{{ '/about' | relative_url }}">About</a>
         <a href="https://blog.naver.com/brothrone" target="_blank">Naver</a>
         <a href="{{ '/contact' | relative_url }}">Contact</a>
@@ -69,8 +96,8 @@
 
     <!-- 모바일 드롭다운 메뉴 -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="{{ '/categories' | relative_url }}" onclick="toggleMenu()">전체 카테고리</a>
-      <a href="{{ '/' | relative_url }}" onclick="toggleMenu()">Journal</a>
+      <a href="{{ '/categories' | relative_url }}" onclick="toggleMenu()">카테고리</a>
+      <a href="{{ '/travel-map' | relative_url }}" onclick="toggleMenu()" class="nav-map-btn">여행 지도</a>
       <a href="{{ '/about' | relative_url }}" onclick="toggleMenu()">About</a>
       <a href="https://blog.naver.com/brothrone" target="_blank" onclick="toggleMenu()">Naver</a>
       <a href="{{ '/contact' | relative_url }}" onclick="toggleMenu()">Contact</a>
@@ -147,7 +174,6 @@
   <!-- 읽기 진행률 바 & 맨 위로 버튼 -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // 읽기 진행률 바 (포스트 페이지만)
     if (document.querySelector('.post-content')) {
       const progressBar = document.createElement('div');
       progressBar.className = 'reading-progress';
@@ -161,7 +187,6 @@
       });
     }
     
-    // 맨 위로 버튼
     const scrollTopBtn = document.createElement('button');
     scrollTopBtn.className = 'scroll-top';
     scrollTopBtn.innerHTML = '↑';

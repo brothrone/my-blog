@@ -46,9 +46,8 @@ layout: default
   </div>
 </section>
 
-<!-- 피처드 (고정 글) -->
-{% assign featured_post = site.posts | where: "slug", "fukuoka-ryokan" | first %}
-{% unless featured_post %}{% assign featured_post = site.posts.first %}{% endunless %}
+<!-- 피처드 (최신 글) -->
+{% assign featured_post = site.posts.first %}
 {% if featured_post %}
 <section class="featured">
   {% if featured_post.naver_url %}
