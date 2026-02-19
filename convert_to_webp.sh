@@ -14,8 +14,6 @@ find "$IMAGES_DIR" -type f \( -iname "*.jpeg" -o -iname "*.jpg" -o -iname "*.png
   fi
   ORIG_SIZE=$(wc -c < "$FILE")
 
-  # -auto-orient: EXIF 회전 자동 반영
-  # -resize: 가로 1200px 초과 시만 축소
   magick "$FILE" -auto-orient -resize "${MAX_WIDTH}x>" -quality $QUALITY "$WEBP_FILE" 2>/dev/null
   echo "변환: $WEBP_FILE"
 
@@ -24,17 +22,15 @@ find "$IMAGES_DIR" -type f \( -iname "*.jpeg" -o -iname "*.jpg" -o -iname "*.png
 done
 
 echo ""
-echo "=== front matter 경로 업데이트 ==="
+echo "=== front matter 및 본문 경로 업데이트 ==="
 
 find "$POSTS_DIR" -name "*.md" | while read -r MD; do
-  if grep -q "^image:.*\.\(jpeg\|jpg\|png\)" "$MD"; then
-    sed -i '' \
-      -e 's|\(^image:.*\)\.jpeg|\1.webp|g' \
-      -e 's|\(^image:.*\)\.jpg|\1.webp|g' \
-      -e 's|\(^image:.*\)\.png|\1.webp|g' \
-      "$MD"
-    echo "업데이트: $MD"
-  fi
+  sed -i '' \
+    -e 's/\.jpeg/.webp/g' \
+    -e 's/\.jpg/.webp/g' \
+    -e 's/\.png/.webp/g' \
+    "$MD"
+  echo "업데이트: $MD"
 done
 
 echo "=== 완료! ==="

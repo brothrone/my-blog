@@ -15,7 +15,7 @@ category: 여행
 
 시애틀 보잉(Boeing)사에서 세운 박물관이고, 박물관 주변으로 킹 카운티 공항과 보잉사 건물들이 보인다.
 
-![박물관 전경](/assets/images/seattle_boeing/boeing1.jpeg)
+![박물관 전경](/assets/images/seattle_boeing/boeing1.webp)
 
 박물관 내부에는 실제 항공기들을 포함한 우주선 캡슐, 부품이나 엔진 등 어마어마한 숫자의 항공기들이 전시돼있다. 딱 4시간동안 대충 둘러봤는데 겨우 모든 곳을 돌았다.
 
@@ -29,7 +29,7 @@ category: 여행
 
 웰컴홀에 들어서면 입장료를 지불하고 손목에 티켓을 두르고 입장한다. 역시 박물관답게 아이를 데리고 온 가족이 가장 많았다.
 
-![박물관 내부 전시](/assets/images/seattle_boeing/boeing2.jpeg)
+![박물관 내부 전시](/assets/images/seattle_boeing/boeing2.webp)
 
 로비를 통해 들어오면, 수십 대의 항공기들이 줄에 매달려있거나 땅에 전시돼있다. 아직 지식이 많이 부족해 아는 기종이 많이 없었지만, 보는 것만으로도 신기했다.
 
@@ -39,7 +39,7 @@ category: 여행
 
 우주 관련 전시도 못지않게 많았다. 실제 우주를 갔다 왔던 캡슐, 화성 로버 모형 등 정말 보기 힘든 것들이 전시돼있다. 내가 태어나기도 전에 우주까지 나갔다 온 실물을 직접 보니 경외감이 들었다.
 
-![우주 전시관](/assets/images/seattle_boeing/boeing3.jpeg)
+![우주 전시관](/assets/images/seattle_boeing/boeing3.webp)
 
 ## 에비에이션 파빌리온 — 이 박물관의 하이라이트
 
@@ -49,13 +49,13 @@ category: 여행
 
 한참 전에 퇴역해 전시해놓은 곳도 얼마 없을텐데 들어가 볼 수 있기까지 하다니, 못참고 바로 들어갔다. 칵핏은 물론, 두 개의 클래스 좌석도 구경했다. 역시 최악의 연비답게 닭장 그 자체다 ㅋㅋ 음속의 두 배 속도로 날아도 저 정도 닭장에 갇혀가는 건 쉽지 않을 듯.
 
-![콩코드 내부](/assets/images/seattle_boeing/boeing4.jpeg)
+![콩코드 내부](/assets/images/seattle_boeing/boeing4.webp)
 
 ### 보잉 747 프로토타입 (N7470)
 
 세계적인 베스트셀러 보잉 747의 프로토타입이다. 레지넘버조차 747의 상징 그 자체다. 747 클래식 중 유일하게 보존된 프로토타입이며, 공중급유기로 개조된 후 임무를 뛴 적도 있고, 이후 나사 연구용도로도 쓰였다고 한다. 보잉의 엔진 테스트용 기체로도 쓰이다가 퇴역한 후 방치됐다가, 2015년에 전면 재도색 후 여기에 전시됐다. 직접 본 것만으로도 웅장해지는 기체다.
 
-![보잉 747 프로토타입](/assets/images/seattle_boeing/boeing5.jpeg)
+![보잉 747 프로토타입](/assets/images/seattle_boeing/boeing5.webp)
 
 ---
 

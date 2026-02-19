@@ -14,7 +14,7 @@ series_icon: ♨️
 ---
 
 후쿠오카 공항에서 오이타현 직행버스를 타고, 3시간 뒤에 유후인 역에 도착했다.
-![유후인 역](/assets/images/fuk_1/fuk_a_20.jpeg)
+![유후인 역](/assets/images/fuk_1/fuk_a_20.webp)
 
 
 
@@ -30,7 +30,7 @@ series_icon: ♨️
 
   
 
-![세븐일레븐](/assets/images/fuk_1/fuk_a_19.jpeg)
+![세븐일레븐](/assets/images/fuk_1/fuk_a_19.webp)
 
   
 
@@ -38,11 +38,11 @@ series_icon: ♨️
 
   
 
-![편의점](/assets/images/fuk_1/fuk_a_17.jpeg)
+![편의점](/assets/images/fuk_1/fuk_a_17.webp)
 
   
 
-![편의점 결제](/assets/images/fuk_1/fuk_a_18.jpeg)
+![편의점 결제](/assets/images/fuk_1/fuk_a_18.webp)
 
   
 
@@ -50,7 +50,7 @@ series_icon: ♨️
 
   
 
-![택시](/assets/images/fuk_1/fuk_a_6.jpeg)
+![택시](/assets/images/fuk_1/fuk_a_6.webp)
 
   
 
@@ -58,7 +58,7 @@ series_icon: ♨️
 
   
 
-![설경](/assets/images/fuk_1/fuk_a_2.jpeg)
+![설경](/assets/images/fuk_1/fuk_a_2.webp)
 
   
 
@@ -74,7 +74,7 @@ series_icon: ♨️
 
   
 
-![료칸 외관](/assets/images/fuk_1/fuk_a_4.jpeg)
+![료칸 외관](/assets/images/fuk_1/fuk_a_4.webp)
 
   
 
@@ -82,7 +82,7 @@ series_icon: ♨️
 
   
 
-![료칸 설경](/assets/images/fuk_1/fuk_a_5.jpeg)
+![료칸 설경](/assets/images/fuk_1/fuk_a_5.webp)
 
   
 
@@ -90,11 +90,11 @@ series_icon: ♨️
 
   
 
-![료칸 내부](/assets/images/fuk_1/fuk_a_1.jpeg)
+![료칸 내부](/assets/images/fuk_1/fuk_a_1.webp)
 
   
 
-![료칸 내부2](/assets/images/fuk_1/fuk_a_3.jpeg)
+![료칸 내부2](/assets/images/fuk_1/fuk_a_3.webp)
 
   
 
@@ -102,7 +102,7 @@ series_icon: ♨️
 
   
 
-![외부 모습](/assets/images/fuk_1/fuk_a_16.jpeg)
+![외부 모습](/assets/images/fuk_1/fuk_a_16.webp)
 
   
 
@@ -110,7 +110,7 @@ series_icon: ♨️
 
   
 
-![두 번째 방](/assets/images/fuk_1/fuk_a_8.jpeg)
+![두 번째 방](/assets/images/fuk_1/fuk_a_8.webp)
 
   
 
@@ -118,7 +118,7 @@ series_icon: ♨️
 
   
 
-![웰컴 푸드](/assets/images/fuk_1/fuk_a_15.jpeg)
+![웰컴 푸드](/assets/images/fuk_1/fuk_a_15.webp)
 
   
 
@@ -126,7 +126,7 @@ series_icon: ♨️
 
   
 
-![온천](/assets/images/fuk_1/fuk_a_9.jpeg)
+![온천](/assets/images/fuk_1/fuk_a_9.webp)
 
   
 
@@ -134,7 +134,7 @@ series_icon: ♨️
 
   
 
-![온천 뷰](/assets/images/fuk_1/fuk_a_7.jpeg)
+![온천 뷰](/assets/images/fuk_1/fuk_a_7.webp)
 
   
 
@@ -154,7 +154,7 @@ series_icon: ♨️
 
   
 
-![가이세키 상차림](/assets/images/fuk_1/fuk_a_14.jpeg)
+![가이세키 상차림](/assets/images/fuk_1/fuk_a_14.webp)
 
   
 
@@ -166,11 +166,11 @@ series_icon: ♨️
 
   
 
-![가이세키2](/assets/images/fuk_1/fuk_a_10.jpeg)
+![가이세키2](/assets/images/fuk_1/fuk_a_10.webp)
 
   
 
-![가이세키3](/assets/images/fuk_1/fuk_a_12.jpeg)
+![가이세키3](/assets/images/fuk_1/fuk_a_12.webp)
 
   
 
@@ -178,7 +178,7 @@ series_icon: ♨️
 
   
 
-![화로 라떼](/assets/images/fuk_1/fuk_a_13.jpeg)
+![화로 라떼](/assets/images/fuk_1/fuk_a_13.webp)
 
   
 
@@ -186,7 +186,7 @@ series_icon: ♨️
 
   
 
-![노천탕](/assets/images/fuk_1/fuk_a_11.jpeg)
+![노천탕](/assets/images/fuk_1/fuk_a_11.webp)
 
   
 식사 후, 공용 온천을 하러 갔다. 이곳의 공용 온천은 다른 곳과 마찬가지로, 팻말을 걸어놓고 이용하는 방식이다. 
