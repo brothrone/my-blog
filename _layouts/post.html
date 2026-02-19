@@ -190,7 +190,7 @@ layout: default
   position: fixed;
   bottom: 152px;
   right: 40px;
-  width: 260px;
+  width: 320px;
   max-height: 400px;
   background: var(--bg);
   border: 1px solid var(--border);
@@ -254,7 +254,7 @@ layout: default
 }
 .toc-nav a {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 8px;
   padding: 6px 16px;
   font-size: 0.82rem;
@@ -262,6 +262,9 @@ layout: default
   text-decoration: none;
   line-height: 1.45;
   transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .toc-nav a::before {
   content: '•';
