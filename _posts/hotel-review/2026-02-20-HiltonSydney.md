@@ -10,7 +10,7 @@ tags:
   - 시드니호텔추천
   - 호주여행
   - 힐튼아너스
-image: /assets/images/hotel-review/hiltonsydney/hilton-sydney4.webp
+image: /assets/images/hotel-review/hiltonsydney/2026-02-20-HiltonSydney-1771517610047.webp
 series: 시드니
 series_no: 1
 series_icon: 🇦🇺
