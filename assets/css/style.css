@@ -1287,7 +1287,7 @@ nav a:hover { color: var(--text); }
   .featured-link { grid-template-columns: 1fr; }
   .featured-img { height: 300px; }
   .card-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero { background-image: url('/assets/images/sapporo-tablet.jpeg'); }
+  .hero { background-image: url('/assets/images/sapporo-tablet.webp'); }
   .lightbox-prev { left: -48px; }
   .lightbox-next { right: -48px; }
 }
@@ -1306,7 +1306,7 @@ nav a:hover { color: var(--text); }
   .logo { font-size: 0.72rem; }
 
   .hero {
-    background-image: url('/assets/images/sapporo-mobile.jpeg');
+    background-image: url('/assets/images/sapporo-mobile.webp');
     height: 100vh;
     min-height: 600px;
   }
