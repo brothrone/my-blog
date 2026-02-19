@@ -9,7 +9,7 @@ tags:
   - 델타항공
   - 미국여행
   - 탑승기
-image: /assets/images/airline-review/dl196/dl196_1.jpeg
+image: /assets/images/airline-review/dl196/dl196_1.webp
 ---
 
 코로나 항원검사 음성 결과를 받고 행복하게 체크인 카운터에 줄을 섰다.

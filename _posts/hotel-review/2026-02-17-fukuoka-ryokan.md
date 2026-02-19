@@ -7,7 +7,7 @@ tags:
   - 호텔리뷰
   - 일본
   - 료칸
-image: /assets/images/fuk_1/fuk_a_5.jpeg
+image: /assets/images/fuk_1/fuk_a_5.webp
 series: 유후인
 series_no: 1
 series_icon: ♨️

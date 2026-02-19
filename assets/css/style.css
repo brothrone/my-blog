@@ -381,7 +381,7 @@ nav a:hover { color: var(--text); }
    =========================== */
 .featured {
   max-width: var(--max-width);
-  margin: 50 auto 80px;
+  margin: 70px auto 80px;
   padding: 0 40px;
   animation: fadeUp 0.8s ease 0.2s both;
 }

@@ -5,7 +5,7 @@ date: 2022-02-19
 tags:
   - 여행
   - 항공
-image: /assets/images/seattle_boeing/boeing1.jpeg
+image: /assets/images/seattle_boeing/boeing1.webp
 category: 여행
 ---
 
