@@ -1,14 +1,3 @@
-// 현재
-const pageUrl = "{{ page.url | absolute_url }}";
-const pageTitle = "{{ page.title | escape }}";
-const pageImage = "{{ page.image | absolute_url }}";
-const pageDescription = "{{ page.excerpt | strip_html | truncate: 100 | escape }}";
-// 수정 후 (jsonify 사용 — 따옴표, 특수문자 자동 처리)
-const pageUrl = {{ page.url | absolute_url | jsonify }};
-const pageTitle = {{ page.title | jsonify }};
-const pageImage = {{ page.image | absolute_url | jsonify }};
-const pageDescription = {{ page.excerpt | strip_html | truncate: 100 | jsonify }};
-
 ---
 layout: default
 ---
@@ -150,7 +139,6 @@ layout: default
 </div>
 
 <style>
-/* 이전글/다음글 — post-content와 동일한 max-width/padding으로 중앙 정렬 */
 .post-nav {
   display: flex;
   gap: 12px;
@@ -178,7 +166,6 @@ layout: default
 .post-nav-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; }
 .post-nav-title { font-size: 0.9rem; font-weight: 500; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
-/* 목차 버튼 — scroll-top(bottom:40px) 위에 배치 */
 .toc-toggle {
   position: fixed;
   bottom: 96px;
@@ -255,10 +242,10 @@ layout: default
 </style>
 
 <script>
-  const pageUrl = "{{ page.url | absolute_url }}";
-  const pageTitle = "{{ page.title | escape }}";
-  const pageImage = "{{ page.image | absolute_url }}";
-  const pageDescription = "{{ page.excerpt | strip_html | truncate: 100 | escape }}";
+  const pageUrl = {{ page.url | absolute_url | jsonify }};
+  const pageTitle = {{ page.title | jsonify }};
+  const pageImage = {{ page.image | absolute_url | jsonify }};
+  const pageDescription = {{ page.excerpt | strip_html | truncate: 100 | jsonify }};
 
   document.addEventListener('DOMContentLoaded', function() {
     const headings = document.querySelectorAll('.post-content h2, .post-content h3');
@@ -306,11 +293,11 @@ layout: default
       buttons: [{ title: '글 보기', link: { mobileWebUrl: pageUrl, webUrl: pageUrl } }],
     });
   }
-  function shareTwitter() { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(pageTitle)}&url=${encodeURIComponent(pageUrl)}`, '_blank', 'width=550,height=450,noopener,noreferrer'); }
-  function shareFacebook() { window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`, '_blank', 'width=550,height=450,noopener,noreferrer'); }
+  function shareTwitter() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(pageTitle) + '&url=' + encodeURIComponent(pageUrl), '_blank', 'width=550,height=450,noopener,noreferrer'); }
+  function shareFacebook() { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl), '_blank', 'width=550,height=450,noopener,noreferrer'); }
   function copyURL() {
     const btn = document.getElementById('copyBtn');
-    if (navigator.clipboard && navigator.clipboard.writeText) {
+    if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(pageUrl).then(() => showCopied(btn)).catch(() => fallbackCopy(btn));
     } else fallbackCopy(btn);
   }
