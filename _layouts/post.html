@@ -1,3 +1,14 @@
+// 현재
+const pageUrl = "{{ page.url | absolute_url }}";
+const pageTitle = "{{ page.title | escape }}";
+const pageImage = "{{ page.image | absolute_url }}";
+const pageDescription = "{{ page.excerpt | strip_html | truncate: 100 | escape }}";
+// 수정 후 (jsonify 사용 — 따옴표, 특수문자 자동 처리)
+const pageUrl = {{ page.url | absolute_url | jsonify }};
+const pageTitle = {{ page.title | jsonify }};
+const pageImage = {{ page.image | absolute_url | jsonify }};
+const pageDescription = {{ page.excerpt | strip_html | truncate: 100 | jsonify }};
+
 ---
 layout: default
 ---
