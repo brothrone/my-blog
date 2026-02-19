@@ -153,9 +153,9 @@ layout: default
 
 <script>
   var pageUrl = "{{ page.url | absolute_url }}";
-  var pageTitle = "{{ page.title | escape }}";
+  var pageTitle = {{ page.title | jsonify }};
   var pageImage = "{{ page.image | absolute_url }}";
-  var pageDesc = "{{ page.excerpt | strip_html | truncate: 100 | escape }}";
+  var pageDesc = {{ page.excerpt | strip_html | truncate: 100 | jsonify }};
 
   /* ★ 시리즈 토글 */
   function toggleSeries(btn) {
