@@ -139,12 +139,14 @@ layout: default
 </div>
 
 <style>
+/* 이전글/다음글 — post-content와 동일한 max-width/padding으로 중앙 정렬 */
 .post-nav {
   display: flex;
   gap: 12px;
-  margin: 48px 0 32px;
+  max-width: 720px;
+  margin: 0 auto 32px;
+  padding: 32px 40px 0;
   border-top: 1px solid var(--border);
-  padding-top: 32px;
 }
 .post-nav-item {
   flex: 1;
@@ -165,10 +167,11 @@ layout: default
 .post-nav-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; }
 .post-nav-title { font-size: 0.9rem; font-weight: 500; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
+/* 목차 버튼 — scroll-top(bottom:40px) 위에 배치 */
 .toc-toggle {
   position: fixed;
-  bottom: 80px;
-  right: 24px;
+  bottom: 96px;
+  right: 40px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -233,10 +236,10 @@ layout: default
 }
 .toc-overlay.open { opacity: 1; pointer-events: auto; }
 @media (max-width: 600px) {
-  .post-nav { flex-direction: column; }
+  .post-nav { flex-direction: column; padding: 24px 20px 0; }
   .post-nav-next { text-align: left; }
   .toc-panel { width: 85vw; }
-  .toc-toggle { bottom: 24px; right: 20px; }
+  .toc-toggle { bottom: 76px; right: 20px; width: 40px; height: 40px; }
 }
 </style>
 
