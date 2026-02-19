@@ -1,1 +1,0 @@
-![](assets/images/ㅇ/5FCC3244-3D2A-409C-8EAC-0B1C293B426A_4_5005_c.webp)
