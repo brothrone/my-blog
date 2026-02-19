@@ -249,7 +249,7 @@ layout: default
   const pageImage = "{{ page.image | absolute_url }}";
   const pageDescription = "{{ page.excerpt | strip_html | truncate: 100 | escape }}";
 
-  (function() {
+  document.addEventListener('DOMContentLoaded', function() {
     const headings = document.querySelectorAll('.post-content h2, .post-content h3');
     const tocNav = document.getElementById('tocNav');
     const tocToggle = document.getElementById('tocToggle');
@@ -270,7 +270,7 @@ layout: default
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
     headings.forEach(h => observer.observe(h));
-  })();
+  });
 
   function openToc() {
     document.getElementById('tocPanel').classList.add('open');
