@@ -1,35 +1,19 @@
 ---
-
 layout: post
-
-title: "[숙박후기] "
-
+title: "[숙박후기]  힐튼 시드니 숙박후기 - 트윈룸, 조식포함 3박 숙박 후기"
 date: 2026-02-20 00:49:35 +0900
-
 category: 숙박후기
-
 tags:
-
   - 숙박
-
   - 힐튼시드니
-
   - 호텔
-
   - 시드니호텔추천
-
   - 호주여행
-
   - 힐튼아너스
-
 image: /assets/images/hotel-review/2026-02-20-HiltonSydney-1771517610047.webp
-
 series: 시드니
-
 series_no: 1
-
 series_icon: 🇦🇺
-
 ---
 
 힐튼 시드니(Hilton Sydney) 3박 숙박 후기. 2025년 2월 기준, 힐튼 공식앱으로 예약했으며 시드니 CBD 중심부에 위치해 접근성이 매우 뛰어났다.
