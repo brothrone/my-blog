@@ -79,34 +79,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-  <!-- ★ 히어로 이미지 preload -->
-  {% if page.url == "/" %}
-  <link rel="preload" as="image" href="/assets/images/sapporo.webp" media="(min-width: 961px)" />
-  <link rel="preload" as="image" href="/assets/images/sapporo-tablet.webp" media="(min-width: 601px) and (max-width: 960px)" />
-  <link rel="preload" as="image" href="/assets/images/sapporo-mobile.webp" media="(max-width: 600px)" />
-  {% endif %}
-  {% if page.image %}
-  <link rel="preload" as="image" href="{{ page.image }}" />
-  {% endif %}
-
-  <!-- CSS 동기 로드 (히어로 배경 즉시 적용) -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-
-  <!--
-    ★ 웹폰트 전략:
-    1. Cormorant Garamond — 제목용. display:optional → 첫 로드 시 시스템폰트 fallback,
-       캐시 후부터 즉시 적용. FOUT/CLS 완전 제거.
-    2. Noto Sans KR — 본문용. text= 파라미터로 한글 subset만 요청해 용량 90% 절감.
-       display:swap → 폰트 로드 전까지 시스템폰트 표시(가독성 우선).
-    3. 두 폰트 모두 preconnect 후 비동기 로드 → 렌더 블로킹 0.
-  -->
-
-  <!-- Cormorant Garamond (제목) — optional: CLS 없음 -->
-  <link rel="preload" as="style"
+  <!-- ★ 웹폰트 — media="print" onload 패턴으로 렌더 블로킹 완전 제거 -->
+  <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional"
-        onload="this.onload=null;this.rel='stylesheet'" />
+        media="print" onload="this.media='all'" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap"
+        media="print" onload="this.media='all'" />
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" />
   </noscript>
 
   <!-- Noto Sans KR (본문) — swap: 가독성 우선, subset으로 경량화 -->
