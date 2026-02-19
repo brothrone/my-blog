@@ -46,6 +46,7 @@ body {
   font-weight: 300;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
