@@ -113,3 +113,24 @@ layout: default
     {% endfor %}
   </div>
 </div>
+
+<style>
+  /* 모바일 화면(가로 768px 이하) 전용 설정 */
+  @media screen and (max-width: 768px) {
+    .hero-inner {
+      /* 글자 덩어리 전체를 강제로 60px 만큼 위로 끌어올립니다 */
+      transform: translateY(-60px) !important; 
+    }
+    
+    .hero-title {
+      /* 모바일에서 줄바꿈이 예쁘게 되도록 폰트 크기와 간격 최적화 */
+      font-size: 2.4rem !important;
+      line-height: 1.1 !important;
+    }
+    
+    .hero-sub {
+      /* 글자 아래쪽 여백을 넉넉히 줘서 카테고리 바와 안 겹치게 방어 */
+      margin-bottom: 20px !important;
+    }
+  }
+</style>
