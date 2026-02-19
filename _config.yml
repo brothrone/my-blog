@@ -12,6 +12,7 @@ permalink: /posts/:title/
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-paginate 
 
 # 제외 파일
 exclude:
@@ -20,3 +21,7 @@ exclude:
   - README.md
   - Templates/
 encoding: utf-8
+
+# 페이지네이션
+paginate: 10
+paginate_path: "/page/:num/"

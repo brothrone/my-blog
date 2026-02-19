@@ -45,7 +45,8 @@ layout: default
   </div>
 </section>
 
-<!-- 피처드 (최신 글) -->
+<!-- 피처드 (최신 글) — 1페이지에서만 표시 -->
+{% if paginator.page == 1 %}
 {% assign featured_post = site.posts.first %}
 {% if featured_post %}
 <section class="featured">
@@ -78,16 +79,20 @@ layout: default
   </a>
 </section>
 {% endif %}
+{% endif %}
 
 <!-- 구분선 -->
 <div class="section-divider">
-  <span>Recent Stories</span>
+  <span>{% if paginator.page == 1 %}Recent Stories{% else %}Page {{ paginator.page }}{% endif %}</span>
 </div>
 
 <!-- 카드 그리드 -->
 <div class="grid-wrap">
   <div class="card-grid">
-    {% for post in site.posts offset:1 %}
+    {% assign posts = paginator.posts %}
+    {% if paginator.page == 1 %}{% assign posts = paginator.posts | shift %}{% endif %}
+    {% for post in paginator.posts %}
+    {% if paginator.page == 1 and forloop.first %}{% continue %}{% endif %}
     {% if post.naver_url %}
     <a href="{{ post.naver_url }}" target="_blank" class="card">
     {% else %}
@@ -113,3 +118,83 @@ layout: default
   </div>
 </div>
 
+<!-- 페이지네이션 -->
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+    <a href="/" class="pagination-btn">← 이전</a>
+    {% else %}
+    <a href="{{ paginator.previous_page_path }}" class="pagination-btn">← 이전</a>
+    {% endif %}
+  {% else %}
+  <span class="pagination-btn disabled">← 이전</span>
+  {% endif %}
+
+  <div class="pagination-pages">
+    {% for i in (1..paginator.total_pages) %}
+      {% if i == 1 %}
+      <a href="/" class="pagination-page {% if paginator.page == 1 %}active{% endif %}">{{ i }}</a>
+      {% elsif i == paginator.page %}
+      <span class="pagination-page active">{{ i }}</span>
+      {% else %}
+      <a href="/page/{{ i }}/" class="pagination-page">{{ i }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path }}" class="pagination-btn">다음 →</a>
+  {% else %}
+  <span class="pagination-btn disabled">다음 →</span>
+  {% endif %}
+</nav>
+{% endif %}
+
+<style>
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 48px 20px 64px;
+}
+.pagination-btn {
+  padding: 8px 20px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.pagination-btn:hover { background: var(--surface); border-color: var(--text-muted); }
+.pagination-btn.disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+.pagination-pages {
+  display: flex;
+  gap: 6px;
+}
+.pagination-page {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: background 0.2s, color 0.2s;
+}
+.pagination-page:hover { background: var(--surface); color: var(--text); }
+.pagination-page.active {
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .pagination { gap: 8px; padding: 32px 16px 48px; }
+  .pagination-btn { padding: 8px 14px; font-size: 0.8rem; }
+  .pagination-page { width: 32px; height: 32px; font-size: 0.8rem; }
+}
+</style>

@@ -1,3 +1,4 @@
+gem "jekyll-paginate", "~> 1.1"
 source "https://rubygems.org"
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
@@ -33,3 +34,5 @@ gem "wdm", "~> 0.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem "jekyll-sitemap", "~> 1.4"
+gem "jekyll-paginate", "~> 1.1"
+gem "jekyll-paginate", "~> 1.1"
