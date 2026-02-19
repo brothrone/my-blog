@@ -7,5 +7,5 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /assets/images/
 
-Sitemap: https://brothrone.netlify.app/sitemap.xml
-Sitemap: https://brothrone.netlify.app/image-sitemap.xml
+Sitemap: https://brothrone.org/sitemap.xml
+Sitemap: https://brothrone.org/image-sitemap.xml
