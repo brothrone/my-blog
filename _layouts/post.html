@@ -7,22 +7,8 @@ layout: default
 {% endif %}
 
 <!-- 플로팅 목차 버튼 -->
-<button class="toc-toggle" id="tocToggle" aria-label="목차 열기">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="12" x2="15" y2="12"></line>
-    <line x1="3" y1="18" x2="18" y2="18"></line>
-  </svg>
-</button>
-
 <!-- 목차 팝업 -->
-<div class="toc-overlay" id="tocOverlay"></div>
-<div class="toc-popup" id="tocPanel">
-  <div class="toc-popup-header">
-    <span>목차</span>
-    <button class="toc-close" id="tocClose" aria-label="목차 닫기">✕</button>
-  </div>
-  <nav class="toc-nav" id="tocNav"></nav>
+<nav class="toc-nav" id="tocNav"></nav>
 </div>
 
 <div class="container">
@@ -166,130 +152,29 @@ layout: default
 .post-nav-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; }
 .post-nav-title { font-size: 0.9rem; font-weight: 500; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
-.toc-toggle {
-  position: fixed;
-  bottom: 96px;
-  right: 40px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-  z-index: 900;
-  transition: transform 0.2s;
-}
-.toc-toggle:hover { transform: scale(1.1); }
 
-/* 슬라이드 패널 */
-.toc-popup {
-  position: fixed;
-  top: 0;
-  right: -320px;
-  width: 300px;
-  height: 100vh;
-  background: var(--bg);
-  border-left: 1px solid var(--border);
-  box-shadow: -8px 0 32px rgba(0,0,0,0.12);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.toc-popup.open {
-  right: 0;
-}
-/* TOC 오버레이 */
-.toc-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-  z-index: 999;
-}
-.toc-overlay.open { display: block; }
-.toc-popup-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px 12px;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
-.toc-close {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-muted);
-  font-size: 1rem;
-  padding: 2px 4px;
-  line-height: 1;
-  transition: color 0.2s;
-}
-.toc-close:hover { color: var(--text); }
-.toc-nav {
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 10px 0;
-  flex: 1;
-}
-.toc-nav a {
-  display: block;
-  padding: 6px 16px;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  line-height: 1.6;
-  transition: color 0.15s, background 0.15s;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-  white-space: normal;
-}
-.toc-nav a::before {
-  content: '• ';
-  opacity: 0.5;
-}
-.toc-nav a::before {
-  content: '•';
-  font-size: 0.6rem;
-  flex-shrink: 0;
-  opacity: 0.5;
-  transition: opacity 0.15s;
-}
-.toc-nav a:hover {
-  color: var(--text);
-  background: var(--surface);
-}
-.toc-nav a:hover::before { opacity: 1; }
-.toc-nav a.active {
-  color: var(--text);
-  font-weight: 500;
-}
-.toc-nav a.active::before {
-  opacity: 1;
-  color: var(--text);
-}
-.toc-nav a.toc-h3 {
-  padding-left: 32px;
-  font-size: 0.77rem;
-}
-.toc-nav a.toc-h3::before { content: '–'; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 600px) {
   .post-nav { flex-direction: column; padding: 24px 20px 0; }
   .post-nav-next { text-align: left; }
-  .toc-toggle { bottom: 76px; right: 20px; width: 40px; height: 40px; }
-  .toc-popup { right: 20px; bottom: 128px; width: calc(100vw - 40px); }
+  
+  
 }
 </style>
 
