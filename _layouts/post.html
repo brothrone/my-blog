@@ -8,7 +8,6 @@ layout: default
 
 <!-- 플로팅 목차 버튼 -->
 <!-- 목차 팝업 -->
-<nav class="toc-nav" id="tocNav"></nav>
 </div>
 
 <div class="container">
@@ -187,7 +186,7 @@ layout: default
   document.addEventListener('DOMContentLoaded', function() {
     const headings = document.querySelectorAll('.post-content h2, .post-content h3');
     const tocNav = document.getElementById('tocNav');
-    const tocToggle = document.getElementById('tocToggle');
+    const tocToggle = 
     if (headings.length === 0) { tocToggle.style.display = 'none'; return; }
     headings.forEach((h, i) => {
       if (!h.id) h.id = 'heading-' + i;
@@ -207,27 +206,16 @@ layout: default
     headings.forEach(h => observer.observe(h));
   });
 
-  function openToc() {
-    document.getElementById('tocPanel').classList.add('open');
-  }
-  function closeToc() {
-    document.getElementById('tocPanel').classList.remove('open');
-  }
-  function toggleToc(e) {
-    e.stopPropagation();
-    document.getElementById('tocPanel').classList.toggle('open');
-  }
-  document.getElementById('tocToggle').addEventListener('click', toggleToc);
-  document.getElementById("tocOverlay").addEventListener("click", closeToc);
+  
+  
+  
+  
   document.getElementById("tocClose").addEventListener('click', function(e) {
     e.stopPropagation();
     closeToc();
   });
   document.addEventListener('click', function(e) {
-    const panel = document.getElementById('tocPanel');
-    if (panel.classList.contains('open') && !panel.contains(e.target)) {
-      closeToc();
-    }
+    
   });
 
   function initKakao() {
