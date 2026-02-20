@@ -183,41 +183,6 @@ layout: default
   const pageImage = {{ page.image | absolute_url | jsonify }};
   const pageDescription = {{ page.excerpt | strip_html | truncate: 100 | jsonify }};
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const headings = document.querySelectorAll('.post-content h2, .post-content h3');
-    const tocNav = document.getElementById('tocNav');
-    const tocToggle = 
-    if (headings.length === 0) { tocToggle.style.display = 'none'; return; }
-    headings.forEach((h, i) => {
-      if (!h.id) h.id = 'heading-' + i;
-      const a = document.createElement('a');
-      a.href = '#' + h.id;
-      a.textContent = h.textContent;
-      if (h.tagName === 'H3') a.classList.add('toc-h3');
-      a.addEventListener('click', closeToc);
-      tocNav.appendChild(a);
-    });
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const link = tocNav.querySelector(`a[href="#${entry.target.id}"]`);
-        if (link) link.classList.toggle('active', entry.isIntersecting);
-      });
-    }, { rootMargin: '-20% 0px -70% 0px' });
-    headings.forEach(h => observer.observe(h));
-  });
-
-  
-  
-  
-  
-  document.getElementById("tocClose").addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeToc();
-  });
-  document.addEventListener('click', function(e) {
-    
-  });
-
   function initKakao() {
     if (window.Kakao && !window.Kakao.isInitialized()) Kakao.init('633bea9d67448561d14b00f31281c957');
   }
