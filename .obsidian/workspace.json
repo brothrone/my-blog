@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/hotel-review/2026-02-20-HiltonSydney.md",
+                "file": "_posts/airline-review/ke411.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-20-HiltonSydney"
+              "title": "ke411"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "e6bd23aa41377acb",
@@ -94,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/hotel-review/2026-02-20-HiltonSydney.md",
+                "file": "_posts/airline-review/ke411.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-02-20-HiltonSydney"
+              "title": "Backlinks for ke411"
             }
           },
           {
@@ -186,21 +187,22 @@
   },
   "active": "f97fd9acb8a87e23",
   "lastOpenFiles": [
-    "assets/images/sapporo-mobile.webp",
-    "assets/images/sapporo-tablet.webp",
-    "assets/images/sapporo.webp",
-    "assets/images/IMG_4273.jpeg",
-    "_posts/tips/Untitled.md",
-    "assets/images/ㅇ/5FCC3244-3D2A-409C-8EAC-0B1C293B426A_4_5005_c.webp",
+    "assets/images/airline-review/ke411/IMG_3758.webp",
+    "assets/images/airline-review/ke411/IMG_3754.webp",
+    "assets/images/airline-review/ke411/IMG_3742.webp",
+    "assets/images/airline-review/ke411/IMG_3716.webp",
+    "assets/images/airline-review/ke411/IMG_3848.webp",
+    "assets/images/airline-review/ke411/IMG_3799.webp",
+    "assets/images/airline-review/ke411/IMG_3828.webp",
+    "assets/images/airline-review/ke411/IMG_1157.webp",
+    "assets/images/airline-review/ke411/IMG_3771.webp",
+    "assets/images/airline-review/ke411/IMG_3815.webp",
+    "assets/images/airline-review/ke411/IMG_3834.webp",
+    "assets/images/airline-review/ke411/IMG_3860.MOV",
     "_posts/hotel-review/2026-02-20-HiltonSydney.md",
-    "assets/images/ㅇ/5FCC3244-3D2A-409C-8EAC-0B1C293B426A_4_5005_c.jpeg",
+    "_posts/tips/Untitled.md",
     "assets/images/ㅇ",
     "assets/images/무제 폴더",
-    "assets/images/5FCC3244-3D2A-409C-8EAC-0B1C293B426A_4_5005_c.jpeg",
-    "assets/images/hotel-review/hiltonsydney/2026-02-20-HiltonSydney-1771519733112.webp",
-    "assets/images/hotel-review/hiltonsydney/2026-02-20-HiltonSydney-1771519706410.webp",
-    "assets/images/hotel-review/hiltonsydney/2026-02-20-HiltonSydney-1771519581781.webp",
-    "assets/images/hotel-review/hiltonsydney/2026-02-20-HiltonSydney-1771519514765.webp",
     "assets/images/hotel-review/hiltonsydney",
     "assets/images/hotel-review/무제 폴더",
     "_posts/Untitled.md",
@@ -215,7 +217,6 @@
     "_posts/airline-review/2022-05-22-3.md",
     "tags.html",
     "series.html",
-    "assets/css/travel-map.html",
     "_posts/airline-review/2022-05-25-8.md",
     "_posts/airline-review/2022-06-26-14.md",
     "_posts/airline-review/2023-01-15-delta-icn-sea.md",
