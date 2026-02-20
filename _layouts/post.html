@@ -16,6 +16,7 @@ layout: default
 </button>
 
 <!-- 목차 팝업 -->
+<div class="toc-overlay" id="tocOverlay"></div>
 <div class="toc-popup" id="tocPanel">
   <div class="toc-popup-header">
     <span>목차</span>
@@ -185,44 +186,33 @@ layout: default
 }
 .toc-toggle:hover { transform: scale(1.1); }
 
-/* 말풍선 팝업 */
+/* 슬라이드 패널 */
 .toc-popup {
   position: fixed;
-  bottom: 152px;
-  right: 40px;
-  width: 320px;
-  max-height: 75vh;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
   background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  border-left: 1px solid var(--border);
+  box-shadow: -8px 0 32px rgba(0,0,0,0.12);
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px) scale(0.97);
-  transform-origin: bottom right;
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-}
-/* 말풍선 꼬리 */
-.toc-popup::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  right: 14px;
-  width: 14px;
-  height: 14px;
-  background: var(--bg);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transform: rotate(45deg);
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .toc-popup.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0) scale(1);
+  right: 0;
 }
+/* TOC 오버레이 */
+.toc-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 999;
+}
+.toc-overlay.open { display: block; }
 .toc-popup-header {
   display: flex;
   align-items: center;
@@ -343,7 +333,8 @@ layout: default
     document.getElementById('tocPanel').classList.toggle('open');
   }
   document.getElementById('tocToggle').addEventListener('click', toggleToc);
-  document.getElementById('tocClose').addEventListener('click', function(e) {
+  document.getElementById("tocOverlay").addEventListener("click", closeToc);
+  document.getElementById("tocClose").addEventListener('click', function(e) {
     e.stopPropagation();
     closeToc();
   });
