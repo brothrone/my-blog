@@ -1,0 +1,57 @@
+---
+layout: en-default
+title: "Brothrone Travel — English"
+permalink: /en/
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">✈️ Brothrone Travel</p>
+    <h1 class="hero-title">The world is worth<br /><em>exploring.</em></h1>
+    <p class="hero-sub">Airline reviews, hotel stays, and travel stories.</p>
+  </div>
+  <div class="hero-cats">
+    <a href="/en/airline-review/" class="hero-cat">
+      <span class="hero-cat-icon">✈️</span>
+      <div class="hero-cat-name">Airline Review</div>
+      <div class="hero-cat-sub">Flight Reports</div>
+    </a>
+    <div class="hero-cat-divider"></div>
+    <a href="/en/hotel-review/" class="hero-cat">
+      <span class="hero-cat-icon">🏨</span>
+      <div class="hero-cat-name">Hotel Review</div>
+      <div class="hero-cat-sub">Stay Reports</div>
+    </a>
+  </div>
+</section>
+
+<div class="grid-wrap">
+  {% assign en_posts = site.posts | where: "lang", "en" %}
+  {% if en_posts.size > 0 %}
+  <h2 class="section-title">Recent Posts</h2>
+  <div class="card-grid">
+    {% for post in en_posts limit: 9 %}
+    <a href="{{ post.url }}" class="card">
+      {% if post.image %}
+      <div class="card-img-wrap">
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="card-img" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" />
+      </div>
+      {% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-date">{{ post.date | date: "%b %d, %Y" }}</span>
+          {% if post.tags.first %}<span class="card-tag">{{ post.tags.first }}</span>{% endif %}
+        </div>
+        <h3 class="card-title">{{ post.title }}</h3>
+        <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="text-align:center; padding: 80px 20px; color: var(--text-muted);">
+    <p style="font-size:1.1rem;">English posts coming soon.</p>
+    <p style="margin-top:8px; font-size:0.9rem;">Check back later or visit the <a href="/" style="color:var(--text); text-decoration:underline;">Korean version</a>.</p>
+  </div>
+  {% endif %}
+</div>

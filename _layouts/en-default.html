@@ -1,0 +1,287 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} · Travel & Aviation Blog{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}Travel blog covering airline reviews, hotel reviews, and travel tips.{% endif %}" />
+  <meta name="author" content="{{ site.author }}" />
+
+  <!-- Open Graph -->
+  {% assign og_title = page.title | default: site.title %}
+  {% assign og_desc  = page.excerpt | default: "Travel blog covering airline reviews, hotel reviews, and travel tips." | strip_html | truncate: 160 %}
+  {% assign og_url   = page.url | absolute_url %}
+  {% if page.image %}
+    {% assign og_image = page.image | absolute_url %}
+  {% else %}
+    {% assign og_image = "/assets/images/og-default.webp" | absolute_url %}
+  {% endif %}
+
+  <meta property="og:site_name"   content="{{ site.title }}" />
+  <meta property="og:type"        content="{% if page.layout == 'en-post' %}article{% else %}website{% endif %}" />
+  <meta property="og:title"       content="{{ og_title | escape }}" />
+  <meta property="og:description" content="{{ og_desc | escape }}" />
+  <meta property="og:url"         content="{{ og_url }}" />
+  <meta property="og:image"       content="{{ og_image }}" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="{{ og_title | escape }}" />
+  <meta name="twitter:description" content="{{ og_desc | escape }}" />
+  <meta name="twitter:image"      content="{{ og_image }}" />
+
+  {% if page.layout == 'en-post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title | escape }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "author": {"@type": "Person", "name": "{{ site.author }}"},
+    "publisher": {"@type": "Organization", "name": "{{ site.title }}"},
+    {% if page.image %}"image": "{{ page.image | absolute_url }}",{% endif %}
+    "url": "{{ page.url | absolute_url }}"
+  }
+  </script>
+  {% endif %}
+
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional" rel="stylesheet" /></noscript>
+
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap&subset=korean"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap&subset=korean" rel="stylesheet" /></noscript>
+
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-BQ5T1WKVT3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BQ5T1WKVT3', { 'send_page_view': false });
+    window.addEventListener('load', function() { gtag('event', 'page_view'); });
+  </script>
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+
+  <style>
+    body {
+      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', -apple-system, sans-serif;
+      background: #fff; color: #1d1d1f; margin: 0;
+    }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; }
+    [data-theme="dark"] body { background: #0a0a0a; color: #f5f5f7; }
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(210,210,215,0.5);
+      height: 52px;
+    }
+    [data-theme="dark"] .site-header { background: rgba(10,10,10,0.85); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/en/" class="logo">BROTHRONE</a>
+      <nav class="desktop-nav">
+        <a href="/en/airline-review/">Airline</a>
+        <a href="/en/hotel-review/">Hotel</a>
+        <a href="/en/about/">About</a>
+        <a href="/" class="lang-btn lang-btn-active">KO</a>
+        <button class="search-btn" onclick="toggleSearch()" aria-label="Search">🔍</button>
+        <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" aria-label="Toggle dark mode"></button>
+      </nav>
+      <div class="mobile-nav">
+        <button class="search-btn" onclick="toggleSearch()" aria-label="Search">🔍</button>
+        <button class="dark-toggle" id="darkToggleMobile" onclick="toggleDark()" aria-label="Toggle dark mode"></button>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/en/airline-review/" onclick="toggleMenu()">Airline Review</a>
+      <a href="/en/hotel-review/" onclick="toggleMenu()">Hotel Review</a>
+      <a href="/en/about/" onclick="toggleMenu()">About</a>
+      <a href="/" onclick="toggleMenu()" class="lang-btn">🇰🇷 Korean Version</a>
+    </div>
+
+    <div class="search-bar" id="searchBar">
+      <div class="search-inner">
+        <input type="text" id="searchInput" placeholder="Search posts..." oninput="searchPosts()" autocomplete="off" />
+        <button onclick="toggleSearch()" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <script>
+      const posts = [
+        {% assign en_posts = site.posts | where: "lang", "en" %}
+        {% for post in en_posts %}
+        {
+          title: {{ post.title | jsonify }},
+          url: {{ post.url | relative_url | jsonify }},
+          excerpt: {{ post.excerpt | strip_html | truncate: 120 | jsonify }},
+          date: {{ post.date | date: "%b %d, %Y" | jsonify }},
+          category: {{ post.category | default: "" | jsonify }},
+          tags: {{ post.tags | default: "" | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ];
+
+      function toggleDark() {
+        var html = document.documentElement;
+        var isDark = html.getAttribute('data-theme') === 'dark';
+        html.setAttribute('data-theme', isDark ? '' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      }
+      function toggleMenu() {
+        document.getElementById('mobileMenu').classList.toggle('active');
+      }
+      function toggleSearch() {
+        var bar = document.getElementById('searchBar');
+        var input = document.getElementById('searchInput');
+        bar.classList.toggle('active');
+        if (bar.classList.contains('active')) input.focus();
+        else { input.value = ''; document.getElementById('searchResults').innerHTML = ''; }
+      }
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          var bar = document.getElementById('searchBar');
+          if (bar.classList.contains('active')) toggleSearch();
+        }
+      });
+      function searchPosts() {
+        var query = document.getElementById('searchInput').value.trim();
+        var results = document.getElementById('searchResults');
+        if (!query) { results.innerHTML = ''; return; }
+        var q = query.toLowerCase();
+        var filtered = posts.filter(function(p) {
+          return p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q);
+        });
+        if (filtered.length === 0) { results.innerHTML = '<p class="no-result">No results found.</p>'; return; }
+        results.innerHTML = filtered.slice(0, 10).map(function(p) {
+          return '<a href="' + p.url + '" class="search-result-item">' +
+            '<span class="search-result-date">' + p.date + '</span>' +
+            '<span class="search-result-title">' + p.title + '</span>' +
+            '</a>';
+        }).join('');
+      }
+    </script>
+  </header>
+
+  <main>{{ content }}</main>
+
+  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-img-wrap" id="lightboxWrap">
+      <button class="lightbox-close" onclick="closeLightboxBtn()" aria-label="Close">✕</button>
+      <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1, event)" aria-label="Previous">‹</button>
+      <img id="lightboxImg" src="" alt="" />
+      <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1, event)" aria-label="Next">›</button>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">BROTHRONE</span>
+        <p>© {{ site.time | date: "%Y" }} · Travel & Aviation</p>
+      </div>
+      <div class="footer-stats">
+        {% assign en_posts = site.posts | where: "lang", "en" %}
+        <span class="footer-stat">Posts <strong>{{ en_posts | size }}</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.post-content')) {
+      var bar = document.createElement('div');
+      bar.className = 'reading-progress';
+      document.body.appendChild(bar);
+      window.addEventListener('scroll', function() {
+        var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        bar.style.width = (winScroll / height * 100) + '%';
+      }, { passive: true });
+    }
+    var topBtn = document.createElement('button');
+    topBtn.className = 'scroll-top';
+    topBtn.innerHTML = '↑';
+    topBtn.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(topBtn);
+    window.addEventListener('scroll', function() {
+      topBtn.classList.toggle('visible', window.pageYOffset > 300);
+    }, { passive: true });
+    topBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    var postImgs = Array.from(document.querySelectorAll('.post-content img'));
+    postImgs.forEach(function(img, idx) {
+      img.setAttribute('data-idx', idx);
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function() { openLightbox(idx); });
+    });
+  });
+
+  var lbImages = [], lbCurrent = 0;
+  function openLightbox(idx) {
+    lbImages = Array.from(document.querySelectorAll('.post-content img'));
+    lbCurrent = idx;
+    showLightboxImg(lbCurrent);
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function showLightboxImg(idx) {
+    var img = lbImages[idx];
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.alt || '';
+    document.getElementById('lightboxCaption').textContent = img.alt || '';
+    document.querySelector('.lightbox-prev').style.display = lbImages.length > 1 ? 'flex' : 'none';
+    document.querySelector('.lightbox-next').style.display = lbImages.length > 1 ? 'flex' : 'none';
+  }
+  function closeLightbox(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightboxBtn();
+  }
+  function closeLightboxBtn() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function lightboxNav(dir, e) {
+    e.stopPropagation();
+    lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length;
+    showLightboxImg(lbCurrent);
+  }
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') lightboxNav(-1, { stopPropagation: function(){} });
+    if (e.key === 'ArrowRight') lightboxNav(1, { stopPropagation: function(){} });
+    if (e.key === 'Escape') closeLightboxBtn();
+  });
+  </script>
+
+</body>
+</html>
