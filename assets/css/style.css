@@ -1354,7 +1354,7 @@ nav a:hover { color: var(--text); }
   font-weight: 600 !important;
   letter-spacing: 0.08em;
   color: var(--bg) !important;
-  background: var(--text) !important;
+  
   border: 1px solid var(--text);
   border-radius: 4px;
   padding: 3px 10px !important;
