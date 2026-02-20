@@ -347,8 +347,8 @@ nav a:hover { color: var(--text); }
 }
 .hero-cat:hover { background: rgba(255,255,255,0.12); }
 .hero-cat-icon { font-size: 1.6rem; line-height: 1; }
-.hero-cat-name { font-size: 0.95rem; font-weight: 500; letter-spacing: -0.01em; color: #fff; }
-.hero-cat-sub { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 2px; }
+.hero-cat-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.04em; color: #fff; }
+.hero-cat-sub { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 4px; font-weight: 300; }
 .hero-cat-divider { width: 1px; background: rgba(255,255,255,0.2); margin: 16px 0; }
 
 /* ===========================
