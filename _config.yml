@@ -6,7 +6,7 @@ url: "https://brothrone.org"
 
 # 빌드 설정
 markdown: kramdown
-permalink: /:category/:slug/
+permalink: /posts/:title/
 
 # 플러그인
 plugins:
