@@ -13,8 +13,9 @@ layout: default
   <div class="grid-wrap">
     <div class="card-grid">
       {% assign airline_tips = site.posts | where: "category", "항공팁" %}
+      {% assign travel_tips = site.posts | where: "category", "tips" %}
       {% assign hotel_tips = site.posts | where: "category", "숙박팁" %}
-      {% assign all_tips = airline_tips | concat: hotel_tips | sort: "date" | reverse %}
+      {% assign all_tips = airline_tips | concat: hotel_tips | concat: travel_tips | sort: "date" | reverse %}
       
       {% for post in all_tips %}
       {% if post.naver_url %}
