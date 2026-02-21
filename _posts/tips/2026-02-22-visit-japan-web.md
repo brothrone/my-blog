@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "[팁] 일본 자유여행 필수! Visit Japan Web 등록 방법 정리"
+title: "[팁]일본 자유여행 필수! Visit Japan Web 등록 방법 정리"
 date: 2026-02-22 01:29:24 +0900
-category: 여행팁
+category: tips
 tags:
   - 일본여행
   - visitjapanweb
