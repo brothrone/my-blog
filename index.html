@@ -4,46 +4,33 @@ layout: default
 <!-- 히어로 + 카테고리 통합 -->
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow">✈️ Brothrone Travel</p>
-    <h1 class="hero-title">The world is worth<br /><em>exploring.</em></h1>
-    <p class="hero-sub">여행의 순간을 기록합니다</p>
-  </div>
-
-  <!-- 히어로 안 카테고리 바 -->
-  <div class="hero-cats">
-    <a href="/category/airline-review/" class="hero-cat">
-      <span class="hero-cat-icon">✈️</span>
-      <div>
-        <div class="hero-cat-name">항공 리뷰</div>
-        <div class="hero-cat-sub">Airline Review</div>
-      </div>
-    </a>
-    <div class="hero-cat-divider"></div>
-    <a href="/category/hotel-review/" class="hero-cat">
-      <span class="hero-cat-icon">🏨</span>
-      <div>
-        <div class="hero-cat-name">호텔 리뷰</div>
-        <div class="hero-cat-sub">Hotel Review</div>
-      </div>
-    </a>
-    <div class="hero-cat-divider"></div>
-    <a href="/category/tips/" class="hero-cat">
-      <span class="hero-cat-icon">💡</span>
-      <div>
-        <div class="hero-cat-name">항공/숙박 꿀팁</div>
-        <div class="hero-cat-sub">Travel Tips</div>
-      </div>
-    </a>
-    <div class="hero-cat-divider"></div>
-    <a href="/categories/" class="hero-cat">
-      <span class="hero-cat-icon">📂</span>
-      <div>
-        <div class="hero-cat-name">전체 카테고리</div>
-        <div class="hero-cat-sub">All Categories</div>
-      </div>
-    </a>
+    <h1 class="hero-title">Welcome to the<br /><em>BROTHRONE</em></h1>
+    <p class="hero-sub">호텔, 항공, 그리고 여행의 모든 것</p>
   </div>
 </section>
+
+<!-- 카테고리 바 (히어로 외부, 흰색 배경) -->
+<div class="hero-cats-bar">
+  <a href="/category/airline-review/" class="hero-cat">
+    <div class="hero-cat-name">항공 리뷰</div>
+    <div class="hero-cat-sub">Airline Review</div>
+  </a>
+  <div class="hero-cat-divider"></div>
+  <a href="/category/hotel-review/" class="hero-cat">
+    <div class="hero-cat-name">호텔 리뷰</div>
+    <div class="hero-cat-sub">Hotel Review</div>
+  </a>
+  <div class="hero-cat-divider"></div>
+  <a href="/category/tips/" class="hero-cat">
+    <div class="hero-cat-name">항공/숙박 꿀팁</div>
+    <div class="hero-cat-sub">Travel Tips</div>
+  </a>
+  <div class="hero-cat-divider"></div>
+  <a href="/categories/" class="hero-cat">
+    <div class="hero-cat-name">전체 카테고리</div>
+    <div class="hero-cat-sub">All Categories</div>
+  </a>
+</div>
 
 <!-- 피처드 (최신 글) — 1페이지에서만 표시 -->
 {% if paginator.page == 1 %}
