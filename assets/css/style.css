@@ -1350,6 +1350,8 @@ nav a:hover { color: var(--text); }
 }
 
 @media (max-width: 600px) {
+  .hero { height: 94vh; min-height: 500px; }
+  .hero-cats-bar { scroll-margin-top: 56px; }
   .desktop-nav { display: none; }
   .mobile-nav { display: flex; }
   .header-inner { padding: 0 16px; }
