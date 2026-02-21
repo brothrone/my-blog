@@ -6,7 +6,7 @@ tags:
   - 여행
   - 항공
 image: /assets/images/seattle_boeing/boeing1.webp
-category: 여행
+category: travel
 ---
 
 시애틀에 있는 항공기 박물관에 다녀왔다.
