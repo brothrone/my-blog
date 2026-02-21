@@ -19,6 +19,10 @@ find "$IMAGES_DIR" -type f \( -iname "*.jpeg" -o -iname "*.jpg" -o -iname "*.png
 
   NEW_SIZE=$(wc -c < "$WEBP_FILE")
   echo "  절감: $(( (ORIG_SIZE - NEW_SIZE) / 1024 ))KB"
+
+  # 원본 파일 삭제
+  rm "$FILE"
+  echo "  삭제: $FILE"
 done
 
 echo ""
@@ -29,6 +33,8 @@ find "$POSTS_DIR" -name "*.md" | while read -r MD; do
     -e 's/\.jpeg/.webp/g' \
     -e 's/\.jpg/.webp/g' \
     -e 's/\.png/.webp/g' \
+    -e 's|](assets/|](/assets/|g' \
+    -e 's|image: assets/|image: /assets/|g' \
     "$MD"
   echo "업데이트: $MD"
 done
