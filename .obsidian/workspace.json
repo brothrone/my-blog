@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/airline-review/2026-02-21-NZ547.md",
+                "file": "_posts/tips/2026-02-22-visit-japan-web.md.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-21-NZ547"
+              "title": "2026-02-22-visit-japan-web.md"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "e6bd23aa41377acb",
@@ -94,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/airline-review/2026-02-21-NZ547.md",
+                "file": "_posts/tips/2026-02-22-visit-japan-web.md.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-02-21-NZ547"
+              "title": "Backlinks for 2026-02-22-visit-japan-web.md"
             }
           },
           {
@@ -186,20 +187,27 @@
   },
   "active": "f97fd9acb8a87e23",
   "lastOpenFiles": [
-    "rss.xml",
-    "assets/images/airline-review/nz547/nz547.webp",
-    "assets/images/airline-review/nz547/IMG_3883.webp",
-    "assets/images/airline-review/nz547/IMG_3882.webp",
-    "assets/images/airline-review/nz547/IMG_3894.webp",
-    "assets/images/airline-review/nz547/스크린샷 2026-02-21 02.18.24.webp",
-    "assets/images/airline-review/nz547/IMG_3915.webp",
-    "assets/images/airline-review/nz547/IMG_3885.webp",
-    "assets/images/airline-review/nz547/IMG_3891.webp",
-    "assets/images/airline-review/nz547/IMG_3852.webp",
-    "assets/images/airline-review/nz547/IMG_3901.webp",
-    "_posts/airline-review/2026-02-18-ke411.md",
+    "assets/images/tips/visit-japan-web/vjw17.webp",
+    "assets/images/tips/visit-japan-web/vjw16.webp",
+    "assets/images/tips/visit-japan-web/vjw19.webp",
+    "assets/images/tips/visit-japan-web/vjw12.webp",
+    "assets/images/tips/visit-japan-web/vjw2.webp",
+    "assets/images/tips/visit-japan-web/vjw3.webp",
+    "assets/images/tips/visit-japan-web/vjw1.webp",
+    "assets/images/tips/visit-japan-web/vjw4.webp",
+    "assets/images/tips/visit-japan-web/vjw5.webp",
+    "assets/images/tips/visit-japan-web/vjw7.webp",
+    "assets/images/tips/visit-japan-web/vjw6.webp",
     "_posts/airline-review/2026-02-21-NZ547.md",
+    "_posts/tips/2026-02-22-visit-japan-web.md.md",
+    "_posts/tips/2026-02-22-visit-japan-web.md.md",
+    "Templates/Jekyll_Post_tips.md",
+    "_posts/hotel-review/Untitled.md",
+    "assets/images/tips/visit-japan-web",
+    "assets/images/tips/무제 폴더",
     "_posts/hotel-review/2026-02-20-HiltonSydney.md",
+    "_posts/airline-review/2026-02-18-ke411.md",
+    "rss.xml",
     "_posts/hotel-review/2026-02-17-fukuoka-ryokan.md",
     "_posts/hotel-review/2022-05-23-5.md",
     "_posts/airline-review/2023-08-22-37.md",
@@ -212,10 +220,6 @@
     "_layouts/en-post.html",
     "_layouts/en-default.html",
     "_posts/airline-review/ke411.md",
-    "assets/images/airline-review/ke411/IMG_3860.MOV",
-    "_posts/tips/Untitled.md",
-    "assets/images/ㅇ",
-    "assets/images/무제 폴더",
     "_posts/Untitled.md",
     "_posts/airline-review/2022-05-22-3.md",
     "_posts/airline-review/2022-05-25-8.md",
@@ -229,9 +233,6 @@
     "_posts/travel/2026-01-10-45.md",
     "_posts/travel/2026-01-10-46.md",
     "_posts/travel/2026-02-17-seattle-aviation-museum.md",
-    "assets/images/Untitled.md",
-    "assets/images/Untitled 1.md",
-    "assets/images/Untitled 2.md",
     "_posts/Untitled.canvas",
     "Untitled.canvas"
   ]

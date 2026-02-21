@@ -25,6 +25,10 @@
     {
       "folder": "_posts/travel",
       "template": "Templates/Jekyll_Post_travel-review.md"
+    },
+    {
+      "folder": "_posts/tips",
+      "template": "Templates/Jekyll_Post_tips.md"
     }
   ],
   "enable_file_templates": false,
