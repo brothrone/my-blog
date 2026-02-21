@@ -6,24 +6,37 @@ permalink: /en/
 
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow">✈️ Brothrone Travel</p>
-    <h1 class="hero-title">The world is worth<br /><em>exploring.</em></h1>
+    <h1 class="hero-title">Welcome to the BROTHRONE</h1>
     <p class="hero-sub">Airline reviews, hotel stays, and travel stories.</p>
   </div>
-  <div class="hero-cats">
-    <a href="/en/airline-review/" class="hero-cat">
-      <span class="hero-cat-icon">✈️</span>
-      <div class="hero-cat-name">Airline Review</div>
-      <div class="hero-cat-sub">Flight Reports</div>
-    </a>
-    <div class="hero-cat-divider"></div>
-    <a href="/en/hotel-review/" class="hero-cat">
-      <span class="hero-cat-icon">🏨</span>
-      <div class="hero-cat-name">Hotel Review</div>
-      <div class="hero-cat-sub">Stay Reports</div>
-    </a>
-  </div>
+  <a class="hero-scroll-btn" href="#en-cat-bar" aria-label="Scroll down">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </a>
 </section>
+
+<div class="hero-cats-bar" id="en-cat-bar" style="display:flex;">
+  <a href="/en/airline-review/" class="hero-cat">
+    <div class="hero-cat-name">Airline Review</div>
+    <div class="hero-cat-sub">Flight Reports</div>
+  </a>
+  <div class="hero-cat-divider"></div>
+  <a href="/en/hotel-review/" class="hero-cat">
+    <div class="hero-cat-name">Hotel Review</div>
+    <div class="hero-cat-sub">Stay Reports</div>
+  </a>
+  <div class="hero-cat-divider"></div>
+  <a href="/en/about/" class="hero-cat">
+    <div class="hero-cat-name">About</div>
+    <div class="hero-cat-sub">Our Story</div>
+  </a>
+  <div class="hero-cat-divider"></div>
+  <a href="/" class="hero-cat">
+    <div class="hero-cat-name">한국어</div>
+    <div class="hero-cat-sub">Korean Ver.</div>
+  </a>
+</div>
 
 <div class="grid-wrap">
   {% assign en_posts = site.posts | where: "lang", "en" %}
