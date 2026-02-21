@@ -25,3 +25,6 @@ encoding: utf-8
 # 페이지네이션
 paginate: 10
 paginate_path: "/page/:num/"
+
+kramdown:
+  hard_wrap: true
