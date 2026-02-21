@@ -2,7 +2,7 @@
 layout: post
 title: "[탑승기] 델타항공 인천-시애틀 이코노미 탑승기"
 date: 2023-01-15
-category: 항공리뷰
+category: airline-review
 tags:
   - 미국
   - 항공리뷰

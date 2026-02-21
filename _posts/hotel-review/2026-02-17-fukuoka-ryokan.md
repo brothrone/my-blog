@@ -2,7 +2,7 @@
 layout: post
 title: "[유후인 료칸] 오야도 유후노쇼"
 date: 2023-01-29 09:00:00 +0900
-category: 호텔리뷰
+category: hotel-review
 tags:
   - 호텔리뷰
   - 일본
