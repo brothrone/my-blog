@@ -4,13 +4,18 @@ layout: default
 <!-- 히어로 + 카테고리 통합 -->
 <section class="hero">
   <div class="hero-inner">
-    <h1 class="hero-title">Welcome to the<br /><em>BROTHRONE</em></h1>
+    <h1 class="hero-title">Welcome to the BROTHRONE</h1>
     <p class="hero-sub">호텔, 항공, 그리고 여행의 모든 것</p>
   </div>
+  <a class="hero-scroll-btn" href="#cat-bar" aria-label="스크롤 다운">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </a>
 </section>
 
 <!-- 카테고리 바 (히어로 외부, 흰색 배경) -->
-<div class="hero-cats-bar" style="display:flex;">
+<div class="hero-cats-bar" id="cat-bar" style="display:flex;">
   <a href="/category/airline-review/" class="hero-cat">
     <div class="hero-cat-name">항공 리뷰</div>
     <div class="hero-cat-sub">Airline Review</div>

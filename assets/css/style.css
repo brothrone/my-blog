@@ -325,6 +325,32 @@ nav a:hover { color: var(--text); }
   animation: fadeUp 0.8s ease 0.1s both;
 }
 
+/* 히어로 스크롤다운 버튼 */
+.hero-scroll-btn {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+  animation: bounceDown 2s ease-in-out infinite;
+}
+.hero-scroll-btn:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+@keyframes bounceDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50% { transform: translateX(-50%) translateY(8px); opacity: 0.6; }
+}
+
 /* 카테고리 바 (히어로 외부, 흰색 배경) */
 .hero-cats-bar {
   display: flex;
