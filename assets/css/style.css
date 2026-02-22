@@ -1414,3 +1414,27 @@ nav a:hover { color: var(--text); }
 .lang-btn:hover {
   opacity: 0.7;
 }
+
+/* Featured + Card 영역 캐주얼 폰트 */
+.featured-title,
+.featured-meta,
+.featured-excerpt,
+.featured-cta,
+.card-title,
+.card-meta,
+.card-excerpt,
+.section-label {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Featured + Card 영역 캐주얼 폰트 */
+.featured-title,
+.featured-meta,
+.featured-excerpt,
+.featured-cta,
+.card-title,
+.card-meta,
+.card-excerpt,
+.section-label {
+  font-family: 'Poppins', sans-serif;
+}
