@@ -1436,3 +1436,16 @@ nav a:hover { color: var(--text); }
 .section-label {
   font-family: 'Gowun Dodum', sans-serif;
 }
+
+/* 이미지 2열 나란히 배치 */
+.img-row {
+  display: flex;
+  gap: 8px;
+  margin: 1rem 0;
+}
+
+.img-row img {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 4px;
+}
