@@ -1,0 +1,12 @@
+{
+  "img-row": {
+    "prefix": "imgrow",
+    "body": [
+      "<div class=\"img-row\">",
+      "  <img src=\"/assets/images/$1\" alt=\"$2\">",
+      "  <img src=\"/assets/images/$3\" alt=\"$4\">",
+      "</div>"
+    ],
+    "description": "이미지 2열 나란히"
+  }
+}
