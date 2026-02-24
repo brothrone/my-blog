@@ -19,62 +19,70 @@ permalink: /categories/
       </div>
       <span class="all-cat-arrow">→</span>
     </a>
-    
+
+    {% assign airline_count = site.posts | where: "category", "airline-review" | size %}
     <a href="/category/airline-review/" class="all-cat-card">
       <span class="all-cat-icon">✈️</span>
       <div class="all-cat-info">
         <h3>항공 리뷰</h3>
         <p>Airline Review</p>
       </div>
+      <span class="all-cat-count">{{ airline_count }}편</span>
       <span class="all-cat-arrow">→</span>
     </a>
-    
+
+    {% assign hotel_count = site.posts | where: "category", "hotel-review" | size %}
     <a href="/category/hotel-review/" class="all-cat-card">
       <span class="all-cat-icon">🏨</span>
       <div class="all-cat-info">
         <h3>호텔 리뷰</h3>
         <p>Hotel Review</p>
       </div>
+      <span class="all-cat-count">{{ hotel_count }}편</span>
       <span class="all-cat-arrow">→</span>
     </a>
-    
+
+    {% assign tips_count = site.posts | where: "category", "tips" | size %}
     <a href="/category/tips/" class="all-cat-card">
       <span class="all-cat-icon">💡</span>
       <div class="all-cat-info">
         <h3>항공/숙박 꿀팁</h3>
         <p>Travel Tips</p>
       </div>
+      <span class="all-cat-count">{{ tips_count }}편</span>
       <span class="all-cat-arrow">→</span>
     </a>
-    
+
+    {% assign travel_count = site.posts | where: "category", "travel" | size %}
     <a href="/category/travel/" class="all-cat-card">
       <span class="all-cat-icon">🌏</span>
       <div class="all-cat-info">
         <h3>여행</h3>
         <p>Travel</p>
       </div>
+      <span class="all-cat-count">{{ travel_count }}편</span>
       <span class="all-cat-arrow">→</span>
     </a>
   </div>
 </div>
 
 <style>
+.all-cat-count {
+  font-size: 0.8rem;
+  color: #888;
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
 .highlight-card {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
   color: white !important;
   border-color: transparent !important;
 }
-
-.highlight-card .all-cat-icon {
-  font-size: 2.5rem;
-}
-
+.highlight-card .all-cat-icon { font-size: 2.5rem; }
 .highlight-card .all-cat-info h3,
 .highlight-card .all-cat-info p,
-.highlight-card .all-cat-arrow {
-  color: white !important;
-}
-
+.highlight-card .all-cat-arrow { color: white !important; }
 .highlight-card:hover {
   transform: translateX(6px) scale(1.02);
   box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
