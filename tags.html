@@ -4,7 +4,8 @@ title: 태그
 permalink: /tags/
 ---
 
-{% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | sort %}
+{% assign ko_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
+{% assign all_tags = ko_posts | map: "tags" | join: "," | split: "," | sort %}
 {% assign unique_tags = all_tags | uniq %}
 
 <div class="tags-page">
@@ -17,7 +18,7 @@ permalink: /tags/
   <div class="tag-cloud" id="tagCloud">
     {% for tag in unique_tags %}
       {% if tag != "" %}
-        {% assign tag_posts = site.posts | where_exp: "p", "p.tags contains tag" %}
+        {% assign tag_posts = ko_posts | where_exp: "p", "p.tags contains tag" %}
         <button class="tag-cloud-item" onclick="filterTag('{{ tag | escape }}')" data-tag="{{ tag | escape }}">
           #{{ tag }}
           <span class="count">{{ tag_posts.size }}</span>
@@ -30,7 +31,7 @@ permalink: /tags/
   <div id="tagResultsContainer">
     {% for tag in unique_tags %}
       {% if tag != "" %}
-        {% assign tag_posts = site.posts | where_exp: "p", "p.tags contains tag" %}
+        {% assign tag_posts = ko_posts | where_exp: "p", "p.tags contains tag" %}
         <div class="tag-results" id="tag-{{ tag | slugify | escape }}" data-tag="{{ tag | escape }}">
           <div class="section-divider" style="margin-bottom: 24px;">
             <span>#{{ tag }} · {{ tag_posts.size }}편</span>

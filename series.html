@@ -4,7 +4,8 @@ title: 시리즈
 permalink: /series/
 ---
 
-{% assign all_series = site.posts | map: "series" | compact | uniq | sort %}
+{% assign ko_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
+{% assign all_series = ko_posts | map: "series" | compact | uniq | sort %}
 
 <div class="series-page">
   <div class="series-page-header">
@@ -15,7 +16,7 @@ permalink: /series/
   {% if all_series.size > 0 %}
   <div class="series-cards">
     {% for series_name in all_series %}
-      {% assign s_posts = site.posts | where: "series", series_name | sort: "series_no" %}
+      {% assign s_posts = ko_posts | where: "series", series_name | sort: "series_no" %}
       {% assign first = s_posts.first %}
       {% assign s_icon = first.series_icon | default: "📚" %}
 

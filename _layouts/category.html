@@ -12,7 +12,7 @@ layout: default
 
   <div class="grid-wrap">
     <div class="card-grid">
-      {% assign posts = site.posts | where: "category", page.category_name %}
+      {% assign posts = site.posts | where: "category", page.category_name | where_exp: "post", "post.lang != 'en'" %}
       {% for post in posts %}
       {% if post.naver_url %}
       <a href="{{ post.naver_url }}" target="_blank" class="card">

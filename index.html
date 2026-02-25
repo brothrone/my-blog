@@ -39,7 +39,8 @@ layout: default
 
 <!-- 피처드 (최신 글) — 1페이지에서만 표시 -->
 {% if paginator.page == 1 %}
-{% assign featured_post = site.posts.first %}
+{% assign ko_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
+{% assign featured_post = ko_posts.first %}
 {% if featured_post %}
 <section class="featured">
   {% if featured_post.naver_url %}
@@ -82,6 +83,7 @@ layout: default
 <div class="grid-wrap">
   <div class="card-grid">
     {% for post in paginator.posts %}
+    {% if post.lang == 'en' %}{% continue %}{% endif %}
     {% if paginator.page == 1 and forloop.first %}{% continue %}{% endif %}
     {% if post.naver_url %}
     <a href="{{ post.naver_url }}" target="_blank" class="card">
