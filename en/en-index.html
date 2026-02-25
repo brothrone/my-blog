@@ -39,7 +39,7 @@ permalink: /en/
 </div>
 
 <div class="grid-wrap">
-  {% assign en_posts = site.posts | where: "lang", "en" %}
+  {% assign en_posts = site.en_posts %}
   {% if en_posts.size > 0 %}
   <h2 class="section-title">Recent Posts</h2>
   <div class="card-grid">

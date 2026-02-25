@@ -114,7 +114,7 @@ layout: en-default
   </article>
 
   <nav class="post-nav">
-    {% assign en_posts = site.posts | where: "lang", "en" %}
+    {% assign en_posts = site.en_posts %}
     {% assign current_index = 0 %}
     {% for post in en_posts %}
       {% if post.url == page.url %}{% assign current_index = forloop.index0 %}{% endif %}
@@ -161,7 +161,7 @@ layout: en-default
     </button>
   </div>
 
-  {% assign related = site.posts | where: "lang", "en" | where: "category", page.category | where_exp: "post", "post.url != page.url" | limit: 4 %}
+  {% assign related = site.en_posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | limit: 4 %}
   {% if related.size > 0 %}
   <div class="related-posts">
     <h2>Related Posts</h2>

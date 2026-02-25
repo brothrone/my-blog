@@ -83,7 +83,6 @@ layout: default
 <div class="grid-wrap">
   <div class="card-grid">
     {% for post in paginator.posts %}
-    {% if post.lang == 'en' %}{% continue %}{% endif %}
     {% if paginator.page == 1 and forloop.first %}{% continue %}{% endif %}
     {% if post.naver_url %}
     <a href="{{ post.naver_url }}" target="_blank" class="card">

@@ -14,7 +14,7 @@ permalink: /en/hotel-review/
 
   <div class="grid-wrap">
     <div class="card-grid">
-      {% assign en_hotel_posts = site.posts | where: "lang", "en" | where: "category", "hotel-review" %}
+      {% assign en_hotel_posts = site.en_posts | where: "category", "hotel-review" %}
       {% for post in en_hotel_posts %}
       <a href="{{ post.url | relative_url }}" class="card">
         {% if post.image %}
