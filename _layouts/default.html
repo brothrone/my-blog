@@ -123,6 +123,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap&subset=korean" rel="stylesheet" />
   </noscript>
 
+  <!-- GoatCounter Analytics -->
+  <script data-goatcounter="https://brothrone.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
   <!-- ★ Google Analytics defer -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id=G-BQ5T1WKVT3"></script>
   <script>
@@ -341,6 +345,7 @@
         <span class="footer-stat">태그 <strong>{{ all_tags | uniq | size }}</strong>개</span>
         {% assign all_cats = site.posts | map: "category" | uniq %}
         <span class="footer-stat">카테고리 <strong>{{ all_cats | size }}</strong>개</span>
+        <span class="footer-stat">방문자 <strong id="gc-total-views">—</strong>명</span>
       </div>
     </div>
   </footer>
@@ -467,6 +472,25 @@
       test.src = webpSrc;
     }
   });
+  </script>
+
+  <!-- GoatCounter 총 방문자 수 표시 -->
+  <!-- 설정 방법: YOUR_SITE_CODE → GoatCounter 사이트 코드, YOUR_API_TOKEN → 읽기 전용 API 토큰으로 교체 -->
+  <script>
+  (function() {
+    var SITE_CODE = 'brothrone';
+    var API_TOKEN = 'el7vqkv864vu1bjl7ewk5k0vg1uq0b7m1rydwom1pagm6mz84x';
+    if (SITE_CODE === 'YOUR_SITE_CODE' || API_TOKEN === 'YOUR_API_TOKEN') return;
+    fetch('https://' + SITE_CODE + '.goatcounter.com/api/v0/stats/total?start=2020-01-01&end=2099-12-31', {
+      headers: { 'Authorization': 'Bearer ' + API_TOKEN }
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var el = document.getElementById('gc-total-views');
+      if (el && data.total) el.textContent = Number(data.total).toLocaleString('ko-KR');
+    })
+    .catch(function() {});
+  })();
   </script>
 
 </body>
