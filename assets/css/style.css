@@ -1507,7 +1507,7 @@ nav a:hover { color: var(--text); }
 }
 
 .post-link-card::after {
-  content: attr(href);
+  content: "brothrone.org";
   flex: 0 0 100%;
   padding-left: 22px;
   font-size: 0.72rem;
