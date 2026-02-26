@@ -811,6 +811,13 @@ nav a:hover { color: var(--text); }
   padding-left: 14px;
   border-left: 2px solid var(--border);
 }
+/* 리스트 내부 p 태그는 border/padding 제거 */
+.post-content li p {
+  border-left: none;
+  padding-left: 0;
+  margin-bottom: 4px;
+  font-size: inherit;
+}
 .post-content h2 {
   font-family: 'Gowun Dodum', sans-serif;
   font-size: 1.3rem;
