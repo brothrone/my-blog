@@ -1406,14 +1406,11 @@ nav a:hover { color: var(--text); }
 
 /* EN/KO 언어 버튼 */
 .lang-btn {
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.08em;
-  color: var(--bg) !important;
-  
+  font-size: 1.4rem !important;
+  line-height: 1;
   border: none;
   border-radius: 4px;
-  padding: 3px 10px !important;
+  padding: 2px 4px !important;
   transition: all 0.2s !important;
 }
 .lang-btn:hover {
