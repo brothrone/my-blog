@@ -1,0 +1,145 @@
+---
+layout: en-post
+title: "Seattle's Museum of Flight — The World's Largest Aviation Museum"
+date: 2022-02-19
+lang: en
+category: travel
+tags:
+  - Travel
+  - Aviation
+  - Seattle
+image: /assets/images/airline-review/museum-of-flight/IMG_3286.webp
+permalink: /en/travel/seattle-museum-of-flight/
+---
+
+I visited the Museum of Flight in Seattle.
+
+To put it simply — it's the world's largest aviation museum, and if you have even a passing interest in aviation, there's no reason not to go.
+
+The museum was founded by Boeing. King County Airport and Boeing's facilities are visible right from the museum grounds.
+
+Inside, you'll find actual aircraft alongside space capsules, engines, components, and an overwhelming number of aviation exhibits. I spent about four hours rushing through and barely managed to cover everything.
+
+The adjacent Aviation Pavilion is where you can see rare aircraft up close — and go inside them.
+
+I originally planned to visit the Boeing Factory Tour in Everett, but the program was cancelled due to COVID, so this was my alternative. It's a bit of a distance from downtown Seattle — I arrived the day before and headed out from a hotel near Tacoma Airport.
+
+---
+## Entrance
+
+![Museum of Flight Entrance](/assets/images/airline-review/museum-of-flight/IMG_3058.webp)
+
+You pay admission at the welcome hall, get a wristband, and head in. As you'd expect from a museum, most visitors were families with young kids.
+
+---
+## Main Hall
+
+![Main Hall Overview](/assets/images/airline-review/museum-of-flight/IMG_3060.webp)
+
+Walk through the lobby into the main hall and this is what greets you. Dozens of aircraft hanging from the ceiling framework — biplanes and all.
+
+<div class="img-row">
+  <img src="/assets/images/airline-review/museum-of-flight/IMG_3076.webp" alt="Suspended N522 aircraft">
+  <img src="/assets/images/airline-review/museum-of-flight/IMG_3084.webp" alt="Aircraft undercarriage">
+</div>
+
+<div class="img-row">
+  <img src="/assets/images/airline-review/museum-of-flight/IMG_3078.webp" alt="Helicopter display">
+  <img src="/assets/images/airline-review/museum-of-flight/IMG_3087.webp" alt="Large aircraft display">
+</div>
+
+Looking back at my photos — there was even a UH-1H Huey in there. I watched those retire during my military service. Turns out we were already old friends.
+
+---
+## Aircraft Interiors
+
+![737 Cabin Interior](/assets/images/airline-review/museum-of-flight/IMG_3096.webp)
+
+An early Boeing 737 has been sliced open for display — you can tour both the cabin and the cockpit.
+
+![Vintage Cockpit](/assets/images/airline-review/museum-of-flight/IMG_3098.webp)
+
+A staggering number of gauges. Nothing like today's glass cockpits.
+
+---
+## Gift Shop
+
+<div class="img-row">
+  <img src="/assets/images/airline-review/museum-of-flight/IMG_3124.webp" alt="Airline model display">
+  <img src="/assets/images/airline-review/museum-of-flight/IMG_3129.webp" alt="Jets model display">
+</div>
+
+The gift shop has a wide selection of merchandise — Boeing-branded items and all kinds of aviation memorabilia. Scale model brands like Gemini Jets and Herpa are sold directly here.
+
+---
+## Museum Café
+
+![Museum Café](/assets/images/airline-review/museum-of-flight/IMG_3132.webp)
+
+Got hungry before heading to the Aviation Pavilion, so I grabbed a sandwich and took a break.
+
+---
+## Space Gallery
+
+![Mars Rover](/assets/images/airline-review/museum-of-flight/IMG_3117.webp)
+![Space Capsule](/assets/images/airline-review/museum-of-flight/IMG_3109.webp)
+![Reentry Heat Shield](/assets/images/airline-review/museum-of-flight/IMG_3139.webp)
+
+The space exhibits are just as impressive. Real space capsules, Mars rover models — things you'd rarely get to see anywhere else. Standing in front of objects that actually traveled to space before I was even born... it really hits different. America is something else.
+
+---
+## Aviation Pavilion
+
+This is a massive hangar housing actual aircraft on display. It's outdoors, so it gets cold in winter — but this was the whole reason I came, and the most exciting part of the visit.
+
+Real aircraft like the Boeing 747 prototype, the 787, the Concorde, and a vintage Air Force One. Rare aircraft you can see up close and actually step inside.
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3156.webp)
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3158.webp)
+
+First up: the Concorde. It's already been retired for years, and there aren't many places left that have one on display — let alone one you can walk through. I didn't hesitate for a second.
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3172.webp)
+
+Cockpit, two classes of seating — the whole thing. The famously terrible fuel economy checks out: it really is a flying cattle car. Flying at twice the speed of sound while crammed into that... no thanks.
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3178.webp)
+![](/assets/images/airline-review/museum-of-flight/IMG_3201.webp)
+
+Next, Air Force One — the former presidential aircraft. Kennedy apparently used this one. Getting to walk through the actual interior of a presidential aircraft is wild. Delivered in 1959... I wonder what Korea was doing back then. The more you see of this country, the more impressive it gets.
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3224.webp)
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3234.webp)
+
+Then: the world's best-selling commercial aircraft — the Boeing 747 prototype. Registration N7470. The number says it all.
+
+According to a post I came across on the aviation community "Flighters" — this is the only surviving 747 Classic prototype. It was converted into an aerial refueling tanker, then a NASA research aircraft, then a Boeing engine testbed. After all that, it was retired and left to sit. In 2015, it was fully repainted and put on display here.
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3240.webp)
+
+Inside, there's a lot of old equipment — likely from the engine test days — along with traces of the refueling tanker conversion. Seeing it in person is genuinely awe-inspiring.
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3245.webp)
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3254.webp)
+
+There was also a Boeing 787. It's very much in active service today and not hard to find, but I hadn't flown it yet at the time — and it's still rare to see one up close like this. I took a good look.
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3263.webp)
+![](/assets/images/airline-review/museum-of-flight/IMG_3274.webp)
+
+CH-47 Chinook. Saw these a few times during my military service.
+
+![](/assets/images/airline-review/museum-of-flight/IMG_3286.webp)
+
+Seeing it all laid out like this — "packed in tight" is the phrase that comes to mind.
+
+---
+
+And that's a wrap on the Museum of Flight.
+
+America, man. I took a lot more photos than this, but I kept it to the highlights — nobody wants to scroll through a hundred pictures. Still, there's so much more to do and see here.
+
+Highly recommended. For an aviation enthusiast like me, this was the best call I made on that trip.
