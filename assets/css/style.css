@@ -305,7 +305,7 @@ nav a:hover { color: var(--text); }
   margin-bottom: 20px;
 }
 .hero-title {
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
