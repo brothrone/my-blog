@@ -71,7 +71,12 @@
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/assets/images/favicon.svg" />
+  {% if paginator and paginator.page > 1 %}
+  <link rel="canonical" href="{{ site.url }}/" />
+  <meta name="robots" content="noindex, follow" />
+  {% else %}
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  {% endif %}
   <meta name="google-site-verification" content="Yg-oBW33kqUu_fm4r_wgdF2HJy_65oZNGp8-dKPCwgI" />
   <meta name="naver-site-verification" content="6e6b886ed780f4f9569e2f22be8224ee8d5849c8" />
 
@@ -189,7 +194,6 @@
         <a href="{{ '/travel-map' | relative_url }}" class="nav-map-btn">여행 지도</a>
         <a href="{{ '/categories' | relative_url }}">카테고리</a>
         <a href="{{ '/tags' | relative_url }}">태그</a>
-        <a href="{{ '/series' | relative_url }}">시리즈</a>
         <a href="{{ '/about' | relative_url }}">About</a>
         <a href="/en/" class="lang-btn">🇺🇸</a>
         <button class="search-btn" onclick="toggleSearch()" aria-label="검색">🔍</button>
@@ -207,7 +211,6 @@
       <a href="{{ '/travel-map' | relative_url }}" onclick="toggleMenu()" class="nav-map-btn">여행 지도</a>
       <a href="{{ '/categories' | relative_url }}" onclick="toggleMenu()">카테고리</a>
       <a href="{{ '/tags' | relative_url }}" onclick="toggleMenu()">태그</a>
-      <a href="{{ '/series' | relative_url }}" onclick="toggleMenu()">시리즈</a>
       <a href="{{ '/about' | relative_url }}" onclick="toggleMenu()">About</a>
       <a href="{{ '/contact' | relative_url }}" onclick="toggleMenu()">Contact</a>
     </div>
@@ -231,8 +234,7 @@
           excerpt: {{ post.excerpt | strip_html | truncate: 120 | jsonify }},
           date: {{ post.date | date: "%Y. %m. %d" | jsonify }},
           category: {{ post.category | default: "" | jsonify }},
-          tags: {{ post.tags | default: "" | jsonify }},
-          series: {{ post.series | default: "" | jsonify }}
+          tags: {{ post.tags | default: "" | jsonify }}
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ];
@@ -292,8 +294,7 @@
             p.title.toLowerCase().includes(q) ||
             p.excerpt.toLowerCase().includes(q) ||
             tagsStr.toLowerCase().includes(q) ||
-            (p.category || '').toLowerCase().includes(q) ||
-            (p.series || '').toLowerCase().includes(q)
+            (p.category || '').toLowerCase().includes(q)
           );
         });
 
