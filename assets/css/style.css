@@ -10,7 +10,7 @@
   --surface: #f5f5f7;
   --surface2: #ebebef;
   --max-width: 1100px;
-  --font-display: 'Cormorant Garamond', 'Noto Serif KR', serif;
+  --font-display: 'Gowun Dodum', sans-serif;
   --font-body: 'Noto Sans KR', -apple-system, sans-serif;
   --shadow: 0 4px 16px rgba(0,0,0,0.07);
   --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
@@ -305,7 +305,7 @@ nav a:hover { color: var(--text); }
   margin-bottom: 20px;
 }
 .hero-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
@@ -468,7 +468,7 @@ nav a:hover { color: var(--text); }
 }
 .dot { margin: 0 6px; }
 .featured-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 400;
   line-height: 1.2;
@@ -530,7 +530,7 @@ nav a:hover { color: var(--text); }
 .card-body { padding: 20px 22px 24px; }
 .card-meta { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.04em; margin-bottom: 8px; }
 .card-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.35;
@@ -565,7 +565,7 @@ nav a:hover { color: var(--text); }
   border-bottom: 1px solid var(--border);
 }
 .tag-page-header h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -594,7 +594,7 @@ nav a:hover { color: var(--text); }
 }
 .tags-header { margin-bottom: 48px; }
 .tags-header h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -665,7 +665,7 @@ nav a:hover { color: var(--text); }
   margin-bottom: 4px;
 }
 .series-box-name {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--text);
@@ -717,7 +717,7 @@ nav a:hover { color: var(--text); }
 }
 .series-page-header { margin-bottom: 48px; }
 .series-page-header h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -791,7 +791,7 @@ nav a:hover { color: var(--text); }
   border-color: var(--text);
 }
 .post-header h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 800;
   line-height: 1.25;
@@ -812,14 +812,14 @@ nav a:hover { color: var(--text); }
   border-left: 2px solid var(--border);
 }
 .post-content h2 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: 1.3rem;
   font-weight: 400;
   letter-spacing: -0.01em;
   margin: 44px 0 14px;
 }
 .post-content h3 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
   margin: 32px 0 10px;
@@ -842,7 +842,7 @@ nav a:hover { color: var(--text); }
   border-left: 2px solid var(--text-muted);
   padding: 4px 0 4px 20px;
   margin: 28px 0;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-style: italic;
   font-size: 1rem;
   color: var(--text-muted);
@@ -1018,7 +1018,7 @@ nav a:hover { color: var(--text); }
   border-top: 1px solid var(--border);
 }
 .related-posts h2 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -1194,7 +1194,7 @@ nav a:hover { color: var(--text); }
 .all-cats-page { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
 .all-cats-header { margin-bottom: 48px; }
 .all-cats-header h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -1234,7 +1234,7 @@ nav a:hover { color: var(--text); }
 }
 .cat-icon-lg { display: block; font-size: 3rem; margin-bottom: 16px; }
 .cat-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -1248,7 +1248,7 @@ nav a:hover { color: var(--text); }
 .contact-page { max-width: 600px; margin: 0 auto; padding: 80px 40px 100px; }
 .contact-header { margin-bottom: 48px; }
 .contact-header h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -1274,7 +1274,7 @@ nav a:hover { color: var(--text); }
 
 .about-section { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
 .about-section h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.02em;
