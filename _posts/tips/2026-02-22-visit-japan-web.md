@@ -9,9 +9,6 @@ tags:
   - 일본입국
   - 여행팁
 image: /assets/images/tips/visit-japan-web/vjw2.webp
-series: 일본
-series_no: 1
-series_icon: 🇯🇵
 ---
 ## Visit Japan Web 이란?
 요즘 정말 많은 사람들이 일본여행을 간다. 

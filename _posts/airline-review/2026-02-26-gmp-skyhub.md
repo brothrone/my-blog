@@ -9,7 +9,6 @@ tags:
   - 김포스카이허브
   - 김포라운지
   - Skyhub
-series:
 image: /assets/images/airline-review/ke2101/IMG_4058.webp
 ---
 ### 김포국제공항 스카이허브 라운지  후기
