@@ -39,11 +39,11 @@ permalink: /en/
 </div>
 
 <div class="grid-wrap">
-  {% assign en_posts = site.en_posts %}
+  {% assign en_posts = site.en_posts | sort: "date" | reverse %}
   {% if en_posts.size > 0 %}
   <h2 class="section-title">Recent Posts</h2>
   <div class="card-grid">
-    {% for post in en_posts limit: 9 %}
+    {% for post in en_posts %}
     <a href="{{ post.url }}" class="card">
       {% if post.image %}
       <div class="card-img-wrap">
