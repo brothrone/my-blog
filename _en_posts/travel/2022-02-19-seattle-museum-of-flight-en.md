@@ -12,11 +12,11 @@ image: /assets/images/airline-review/museum-of-flight/IMG_3286.webp
 permalink: /en/travel/seattle-museum-of-flight/
 ---
 
-I visited the Museum of Flight in Seattle.
+### Museum of Flight Review
+
+Hi, today I'll be sharing my visit to the Museum of Flight in Seattle.
 
 To put it simply — it's the world's largest aviation museum, and if you have even a passing interest in aviation, there's no reason not to go.
-
-The museum was founded by Boeing. King County Airport and Boeing's facilities are visible right from the museum grounds.
 
 Inside, you'll find actual aircraft alongside space capsules, engines, components, and an overwhelming number of aviation exhibits. I spent about four hours rushing through and barely managed to cover everything.
 
