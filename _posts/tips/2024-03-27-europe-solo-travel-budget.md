@@ -9,7 +9,7 @@ tags:
   - 자유여행
   - 여행팁
   - 배낭여행
-image: /assets/images/tips/eur-budget/IMG_7387.jpg
+image: /assets/images/tips/eur-budget/IMG_7387.webp
 ---
 
 ## 영국-프랑스-스위스-이탈리아 18박 21일
@@ -26,11 +26,11 @@ image: /assets/images/tips/eur-budget/IMG_7387.jpg
 그냥 혼자 여행이고, 열심히 아끼면서 여행했다.
 이 밑에 보이는 표에 모든 경비가 다 정리되어 있다.
 
-![](/assets/images/tips/eur-budget/output_439871977.jpg)
+![](/assets/images/tips/eur-budget/output_439871977.webp)
 
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/IMG_0017.jpg" alt="경비 내역">
-  <img src="/assets/images/tips/eur-budget/IMG_0026.jpg" alt="경비 내역2">
+  <img src="/assets/images/tips/eur-budget/IMG_0017.webp" alt="경비 내역">
+  <img src="/assets/images/tips/eur-budget/IMG_0026.webp" alt="경비 내역2">
 </div>
 
 시원하게 결론부터 말하면 총경비는 6,410,400원
@@ -70,7 +70,7 @@ __런던 in 로마 out__ 항공권을 검색했다.
 
 전 구간 25kg 무료 수화물, 9378 싱항 마일리지가 적립된다.
 
-![](/assets/images/tips/eur-budget/IMG_7387.jpg)
+![](/assets/images/tips/eur-budget/IMG_7387.webp)
 *싱가포르 항공 A380, 기내식 (진짜존맛임)*
 
 또 싱가포르 항공이 가지고 있는 기종은, 거의 다 최신 기종이라
@@ -79,7 +79,7 @@ __런던 in 로마 out__ 항공권을 검색했다.
 최신 기종이라면 습도와 기압이 높게 유지되어 쾌적하다.
 \+ 전 구간 무제한 무료 와이파이 제공 (카톡,인스타 원활함)
 
-![](/assets/images/tips/eur-budget/IMG_7445.jpg)
+![](/assets/images/tips/eur-budget/IMG_7445.webp)
 *싱가포르 창이 공항에서 카야토스트 먹기*
 
 다만 단점은, 경유를 하게 되면 직항에 비해 시간이 훨씬 오래 걸린다는 점인데,
@@ -109,7 +109,7 @@ __런던 in 로마 out__ 항공권을 검색했다.
 특히 요즘 유럽 물가가 많이 비싸다고 하기 때문에 돈을 아끼기 위해선
 호스텔과 괜찮은 에어비앤비도 고려하는 걸 추천한다.
 
-![](/assets/images/tips/eur-budget/IMG_9039.jpg)
+![](/assets/images/tips/eur-budget/IMG_9039.webp)
 *파리 샹젤리제 거리 근처 에어비앤비. 너무너무 좋았음.*
 
 호스텔의 경우, 싼 가격에 좋은 위치의 숙소에서 잘 수 있다는 장점이 있다.
@@ -122,8 +122,8 @@ __런던 in 로마 out__ 항공권을 검색했다.
 그래봤자 호텔 숙박비의 절반도 안 나온다.
 
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/output_1033229375.jpg" alt="스위스 호텔">
-  <img src="/assets/images/tips/eur-budget/output_1898742935.jpg" alt="로마 에어비앤비">
+  <img src="/assets/images/tips/eur-budget/output_1033229375.webp" alt="스위스 호텔">
+  <img src="/assets/images/tips/eur-budget/output_1898742935.webp" alt="로마 에어비앤비">
 </div>
 
 *스위스 호텔 , 로마 에어비앤비*
@@ -154,8 +154,8 @@ __런던 in 로마 out__ 항공권을 검색했다.
 혼자 여행 가면 먹는 음식에 한계가 있으니 동행을 잘 구하면 먹는 음식의 퀄리티가 높아진다.
 
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/output_3748290347.jpg" alt="프랑스 마트">
-  <img src="/assets/images/tips/eur-budget/IMG_3474.jpg" alt="피렌체 티본스테이크">
+  <img src="/assets/images/tips/eur-budget/output_3748290347.webp" alt="프랑스 마트">
+  <img src="/assets/images/tips/eur-budget/IMG_3474.webp" alt="피렌체 티본스테이크">
 </div>
 
 *프랑스 마트 / 피렌체에서 동행으로 만난 형들이랑 먹은 티본스테이크*
