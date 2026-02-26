@@ -1482,8 +1482,10 @@ nav a:hover { color: var(--text); }
 /* 본문 내 관련글 링크 카드 */
 .post-link-card {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  column-gap: 10px;
+  row-gap: 2px;
   padding: 13px 18px;
   margin: 4px 0 20px 14px;
   border: 1px solid var(--border);
@@ -1502,6 +1504,16 @@ nav a:hover { color: var(--text); }
   color: var(--text-muted);
   flex-shrink: 0;
   font-size: 1rem;
+}
+
+.post-link-card::after {
+  content: attr(href);
+  flex: 0 0 100%;
+  padding-left: 22px;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: -2px;
 }
 
 .post-link-card:hover {
