@@ -1,6 +1,7 @@
 #!/bin/bash
 IMAGES_DIR="assets/images"
 POSTS_DIR="_posts"
+EN_POSTS_DIR="_en_posts"
 QUALITY=82
 MAX_WIDTH=1200
 
@@ -28,13 +29,15 @@ done
 echo ""
 echo "=== front matter 및 본문 경로 업데이트 ==="
 
-find "$POSTS_DIR" -name "*.md" | while read -r MD; do
+find "$POSTS_DIR" "$EN_POSTS_DIR" -name "*.md" 2>/dev/null | while read -r MD; do
   sed -i '' \
     -e 's/\.jpeg/.webp/g' \
     -e 's/\.jpg/.webp/g' \
     -e 's/\.png/.webp/g' \
     -e 's|](assets/|](/assets/|g' \
     -e 's|image: assets/|image: /assets/|g' \
+    -e 's|src="assets/|src="/assets/|g' \
+    -e 's|src='"'"'assets/|src='"'"'/assets/|g' \
     "$MD"
   echo "업데이트: $MD"
 done
