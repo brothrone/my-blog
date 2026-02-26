@@ -136,8 +136,7 @@
 
     <script>
       const posts = [
-        {% assign en_posts = site.posts | where: "lang", "en" %}
-        {% for post in en_posts %}
+        {% for post in site.en_posts %}
         {
           title: {{ post.title | jsonify }},
           url: {{ post.url | relative_url | jsonify }},
@@ -209,8 +208,7 @@
         <p>© {{ site.time | date: "%Y" }} · Travel & Aviation</p>
       </div>
       <div class="footer-stats">
-        {% assign en_posts = site.posts | where: "lang", "en" %}
-        <span class="footer-stat">Posts <strong>{{ en_posts | size }}</strong></span>
+        <span class="footer-stat">Posts <strong>{{ site.en_posts | size }}</strong></span>
       </div>
     </div>
   </footer>

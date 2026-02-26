@@ -41,10 +41,10 @@ permalink: /en/
 <div class="grid-wrap">
   {% assign en_posts = site.en_posts | sort: "date" | reverse %}
   {% if en_posts.size > 0 %}
-  <h2 class="section-title">Recent Posts</h2>
-  <div class="card-grid">
+  <h2 class="section-title" id="en-posts-title">Recent Posts</h2>
+  <div class="card-grid" id="en-card-grid">
     {% for post in en_posts %}
-    <a href="{{ post.url }}" class="card">
+    <a href="{{ post.url }}" class="card en-post-card">
       {% if post.image %}
       <div class="card-img-wrap">
         <img src="{{ post.image }}" alt="{{ post.title }}" class="card-img" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" />
@@ -61,6 +61,72 @@ permalink: /en/
     </a>
     {% endfor %}
   </div>
+
+  <nav class="pagination" id="en-pagination" style="display:none;"></nav>
+
+  <script>
+  (function() {
+    var PER_PAGE = 10;
+    var cur = 1;
+    var cards = Array.from(document.querySelectorAll('.en-post-card'));
+    var total = cards.length;
+    var totalPages = Math.ceil(total / PER_PAGE);
+    var nav = document.getElementById('en-pagination');
+    var title = document.getElementById('en-posts-title');
+
+    function showPage(page) {
+      cur = Math.max(1, Math.min(page, totalPages));
+      cards.forEach(function(c, i) {
+        c.style.display = (i >= (cur - 1) * PER_PAGE && i < cur * PER_PAGE) ? '' : 'none';
+      });
+      if (title) title.textContent = cur === 1 ? 'Recent Posts' : 'Page ' + cur;
+      buildNav();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function buildNav() {
+      if (totalPages <= 1) { nav.style.display = 'none'; return; }
+      nav.style.display = 'flex';
+      var html = '';
+
+      html += cur === 1
+        ? '<span class="pagination-btn disabled">«</span>'
+        : '<a class="pagination-btn" data-page="1">«</a>';
+
+      html += cur > 1
+        ? '<a class="pagination-btn" data-page="' + (cur - 1) + '">← Prev</a>'
+        : '<span class="pagination-btn disabled">← Prev</span>';
+
+      html += '<div class="pagination-pages">';
+      for (var i = 1; i <= totalPages; i++) {
+        html += i === cur
+          ? '<span class="pagination-page active">' + i + '</span>'
+          : '<a class="pagination-page" data-page="' + i + '">' + i + '</a>';
+      }
+      html += '</div>';
+
+      html += cur < totalPages
+        ? '<a class="pagination-btn" data-page="' + (cur + 1) + '">Next →</a>'
+        : '<span class="pagination-btn disabled">Next →</span>';
+
+      html += cur === totalPages
+        ? '<span class="pagination-btn disabled">»</span>'
+        : '<a class="pagination-btn" data-page="' + totalPages + '">»</a>';
+
+      nav.innerHTML = html;
+    }
+
+    nav.addEventListener('click', function(e) {
+      var el = e.target.closest('[data-page]');
+      if (!el) return;
+      e.preventDefault();
+      showPage(parseInt(el.getAttribute('data-page'), 10));
+    });
+
+    showPage(1);
+  })();
+  </script>
+
   {% else %}
   <div style="text-align:center; padding: 80px 20px; color: var(--text-muted);">
     <p style="font-size:1.1rem;">English posts coming soon.</p>
@@ -68,3 +134,45 @@ permalink: /en/
   </div>
   {% endif %}
 </div>
+
+<style>
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 20px 64px;
+  flex-wrap: wrap;
+}
+.pagination-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.pagination-btn:hover { background: var(--surface); border-color: var(--text-muted); }
+.pagination-btn.disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+.pagination-pages { display: flex; gap: 4px; }
+.pagination-page {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.pagination-page:hover { background: var(--surface); color: var(--text); }
+.pagination-page.active { background: var(--text); color: var(--bg); font-weight: 600; }
+@media (max-width: 600px) {
+  .pagination { gap: 6px; padding: 32px 16px 48px; }
+  .pagination-btn { padding: 7px 12px; font-size: 0.78rem; }
+  .pagination-page { width: 32px; height: 32px; font-size: 0.8rem; }
+}
+</style>
