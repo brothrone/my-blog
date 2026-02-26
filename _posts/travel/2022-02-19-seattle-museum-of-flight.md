@@ -104,8 +104,8 @@ image: /assets/images/airline-review/museum-of-flight/IMG_3286.webp
 
 
 <div class="img-row">
-  <img src="/assets/images/airline-review/museum-of-flight/IMG_3117.webp" alt="항공사 모형 전시">
-  <img src="/assets/images/airline-review/museum-of-flight/IMG_3124.webp" alt="Jets 모형 전시">
+  <img src="/assets/images/airline-review/museum-of-flight/IMG_3124.webp" alt="항공사 모형 전시">
+  <img src="/assets/images/airline-review/museum-of-flight/IMG_3129.webp" alt="Jets 모형 전시">
 </div>
 
 
@@ -114,7 +114,7 @@ image: /assets/images/airline-review/museum-of-flight/IMG_3286.webp
 
 
 
-![DOG IS MY CO-PILOT](/assets/images/airline-review/museum-of-flight/IMG_3129.webp)
+![DOG IS MY CO-PILOT](/assets/images/airline-review/museum-of-flight/IMG_3130.webp)
 
 
 
@@ -122,7 +122,15 @@ image: /assets/images/airline-review/museum-of-flight/IMG_3286.webp
 
 
 
-![뮤지엄 카페](/assets/images/airline-review/museum-of-flight/IMG_3130.webp)
+---
+
+
+
+## 뮤지엄 카페
+
+
+
+![뮤지엄 카페](/assets/images/airline-review/museum-of-flight/IMG_3132.webp)
 
 
 
@@ -138,19 +146,27 @@ image: /assets/images/airline-review/museum-of-flight/IMG_3286.webp
 
 
 
-![귀환 캡슐](/assets/images/airline-review/museum-of-flight/IMG_3132.webp)
+![화성 탐사 로버](/assets/images/airline-review/museum-of-flight/IMG_3117.webp)
+
+
+
+화성 탐사 로버 모형. 금색 바퀴와 안테나 디쉬가 인상적이다.
+
+
+
+![달 탐사 캡슐](/assets/images/airline-review/museum-of-flight/IMG_3109.webp)
+
+
+
+달 탐사 캡슐 실물. 실제 우주를 갔다 왔던 캡슐, 화성 로버 모형 등 정말 보기 힘든 것들이 전시돼있다. 내가 태어나기도 전에 우주까지 갔다 온 실물을 직접 보니 경외감이 들었다.
+
+
+
+![귀환 캡슐 열 차폐막](/assets/images/airline-review/museum-of-flight/IMG_3139.webp)
 
 
 
 실제 우주 귀환 캡슐의 열 차폐막. 대기권 재진입 시 불에 탄 흔적이 그대로 남아 있다.
-
-
-
-![달 탐사 로버](/assets/images/airline-review/museum-of-flight/IMG_3109.webp)
-
-
-
-달 탐사 로버 모형. 실제 우주를 갔다 왔던 캡슐, 화성 로버 모형 등 정말 보기 힘든 것들이 전시돼있다. 내가 태어나기도 전에 우주까지 갔다 온 실물을 직접 보니 경외감이 들었다.
 
 
 
@@ -159,10 +175,6 @@ image: /assets/images/airline-review/museum-of-flight/IMG_3286.webp
 
 
 ## Aviation Pavilion — 이 박물관의 하이라이트
-
-
-
-![Aviation Pavilion 안내판](/assets/images/airline-review/museum-of-flight/IMG_3139.webp)
 
 
 
