@@ -7,11 +7,11 @@ tags:
   - 호텔리뷰
   - 일본
   - 료칸
-image: /assets/images/fuk_1/fuk_a_5.webp
+image: /assets/images/hotel-review/fuk_1/fuk_a_5.webp
 ---
 
 후쿠오카 공항에서 오이타현 직행버스를 타고, 3시간 뒤에 유후인 역에 도착했다.
-![유후인 역](/assets/images/fuk_1/fuk_a_20.webp)
+![유후인 역](/assets/images/hotel-review/fuk_1/fuk_a_20.webp)
 
 
 
@@ -27,7 +27,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![세븐일레븐](/assets/images/fuk_1/fuk_a_19.webp)
+![세븐일레븐](/assets/images/hotel-review/fuk_1/fuk_a_19.webp)
 
   
 
@@ -35,11 +35,11 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![편의점](/assets/images/fuk_1/fuk_a_17.webp)
+![편의점](/assets/images/hotel-review/fuk_1/fuk_a_17.webp)
 
   
 
-![편의점 결제](/assets/images/fuk_1/fuk_a_18.webp)
+![편의점 결제](/assets/images/hotel-review/fuk_1/fuk_a_18.webp)
 
   
 
@@ -47,7 +47,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![택시](/assets/images/fuk_1/fuk_a_6.webp)
+![택시](/assets/images/hotel-review/fuk_1/fuk_a_6.webp)
 
   
 
@@ -55,7 +55,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![설경](/assets/images/fuk_1/fuk_a_2.webp)
+![설경](/assets/images/hotel-review/fuk_1/fuk_a_2.webp)
 
   
 
@@ -71,7 +71,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![료칸 외관](/assets/images/fuk_1/fuk_a_4.webp)
+![료칸 외관](/assets/images/hotel-review/fuk_1/fuk_a_4.webp)
 
   
 
@@ -79,7 +79,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![료칸 설경](/assets/images/fuk_1/fuk_a_5.webp)
+![료칸 설경](/assets/images/hotel-review/fuk_1/fuk_a_5.webp)
 
   
 
@@ -87,11 +87,11 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![료칸 내부](/assets/images/fuk_1/fuk_a_1.webp)
+![료칸 내부](/assets/images/hotel-review/fuk_1/fuk_a_1.webp)
 
   
 
-![료칸 내부2](/assets/images/fuk_1/fuk_a_3.webp)
+![료칸 내부2](/assets/images/hotel-review/fuk_1/fuk_a_3.webp)
 
   
 
@@ -99,7 +99,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![외부 모습](/assets/images/fuk_1/fuk_a_16.webp)
+![외부 모습](/assets/images/hotel-review/fuk_1/fuk_a_16.webp)
 
   
 
@@ -107,7 +107,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![두 번째 방](/assets/images/fuk_1/fuk_a_8.webp)
+![두 번째 방](/assets/images/hotel-review/fuk_1/fuk_a_8.webp)
 
   
 
@@ -115,7 +115,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![웰컴 푸드](/assets/images/fuk_1/fuk_a_15.webp)
+![웰컴 푸드](/assets/images/hotel-review/fuk_1/fuk_a_15.webp)
 
   
 
@@ -123,7 +123,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![온천](/assets/images/fuk_1/fuk_a_9.webp)
+![온천](/assets/images/hotel-review/fuk_1/fuk_a_9.webp)
 
   
 
@@ -131,7 +131,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![온천 뷰](/assets/images/fuk_1/fuk_a_7.webp)
+![온천 뷰](/assets/images/hotel-review/fuk_1/fuk_a_7.webp)
 
   
 
@@ -151,7 +151,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![가이세키 상차림](/assets/images/fuk_1/fuk_a_14.webp)
+![가이세키 상차림](/assets/images/hotel-review/fuk_1/fuk_a_14.webp)
 
   
 
@@ -163,11 +163,11 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![가이세키2](/assets/images/fuk_1/fuk_a_10.webp)
+![가이세키2](/assets/images/hotel-review/fuk_1/fuk_a_10.webp)
 
   
 
-![가이세키3](/assets/images/fuk_1/fuk_a_12.webp)
+![가이세키3](/assets/images/hotel-review/fuk_1/fuk_a_12.webp)
 
   
 
@@ -175,7 +175,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![화로 라떼](/assets/images/fuk_1/fuk_a_13.webp)
+![화로 라떼](/assets/images/hotel-review/fuk_1/fuk_a_13.webp)
 
   
 
@@ -183,7 +183,7 @@ image: /assets/images/fuk_1/fuk_a_5.webp
 
   
 
-![노천탕](/assets/images/fuk_1/fuk_a_11.webp)
+![노천탕](/assets/images/hotel-review/fuk_1/fuk_a_11.webp)
 
   
 식사 후, 공용 온천을 하러 갔다. 이곳의 공용 온천은 다른 곳과 마찬가지로, 팻말을 걸어놓고 이용하는 방식이다. 
