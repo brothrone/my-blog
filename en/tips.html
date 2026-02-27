@@ -1,0 +1,42 @@
+---
+layout: en-default
+title: "Tips — Brothrone Travel"
+permalink: /en/tips/
+---
+
+<div class="cat-page">
+  <div class="cat-header">
+    <a href="/en/" class="back-link">← Home</a>
+    <span class="cat-icon-lg">💡</span>
+    <h1 class="cat-title">Tips</h1>
+    <p class="cat-desc">Practical travel tips and guides to make your trip smoother.</p>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="card-grid">
+      {% assign en_tips_posts = site.en_posts | where: "category", "tips" %}
+      {% for post in en_tips_posts %}
+      <a href="{{ post.url | relative_url }}" class="card">
+        {% if post.image %}
+        <div class="card-img-wrap">
+          <img src="{{ post.image }}" alt="{{ post.title }}" class="card-img" loading="lazy" />
+        </div>
+        {% else %}
+        <div class="card-img card-img--empty"></div>
+        {% endif %}
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-date">{{ post.date | date: "%b %d, %Y" }}</span>
+            {% if post.tags.first %}<span class="card-tag">{{ post.tags.first }}</span>{% endif %}
+          </div>
+          <h3 class="card-title">{{ post.title }}</h3>
+          <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        </div>
+      </a>
+      {% endfor %}
+      {% if en_tips_posts.size == 0 %}
+      <p class="no-posts">No posts yet.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
