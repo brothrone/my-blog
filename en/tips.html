@@ -14,7 +14,7 @@ permalink: /en/tips/
 
   <div class="grid-wrap">
     <div class="card-grid">
-      {% assign en_tips_posts = site.en_posts | where: "category", "tips" %}
+      {% assign en_tips_posts = site.en_posts | where: "category", "tips" | sort: "date" | reverse %}
       {% for post in en_tips_posts %}
       <a href="{{ post.url | relative_url }}" class="card">
         {% if post.image %}

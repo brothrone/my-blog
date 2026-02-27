@@ -14,7 +14,7 @@ permalink: /en/airline-review/
 
   <div class="grid-wrap">
     <div class="card-grid">
-      {% assign en_airline_posts = site.en_posts | where: "category", "airline-review" %}
+      {% assign en_airline_posts = site.en_posts | where: "category", "airline-review" | sort: "date" | reverse %}
       {% for post in en_airline_posts %}
       <a href="{{ post.url | relative_url }}" class="card">
         {% if post.image %}
