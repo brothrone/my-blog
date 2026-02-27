@@ -1412,9 +1412,18 @@ nav a:hover { color: var(--text); }
   border-radius: 4px;
   padding: 2px 4px !important;
   transition: all 0.2s !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 .lang-btn:hover {
   opacity: 0.7;
+}
+.flag-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 /* Featured + Card 영역 캐주얼 폰트 */
