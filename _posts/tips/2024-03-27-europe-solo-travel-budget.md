@@ -49,8 +49,10 @@ __런던 in 로마 out__ 항공권을 검색했다.
 난 싱가포르 항공을 선택했는데, 그 이유는
 검색한 항공권 중 가장 저렴했고, 싱가포르 창이 공항이 환승하기에 좋은 공항이고,
 싱가포르항공 서비스가 너무 좋았기 때문.
-![](/assets/images/tips/eur-budget/IMG_0017.webp)
-![](/assets/images/tips/eur-budget/output_439871977.webp)
+<div class="img-row">
+  <img src="/assets/images/tips/eur-budget/IMG_0017.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/output_439871977.webp" alt="">
+</div>
 
 가장 저렴했던 이유는, 아마도 내가 일찍 일정을 정해 8개월 전에 결제를 한 덕분인 거 같다.
 역시 여행은 일단 뇌 빼고 항공권 결제부터가 시작인 듯
@@ -61,8 +63,11 @@ __런던 in 로마 out__ 항공권을 검색했다.
 보통 이 시기 항공권이 100만 원 초중반대인걸 생각하면 꽤 싸게 해서 좋았다 ㅎㅎ
 
 전 구간 25kg 무료 수화물, 9378 Krisflyer 마일리지가 적립된다.
-![](/assets/images/tips/eur-budget/IMG_7607.webp)
-![](/assets/images/tips/eur-budget/IMG_7387.webp)
+<div class="img-row">
+  <img src="/assets/images/tips/eur-budget/IMG_7607.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_7387.webp" alt="">
+</div>
+
 *싱가포르 항공 A380, 기내식 *
 
 또 싱가포르 항공이 가지고 있는 기종은, 거의 다 최신 기종이라
@@ -70,8 +75,11 @@ __런던 in 로마 out__ 항공권을 검색했다.
 만약 구기재로 10시간 넘는 비행을 한다면 코 안이 갈라지는 경험을 할 수 있지만,
 최신 기종이라면 습도와 기압이 높게 유지되어 쾌적하다.
 **\+ 전 구간 무제한 무료 와이파이 제공 (카톡,인스타 원활함)**
-![](/assets/images/tips/eur-budget/IMG_7437.webp)
-![](/assets/images/tips/eur-budget/IMG_7445.webp)
+<div class="img-row">
+  <img src="/assets/images/tips/eur-budget/IMG_7437.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_7445.webp" alt="">
+</div>
+
 *싱가포르 창이 공항에서 카야토스트 먹기*
 
 다만 단점은, 경유를 하게 되면 직항에 비해 시간이 훨씬 오래 걸린다는 점인데,
@@ -100,8 +108,11 @@ __런던 in 로마 out__ 항공권을 검색했다.
 특히 요즘 유럽 물가가 많이 비싸다고 하기 때문에 돈을 아끼기 위해선
 호스텔과 괜찮은 에어비앤비도 고려하는 걸 추천한다.
 
-![](/assets/images/tips/eur-budget/IMG_9039.webp)
-![](/assets/images/tips/eur-budget/IMG_9043.webp)
+<div class="img-row">
+  <img src="/assets/images/tips/eur-budget/IMG_9039.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_9043.webp" alt="">
+</div>
+
 *파리 샹젤리제 거리 근처 에어비앤비. 너무너무 좋았음.*
 
 호스텔의 경우, 싼 가격에 좋은 위치의 숙소에서 잘 수 있다는 장점이 있다.
@@ -112,8 +123,11 @@ __런던 in 로마 out__ 항공권을 검색했다.
 마음이 편하지는 않았던 것 같다.
 호스텔을 몇 군데 다니면서 느끼는 팁은, **최소한 그 도시에서 가장 유명하고 비싼 호스텔을 가는 것이다.**
 **그래봤자 호텔 숙박비의 절반도 안 나온다.**
-![](/assets/images/tips/eur-budget/output_1898742935.webp)
-![](/assets/images/tips/eur-budget/output_2732826886.webp)
+<div class="img-row">
+  <img src="/assets/images/tips/eur-budget/output_1898742935.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/output_2732826886.webp" alt="">
+</div>
+
 *스위스 호텔 , 로마 에어비앤비*
 
 에어비앤비야말로 호텔과 호스텔 사이의 선택지라고 생각한다.
@@ -140,8 +154,11 @@ __런던 in 로마 out__ 항공권을 검색했다.
 비싼 음식들은 동행이랑 먹어서 1/n 하니 좋았다.
 혼자 여행 가면 먹는 음식에 한계가 있으니 동행을 잘 구하면 먹는 음식의 퀄리티가 높아진다.
 
-![](/assets/images/tips/eur-budget/output_3748290347.webp)
-![](/assets/images/tips/eur-budget/output_1033229375.webp)
+<div class="img-row">
+  <img src="/assets/images/tips/eur-budget/output_3748290347.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/output_1033229375.webp" alt="">
+</div>
+
 *프랑스 마트 / 피렌체에서 먹은 티본스테이크*
 이렇게 해서 2주 넘는 여행 동안 식비로 130만 원 정도 썼다.
 
@@ -164,8 +181,10 @@ COOP이라고 하는 스위스 어디에나 있는 마트에서 그나마 적당
 **이탈리아** : 1일 1파스타 1피자 1젤라또 해야 되는 곳이기에 각오 단단히 하고
 그냥 마음껏 먹고 오면 된다. 내 체감상 물가도 위 세 나라보다 저렴했고,
 외식했을 때 만족도가 가장 높았다.
-![](/assets/images/tips/eur-budget/IMG_3474.webp)
-![](/assets/images/tips/eur-budget/IMG_2344.webp)
+<div class="img-row">
+  <img src="/assets/images/tips/eur-budget/IMG_3474.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_2344.webp" alt="">
+</div>
 이렇게 여행갔다오고 블로그로 남기니까 추억회상도 되고,
 까먹기 전에 다시 리마인드하는 느낌이라
 기억에 더 오래 남는다.
