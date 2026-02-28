@@ -3,6 +3,7 @@ layout: post
 title: "[숙박후기] 힐튼 시애틀(폐업) 숙박후기 - 더블퀸룸 2박, 조식 후기"
 date: 2023-02-08 00:00:00 +0900
 category: hotel-review
+permalink: /hotel-review/hilton-seattle/
 tags:
   - 숙박
   - 힐튼시애틀
