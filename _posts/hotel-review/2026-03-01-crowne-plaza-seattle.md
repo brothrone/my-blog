@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[숙박후기] 크라운 플라자 시애틀 숙박후기 - 킹룸 2박 후기"
-date: 2022-02-19 00:00:00 +0900
+date: 2026-03-01 00:00:00 +0900
 category: hotel-review
 permalink: /hotel-review/crowne-plaza-seattle/
 tags:

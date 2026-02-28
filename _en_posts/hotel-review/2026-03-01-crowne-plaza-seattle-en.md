@@ -1,7 +1,7 @@
 ---
 layout: en-post
 title: "[Hotel Review] Crowne Plaza Seattle — 2-Night King Room Stay"
-date: 2022-02-19
+date: 2026-03-01
 lang: en
 category: hotel-review
 permalink: /en/hotel-review/crowne-plaza-seattle/
