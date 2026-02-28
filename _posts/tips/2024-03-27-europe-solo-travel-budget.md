@@ -49,6 +49,7 @@ __런던 in 로마 out__ 항공권을 검색했다.
 난 싱가포르 항공을 선택했는데, 그 이유는
 검색한 항공권 중 가장 저렴했고, 싱가포르 창이 공항이 환승하기에 좋은 공항이고,
 싱가포르항공 서비스가 너무 좋았기 때문.
+
 <div class="img-row">
   <img src="/assets/images/tips/eur-budget/IMG_0017.webp" alt="">
   <img src="/assets/images/tips/eur-budget/output_439871977.webp" alt="">
@@ -63,6 +64,7 @@ __런던 in 로마 out__ 항공권을 검색했다.
 보통 이 시기 항공권이 100만 원 초중반대인걸 생각하면 꽤 싸게 해서 좋았다 ㅎㅎ
 
 전 구간 25kg 무료 수화물, 9378 Krisflyer 마일리지가 적립된다.
+
 <div class="img-row">
   <img src="/assets/images/tips/eur-budget/IMG_7607.webp" alt="">
   <img src="/assets/images/tips/eur-budget/IMG_7387.webp" alt="">
