@@ -33,3 +33,6 @@ paginate_path: "/page/:num/"
 
 kramdown:
   hard_wrap: true
+
+include:
+  - _redirects
