@@ -12,6 +12,7 @@ tags:
   - 가이세키
   - 후쿠오카
 image: /assets/images/hotel-review/fuk_2/IMG_0516.webp
+en_permalink: /en/hotel-review/yufuin-ikkouten/
 ---
 ### 유후인 료칸 '잇코텐' 후기 
 안녕하세요 오늘은 유후인 여행에서 1박 했던 료칸 '잇코텐' 후기를 작성하려고 합니다. 

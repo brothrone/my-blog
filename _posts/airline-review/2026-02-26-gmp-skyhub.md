@@ -10,6 +10,7 @@ tags:
   - 김포라운지
   - Skyhub
 image: /assets/images/airline-review/ke2101/IMG_4058.webp
+en_permalink: /en/airline-review/gimpo-skyhub-lounge/
 ---
 ### 김포국제공항 스카이허브 라운지  후기
 안녕하세요 오늘은 김포국제공항 국제선 스카이허브 라운지 후기를 작성해보려고 합니다.

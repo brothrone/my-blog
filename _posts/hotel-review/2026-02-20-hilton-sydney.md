@@ -12,6 +12,7 @@ tags:
   - 호주여행
   - 힐튼아너스
 image: /assets/images/hotel-review/hiltonsydney/2026-02-20-HiltonSydney-1771517610047.webp
+en_permalink: /en/hotel-review/hilton-sydney/
 ---
 
 힐튼 시드니(Hilton Sydney) 3박 숙박 후기. 2025년 2월 기준, 힐튼 공식앱으로 예약했으며 시드니 CBD 중심부에 위치해 접근성이 매우 뛰어났다.

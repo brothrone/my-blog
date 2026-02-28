@@ -12,6 +12,7 @@ tags:
   - 일본온천
   - 후쿠오카
 image: /assets/images/hotel-review/fuk_1/fuk_a_5.webp
+en_permalink: /en/hotel-review/yufunosho-ryokan/
 ---
 ### 유후인 오야도 유후노쇼 후기 
 안녕하세요 오늘은 유후인 지역 료칸, 오야도 유후노쇼 료칸 후기글을 작성해보겠습니다. 
