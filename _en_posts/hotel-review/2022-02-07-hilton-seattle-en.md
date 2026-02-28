@@ -1,7 +1,7 @@
 ---
 layout: en-post
 title: "[Hotel Review] Hilton Seattle (Permanently Closed) — 2-Night Double Queen Stay"
-date: 2023-02-08
+date: 2022-02-07
 lang: en
 category: hotel-review
 permalink: /en/hotel-review/hilton-seattle/
