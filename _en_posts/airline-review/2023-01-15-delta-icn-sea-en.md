@@ -3,6 +3,7 @@ layout: en-post
 title: "[Flight Review] Delta Airlines ICN-SEA Economy Class"
 date: 2023-01-15
 lang: en
+kr_permalink: /posts/delta-icn-sea/
 category: airline-review
 tags:
   - USA

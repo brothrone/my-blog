@@ -3,6 +3,7 @@ layout: en-post
 title: "[Yufuin Ryokan] Ikkouten Private Villa Review — Facilities, Kaiseki Dinner & Breakfast"
 date: 2023-08-27
 lang: en
+kr_permalink: /posts/yufuin-ikkouten/
 category: hotel-review
 tags:
   - Hotel Review

@@ -52,6 +52,11 @@
   {% else %}
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   {% endif %}
+  {% if page.kr_permalink %}
+  <link rel="alternate" hreflang="en" href="{{ page.url | absolute_url }}" />
+  <link rel="alternate" hreflang="ko" href="{{ page.kr_permalink | prepend: site.url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ page.kr_permalink | prepend: site.url }}" />
+  {% endif %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

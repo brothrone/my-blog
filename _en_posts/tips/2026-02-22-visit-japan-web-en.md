@@ -3,6 +3,7 @@ layout: en-post
 title: "[Tips] Visit Japan Web — Complete Registration Guide for Travelers 2026"
 date: 2026-02-22
 lang: en
+kr_permalink: /posts/visit-japan-web/
 category: tips
 tags:
   - Japan Travel
