@@ -3,6 +3,7 @@ layout: en-post
 title: "Seattle's Museum of Flight — The World's Largest Aviation Museum"
 date: 2022-02-19
 lang: en
+kr_permalink: /posts/seattle-museum-of-flight/
 category: travel
 tags:
   - Travel

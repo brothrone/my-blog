@@ -3,6 +3,7 @@ layout: en-post
 title: "[Lounge] Gimpo Airport SkyHub Lounge — Location, Menu & Free Access Guide"
 date: 2026-02-25
 lang: en
+kr_permalink: /posts/gmp-skyhub/
 category: airline-review
 tags:
   - Lounge

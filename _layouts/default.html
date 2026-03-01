@@ -79,6 +79,11 @@
   {% else %}
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   {% endif %}
+  {% if page.en_permalink %}
+  <link rel="alternate" hreflang="ko" href="{{ page.url | absolute_url }}" />
+  <link rel="alternate" hreflang="en" href="{{ page.en_permalink | prepend: site.url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}" />
+  {% endif %}
   <meta name="google-site-verification" content="Yg-oBW33kqUu_fm4r_wgdF2HJy_65oZNGp8-dKPCwgI" />
   <meta name="naver-site-verification" content="6e6b886ed780f4f9569e2f22be8224ee8d5849c8" />
 

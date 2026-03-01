@@ -3,6 +3,7 @@ layout: en-post
 title: "[Yufuin Ryokan] Oyado Yufunosho — A Snow-Covered Second Visit"
 date: 2023-01-29
 lang: en
+kr_permalink: /posts/fukuoka-ryokan/
 category: hotel-review
 tags:
   - Hotel Review
