@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /favicon.ico
+Disallow: /kt95/
 
 User-agent: Yeti
 Allow: /
