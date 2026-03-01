@@ -36,3 +36,18 @@ kramdown:
 
 include:
   - _redirects
+
+# 사이트맵 제외: 카테고리 목록·페이지네이션·유틸리티 페이지
+defaults:
+  - scope:
+      path: "category"
+    values:
+      sitemap: false
+  - scope:
+      path: "page"
+    values:
+      sitemap: false
+  - scope:
+      path: "naverc57e7918696030d2018a7f9419a797fc.html"
+    values:
+      sitemap: false
