@@ -18,6 +18,9 @@ permalink: /en/tips/visit-japan-web/
 
 ## What is Visit Japan Web?
 
+> **One QR code. That's all you need.**
+> Complete pre-registration handles both immigration inspection and customs clearance with a single QR code — no paper forms, no queues at the counter.
+
 Japan is one of the most visited destinations in the world. Many travelers still fill out paper landing cards on the plane or scramble to complete customs declaration forms just before arriving at immigration — and some budget airlines no longer even provide paper cards at all.
 
 ![](/assets/images/tips/visit-japan-web/vjw2.webp)
