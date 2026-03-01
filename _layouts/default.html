@@ -74,6 +74,8 @@
   {% if paginator and paginator.page > 1 %}
   <link rel="canonical" href="{{ site.url }}/" />
   <meta name="robots" content="noindex, follow" />
+  {% elsif page.canonical %}
+  <link rel="canonical" href="{{ page.canonical }}" />
   {% else %}
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   {% endif %}

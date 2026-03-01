@@ -47,7 +47,11 @@
   {% endif %}
 
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+  {% if page.canonical %}
+  <link rel="canonical" href="{{ page.canonical }}" />
+  {% else %}
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  {% endif %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

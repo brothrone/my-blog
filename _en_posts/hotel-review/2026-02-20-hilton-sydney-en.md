@@ -1,15 +1,14 @@
 ---
 layout: en-post
-title: "[Hotel Review] Hilton Sydney — 3-Night Twin Room Stay with Breakfast"
+title: "[Hotel Review] Hilton Sydney — 3-Night Twin Room Stay with Breakfast, Gym"
 date: 2026-02-20
 lang: en
 category: hotel-review
 permalink: /en/hotel-review/hilton-sydney/
+canonical: https://brothrone.org/hotel-review/hilton-sydney/
 tags:
-  - Hotel Review
   - Hilton Sydney
   - Hotel
-  - Sydney Hotels
   - Australia Travel
   - Hilton Honors
 image: /assets/images/hotel-review/hiltonsydney/2026-02-20-HiltonSydney-1771517610047.webp
