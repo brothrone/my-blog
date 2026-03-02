@@ -20,15 +20,15 @@ image: /assets/images/hotel-review/hiltonseattle/IMG_0412.webp
 
 A 2-night stay at the Hilton Seattle. Booked via Priceline in February 2023, the hotel sat right next to the Washington State Convention Center in the heart of downtown Seattle.
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0403.webp)
+![Hilton Seattle hotel exterior on 6th Avenue next to the Washington State Convention Center](/assets/images/hotel-review/hiltonseattle/IMG_0403.webp)
 
 ## Booking and Price
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_6943.webp)
+![Priceline Express Deal booking confirmation for Hilton Seattle showing 2-night stay details](/assets/images/hotel-review/hiltonseattle/IMG_6943.webp)
 
 I booked through **Priceline** rather than the Hilton official app. Priceline's Express Deal feature lets you lock in deeply discounted rates on hotels — I'll cover that in more detail in a separate post. Check-in was February 8, check-out February 10, for a total of 2 nights.
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_6944.webp)
+![Priceline price breakdown for Hilton Seattle showing $88 per night with 56% discount after coupon](/assets/images/hotel-review/hiltonseattle/IMG_6944.webp)
 
 The rate came out to **$88 per night**, $176 for two nights. After a coupon discount of $21.12 and taxes, the final charge was **$208.86** — a **56% discount** off the regular rate according to Priceline. Combining Express Deals with third-party coupons made it possible to get a Hilton at a surprisingly low price. By 2026 standards, that rate is basically unimaginable.
 
@@ -38,41 +38,41 @@ Hilton Seattle was located at **1301 6th Avenue**, right next to the Washington 
 
 ## Check-in and Room
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0445.webp)
+![Hilton Seattle hallway with classic patterned carpet and old-school American hotel decor](/assets/images/hotel-review/hiltonseattle/IMG_0445.webp)
 
 The hallway had a classic patterned carpet — a very old-school American hotel vibe. Not as sleek or modern as some other Hilton properties, but it had its own character.
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0365.webp)
+![Hilton Seattle elevator interior showing keycard-activated floor button system](/assets/images/hotel-review/hiltonseattle/IMG_0365.webp)
 
 The elevator required inserting a keycard before the floor buttons would respond — a quirky old-school system. It caught me off guard at first.
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0416.webp)
+![Hilton Seattle Double Queen room with two queen beds and city view window](/assets/images/hotel-review/hiltonseattle/IMG_0416.webp)
 
 I was assigned a **Double Queen room** — two queen beds and a city view through the window. Hilton's bedding never disappoints; it was soft and comfortable as always.
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0412.webp)
+![Hilton Seattle Double Queen room full layout showing two beds, desk, and storage area](/assets/images/hotel-review/hiltonseattle/IMG_0412.webp)
 
 The overall layout of the room. Two beds, a desk by the window, and ample storage. Perfectly sized for two people — though I was travelling solo, so the extra bed just made the room feel a bit lonely.
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0418.webp)
+![Hilton Seattle room showing desk, TV, and wardrobe lined along one wall](/assets/images/hotel-review/hiltonseattle/IMG_0418.webp)
 
 The desk, TV, and wardrobe were all lined up along one wall. Given the hotel's proximity to the convention center, the work setup felt well thought-out — likely catering to a lot of business travellers.
 
 ## Bathroom
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0415.webp)
+![Hilton Seattle bathroom with combination bathtub and shower, white tiles, and wall-mounted toiletry dispensers](/assets/images/hotel-review/hiltonseattle/IMG_0415.webp)
 
 The bathroom had a combination bathtub and shower. The white tiles kept it looking clean, though the space itself was a bit cramped. Toiletries were provided in wall-mounted dispensers rather than single-use bottles.
 
 ## Breakfast — Redtrees Restaurant & Bar
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0528.webp)
+![Hilton Seattle Redtrees restaurant breakfast menu displayed at the restaurant entrance](/assets/images/hotel-review/hiltonseattle/IMG_0528.webp)
 
 Breakfast is not included — you order à la carte at the hotel's restaurant, **redtrees restaurant & bar**. The menu had a solid lineup: Fresh Waffle ($13), French Toast ($13), Yogurt Parfait ($9), Ham, Egg and Cheese Sandwich ($9), Omelette ($19), and more. By today's US prices, it reads surprisingly affordable.
 
 I ordered the **Redtrees Continental ($10)** — pastries, fruit, and a coffee. Light but perfectly sufficient for a morning before heading out.
 
-![](/assets/images/hotel-review/hiltonseattle/IMG_0531.webp)
+![Hilton Seattle Redtrees lounge continental breakfast spread with toast, croissant, and Chobani yogurt](/assets/images/hotel-review/hiltonseattle/IMG_0531.webp)
 
 The lounge also offered a simple continental breakfast — toast, butter, croissant, and Chobani yogurt. Nothing elaborate, but handy if you just want something quick before heading out.
 

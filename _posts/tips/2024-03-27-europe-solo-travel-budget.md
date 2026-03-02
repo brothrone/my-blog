@@ -21,9 +21,9 @@ image: /assets/images/tips/eur-budget/IMG_0026.webp
 이 밑에 보이는 표에 모든 경비가 다 정리되어 있습니다.
 시원하게 결론부터 말하면 총경비는 6,410,400원
 많이 썼냐 적게 썼냐는 사람마다 다르지만, 내 입장에선 꽤 괜찮게 갔다 왔다고 생각함.
-![](/assets/images/tips/eur-budget/IMG_0026.webp)
+![유럽 자유여행 경비 총정리 표 항공권 숙박비](/assets/images/tips/eur-budget/IMG_0026.webp)
 항공권, 숙박비, 도시 이동을 포함한 교통비
-![](/assets/images/tips/eur-budget/IMG_0027.webp)
+![유럽 자유여행 경비 표 입장권 식비 기타 비용](/assets/images/tips/eur-budget/IMG_0027.webp)
 입장권 및 투어 비용, 마트에서 장 보는 비용과 식비, 기념품 및 쇼핑 금액과 기타 금액
 
 여행 전 여행 총예산을 6,000,000원으로 잡았는데, 얼추 비슷하게 나와서 안심됐다.
@@ -51,8 +51,8 @@ __런던 in 로마 out__ 항공권을 검색했다.
 싱가포르항공 서비스가 너무 좋았기 때문.
 
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/IMG_0017.webp" alt="">
-  <img src="/assets/images/tips/eur-budget/output_439871977.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_0017.webp" alt="싱가포르항공 항공권 예약 화면">
+  <img src="/assets/images/tips/eur-budget/output_439871977.webp" alt="인천-싱가포르-런던 여정 항공권 영수증">
 </div>
 
 가장 저렴했던 이유는, 아마도 내가 일찍 일정을 정해 8개월 전에 결제를 한 덕분인 거 같다.
@@ -66,8 +66,8 @@ __런던 in 로마 out__ 항공권을 검색했다.
 전 구간 25kg 무료 수화물, 9378 Krisflyer 마일리지가 적립된다.
 
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/IMG_7607.webp" alt="">
-  <img src="/assets/images/tips/eur-budget/IMG_7387.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_7607.webp" alt="싱가포르항공 A380 기내 전경">
+  <img src="/assets/images/tips/eur-budget/IMG_7387.webp" alt="싱가포르항공 이코노미 기내식">
 </div>
 
 *싱가포르 항공 A380, 기내식 *
@@ -78,8 +78,8 @@ __런던 in 로마 out__ 항공권을 검색했다.
 최신 기종이라면 습도와 기압이 높게 유지되어 쾌적하다.
 **\+ 전 구간 무제한 무료 와이파이 제공 (카톡,인스타 원활함)**
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/IMG_7437.webp" alt="">
-  <img src="/assets/images/tips/eur-budget/IMG_7445.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_7437.webp" alt="싱가포르 창이공항 환승 구역">
+  <img src="/assets/images/tips/eur-budget/IMG_7445.webp" alt="창이공항 카야토스트 식사">
 </div>
 
 *싱가포르 창이 공항에서 카야토스트 먹기*
@@ -111,8 +111,8 @@ __런던 in 로마 out__ 항공권을 검색했다.
 호스텔과 괜찮은 에어비앤비도 고려하는 걸 추천한다.
 
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/IMG_9039.webp" alt="">
-  <img src="/assets/images/tips/eur-budget/IMG_9043.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_9039.webp" alt="파리 샹젤리제 근처 에어비앤비 내부">
+  <img src="/assets/images/tips/eur-budget/IMG_9043.webp" alt="파리 에어비앤비 객실 전경">
 </div>
 
 *파리 샹젤리제 거리 근처 에어비앤비. 너무너무 좋았음.*
@@ -126,8 +126,8 @@ __런던 in 로마 out__ 항공권을 검색했다.
 호스텔을 몇 군데 다니면서 느끼는 팁은, **최소한 그 도시에서 가장 유명하고 비싼 호스텔을 가는 것이다.**
 **그래봤자 호텔 숙박비의 절반도 안 나온다.**
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/output_1898742935.webp" alt="">
-  <img src="/assets/images/tips/eur-budget/output_2732826886.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/output_1898742935.webp" alt="스위스 호텔 객실">
+  <img src="/assets/images/tips/eur-budget/output_2732826886.webp" alt="로마 에어비앤비 숙소">
 </div>
 
 *스위스 호텔 , 로마 에어비앤비*
@@ -157,8 +157,8 @@ __런던 in 로마 out__ 항공권을 검색했다.
 혼자 여행 가면 먹는 음식에 한계가 있으니 동행을 잘 구하면 먹는 음식의 퀄리티가 높아진다.
 
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/output_3748290347.webp" alt="">
-  <img src="/assets/images/tips/eur-budget/output_1033229375.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/output_3748290347.webp" alt="프랑스 마트 식료품 코너">
+  <img src="/assets/images/tips/eur-budget/output_1033229375.webp" alt="피렌체 레스토랑 티본스테이크">
 </div>
 
 *프랑스 마트 / 피렌체에서 먹은 티본스테이크*
@@ -184,8 +184,8 @@ COOP이라고 하는 스위스 어디에나 있는 마트에서 그나마 적당
 그냥 마음껏 먹고 오면 된다. 내 체감상 물가도 위 세 나라보다 저렴했고,
 외식했을 때 만족도가 가장 높았다.
 <div class="img-row">
-  <img src="/assets/images/tips/eur-budget/IMG_3474.webp" alt="">
-  <img src="/assets/images/tips/eur-budget/IMG_2344.webp" alt="">
+  <img src="/assets/images/tips/eur-budget/IMG_3474.webp" alt="이탈리아 여행 중 식사 풍경">
+  <img src="/assets/images/tips/eur-budget/IMG_2344.webp" alt="유럽 자유여행 음식 및 식비 사진">
 </div>
 이렇게 여행갔다오고 블로그로 남기니까 추억회상도 되고,
 까먹기 전에 다시 리마인드하는 느낌이라

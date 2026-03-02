@@ -95,45 +95,45 @@ This is a massive hangar housing actual aircraft on display. It's outdoors, so i
 
 Real aircraft like the Boeing 747 prototype, the 787, the Concorde, and a vintage Air Force One. Rare aircraft you can see up close and actually step inside.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3156.webp)
+![Aviation Pavilion entrance with large historic aircraft on outdoor display](/assets/images/airline-review/museum-of-flight/IMG_3156.webp)
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3158.webp)
+![Concorde supersonic aircraft on display in the Aviation Pavilion at Seattle Museum of Flight](/assets/images/airline-review/museum-of-flight/IMG_3158.webp)
 
 First up: the Concorde. It's already been retired for years, and there aren't many places left that have one on display — let alone one you can walk through. I didn't hesitate for a second.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3172.webp)
+![Concorde interior cabin showing the narrow two-class seating arrangement](/assets/images/airline-review/museum-of-flight/IMG_3172.webp)
 
 Cockpit, two classes of seating — the whole thing. The famously terrible fuel economy checks out: it really is a flying cattle car. Flying at twice the speed of sound while crammed into that... no thanks.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3178.webp)
-![](/assets/images/airline-review/museum-of-flight/IMG_3201.webp)
+![Concorde cockpit with instrument panels on display at Seattle Museum of Flight](/assets/images/airline-review/museum-of-flight/IMG_3178.webp)
+![Former presidential Air Force One aircraft (VC-137C SAM 970) exterior in the Aviation Pavilion](/assets/images/airline-review/museum-of-flight/IMG_3201.webp)
 
 Next, Air Force One — the former presidential aircraft. Kennedy apparently used this one. Getting to walk through the actual interior of a presidential aircraft is wild. Delivered in 1959... I wonder what Korea was doing back then. The more you see of this country, the more impressive it gets.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3224.webp)
+![Air Force One interior showing the presidential cabin and conference room](/assets/images/airline-review/museum-of-flight/IMG_3224.webp)
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3234.webp)
+![Boeing 747 prototype registration N7470 on display in the Aviation Pavilion at Seattle Museum of Flight](/assets/images/airline-review/museum-of-flight/IMG_3234.webp)
 
 Then: the world's best-selling commercial aircraft — the Boeing 747 prototype. Registration N7470. The number says it all.
 
 According to a post I came across on the aviation community "Flighters" — this is the only surviving 747 Classic prototype. It was converted into an aerial refueling tanker, then a NASA research aircraft, then a Boeing engine testbed. After all that, it was retired and left to sit. In 2015, it was fully repainted and put on display here.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3240.webp)
+![Boeing 747 prototype interior showing old engine test equipment and aerial refueling tanker remnants](/assets/images/airline-review/museum-of-flight/IMG_3240.webp)
 
 Inside, there's a lot of old equipment — likely from the engine test days — along with traces of the refueling tanker conversion. Seeing it in person is genuinely awe-inspiring.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3245.webp)
+![Boeing 787 Dreamliner on static display in the Aviation Pavilion at Seattle Museum of Flight](/assets/images/airline-review/museum-of-flight/IMG_3245.webp)
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3254.webp)
+![Boeing 787 Dreamliner nose and forward fuselage close-up on display at Seattle Museum of Flight](/assets/images/airline-review/museum-of-flight/IMG_3254.webp)
 
 There was also a Boeing 787. It's very much in active service today and not hard to find, but I hadn't flown it yet at the time — and it's still rare to see one up close like this. I took a good look.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3263.webp)
-![](/assets/images/airline-review/museum-of-flight/IMG_3274.webp)
+![CH-47 Chinook tandem-rotor helicopter on display at Seattle Museum of Flight](/assets/images/airline-review/museum-of-flight/IMG_3263.webp)
+![CH-47 Chinook helicopter close-up showing twin rotor configuration](/assets/images/airline-review/museum-of-flight/IMG_3274.webp)
 
 CH-47 Chinook. Saw these a few times during my military service.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3286.webp)
+![Overhead panoramic view of multiple historic aircraft packed together in the Aviation Pavilion](/assets/images/airline-review/museum-of-flight/IMG_3286.webp)
 
 Seeing it all laid out like this — "packed in tight" is the phrase that comes to mind.
 

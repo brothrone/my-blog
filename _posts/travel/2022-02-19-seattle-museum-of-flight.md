@@ -96,25 +96,25 @@ en_permalink: /en/travel/seattle-museum-of-flight/
 여긴 거대한 격납고 안에 실제 항공기들을 전시해둔 공간인데, 야외에 있어서 겨울에는 춥다...
 그치만 이 박물관에 온 목적이자, 가장 흥미로웠던 곳이다.
 실제 B747프로토타입, B787, 콩코드, 구형 에어포스원, 등등등 실제로 보기힘든 기종을 코 앞에서 보는 것도 모자라 내부로 들어갈 수도 있다.
-![](/assets/images/airline-review/museum-of-flight/IMG_3156.webp)
+![Aviation Pavilion 전시 공간 내부 전경](/assets/images/airline-review/museum-of-flight/IMG_3156.webp)
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3158.webp)
+![콩코드 항공기 외부 전시](/assets/images/airline-review/museum-of-flight/IMG_3158.webp)
 먼저 콩코드, 한참 전에 퇴역해 전시해놓은 곳도 얼마 없을텐데 들어가 볼 수 있기까지 하다니
 못참고 바로 들어갔다.
-![](/assets/images/airline-review/museum-of-flight/IMG_3172.webp)
+![콩코드 기내 좌석 및 칵핏 내부](/assets/images/airline-review/museum-of-flight/IMG_3172.webp)
 콕핏은 물론, 두개의 클래스 좌석도 구경했다.
 역시 최악의 연비답게 닭장 그 자체다.
 음속의 두배 속도로 날아도 저 정도 닭장에 갇혀가는건 쉽지 않을 듯...
-![](/assets/images/airline-review/museum-of-flight/IMG_3178.webp)
-![](/assets/images/airline-review/museum-of-flight/IMG_3201.webp)
+![에어포스원 구 대통령 전용기 외부](/assets/images/airline-review/museum-of-flight/IMG_3178.webp)
+![에어포스원 기내 내부 구경](/assets/images/airline-review/museum-of-flight/IMG_3201.webp)
 다음엔 에어포스원,
 미국 대통령의 전용기(였던 것)을 구경했다.
 대표적으로 케네디 대통령이 이 전용기를 이용한 듯
 미국 대통령이 타던 전용기 내부도 다 구경해보고 살고 볼 일이다.
 1959년에 인도되었다는데, 저때 한국은 뭘하고 있었더라.. 미국은 볼수록 대단한 나라다.
-![](/assets/images/airline-review/museum-of-flight/IMG_3224.webp)
+![보잉747 프로토타입 N7470 외부](/assets/images/airline-review/museum-of-flight/IMG_3224.webp)
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3234.webp)
+![보잉747 프로토타입 기내 장비들](/assets/images/airline-review/museum-of-flight/IMG_3234.webp)
 그 담에 본 것은 세계적인 베스트셀러,
 보잉747의 프로토타입이다. (N7470)레지넘버조차 747의 상징 그 자체다.
 항공카페 'Flighters'에 이 기체에 대한 글이 올라왔다글에는,
@@ -125,21 +125,21 @@ en_permalink: /en/travel/seattle-museum-of-flight/
 방치된다.
 
 그 후 2015년에 전면 재도색 후 여기에 전시됐다.
-![](/assets/images/airline-review/museum-of-flight/IMG_3240.webp)
+![2015년 재도색된 보잉747 프로토타입 외부](/assets/images/airline-review/museum-of-flight/IMG_3240.webp)
 그래서 어쩐지 옛날에 쓰던 수많은 장비들,
 아마도 엔진 테스트때 쓰던 장비?들이 내부에 있었고
 공중급유기로 개조되어 사용했던 흔적들까지 있었다.
 직접 본 것만으로도 웅장해지는 기체
-![](/assets/images/airline-review/museum-of-flight/IMG_3245.webp)
+![보잉747 프로토타입 내부 전시 장비](/assets/images/airline-review/museum-of-flight/IMG_3245.webp)
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3254.webp)
+![보잉787 드림라이너 외부 전시](/assets/images/airline-review/museum-of-flight/IMG_3254.webp)
 또 보잉787도 있었다.
 얘는 사실 한창 현역 중의 현역이라 볼 수 있는 곳이 많지만, 아직 타보기 전이기도하고 또 실제로 가까이 보기도 어려우니 실컷 구경했다.
-![](/assets/images/airline-review/museum-of-flight/IMG_3263.webp)
-![](/assets/images/airline-review/museum-of-flight/IMG_3274.webp)
+![보잉787 드림라이너 기내 내부](/assets/images/airline-review/museum-of-flight/IMG_3263.webp)
+![CH-47 시누크 헬기 전시](/assets/images/airline-review/museum-of-flight/IMG_3274.webp)
 CH-47 시누크 헬기. 군생활 하면서 몇 번 본적이 있었다.
 
-![](/assets/images/airline-review/museum-of-flight/IMG_3286.webp)
+![Aviation Pavilion 항공기들 오밀조밀 배치 전경](/assets/images/airline-review/museum-of-flight/IMG_3286.webp)
 이렇게 보니, 참 오밀조밀하게 잘 우겨넣었다라는
 표현이 어울린다.
 여튼 이렇게 항공기박물관을 둘러본 후기를 마친다.

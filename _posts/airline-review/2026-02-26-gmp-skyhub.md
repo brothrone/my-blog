@@ -14,7 +14,7 @@ en_permalink: /en/airline-review/gimpo-skyhub-lounge/
 ---
 ### 김포국제공항 스카이허브 라운지  후기
 안녕하세요 오늘은 김포국제공항 국제선 스카이허브 라운지 후기를 작성해보려고 합니다.
-![](/assets/images/airline-review/ke2101/IMG_4054.webp)
+![김포공항 스카이허브 라운지 입구](/assets/images/airline-review/ke2101/IMG_4054.webp)
 스카이허브 라운지는 김포뿐만 아니라, 인천국제공항과  김해국제공항에서도 볼 수 있는데, 
 풀무원 계열사인 풀무원푸드앤컬처에서 운영하고 있다. 
 ### 운영시간
@@ -22,21 +22,21 @@ en_permalink: /en/airline-review/gimpo-skyhub-lounge/
 최대 5시간 이용 가능
 
 위치는 보이는 것 처럼 보안검색과 출국심사를 받고 면세구역으로 나오는 곳에 위치해있다. 
-![](/assets/images/airline-review/ke2101/IMG_4056.webp)
+![스카이허브 라운지 내부 전경](/assets/images/airline-review/ke2101/IMG_4056.webp)
 라운지에 입장했다. 
 아까와 달리 사람들은 많지 않았지만, 조금 뒤에 라운지 입장 웨이팅이 생겼다. 
 나는 국민 헤리티지 스마트 카드를 이용해 입장했고, 
 그 외에도 라운지 제휴 카드(pp, 더라운지 등)를 이용해 무료로 이용할 수 있다. 
 
 ### 김포스카이허브 라운지 음식 
-![](/assets/images/airline-review/ke2101/high.webp)
+![스카이허브 라운지 한식 뷔페 메뉴](/assets/images/airline-review/ke2101/high.webp)
 한국에서 여러공항에 운영되고 있는 스카이허브 라운지는 한식 위주의 메뉴가 알차다.
-![](/assets/images/airline-review/ke2101/IMG_4058.webp)
+![스카이허브 라운지 샐러드 및 비빔밥 코너](/assets/images/airline-review/ke2101/IMG_4058.webp)
 샐러드 메뉴도 다양하고, 비빔밥을 직접 만들어 먹을 수 있는 코너가 있다.
-![](/assets/images/airline-review/ke2101/IMG_4059.webp)
+![스카이허브 라운지 한식 메뉴 육개장 포함](/assets/images/airline-review/ke2101/IMG_4059.webp)
 또한 그 외 한식느낌이 나는 메뉴들도 하나하나 다 맛있어서 메뉴 가짓수는 많지 않지만, 
 알차게 다양한 음식을 즐길 수 있다. 참고로 저기 육개장이 정말 맛있었다.
-![](/assets/images/airline-review/ke2101/IMG_4060.webp)
+![스카이허브 라운지 분식 스낵 코너](/assets/images/airline-review/ke2101/IMG_4060.webp)
 그 외 스낵 및 분식 코너에는 떡볶이, 만두, 김말이 튀김 등 가벼운 분식과 컵라면이 준비되어 있다.
 주류코너에서는 생맥주, 와인, 위스키 등 주류와 탄산음료, 커피, 주스 등을 자유롭게 이용할 수 있다.
 
