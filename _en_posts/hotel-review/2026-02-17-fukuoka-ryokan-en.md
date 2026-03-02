@@ -116,14 +116,14 @@ Outside it was below freezing, but inside the onsen the cold simply vanished. So
 
 ### Kaiseki Breakfast
 
-![Morning Kaiseki](/assets/images/hotel-review/fuk_2/IMG_0405.webp)
+![Morning Kaiseki](/assets/images/hotel-review/fuk_2/fuk2-01.webp)
 
 The morning kaiseki was lighter than dinner, but no less satisfying.
 Natto, tamago kake gohan, salmon steak, salad, and a steaming bowl of soup — everything was fresh and delicious.
 
-![Tamago Kake Gohan](/assets/images/hotel-review/fuk_2/IMG_0409.webp)
+![Tamago Kake Gohan](/assets/images/hotel-review/fuk_2/fuk2-02.webp)
 
-![Egg Yolk](/assets/images/hotel-review/fuk_2/IMG_0414.webp)
+![Egg Yolk](/assets/images/hotel-review/fuk_2/fuk2-03.webp)
 
 That piping hot soup paired with glossy white rice warmed you right through.
 Breaking a fresh egg yolk over the rice and adding a dash of soy sauce made for a perfect tamago kake gohan.

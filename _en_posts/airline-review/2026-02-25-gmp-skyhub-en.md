@@ -11,7 +11,7 @@ tags:
   - SkyHub
   - Airport Lounge
   - Priority Pass
-image: /assets/images/airline-review/ke2101/IMG_4058.webp
+image: /assets/images/airline-review/ke2101/ke2101-21.webp
 permalink: /en/airline-review/gimpo-skyhub-lounge/
 ---
 
@@ -19,7 +19,7 @@ permalink: /en/airline-review/gimpo-skyhub-lounge/
 
 Hi, today I'm sharing my review of the SkyHub Lounge at Gimpo International Airport's international terminal.
 
-![SkyHub Lounge entrance sign at Gimpo Airport international terminal](/assets/images/airline-review/ke2101/IMG_4054.webp)
+![SkyHub Lounge entrance sign at Gimpo Airport international terminal](/assets/images/airline-review/ke2101/ke2101-05.webp)
 
 SkyHub Lounge can be found not only at Gimpo, but also at Incheon International Airport and Gimhae International Airport. It is operated by Pulmuone Foods & Culture, a subsidiary of Pulmuone.
 
@@ -30,7 +30,7 @@ Maximum stay: **5 hours**
 
 The lounge is located in the airside area — past security screening and immigration, once you enter the duty-free zone.
 
-![SkyHub Lounge interior seating area at Gimpo Airport](/assets/images/airline-review/ke2101/IMG_4056.webp)
+![SkyHub Lounge interior seating area at Gimpo Airport](/assets/images/airline-review/ke2101/ke2101-20.webp)
 
 When I entered the lounge it wasn't too crowded, but a waiting queue formed shortly after I arrived.
 
@@ -42,15 +42,15 @@ I accessed the lounge with my **KB Heritage Smart Card**. You can also enter for
 
 SkyHub Lounges across Korea are well-known for their solid Korean-style menus.
 
-![SkyHub Lounge salad bar and bibimbap station with toppings](/assets/images/airline-review/ke2101/IMG_4058.webp)
+![SkyHub Lounge salad bar and bibimbap station with toppings](/assets/images/airline-review/ke2101/ke2101-21.webp)
 
 There's a good variety of salads and a bibimbap (Korean mixed rice bowl) station where you can build your own.
 
-![SkyHub Lounge Korean hot food selection including yukgaejang spicy beef soup](/assets/images/airline-review/ke2101/IMG_4059.webp)
+![SkyHub Lounge Korean hot food selection including yukgaejang spicy beef soup](/assets/images/airline-review/ke2101/ke2101-22.webp)
 
 The rest of the Korean-style dishes are all tasty too. The selection isn't huge, but each item is well-prepared and satisfying. The yukgaejang (spicy beef soup) was particularly delicious.
 
-![SkyHub Lounge snack corner with tteokbokki, dumplings, and cup noodles](/assets/images/airline-review/ke2101/IMG_4060.webp)
+![SkyHub Lounge snack corner with tteokbokki, dumplings, and cup noodles](/assets/images/airline-review/ke2101/ke2101-23.webp)
 
 The snack corner offers lighter bites: tteokbokki (spicy rice cakes), dumplings, fried fish cake rolls, and cup noodles.
 

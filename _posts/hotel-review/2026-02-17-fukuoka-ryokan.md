@@ -79,12 +79,12 @@ en_permalink: /en/hotel-review/yufunosho-ryokan/
 식사 후, 공용 온천을 하러 갔다. 이곳의 공용 온천은 다른 곳과 마찬가지로, 팻말을 걸어놓고 이용하는 방식이다. 
 밖에 기온은 영하인데, 온천에 들어가 있으면 추위가 하나도 안 느껴지고, 여름에 에어컨 켜고 이불 덮는 느낌이라 정말 좋아한다. 
 ### 료칸 가이세키 - 조식
-![아침 가이세키](/assets/images/hotel-review/fuk_2/IMG_0405.webp)
+![아침 가이세키](/assets/images/hotel-review/fuk_2/fuk2-01.webp)
 아침 가이세키 메뉴는 저녁보다는 가벼웠다. 
 낫또, 간장 계란밥, 연어 스테이크, 샐러드 그리고 군침 싹 도는 탕까지.. 
 반찬들도 신선하고 정말 맛있었다. 
-![간장 계란밥](/assets/images/hotel-review/fuk_2/IMG_0409.webp)
-![노른자](/assets/images/hotel-review/fuk_2/IMG_0414.webp)
+![간장 계란밥](/assets/images/hotel-review/fuk_2/fuk2-02.webp)
+![노른자](/assets/images/hotel-review/fuk_2/fuk2-03.webp)
 이렇게 김이 모락모락나는 탕에다가 윤기나는 밥까지 먹으니 속까지 따뜻해지는 느낌이다.
 또 신선한 계란 노른자를 밥에다 얹고 간장을 뿌려 간장계란밥까지 먹을 수 있다. 
 
