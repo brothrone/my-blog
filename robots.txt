@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /kt95/
+Disallow: /cdn-cgi/
 
 User-agent: Yeti
 Allow: /
