@@ -328,7 +328,15 @@
     </script>
   </header>
 
-  <main>{{ content }}</main>
+  <main>
+    {% if page.en_permalink %}
+    <div class="lang-banner">
+      <span>🇬🇧</span>
+      <a href="{{ page.en_permalink }}">Read this post in English</a>
+    </div>
+    {% endif %}
+    {{ content }}
+  </main>
 
   <!-- 라이트박스 오버레이 -->
   <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">

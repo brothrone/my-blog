@@ -198,7 +198,15 @@
     </script>
   </header>
 
-  <main>{{ content }}</main>
+  <main>
+    {% if page.kr_permalink %}
+    <div class="lang-banner">
+      <span>🇰🇷</span>
+      <a href="{{ page.kr_permalink }}">한국어로 읽기</a>
+    </div>
+    {% endif %}
+    {{ content }}
+  </main>
 
   <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
     <div class="lightbox-img-wrap" id="lightboxWrap">
