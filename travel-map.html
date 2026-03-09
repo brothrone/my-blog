@@ -42,7 +42,10 @@ permalink: /travel-map/
       {% for country_key in unique_countries %}
         {% assign country_places = site.data.places | where: "data_country", country_key %}
         {% assign first_place = country_places | first %}
-        {% assign country_post_count = country_places | map: "post_count" | sum %}
+        {% assign country_post_count = 0 %}
+        {% for p in country_places %}
+          {% assign country_post_count = country_post_count | plus: p.post_count %}
+        {% endfor %}
         <div class="country-card" data-country="{{ country_key }}">
           <div class="country-flag">{{ first_place.flag }}</div>
           <h3>{{ first_place.country }}</h3>

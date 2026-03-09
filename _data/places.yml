@@ -1,3 +1,6 @@
+# ─────────────────────────────────────────────
+# 미국 (USA)
+# ─────────────────────────────────────────────
 - name: 시애틀
   country: 미국
   flag: 🇺🇸
@@ -5,37 +8,54 @@
   coords: [47.6062, -122.3321]
   center: [37.0902, -95.7129]
   color: "#FF6B6B"
-  post_count: 12
+  post_count: 4
   posts:
     - title: 델타항공 ICN-SEA 탑승기
-      url: /posts/delta-icn-sea
-    - title: 시애틀 항공 박물관
-      url: /posts/seattle-aviation-museum
+      url: /posts/delta-icn-sea/
+    - title: 시애틀 항공기 박물관 후기
+      url: /posts/seattle-museum-of-flight/
+    - title: 힐튼 시애틀 숙박후기
+      url: /hotel-review/hilton-seattle/
+    - title: 크라운 플라자 시애틀 숙박후기
+      url: /hotel-review/crowne-plaza-seattle/
 
-- name: 샌프란시스코
-  country: 미국
-  flag: 🇺🇸
-  data_country: usa
-  coords: [37.7749, -122.4194]
-  center: [37.0902, -95.7129]
-  color: "#FF6B6B"
-  post_count: 3
+# ─────────────────────────────────────────────
+# 호주 (Australia)
+# ─────────────────────────────────────────────
+- name: 시드니
+  country: 호주
+  flag: 🇦🇺
+  data_country: australia
+  coords: [-33.8688, 151.2093]
+  center: [-25.2744, 133.7751]
+  color: "#FFA07A"
+  post_count: 2
   posts:
-    - title: 미국서부여행 #9
-      url: /posts/9
+    - title: 힐튼 시드니 숙박후기
+      url: /hotel-review/hilton-sydney/
+    - title: 싱가포르항공 SQ232 시드니-싱가포르 탑승기
+      url: /posts/sq232/
 
-- name: 로스앤젤레스
-  country: 미국
-  flag: 🇺🇸
-  data_country: usa
-  coords: [34.0522, -118.2437]
-  center: [37.0902, -95.7129]
-  color: "#FF6B6B"
-  post_count: 5
+# ─────────────────────────────────────────────
+# 뉴질랜드 (New Zealand)
+# ─────────────────────────────────────────────
+- name: 오클랜드 / 크라이스트처치
+  country: 뉴질랜드
+  flag: 🇳🇿
+  data_country: newzealand
+  coords: [-36.8485, 174.7633]
+  center: [-40.9006, 174.8860]
+  color: "#56C596"
+  post_count: 2
   posts:
-    - title: 미국서부여행 #15
-      url: /posts/15
+    - title: KE411 인천-오클랜드 탑승기
+      url: /posts/ke411/
+    - title: NZ547 오클랜드-크라이스트처치 탑승기
+      url: /airline-review/nz547/
 
+# ─────────────────────────────────────────────
+# 일본 (Japan)
+# ─────────────────────────────────────────────
 - name: 후쿠오카 / 유후인
   country: 일본
   flag: 🇯🇵
@@ -43,13 +63,42 @@
   coords: [33.5904, 130.4017]
   center: [36.2048, 138.2529]
   color: "#4ECDC4"
-  post_count: 8
+  post_count: 3
   posts:
-    - title: 유후인 료칸 후기
-      url: /posts/fukuoka-ryokan
-    - title: 유후인 #2
-      url: /posts/29
+    - title: KE787 인천-후쿠오카 탑승기
+      url: /posts/ke787/
+    - title: 유후인 료칸 후기 (오야도 유후노쇼)
+      url: /posts/fukuoka-ryokan/
+    - title: 유후인 료칸 후기 (잇코텐)
+      url: /posts/yufuin-ikkouten/
 
+- name: 도쿄 / 하네다
+  country: 일본
+  flag: 🇯🇵
+  data_country: japan
+  coords: [35.5494, 139.7798]
+  center: [36.2048, 138.2529]
+  color: "#4ECDC4"
+  post_count: 1
+  posts:
+    - title: KE2101 김포-하네다 탑승기
+      url: /posts/ke2101/
+
+- name: 삿포로 / 조잔케이
+  country: 일본
+  flag: 🇯🇵
+  data_country: japan
+  coords: [43.0642, 141.3469]
+  center: [36.2048, 138.2529]
+  color: "#4ECDC4"
+  post_count: 1
+  posts:
+    - title: 쿠리야 스이잔 료칸 후기 (조잔케이)
+      url: /posts/kuriya-suizan/
+
+# ─────────────────────────────────────────────
+# 싱가포르 (Singapore)
+# ─────────────────────────────────────────────
 - name: 싱가포르
   country: 싱가포르
   flag: 🇸🇬
@@ -57,13 +106,16 @@
   coords: [1.3521, 103.8198]
   center: [1.3521, 103.8198]
   color: "#95E1D3"
-  post_count: 7
+  post_count: 2
   posts:
-    - title: 싱가포르 #1
-      url: /posts/31
-    - title: 싱가포르 #2
-      url: /posts/32
+    - title: 싱가포르항공 SQ232 시드니-싱가포르 탑승기
+      url: /posts/sq232/
+    - title: 싱가포르항공 SQ322 인천-싱가포르-런던 탑승기
+      url: /posts/sq322/
 
+# ─────────────────────────────────────────────
+# 영국 (UK)
+# ─────────────────────────────────────────────
 - name: 런던
   country: 영국
   flag: 🇬🇧
@@ -71,37 +123,7 @@
   coords: [51.5074, -0.1278]
   center: [55.3781, -3.4360]
   color: "#F38181"
-  post_count: 5
-  posts:
-    - title: 런던 #1
-      url: /posts/39
-    - title: 런던 #2
-      url: /posts/40
-
-- name: 파리
-  country: 프랑스
-  flag: 🇫🇷
-  data_country: france
-  coords: [48.8566, 2.3522]
-  center: [46.2276, 2.2137]
-  color: "#AA96DA"
-  post_count: 3
-  posts:
-    - title: 프랑스 #1
-      url: /posts/44
-    - title: 프랑스 #2
-      url: /posts/45
-    - title: 프랑스 #3
-      url: /posts/46
-
-- name: 오클랜드
-  country: 뉴질랜드
-  flag: 🇳🇿
-  data_country: newzealand
-  coords: [-36.8485, 174.7633]
-  center: [-40.9006, 174.8860]
-  color: "#56C596"
   post_count: 1
   posts:
-    - title: "[항공리뷰] KE411 인천-오클랜드 리뷰"
-      url: /posts/ke411
+    - title: 싱가포르항공 SQ322 인천-싱가포르-런던 탑승기
+      url: /posts/sq322/
