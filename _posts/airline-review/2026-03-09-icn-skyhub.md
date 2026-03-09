@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "인천국제공항 제2터미널 스카이허브 라운지 후기 (24시간 운영)"
+title: 인천국제공항 제2터미널 스카이허브 서편 라운지 후기 (24시간 운영)
 date: 2026-03-09
 category: airline-review
 tags:
@@ -26,23 +26,18 @@ permalink: /posts/icn-skyhub/
 ### 위치
 
 ![인천국제공항 제2터미널 Transfer Lounge 4F 안내 표지판](/assets/images/airline-review/icn-skyhub/icn-skyhub-01.webp)
-
 스카이허브 라운지는 인천국제공항 제2터미널 출국장 내 4층에 위치해 있어요.
 면세구역 진입 후 Transfer Lounge 표지판을 따라 에스컬레이터를 타고 올라가면 됩니다.
-
+인천국제공항에는 총 2개의 스카이허브 라운지가 운영되고 있습니다. 
 ![Transfer Lounge A Twosome Place · SKY HUB LOUNGE 간판](/assets/images/airline-review/icn-skyhub/icn-skyhub-02.webp)
 
-라운지 입구 쪽에는 **Transfer Lounge @ A Twosome Place**와 **SKY HUB LOUNGE** 간판이 나란히 달려 있어요.
-이름이 두 개라 처음에는 헷갈릴 수 있는데, 스카이허브 라운지 옆에 투썸플레이스가 입점해 있는 구조입니다.
-
+라운지 입구 옆에 투썸플레이스가 입점해 있는 구조입니다.
 ### 입구
 
 ![스카이허브 라운지 입구 복도와 네온 사인](/assets/images/airline-review/icn-skyhub/icn-skyhub-03.webp)
-
-심야라 조용했지만 라운지 입구의 초록색 네온 사인은 꽤 인상적이었습니다.
+.
 제가 방문한 곳은 제2터미널 서편 스카이허브 라운지예요.
 참고로 2터미널에는 동편과 서편 두 곳이 있는데, 제가 방문했을 당시 동편은 리뉴얼 공사 중이었습니다.
-
 ### 라운지 내부
 
 ![스카이허브 라운지 내부 Live Zone과 Plant Forward 구역](/assets/images/airline-review/icn-skyhub/icn-skyhub-04.webp)
@@ -51,21 +46,22 @@ permalink: /posts/icn-skyhub/
 **Live Zone**, **Plant Forward** 등 구역별로 콘셉트가 나뉘어 있고, 2층 구조로 되어 있어서 공간이 꽤 넓습니다.
 심야에 방문하니 사람이 거의 없어서 넓은 라운지를 거의 독차지할 수 있었어요.
 
-### 뷔페 & Bean Bar
+### 음식후기 
 
 ![스카이허브 라운지 Bean Bar와 뷔페 음식 카운터](/assets/images/airline-review/icn-skyhub/icn-skyhub-05.webp)
 
 음식 코너에는 뷔페 형식으로 다양한 음식이 준비되어 있고, 안쪽에는 **Bean Bar**라는 커피 코너도 운영 중이에요.
-심야임에도 불구하고 음식이 꽤 잘 갖춰져 있어서 좋았습니다.
+심야인걸 감안하면 꽤 잘갖춰져있지만, 아무래도 늦은 시간이라 음식이 부실한건 사실입니다. 
 
-### 심야 식사
+### 식사
 
 ![스카이허브 라운지 심야 식사 볶음밥 파스타 샐러드 신라면](/assets/images/airline-review/icn-skyhub/icn-skyhub-06.webp)
 
 자정이 넘은 시간에 라운지에 들어가서 늦은 저녁을 먹었어요.
-볶음밥, 파스타, 샐러드, 그리고 신라면 컵라면까지 — 심야에 공항 라운지에서 먹는 컵라면이 이렇게 맛있을 줄 몰랐습니다. 😄
+볶음밥, 파스타, 샐러드, 그리고 신라면 컵라면까지 
+하루종일 굶고 공항 라운지에서 먹는 컵라면이 이렇게 맛있다니
 
-솔직히 음식의 퀄리티 자체는 프리미엄 라운지 대비 평범한 편이지만, 이 시간대에 이 정도 제공해준다는 것 자체가 충분히 만족스러웠습니다.
+솔직히 이 시간대에 이 정도 제공해준다는 것 자체가 충분히 만족스러웠습니다.
 
 ### 운영 시간 및 시설
 
@@ -84,7 +80,7 @@ LoungeBuddy 기준 별점 4.5점 / 1,816 리뷰로 평가도 좋은 편입니다
 - **에어컨** 완비
 - **항공편 정보 모니터**
 - 금연 구역
-- **마사지 체어** (심야에 여기서 잠을 잤습니다 😴)
+- **마사지 체어** 
 
 ### 마치며
 
