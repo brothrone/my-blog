@@ -92,3 +92,7 @@ I came to Incheon the night before my KE787 Fukuoka flight, had a meal at the Sk
 If you ever need to spend the night at the airport before an early-morning departure, the SkyHub Lounge is a genuinely solid option.
 
 Access is available through a variety of passes including Korean Air mileage cards, Priority Pass, and Lounge Key — worth checking which one you have.
+
+If you're curious about the KE787 Fukuoka flight I boarded after spending the night here, check out the review below :D
+
+<a href="/en/airline-review/ke787-icn-fuk/" class="post-link-card">Korean Air KE787 ICN–FUK A350-900 Economy Review</a>
