@@ -15,6 +15,7 @@ tags:
   - Korean Air
 image: /assets/images/airline-review/icn-skyhub/icn-skyhub-04.webp
 permalink: /en/airline-review/icn-skyhub/
+excerpt: "Incheon Airport T2 SkyHub West Lounge late-night review. Spending a night in a massage chair at the 24-hour lounge before an early-morning departure."
 ---
 ### Incheon Airport Terminal 2 SkyHub Lounge
 

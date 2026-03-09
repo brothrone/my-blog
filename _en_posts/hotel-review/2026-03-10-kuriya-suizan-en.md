@@ -15,6 +15,7 @@ tags:
   - Near Sapporo
 image: /assets/images/hotel-review/kuriya-suizan/kuriya-suizan-15.webp
 permalink: /en/hotel-review/kuriya-suizan/
+excerpt: "Jozankei Hokkaido ryokan Kuriya Suizan 1-night review. Kaiseki dinner and breakfast, outdoor onsen, and the sister-inn bath at Suizantei."
 ---
 ### Kuriya Suizan (厨 水山)
 

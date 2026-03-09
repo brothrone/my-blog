@@ -11,6 +11,7 @@ tags:
   - Seattle
 image: /assets/images/airline-review/museum-of-flight/museum-of-flight-27.webp
 permalink: /en/travel/seattle-museum-of-flight/
+excerpt: "Seattle's Museum of Flight review. The world's largest air and space museum — Concorde, Air Force One, and more under one roof."
 ---
 
 ### Museum of Flight Review

@@ -12,6 +12,7 @@ tags:
   - museumofflight
 image: /assets/images/airline-review/museum-of-flight/museum-of-flight-27.webp
 en_permalink: /en/travel/seattle-museum-of-flight/
+excerpt: "시애틀 Museum of Flight 항공기 박물관 관람 후기. 세계 최대 규모 항공 박물관에서 만난 콩코드·에어포스원 등 역사적인 기체들."
 ---
 ### Museum of Flight 박물관 후기 
 안녕하세요 오늘은 시애틀 항공기 박물관 관람 후기에 대해 작성하겠습니다. 

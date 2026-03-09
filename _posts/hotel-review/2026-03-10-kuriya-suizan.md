@@ -14,6 +14,7 @@ tags:
 en_permalink: /en/hotel-review/kuriya-suizan/
 image: /assets/images/hotel-review/kuriya-suizan/kuriya-suizan-15.webp
 permalink: /posts/kuriya-suizan/
+excerpt: "홋카이도 조잔케이 온천 마을의 료칸 쿠리야 스이잔 1박 후기. 가이세키 코스 석식·조식, 노천탕, 자매관 스이잔테이 온천 이용 경험."
 ---
 ### 쿠리야 스이잔 (厨 水山)
 

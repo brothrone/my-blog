@@ -13,6 +13,7 @@ tags:
   - Onsen
 image: /assets/images/hotel-review/fuk_1/fuk_a_5.webp
 permalink: /en/hotel-review/yufunosho-ryokan/
+excerpt: "Yufuin ryokan Oyado Yufunosho second-visit review. Returning to a ryokan loved for its kaiseki and hot springs — a detailed second-stay record."
 ---
 
 ### Oyado Yufunosho Ryokan Review

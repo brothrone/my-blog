@@ -13,6 +13,7 @@ tags:
   - Priority Pass
 image: /assets/images/airline-review/ke2101/ke2101-21.webp
 permalink: /en/airline-review/gimpo-skyhub-lounge/
+excerpt: "Gimpo International Airport SkyHub Lounge review. A pre-flight stop before KE2101 to Tokyo — food, facilities, and atmosphere at the international lounge."
 ---
 
 ## Gimpo Airport SkyHub Lounge Review

@@ -13,6 +13,7 @@ tags:
   - 후쿠오카
 image: /assets/images/hotel-review/fuk_2/fuk2-15.webp
 en_permalink: /en/hotel-review/yufuin-ikkouten/
+excerpt: "유후인 독채 료칸 잇코텐 1박 후기. 단독 노천탕이 딸린 독채에서의 가이세키 석식·조식과 온천 경험."
 ---
 ### 유후인 료칸 '잇코텐' 후기 
 안녕하세요 오늘은 유후인 여행에서 1박 했던 료칸 '잇코텐' 후기를 작성하려고 합니다. 

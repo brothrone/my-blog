@@ -14,6 +14,7 @@ tags:
   - Kaiseki
 image: /assets/images/hotel-review/fuk_2/fuk2-15.webp
 permalink: /en/hotel-review/yufuin-ikkouten/
+excerpt: "Yufuin private-villa ryokan Ikkouten 1-night review. Kaiseki dinner and breakfast in a detached cottage with its own open-air bath."
 ---
 
 ### Yufuin Ryokan 'Ikkouten' Review
