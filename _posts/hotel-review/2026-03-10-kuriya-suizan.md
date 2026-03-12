@@ -12,9 +12,9 @@ tags:
   - 일본 여행
   - 삿포로 근교
 en_permalink: /en/hotel-review/kuriya-suizan/
-image: /assets/images/hotel-review/kuriya-suizan/kuriya-suizan-15.webp
+image: /assets/images/hotel-review/kuriya-suizan/kuriya-suizan-09.webp
 permalink: /posts/kuriya-suizan/
-excerpt: "홋카이도 조잔케이 온천 마을의 료칸 쿠리야 스이잔 1박 후기. 가이세키 코스 석식·조식, 노천탕, 자매관 스이잔테이 온천 이용 경험."
+excerpt: "도착하니 이미 해가 진 저녁이었는데, 지붕에 눈이 수북이 쌓인 료칸 외관이 꽤 인상적이었습니다."
 ---
 ### 쿠리야 스이잔 (厨 水山)
 

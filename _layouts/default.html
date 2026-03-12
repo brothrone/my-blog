@@ -9,6 +9,7 @@
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} · {{ site.description }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
   <meta name="author" content="{{ site.author }}" />
+  <meta name="naver-site-verification" content="f2faf7b51a52572a450ba89d8fed73396b4f0fcc" />
 
   <!-- ★ Open Graph -->
   {% assign og_title = page.title | default: site.title %}
