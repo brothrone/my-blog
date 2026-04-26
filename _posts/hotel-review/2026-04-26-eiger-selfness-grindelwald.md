@@ -2,7 +2,7 @@
 layout: post
 title: "스위스 그린델발트 아이거 셀프니스 호텔 후기 (조식 포함, 2박)"
 date: 2026-04-26 00:00:00 +0900
-category: 숙박후기
+category: hotel-review
 tags:
   - 호텔 후기
   - 스위스
