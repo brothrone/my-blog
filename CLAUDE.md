@@ -23,7 +23,7 @@ my-blog/
 
 ## 카테고리 규칙
 - **반드시 `category` 단수 사용** (`categories` 복수 쓰면 카테고리 페이지에 안 잡힘)
-- 사용 중인 카테고리: `항공리뷰`, `숙박후기`, `여행`, `항공팁`, `숙박팁`, `여행팁`
+- 사용 중인 카테고리: `airline-review`, `hotel-review`, `travel`, `tips`
 - 한국어 / 영어 이중 언어 포스팅 운영
 
 ## _config.yml 주요 설정 (적용 완료)
@@ -44,7 +44,7 @@ plugins:
 layout: post
 title: "[항공리뷰] "
 date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %> +0900
-category: 항공리뷰
+category: airline-review
 tags:
   - 항공
 image: /assets/images/airline-review/
@@ -57,7 +57,7 @@ image: /assets/images/airline-review/
 layout: post
 title: "[숙박후기] "
 date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %> +0900
-category: 숙박후기
+category: hotel-review
 tags:
   - 숙박
 image: /assets/images/hotel-review/
@@ -70,7 +70,7 @@ image: /assets/images/hotel-review/
 layout: post
 title: "[여행후기] "
 date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %> +0900
-category: 여행
+category: travel
 tags:
   - 여행
 image: /assets/images/travel/
@@ -83,7 +83,7 @@ image: /assets/images/travel/
 layout: post
 title: "[꿀팁] "
 date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %> +0900
-category: 여행팁
+category: tips
 tags:
   - 여행팁
 image: /assets/images/tips/
