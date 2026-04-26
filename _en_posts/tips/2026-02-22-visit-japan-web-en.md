@@ -1,6 +1,7 @@
 ---
 layout: en-post
-title: "[Tips] Visit Japan Web — Complete Registration Guide for Travelers 2026"
+title: "How to Register on Visit Japan Web (2026 Complete Guide)"
+description: "Step-by-step guide to registering on Visit Japan Web (VJW) in 2026. Fill out immigration and customs forms online and get your QR code before arrival in Japan."
 date: 2026-02-22
 lang: en
 kr_permalink: /posts/visit-japan-web/

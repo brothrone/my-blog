@@ -1312,6 +1312,9 @@ nav a:hover { color: var(--text); }
 .footer-stats { display: flex; gap: 20px; }
 .footer-stat { font-size: 0.72rem; color: var(--text-muted); }
 .footer-stat strong { color: var(--text); font-weight: 500; }
+.footer-links { display: flex; gap: 16px; align-items: center; }
+.footer-links a { font-size: 0.72rem; color: var(--text-muted); text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
 
 /* ===========================
    댓글
@@ -1385,6 +1388,7 @@ nav a:hover { color: var(--text); }
 
   .footer-inner { padding: 0 20px; flex-direction: column; gap: 12px; text-align: center; }
   .footer-stats { justify-content: center; }
+  .footer-links { justify-content: center; }
   .all-cats-page, .contact-page { padding-left: 20px; padding-right: 20px; }
   .tags-page, .tag-page, .series-page { padding: 40px 20px 80px; }
 

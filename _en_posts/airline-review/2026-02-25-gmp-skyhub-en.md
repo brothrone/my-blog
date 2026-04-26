@@ -1,6 +1,7 @@
 ---
 layout: en-post
-title: "[Lounge] Gimpo Airport SkyHub Lounge — Location, Menu & Free Access Guide"
+title: "Gimpo Airport Sky Hub Lounge Review — Access, Menu & Hours"
+description: "Complete review of Sky Hub Lounge at Gimpo International Airport. How to get free access, food options, operating hours and facilities."
 date: 2026-02-25
 lang: en
 kr_permalink: /posts/gmp-skyhub/

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} · Travel & Aviation Blog{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}Travel blog covering airline reviews, hotel reviews, and travel tips.{% endif %}" />
+  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}Travel blog covering airline reviews, hotel reviews, and travel tips.{% endif %}" />
   <meta name="author" content="{{ site.author }}" />
 
   <!-- Open Graph -->
@@ -229,6 +229,10 @@
       </div>
       <div class="footer-stats">
         <span class="footer-stat">Posts <strong>{{ site.en_posts | size }}</strong></span>
+      </div>
+      <div class="footer-links">
+        <a href="/en/privacy">Privacy Policy</a>
+        <a href="/contact">Contact</a>
       </div>
     </div>
   </footer>

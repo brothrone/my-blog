@@ -10,14 +10,31 @@
 ## 디렉토리 구조
 ```
 my-blog/
-├── _posts/
+├── _posts/              ← 한국어 포스트
 │   ├── airline-review/
 │   ├── hotel-review/
+│   ├── tips/
 │   └── travel/
-├── assets/images/
-│   ├── airline-review/{포스트명}/
-│   ├── hotel-review/{포스트명}/
-│   └── travel/{포스트명}/
+├── _en_posts/           ← 영어 포스트
+│   ├── airline-review/
+│   ├── hotel-review/
+│   ├── tips/
+│   └── travel/
+├── _layouts/
+│   ├── default.html     ← 한국어 공통 레이아웃 (헤더/푸터 포함)
+│   ├── en-default.html  ← 영어 공통 레이아웃
+│   ├── post.html        ← 한국어 포스트
+│   ├── en-post.html     ← 영어 포스트
+│   └── category.html
+├── en/                  ← 영어 목록 페이지 (index, airline-review, hotel-review, tips)
+├── assets/
+│   ├── css/style.css
+│   └── images/
+│       ├── airline-review/{포스트명}/
+│       ├── hotel-review/{포스트명}/
+│       └── travel/{포스트명}/
+├── privacy.html         ← 한국어 개인정보처리방침
+├── en/privacy.html      ← 영문 Privacy Policy
 └── _config.yml
 ```
 
@@ -35,6 +52,16 @@ plugins:
   - jekyll-sitemap
 ```
 - Sitemap 제외: 카테고리/태그/페이지네이션 목록 페이지, 네이버 인증 파일
+
+## SEO — 메타 description 커스텀 방법
+프론트매터에 `description:` 필드를 추가하면 자동으로 `<meta name="description">`에 반영됨.  
+없으면 `excerpt` → 없으면 사이트 기본값 순으로 fallback.
+
+```yaml
+description: "원하는 메타 설명 (160자 이내 권장)"
+```
+
+한/영 레이아웃 모두 지원 (`_layouts/default.html`, `_layouts/en-default.html`).
 
 ## Front Matter 템플릿
 
@@ -116,11 +143,12 @@ git push
 - **줄바꿈 문제**: `_config.yml`에 `hard_wrap: true` 적용으로 해결됨
 - **카테고리 미분류**: `category` 단수 확인 (복수형 금지)
 
-## SEO 현황 (2026년 3월 기준)
+## SEO 현황 (2026년 4월 기준)
 - 한국어 약 20개 + 영어 약 20개 포스팅
 - 평균 게재순위 약 17위 (2페이지) → 1페이지 진입이 목표
 - 잘 노출된 키워드: `visit japan web login` (순위 4위)
 - 하루 수 명 자연 방문자 유입 중
+- 개인정보처리방침 페이지 추가 완료 (`/privacy`, `/en/privacy`)
 
 ## 수익화 방향
 - 애드센스: 월 방문자 300~500명 이후 신청 권장

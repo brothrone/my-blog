@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} · {{ site.description }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
   <meta name="author" content="{{ site.author }}" />
   <meta name="naver-site-verification" content="f2faf7b51a52572a450ba89d8fed73396b4f0fcc" />
 
@@ -365,6 +365,10 @@
         {% assign all_cats = site.posts | map: "category" | uniq %}
         <span class="footer-stat">카테고리 <strong>{{ all_cats | size }}</strong>개</span>
         <span class="footer-stat">방문자 <strong id="gc-total-views">—</strong>명</span>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy">개인정보처리방침</a>
+        <a href="/contact">Contact</a>
       </div>
     </div>
   </footer>
