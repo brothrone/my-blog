@@ -11,7 +11,7 @@ tags:
   - 유럽 여행
   - 사우나
 en_permalink: /en/hotel-review/eiger-selfness-grindelwald/
-image: /assets/images/hotel-review/eiger/roomoutsideview.webp
+image: /assets/images/hotel-review/eiger/lobby1.webp
 permalink: /posts/eiger-selfness-grindelwald/
 excerpt: "가는 길이 은근 오르막길이라 캐리어를 끌고 가기엔 살짝 힘든 감이 있었습니다."
 ---
