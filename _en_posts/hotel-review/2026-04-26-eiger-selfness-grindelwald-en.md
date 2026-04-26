@@ -12,7 +12,7 @@ tags:
   - Eiger
   - Europe Travel
   - Sauna
-image: /assets/images/hotel-review/eiger/hotelexterior.jpeg
+image: /assets/images/hotel-review/eiger/hotelexterior.webp
 permalink: /en/hotel-review/eiger-selfness-grindelwald/
 excerpt: "The uphill walk from the station with a suitcase is a bit of a workout — but the hotel more than makes up for it."
 ---
@@ -28,47 +28,47 @@ I booked through Agoda at around **₩200,000 (~USD 150) per night**, and stayed
 
 ### From the Station to the Hotel
 
-![Walking from Grindelwald station to Eiger Selfness Hotel](/assets/images/hotel-review/eiger/onway.jpeg)
+![Walking from Grindelwald station to Eiger Selfness Hotel](/assets/images/hotel-review/eiger/onway.webp)
 
 The walk from Grindelwald station is straightforward, but it's mostly uphill — dragging a suitcase up is a mild workout.
 That said, it's only about 10 minutes, and the Alpine scenery along the way makes it easy to forgive.
 
 ### Hotel Exterior
 
-![Eiger Selfness Hotel exterior](/assets/images/hotel-review/eiger/hotelexterior.jpeg)
+![Eiger Selfness Hotel exterior](/assets/images/hotel-review/eiger/hotelexterior.webp)
 
 The hotel has a classic Swiss chalet-style wooden facade that fits right into the Grindelwald landscape.
 
 ### Lobby & Check-in
 
-![Eiger Selfness Hotel lobby front desk](/assets/images/hotel-review/eiger/lobbyfront.jpeg)
+![Eiger Selfness Hotel lobby front desk](/assets/images/hotel-review/eiger/lobbyfront.webp)
 
-![Eiger Selfness Hotel lobby interior](/assets/images/hotel-review/eiger/lobby1.jpeg)
+![Eiger Selfness Hotel lobby interior](/assets/images/hotel-review/eiger/lobby1.webp)
 
-![Eiger Selfness Hotel lobby overview](/assets/images/hotel-review/eiger/lobby2.jpeg)
+![Eiger Selfness Hotel lobby overview](/assets/images/hotel-review/eiger/lobby2.webp)
 
 Check-in was smooth and quick. The lobby has a warm, cozy mountain resort atmosphere.
 The staff were friendly throughout — good first impression.
 
 ### Room
 
-![Eiger Selfness Hotel room interior](/assets/images/hotel-review/eiger/roominterior1.jpeg)
+![Eiger Selfness Hotel room interior](/assets/images/hotel-review/eiger/roominterior1.webp)
 
 I was in a king bed double room as a solo traveler, so the space was generous.
 The room was tidy and well-maintained, and the bedding was comfortable.
 
-![Eiger Selfness Hotel room view](/assets/images/hotel-review/eiger/roomoutsideview.jpeg)
+![Eiger Selfness Hotel room view](/assets/images/hotel-review/eiger/roomoutsideview.webp)
 
 The view from the window looks out over the Grindelwald village and the surrounding mountains.
 On a clear day, it's genuinely breathtaking.
 
-![Eiger Selfness Hotel bathroom](/assets/images/hotel-review/eiger/toilet.png)
+![Eiger Selfness Hotel bathroom](/assets/images/hotel-review/eiger/toilet.webp)
 
 The bathroom was clean and well-kept.
 
 ### Happy Hour Lounge
 
-![Eiger Selfness Hotel lounge during happy hour](/assets/images/hotel-review/eiger/lounge.jpeg)
+![Eiger Selfness Hotel lounge during happy hour](/assets/images/hotel-review/eiger/lounge.webp)
 
 During happy hour, the hotel lounge offers unlimited beer, coffee, and a spread of cakes and desserts.
 The variety of cakes was impressive, and I made good use of it both evenings.
@@ -76,24 +76,24 @@ For Switzerland, this is genuinely great value.
 
 ### Fitness & Sauna
 
-![Eiger Selfness Hotel fitness center](/assets/images/hotel-review/eiger/fitness.jpeg)
+![Eiger Selfness Hotel fitness center](/assets/images/hotel-review/eiger/fitness.webp)
 
-![Eiger Selfness Hotel fitness room](/assets/images/hotel-review/eiger/fitness2.jpeg)
+![Eiger Selfness Hotel fitness room](/assets/images/hotel-review/eiger/fitness2.webp)
 
 The fitness facilities are well-equipped, but the real highlight was the **sauna**.
 It was the perfect way to wind down after a day of exploring, and I used it every evening.
 
 ### Barry's Restaurant – Breakfast
 
-![Barry's Restaurant exterior](/assets/images/hotel-review/eiger/barrys_exterior.jpeg)
+![Barry's Restaurant exterior](/assets/images/hotel-review/eiger/barrys_exterior.webp)
 
 Breakfast is served at **Barry's Restaurant** on the ground floor. I had it twice over the two mornings.
 
-![Barry's breakfast spread](/assets/images/hotel-review/eiger/barrys1.jpeg)
+![Barry's breakfast spread](/assets/images/hotel-review/eiger/barrys1.webp)
 
-![Barry's breakfast 2](/assets/images/hotel-review/eiger/barrys2.jpeg)
+![Barry's breakfast 2](/assets/images/hotel-review/eiger/barrys2.webp)
 
-![Barry's breakfast 3](/assets/images/hotel-review/eiger/barrys3.jpeg)
+![Barry's breakfast 3](/assets/images/hotel-review/eiger/barrys3.webp)
 
 It's a buffet-style spread with the usual European breakfast lineup — breads, cheeses, cold cuts, and egg dishes.
 A staff member makes coffee to order — not just Americano, but also café latte, cappuccino, and more, which was a nice touch.
@@ -101,7 +101,7 @@ The dairy in particular was excellent. Swiss milk and cheese really do hit diffe
 
 ### Nearby Coop Supermarket
 
-![Coop supermarket near the hotel](/assets/images/hotel-review/eiger/coop.jpeg)
+![Coop supermarket near the hotel](/assets/images/hotel-review/eiger/coop.webp)
 
 There's a Coop supermarket conveniently close to the hotel.
 Given how expensive Switzerland can be, picking up drinks and snacks at the supermarket makes a real difference.
