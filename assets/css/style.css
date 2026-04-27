@@ -1312,10 +1312,10 @@ nav a:hover { color: var(--text); }
 .footer-stats { display: flex; gap: 20px; }
 .footer-stat { font-size: 0.72rem; color: var(--text-muted); }
 .footer-stat strong { color: var(--text); font-weight: 500; }
-.footer-links { display: flex; gap: 10px; align-items: center; margin-top: 6px; }
-.footer-links a { font-size: 0.72rem; color: var(--text-muted); text-decoration: none; }
+.footer-links { display: flex; gap: 16px; align-items: center; margin-top: 6px; }
+.footer-links a { font-size: 0.65rem; font-weight: 700; color: var(--text-muted); text-decoration: none; letter-spacing: 0.03em; }
 .footer-links a:hover { color: var(--text); }
-.footer-links-sep { font-size: 0.72rem; color: var(--text-muted); }
+.footer-links-sep { font-size: 0.65rem; color: var(--text-muted); }
 
 /* ===========================
    댓글
