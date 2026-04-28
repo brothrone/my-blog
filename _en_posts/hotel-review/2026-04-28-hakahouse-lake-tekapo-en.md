@@ -13,7 +13,7 @@ tags:
   - Guesthouse
   - South Island
   - Hotel Review
-image: /assets/images/hotel-review/hakahouse/exterior.webp
+image: /assets/images/hotel-review/hakahouse/secondfloor.webp
 description: "Honest review of Haka House Lake Tekapo private room. Located right in front of Lake Tekapo, NZ. Covers price, facilities, shared kitchen, 2nd floor lounge, and nearby restaurants."
 permalink: /en/hotel-review/hakahouse-lake-tekapo/
 ---

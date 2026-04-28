@@ -13,7 +13,7 @@ tags:
   - 게스트하우스
   - 남섬여행
   - 숙박후기
-image: /assets/images/hotel-review/hakahouse/exterior.webp
+image: /assets/images/hotel-review/hakahouse/secondfloor.webp
 description: "뉴질랜드 테카포 호수 바로 앞 게스트하우스 Haka House Lake Tekapo 개인실 솔직 후기. 2월 성수기 1박 20만원대 가격, 공용 주방, 2층 라운지, 주변 맛집 정보까지 정리했습니다."
 en_permalink: /en/hotel-review/hakahouse-lake-tekapo/
 ---
