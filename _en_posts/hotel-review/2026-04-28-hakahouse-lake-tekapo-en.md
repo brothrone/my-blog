@@ -18,7 +18,7 @@ description: "Honest review of Haka House Lake Tekapo private room. Located righ
 permalink: /en/hotel-review/hakahouse-lake-tekapo/
 ---
 
-Here's my review of **Haka House Lake Tekapo**, a guesthouse situated right in front of Lake Tekapo in New Zealand's South Island. The property offers both dormitory-style shared rooms and private rooms for up to two guests — this review covers my stay in a **private room**. With a 4Square supermarket and solid restaurants within walking distance, and Lake Tekapo literally on the doorstep, the location is simply unbeatable.
+Today I'm sharing my review of **Haka House Lake Tekapo**, a guesthouse located right in front of Lake Tekapo on New Zealand's South Island. Haka House offers both dormitory-style shared rooms and private rooms for up to two guests — this review is based on my stay in a **private room**. With a 4Square supermarket and solid restaurants all within walking distance, and Lake Tekapo literally at the doorstep, the location is simply unbeatable.
 
 ## Exterior
 
@@ -38,7 +38,7 @@ At check-in, staff hand out an information sheet covering house rules, nearby at
 
 ![Haka House private room interior](/assets/images/hotel-review/hakahouse/interior.webp)
 
-The private room is compact but well-organised. There's enough space for two, natural light comes through the window, and everything you need is in place.
+After checking in, the private room is located on the 2nd floor. It's compact but well-organised — there's enough space for two, natural light comes through the window, and everything you need is in place.
 
 ![Haka House private room shower booth](/assets/images/hotel-review/hakahouse/shower_booth.webp)
 
@@ -56,7 +56,7 @@ The second floor has a comfortable lounge area with sofas and tables. After a lo
 
 There's a **4Square supermarket** just a short walk from the property. It stocks a solid range of ready-made meals, fresh produce, snacks, and drinks. Given how expensive eating out in Tekapo can get, picking up groceries here is a smart move.
 
-## Shared Kitchen & DIY Lamb Steak
+## Shared Kitchen
 
 ![Shared kitchen view](/assets/images/hotel-review/hakahouse/kitchen1.webp)
 
@@ -68,7 +68,7 @@ The view from the shared kitchen window. Cooking with scenery like this is somet
 
 ![Finished lamb steak](/assets/images/hotel-review/hakahouse/kitchen4.webp)
 
-I picked up fresh lamb from 4Square and borrowed some seasoning from a neighbour in the next room to cook up a **lamb steak in the shared kitchen**. New Zealand lamb, cooked fresh on-site — it was surprisingly delicious and ended up being one of the most memorable moments of the trip. The **shared kitchen** is a huge bonus for long-term travellers or anyone looking to save on food costs.
+I picked up fresh lamb from 4Square and borrowed some seasoning from a neighbour in the next room to cook a **lamb steak in the shared kitchen**. Honestly, this was the best lamb I've ever eaten — no exaggeration. And the price was about half what you'd pay for lamb back in Korea. The **shared kitchen** is a huge bonus for travellers looking to save on food costs.
 
 ## Nearby Restaurant — Kohan Restaurant
 
@@ -84,14 +84,6 @@ This is the view you get the moment you step outside the door. The **turquoise w
 
 ## Overall Verdict
 
-| Category | Rating |
-|---|---|
-| Location | ⭐⭐⭐⭐⭐ Right on Lake Tekapo |
-| Cleanliness | ⭐⭐⭐⭐ |
-| Facilities | ⭐⭐⭐⭐ Shared kitchen, 2F lounge |
-| Value | ⭐⭐⭐ ~NZD 200/night in peak season |
-| Staff | ⭐⭐⭐⭐ |
+**Haka House Lake Tekapo** has an almost unfairly good location — sitting right in front of Lake Tekapo. The shared kitchen, 2nd floor lounge, and private en-suite make the facilities solid for a guesthouse, and everything was very clean throughout my stay.
 
-**Haka House Lake Tekapo** is hard to beat on location — you're right in front of one of New Zealand's most iconic landscapes. The shared kitchen and lounge are well-maintained, and the private room's en-suite is a genuine differentiator for a guesthouse.
-
-That said, the price was steep: around NZD 200 per night for a private room in mid-February peak season. **If you have a rental car**, an Airbnb a little further from the town centre could offer better value. Weigh up the convenience of the location against the cost before booking.
+That said, the price for a private room was quite high at around NZD 200 per night in mid-February peak season. **If you have a rental car**, an Airbnb a little further out could be the more practical choice. It's worth weighing location convenience against cost before booking.
