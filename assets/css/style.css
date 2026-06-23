@@ -1318,16 +1318,6 @@ nav a:hover { color: var(--text); }
 .footer-links-sep { font-size: 0.65rem; color: var(--text-muted); }
 
 /* ===========================
-   댓글
-   =========================== */
-.comments {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 48px 40px 80px;
-  border-top: 1px solid var(--border);
-}
-
-/* ===========================
    애니메이션
    =========================== */
 @keyframes fadeUp {
@@ -1380,7 +1370,7 @@ nav a:hover { color: var(--text); }
   .grid-wrap { padding-bottom: 60px; }
   .card-grid { grid-template-columns: 1fr; }
 
-  .post-header, .post-content, .comments, .about-section { padding-left: 20px; padding-right: 20px; }
+  .post-header, .post-content, .about-section { padding-left: 20px; padding-right: 20px; }
   .toc-wrap { padding: 0 20px; }
   .post-nav { padding: 40px 20px 48px; grid-template-columns: 1fr; }
   .share-buttons { padding: 0 20px; }
