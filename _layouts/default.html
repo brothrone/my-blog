@@ -517,5 +517,26 @@
   })();
   </script>
 
+  <!-- 이미지 우클릭/드래그 저장 방지 -->
+  <style>
+    img {
+      -webkit-user-drag: none;
+      user-drag: none;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+  </style>
+  <script>
+  (function() {
+    document.addEventListener('contextmenu', function(e) {
+      if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+    });
+    document.addEventListener('dragstart', function(e) {
+      if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+    });
+  })();
+  </script>
+
 </body>
 </html>
