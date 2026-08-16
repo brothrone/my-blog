@@ -85,6 +85,62 @@ LABEL_PRESETS = {
     ],
 }
 
+# 본문 뼈대. 지어낸 게 아니라 기존 글에서 실제로 쓰던 순서를 뽑은 것이다.
+#   호텔  예약·가격 → 위치 → 체크인 → 객실 → 욕실 → 조식 → 총평
+#   료칸  가는 길 → 체크인 → 객실 → 노천탕 → 가이세키 → 총평
+#   항공  출발 공항 → 탑승 → 좌석 → 기내식 → 도착 공항 → 총평
+TEMPLATES = {
+    "hotel-review": [
+        {"name": "호텔",
+         "ko": ["예약 및 가격", "위치 및 접근성", "체크인", "객실", "욕실",
+                "조식", "주변 환경", "총평"],
+         "en": ["Booking & Price", "Location & Access", "Check-in", "Room",
+                "Bathroom", "Breakfast", "Neighborhood", "Verdict"]},
+        {"name": "료칸·온천",
+         "ko": ["예약 및 가격", "가는 길", "체크인", "객실", "노천탕",
+                "석식 가이세키", "조식", "총평"],
+         "en": ["Booking & Price", "Getting There", "Check-in", "Room",
+                "Open-air Bath", "Kaiseki Dinner", "Breakfast", "Verdict"]},
+        {"name": "게스트하우스",
+         "ko": ["예약 및 가격", "위치", "체크인", "객실", "공용 공간",
+                "주변 환경", "총평"],
+         "en": ["Booking & Price", "Location", "Check-in", "Room",
+                "Shared Spaces", "Neighborhood", "Verdict"]},
+    ],
+    "airline-review": [
+        {"name": "탑승기",
+         "ko": ["출발 공항", "탑승", "좌석", "기내식", "기내 시설",
+                "도착 공항", "총평"],
+         "en": ["Departure Airport", "Boarding", "Seat", "Meal",
+                "Cabin & Amenities", "Arrival Airport", "Verdict"]},
+        {"name": "공항 라운지",
+         "ko": ["위치", "운영 시간", "입장 조건", "라운지 내부", "음식",
+                "총평"],
+         "en": ["Location", "Opening Hours", "Access", "Inside",
+                "Food", "Verdict"]},
+    ],
+    "travel": [
+        {"name": "명소·관람",
+         "ko": ["가는 길", "입장 및 요금", "둘러보기", "주변 볼거리", "총평"],
+         "en": ["Getting There", "Tickets & Price", "What to See",
+                "Nearby", "Verdict"]},
+        {"name": "일정 정리",
+         "ko": ["일정 한눈에 보기", "1일차", "2일차", "3일차", "경비 정리",
+                "총평"],
+         "en": ["Itinerary at a Glance", "Day 1", "Day 2", "Day 3",
+                "Budget", "Verdict"]},
+    ],
+    "tips": [
+        {"name": "따라하기",
+         "ko": ["이게 뭔가요?", "준비물", "단계별 방법", "주의할 점", "정리"],
+         "en": ["What Is It?", "What You Need", "Step by Step",
+                "Watch Out For", "Summary"]},
+        {"name": "정보 정리",
+         "ko": ["한눈에 보기", "자세한 내용", "비교", "자주 묻는 질문", "정리"],
+         "en": ["At a Glance", "Details", "Comparison", "FAQ", "Summary"]},
+    ],
+}
+
 IMAGE_EXT = {".jpg", ".jpeg", ".png", ".webp", ".heic", ".JPG", ".JPEG", ".PNG"}
 
 
@@ -615,6 +671,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, {
                 "categories": CATEGORIES,
                 "labels": LABEL_PRESETS,
+                "templates": TEMPLATES,
                 "slugs": existing_slugs(),
                 "today": datetime.now().strftime("%Y-%m-%d"),
                 "blog": str(BLOG),

@@ -228,6 +228,8 @@ pre.log{
   <button class="tool" data-cmd="folder">📂 <span>폴더에서</span></button>
   <button class="tool" data-cmd="row" title="고른 사진과 다음 사진을 가로로 묶습니다">⿲ 나란히</button>
   <div class="sep"></div>
+  <button class="tool" data-cmd="tpl" title="분류에 맞는 본문 뼈대를 넣습니다">📄 템플릿</button>
+  <div class="sep"></div>
   <button class="tool" data-blk="h2"><b>제목</b></button>
   <button class="tool" data-blk="h3">소제목</button>
   <button class="tool" data-blk="p">본문</button>
@@ -599,6 +601,7 @@ function run(d){
     mark(); render(); selectImg(row.id);
     return;
   }
+  if (cmd==='tpl')    pickTemplate();
   if (cmd==='hr')     insertBlocks([{id:uid(),t:'hr'}]);
   if (cmd==='photo')  $('#picker').click();
   if (cmd==='folder') loadFolder();
@@ -933,6 +936,52 @@ function updateChip(){
   if (!s) { c.className='chip'; c.textContent='주소를 입력하세요'; }
   else if (CFG.slugs.includes(s)) { c.className='chip bad'; c.textContent='같은 주소의 글이 이미 있습니다'; }
   else { c.className='chip ok'; c.textContent='새 글'; }
+}
+
+/* ── 본문 템플릿 ──
+   분류에 맞는 소제목 뼈대를 한/영 양쪽에 한 번에 깔아준다.
+   목록은 기존 글에서 실제로 쓰던 순서를 뽑은 것이다. */
+function pickTemplate(){
+  const list = (CFG.templates || {})[meta.category] || [];
+  if (!list.length) return alert('이 분류에는 템플릿이 없습니다.');
+
+  const has = mdOf('ko').trim() || mdOf('en').trim();
+  sheet('본문 템플릿', `
+    ${has ? '<div class="note warn">이미 쓰던 내용이 있습니다. 템플릿은 <b>맨 뒤에 이어서</b> 붙습니다.</div>' : ''}
+    <div class="note ok">고르면 한국어·영문 양쪽에 소제목이 함께 깔립니다.</div>
+    <div id="tpls" style="display:flex;flex-direction:column;gap:8px"></div>`,
+    [['닫기', close]]);
+
+  const box = $('#tpls');
+  list.forEach(t => {
+    const b = el('button');
+    b.style.cssText = 'text-align:left;padding:11px 13px;border:1px solid var(--line);border-radius:9px;background:var(--paper)';
+    b.onmouseenter = () => b.style.borderColor = 'var(--accent)';
+    b.onmouseleave = () => b.style.borderColor = 'var(--line)';
+    b.innerHTML = `<div style="font-weight:700;font-size:13.5px;margin-bottom:3px">${esc(t.name)}</div>
+      <div style="font-size:12px;color:var(--muted)">${t.ko.map(esc).join(' · ')}</div>`;
+    b.onclick = () => { applyTemplate(t); close(); };
+    box.append(b);
+  });
+}
+
+function applyTemplate(t){
+  snap();
+  ['ko','en'].forEach(L => {
+    const D = doc[L];
+    // 끝에 있는 빈 문단은 걷어내고 붙인다
+    while (D.blocks.length && D.blocks[D.blocks.length-1].t === 'p'
+           && !(D.blocks[D.blocks.length-1].html||'').trim()) D.blocks.pop();
+    (t[L] || t.ko).forEach(h => {
+      D.blocks.push({id:uid(), t:'h2', html: esc(h)});
+      D.blocks.push({id:uid(), t:'p', html: ''});
+    });
+    if (!D.blocks.length) D.blocks.push({id:uid(), t:'p', html:''});
+  });
+  mark(); render();
+  const first = doc[lang].blocks.find(b => b.t === 'p' && !b.html);
+  if (first) focusBlock(first.id);
+  $('#saveHint').textContent = '템플릿 적용됨';
 }
 
 /* ── 미리보기 ──
