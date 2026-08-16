@@ -338,6 +338,7 @@ pre.log{
   <button class="tool" data-cmd="photo" data-icon="image"><span>사진</span></button>
   <button class="tool" data-cmd="folder" data-icon="folder"><span>폴더에서</span></button>
   <button class="tool" data-cmd="row" data-icon="columns" title="고른 사진과 다음 사진을 가로로 묶습니다"><span>나란히</span></button>
+  <button class="tool" data-cmd="pairall" data-icon="columns" title="연달아 있는 사진을 두 장씩 모두 묶습니다"><span>전부 나란히</span></button>
   <button class="tool" data-cmd="tpl" data-icon="file" title="분류에 맞는 본문 뼈대를 넣습니다"><span>템플릿</span></button>
   <div class="sep"></div>
   <div class="sep"></div>
@@ -774,6 +775,13 @@ function run(d){
     mark(); render(); selectImg(row.id);
     return;
   }
+  if (cmd==='pairall') {
+    snap();
+    const n = pairPhotos([lang]);
+    mark(); render();
+    $('#saveHint').textContent = n ? `${n}쌍을 나란히 묶었습니다` : '연달아 있는 사진이 없습니다';
+    return;
+  }
   if (cmd==='tpl')    pickTemplate();
   if (cmd==='hr')     insertBlocks([{id:uid(),t:'hr'}]);
   if (cmd==='photo')  $('#picker').click();
@@ -820,6 +828,24 @@ function syncCur(){
   const n = curBlock(); if (!n) return;
   const b = doc[lang].blocks.find(x=>x.id===n.dataset.id);
   if (b) { b.html = clean(n.innerHTML); mark(); }
+}
+
+/* 사진이 두 장 이상 연달아 있으면 두 장씩 가로로 묶는다.
+   문서를 실제로 바꾸므로 화면에 바로 보이고, 되돌리기도 된다.
+   (직렬화할 때 몰래 바꾸면 기존 글을 불러왔다 저장할 때 내용이 달라진다) */
+function pairPhotos(langs){
+  let made = 0;
+  (langs || ['ko','en']).forEach(L => {
+    const B = doc[L].blocks;
+    for (let i = 0; i < B.length - 1; i++) {
+      if (B[i].t !== 'img' || B[i+1].t !== 'img') continue;
+      B.splice(i, 2, {id:uid(), t:'row',
+                      pids:[B[i].pid, B[i+1].pid],
+                      caps:[B[i].cap||'', B[i+1].cap||'']});
+      made++;
+    }
+  });
+  return made;
 }
 
 /* 현재 위치 다음에 블록들을 끼워 넣는다 */
@@ -1714,6 +1740,8 @@ $('#pubBtn').onclick = async () => {
       <textarea id="f_de" rows="2">${esc(meta.desc_en)}</textarea>
       <div class="cnt" id="c_de"></div></div>
     <label style="display:flex;gap:8px;align-items:center;font-size:13.5px">
+      <input type="checkbox" id="f_pair"> 연달아 있는 사진을 두 장씩 <b>나란히</b> 배치</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13.5px">
       <input type="checkbox" id="f_wm" checked> 새로 넣은 사진에 워터마크 <b>© Brothrone</b> 넣기</label>
     <label style="display:flex;gap:8px;align-items:center;font-size:13.5px">
       <input type="checkbox" id="f_push" checked> 발행 후 사이트에 바로 반영 (푸시)</label>
@@ -1750,6 +1778,9 @@ $('#pubBtn').onclick = async () => {
 async function step2(){
   const push = $('#f_push').checked;
   wmOn = $('#f_wm').checked;
+  if ($('#f_pair').checked) {           // 문서를 실제로 바꾼다 — 확인창에도 반영된다
+    snap(); pairPhotos(); mark(); render();
+  }
   const p = payload();
   const r = await (await fetch('/api/validate',{method:'POST',body:JSON.stringify(p)})).json();
   const errs = r.issues.filter(i=>i.level==='error');

@@ -1486,7 +1486,8 @@ nav a:hover { color: var(--text); }
 .post-content .img-row {
   display: flex;
   gap: 8px;
-  margin: 20px 0 20px 14px;
+  /* 한 장짜리 사진과 같은 선에서 시작하도록 왼쪽 여백을 뺀다 */
+  margin: 20px 0;
 }
 
 .post-content .img-row img {
