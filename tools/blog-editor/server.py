@@ -275,6 +275,53 @@ def existing_slugs():
     return sorted(set(out))
 
 
+NOTES = WORK / "notes"
+
+
+def write_notes(d: dict) -> Path:
+    """사진별 메모를 사람이 읽는 형태로 저장한다.
+
+    이 파일을 Claude 가 읽고 본문을 쓴다. 그래서 기계용 JSON 이 아니라
+    그대로 읽히는 마크다운으로 남긴다.
+    """
+    NOTES.mkdir(parents=True, exist_ok=True)
+    slug = d.get("slug") or "untitled"
+    cat = d.get("category", "")
+    cat_ko = CATEGORIES.get(cat, {}).get("ko", cat)
+    info = d.get("info") or {}
+    photos = d.get("photos") or []
+
+    L = [f"# 메모 — {slug}",
+         f"분류: {cat_ko} ({cat}) · 날짜: {d.get('date','')}",
+         "",
+         "## 글 정보"]
+    for key, label in (("title", "제목(가제)"), ("basic", "기본 정보"),
+                       ("place", "위치"), ("good", "좋았던 점"),
+                       ("bad", "아쉬웠던 점"), ("etc", "그 밖에")):
+        v = (info.get(key) or "").strip()
+        if v:
+            L.append(f"- {label}: {v}")
+    if len(L) == 4:
+        L.append("- (아직 안 적음)")
+
+    L += ["", f"## 사진 ({len(photos)}장)"]
+    for i, p in enumerate(photos, 1):
+        head = f"### {i}. {p.get('name','')}"
+        if p.get("label"):
+            head += f" → {p['label']}"
+        if p.get("hero"):
+            head += "  ⭐대표"
+        L.append(head)
+        L.append((p.get("memo") or "").strip() or "(메모 없음)")
+        L.append("")
+
+    out = NOTES / f"{slug}.md"
+    out.write_text("\n".join(L) + "\n", encoding="utf-8")
+    (NOTES / f"{slug}.json").write_text(
+        json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+    return out
+
+
 # ─────────────────────────────────────────────────────────────
 # 워터마크
 # ─────────────────────────────────────────────────────────────
@@ -677,6 +724,13 @@ class Handler(BaseHTTPRequestHandler):
                 "blog": str(BLOG),
             })
 
+        if u.path == "/api/notes":
+            slug = (q.get("slug") or [""])[0]
+            f = NOTES / f"{slug}.json"
+            if f.exists():
+                return self._send(200, json.loads(f.read_text("utf-8")))
+            return self._send(200, {})
+
         if u.path == "/api/tags":
             return self._send(200, all_tags())
 
@@ -770,6 +824,12 @@ class Handler(BaseHTTPRequestHandler):
                 dest = STAGING / f"{int(time.time()*1000)}_{name}"
                 dest.write_bytes(base64.b64decode(d["data"].split(",")[-1]))
                 return self._send(200, {"src": str(dest), "name": d["name"]})
+
+            if u.path == "/api/notes":
+                d = self._body()
+                path = write_notes(d)
+                return self._send(200, {"ok": True,
+                                        "path": str(path.relative_to(BLOG))})
 
             if u.path == "/api/preview":
                 # 사이트와 똑같이 보이도록 Jekyll 이 쓰는 kramdown 으로 직접 변환한다
