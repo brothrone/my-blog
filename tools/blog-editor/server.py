@@ -6,6 +6,10 @@ Brothrone Travel — 로컬 블로그 글쓰기 앱
 실행:  ./blog-editor       (저장소 루트에서)
 """
 
+# 앱은 시스템 파이썬(3.9)으로 실행된다. 3.10+ 문법의 타입 표기(Path | None 등)를
+# 그대로 쓰면 거기서 죽으므로, 표기를 실행 시점에 평가하지 않게 한다.
+from __future__ import annotations
+
 import base64
 import json
 import os
@@ -195,7 +199,62 @@ def existing_slugs():
     return sorted(set(out))
 
 
-def convert_image(src: Path, dst: Path) -> tuple[bool, str]:
+# ─────────────────────────────────────────────────────────────
+# 워터마크
+# ─────────────────────────────────────────────────────────────
+
+WATERMARK_TEXT = "© Brothrone"
+WM_RATIO = 0.26      # 사진 가로폭 대비 워터마크 폭
+WM_OPACITY = 0.9
+
+
+def watermark_asset() -> Path | None:
+    """글자 + 그림자 PNG. 한 번 만들어 두고 재사용한다.
+
+    magick 에 폰트 지원이 없어 글자는 Swift(AppKit)로 그린다.
+    그림자를 넣는 이유는 밝은 배경(흰 침구·하늘)에서 글자가 묻히기 때문.
+    """
+    wm = WORK / "watermark.png"
+    if wm.exists():
+        return wm
+    if not shutil.which("swift"):
+        return None
+    raw = WORK / "watermark-raw.png"
+    code, _ = run(["swift", str(APP_DIR / "make-text.swift"),
+                   str(raw), WATERMARK_TEXT, "46"])
+    if code != 0 or not raw.exists():
+        return None
+    code, _ = run(["magick", str(raw),
+                   "(", "+clone", "-background", "black", "-shadow", "90x4+0+2", ")",
+                   "+swap", "-background", "none", "-layers", "merge", "+repage",
+                   str(wm)])
+    raw.unlink(missing_ok=True)
+    return wm if wm.exists() else None
+
+
+def stamp(dst: Path) -> str:
+    """이미 변환된 사진 위에 워터마크를 얹는다."""
+    wm = watermark_asset()
+    if not wm:
+        return "  ⚠️ 워터마크 생략 (글자를 그릴 수 없음)"
+    code, out = run(["magick", "identify", "-format", "%w", str(dst)])
+    try:
+        w = int(out.strip())
+    except ValueError:
+        return "  ⚠️ 워터마크 생략 (크기 확인 실패)"
+    code, out = run([
+        "magick", str(dst),
+        "(", str(wm), "-resize", f"{max(110, int(w * WM_RATIO))}x",
+        "-alpha", "set", "-channel", "A",
+        "-evaluate", "multiply", str(WM_OPACITY), "+channel", ")",
+        "-gravity", "southeast",
+        "-geometry", f"+{max(14, int(w * 0.022))}+{max(12, int(w * 0.017))}",
+        "-composite", "-quality", str(QUALITY), str(dst),
+    ])
+    return "  🔖 워터마크 넣음" if code == 0 else f"  ⚠️ 워터마크 실패: {out.strip()[:120]}"
+
+
+def convert_image(src: Path, dst: Path, mark: bool = True) -> tuple[bool, str]:
     """WebP 변환 (기존 convert_to_webp.sh와 동일한 설정)"""
     dst.parent.mkdir(parents=True, exist_ok=True)
     if src.suffix.lower() == ".webp":
@@ -210,8 +269,9 @@ def convert_image(src: Path, dst: Path) -> tuple[bool, str]:
     ])
     if code != 0 or not dst.exists():
         return False, f"변환 실패: {src.name} — {out.strip()[:200]}"
+    note = stamp(dst) if mark else ""
     saved = (src.stat().st_size - dst.stat().st_size) // 1024
-    return True, f"{src.name} → {dst.name} ({saved}KB 절감)"
+    return True, f"{src.name} → {dst.name} ({saved}KB 절감)" + ("\n" + note if note else "")
 
 
 def make_thumb(src: Path) -> Path:
@@ -396,7 +456,7 @@ def publish(d: dict) -> dict:
                 continue
             log.append(f"⚠️  원본 없음, 건너뜀: {src.name}")
             continue
-        ok, msg = convert_image(src, dst)
+        ok, msg = convert_image(src, dst, mark=d.get("watermark", True))
         log.append(("✅ " if ok else "❌ ") + msg)
         if not ok:
             continue

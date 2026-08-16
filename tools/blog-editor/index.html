@@ -841,6 +841,8 @@ $('#pubBtn').onclick = async () => {
       <textarea id="f_de" rows="2">${esc(meta.desc_en)}</textarea>
       <div class="cnt" id="c_de"></div></div>
     <label style="display:flex;gap:8px;align-items:center;font-size:13.5px">
+      <input type="checkbox" id="f_wm" checked> 새로 넣은 사진에 워터마크 <b>© Brothrone</b> 넣기</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13.5px">
       <input type="checkbox" id="f_push" checked> 발행 후 사이트에 바로 반영 (푸시)</label>
     <div id="f_issues"></div>
   `, [['취소', close], ['다음', step2, true]]);
@@ -859,6 +861,7 @@ $('#pubBtn').onclick = async () => {
 
 async function step2(){
   const push = $('#f_push').checked;
+  wmOn = $('#f_wm').checked;
   const p = payload();
   const r = await (await fetch('/api/validate',{method:'POST',body:JSON.stringify(p)})).json();
   const errs = r.issues.filter(i=>i.level==='error');
@@ -886,6 +889,7 @@ async function step2(){
 사진 ${photos.length}장 → assets/images/${p.category}/${p.slug}/
 ${list || '  (없음)'}
 
+워터마크: ${wmOn ? '© Brothrone (새 사진만)' : '넣지 않음'}
 git: add → commit${push ? ' → push (사이트 반영)' : ' (푸시 안 함)'}</pre>
     <div class="fld"><span>커밋 메시지</span>
       <input id="cmsg" value="${needOw?'Update':'Add'} ${esc(p.slug)} post"></div>
@@ -895,7 +899,7 @@ git: add → commit${push ? ' → push (사이트 반영)' : ' (푸시 안 함)'
 async function doPublish(push){
   if (needOw && !($('#ow') && $('#ow').checked)) return alert('덮어쓰기에 동의해야 발행할 수 있습니다.');
   const p = payload();
-  p.push = push; p.git = true; p.overwrite = needOw;
+  p.push = push; p.git = true; p.overwrite = needOw; p.watermark = wmOn;
   p.commit_msg = $('#cmsg') ? $('#cmsg').value : undefined;
 
   sheet('발행 중…', '<pre class="log">처리하고 있습니다…</pre>', []);
