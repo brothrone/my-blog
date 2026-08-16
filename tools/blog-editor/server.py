@@ -311,6 +311,8 @@ def write_notes(d: dict) -> Path:
             head += f" → {p['label']}"
         if p.get("hero"):
             head += "  ⭐대표"
+        if p.get("skip"):
+            head += "  (이 글에서 뺌)"
         L.append(head)
         L.append((p.get("memo") or "").strip() or "(메모 없음)")
         L.append("")
@@ -732,6 +734,34 @@ class Handler(BaseHTTPRequestHandler):
                 "today": datetime.now().strftime("%Y-%m-%d"),
                 "blog": str(BLOG),
             })
+
+        if u.path == "/api/folders":
+            # assets/images 아래 사진이 든 폴더를 훑어서 고를 수 있게 한다
+            out = []
+            root = BLOG / "assets" / "images"
+            if root.exists():
+                for cat_dir in sorted(root.iterdir()):
+                    if not cat_dir.is_dir() or cat_dir.name.startswith("."):
+                        continue
+                    for d in sorted(cat_dir.iterdir()):
+                        if not d.is_dir() or d.name.startswith("."):
+                            continue
+                        imgs = [f for f in sorted(d.iterdir())
+                                if f.suffix in IMAGE_EXT and not f.name.startswith(".")]
+                        if not imgs:
+                            continue
+                        raw = [f for f in imgs if f.suffix.lower() != ".webp"]
+                        out.append({
+                            "category": cat_dir.name,
+                            "slug": d.name,
+                            "count": len(imgs),
+                            "raw": len(raw),          # 아직 변환 안 된 사진 수
+                            "used": bool(find_existing(d.name)),
+                            "cover": str(imgs[0].relative_to(BLOG)),
+                            "mtime": int(d.stat().st_mtime),
+                        })
+            out.sort(key=lambda x: -x["mtime"])
+            return self._send(200, {"folders": out})
 
         if u.path == "/api/notes":
             slug = (q.get("slug") or [""])[0]

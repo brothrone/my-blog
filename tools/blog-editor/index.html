@@ -162,6 +162,35 @@ button{cursor:pointer;background:none;border:none}
   padding:16px 0 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;
 }
 .memo-bar .memo-sub{margin:0;flex:1;min-width:200px}
+/* 사진 크게 보기 */
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;place-items:center;z-index:90;padding:24px}
+#lb.on{display:grid}
+#lb img{max-width:100%;max-height:88vh;border-radius:8px;object-fit:contain}
+#lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:13px;opacity:.85}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:34px;padding:12px 18px;opacity:.7;background:none}
+#lb .nav:hover{opacity:1}
+#lb .prev{left:8px}#lb .next{right:8px}
+
+/* 메모 카드 도구 */
+.memo-card.skip{opacity:.4}
+.memo-card .tools{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.memo-card .tools button{border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:11.5px;color:var(--muted)}
+.memo-card .tools button:hover{border-color:var(--accent);color:#0a7d3c}
+.memo-card .tools button.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.memo-card .thumbwrap{position:relative;flex:none;cursor:zoom-in}
+.memo-card .thumbwrap .zoom{position:absolute;inset:0;display:grid;place-items:center;color:#fff;
+  font-size:20px;background:rgba(0,0,0,.35);opacity:0;transition:.12s;border-radius:8px}
+.memo-card .thumbwrap:hover .zoom{opacity:1}
+.prog{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.prog b{color:var(--accent)}
+
+/* 폴더 고르기 */
+.folders{display:flex;flex-direction:column;gap:6px;max-height:56vh;overflow:auto}
+.folders button{display:flex;gap:11px;align-items:center;text-align:left;padding:9px;
+  border:1px solid var(--line);border-radius:9px;background:var(--paper)}
+.folders button:hover{border-color:var(--accent)}
+.folders img{width:46px;height:46px;object-fit:cover;border-radius:7px;flex:none;background:var(--bg)}
+
 /* 순서 정하기 */
 .ord{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-bottom:8px}
 .ord .o{position:relative;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:grab}
@@ -250,7 +279,8 @@ pre.log{
 <div class="topbar">
   <span class="brand">B</span>
   <div class="tb-field"><label>분류</label><select id="cat"></select></div>
-  <div class="tb-field"><label>주소</label><input id="slug" placeholder="nikko-kanaya" autocomplete="off"></div>
+  <div class="tb-field"><label>주소</label><input id="slug" placeholder="nikko-kanaya" autocomplete="off">
+    <button class="btn" id="pickFolder" title="assets/images 에서 사진 폴더 고르기" style="padding:6px 10px">📁</button></div>
   <div class="tb-field"><label>날짜</label><input id="date" type="date"></div>
   <span class="chip" id="chip">주소를 입력하세요</span>
   <div class="grow"></div>
@@ -293,7 +323,7 @@ pre.log{
 </div>
 
 <div class="tabs">
-  <button class="tab on" data-lang="memo">📝 사진 메모</button>
+  <button class="tab on" data-lang="memo">AI 작성</button>
   <button class="tab" data-lang="ko">한국어 <span class="dot" id="dotKo" style="display:none"></span></button>
   <button class="tab" data-lang="en">English <span class="dot" id="dotEn" style="display:none"></span></button>
 </div>
@@ -313,6 +343,7 @@ pre.log{
 </div>
 
 <div id="drophint">여기에 놓으면 본문에 사진이 들어갑니다</div>
+<div id="lb"><button class="nav prev">‹</button><img><button class="nav next">›</button><div class="cap"></div></div>
 <input type="file" id="picker" multiple accept="image/*" hidden>
 
 <div class="mask" id="mask"><div class="sheet">
@@ -1012,6 +1043,57 @@ let memoInfo = {title:'', basic:'', place:'', good:'', bad:'', etc:''};
 let memoTexts = {};        // {사진 src: 메모}
 
 let memoOrder = [];        // 사진 순서 (src 배열)
+let memoSkip = new Set();  // 글에서 뺄 사진
+
+/* ── 폴더 고르기 (Finder 대신 앱 안에서) ── */
+$('#pickFolder').onclick = async () => {
+  const r = await (await fetch('/api/folders')).json();
+  sheet('사진 폴더 고르기', `
+    <div class="note ok">assets/images 안의 사진 폴더입니다. 고르면 분류와 주소가 함께 채워집니다.</div>
+    <div class="folders" id="fl"></div>`, [['닫기', close]]);
+  const box = $('#fl');
+  if (!r.folders.length) { box.append(el('div','note warn','사진이 든 폴더가 없습니다.')); return; }
+  r.folders.forEach(f => {
+    const b = el('button');
+    const img = el('img'); img.src = thumbUrl(f.cover, 320); img.loading='lazy';
+    const info = el('div'); info.style.cssText='flex:1;min-width:0';
+    const catKo = CFG.categories[f.category] ? CFG.categories[f.category].ko : f.category;
+    info.innerHTML = `<div style="font-weight:600;font-size:13.5px">${esc(f.slug)}</div>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:2px">
+        ${esc(catKo)} · 사진 ${f.count}장${f.raw ? ` · <b style="color:var(--accent)">새 사진 ${f.raw}장</b>` : ' · 변환 완료'}${f.used ? ' · 글 있음' : ''}</div>`;
+    b.append(img, info);
+    b.onclick = () => {
+      meta.category = f.category; $('#cat').value = f.category;
+      $('#slug').value = f.slug; memoSkip = new Set();
+      mark(); updateChip(); close(); renderMemo();
+    };
+    box.append(b);
+  });
+};
+
+/* ── 사진 크게 보기 ── */
+let lbList = [], lbAt = 0;
+const lbDraw = () => {
+  const lb = $('#lb');
+  lb.querySelector('img').src = thumbUrl(lbList[lbAt], 1200);
+  lb.querySelector('.cap').textContent =
+    `${lbAt+1} / ${lbList.length}  ·  ${lbList[lbAt].split('/').pop()}  (← → 이동, Esc 닫기)`;
+};
+function openLightbox(list, at){
+  lbList = list; lbAt = at;
+  const lb = $('#lb');
+  lb.querySelector('.prev').onclick = e => { e.stopPropagation(); lbAt=(lbAt-1+lbList.length)%lbList.length; lbDraw(); };
+  lb.querySelector('.next').onclick = e => { e.stopPropagation(); lbAt=(lbAt+1)%lbList.length; lbDraw(); };
+  lb.onclick = e => { if (e.target === lb || e.target.tagName === 'IMG') lb.classList.remove('on'); };
+  lbDraw(); lb.classList.add('on');
+}
+document.addEventListener('keydown', e => {
+  const lb = $('#lb');
+  if (!lb.classList.contains('on')) return;
+  if (e.key === 'Escape') { lb.classList.remove('on'); return; }
+  if (e.key === 'ArrowLeft')  { lbAt=(lbAt-1+lbList.length)%lbList.length; lbDraw(); }
+  if (e.key === 'ArrowRight') { lbAt=(lbAt+1)%lbList.length; lbDraw(); }
+});
 
 async function renderMemo(){
   const pane = $('#memoPane');
@@ -1027,7 +1109,17 @@ async function renderMemo(){
   const saved = await (await fetch('/api/notes?slug=' + encodeURIComponent(slug))).json();
   if (saved && saved.info) {
     memoInfo = Object.assign(memoInfo, saved.info);
-    (saved.photos || []).forEach(p => { if (p.memo) memoTexts[p.src] = p.memo; });
+    (saved.photos || []).forEach(p => {
+      if (p.memo) memoTexts[p.src] = p.memo;
+      if (p.skip) memoSkip.add(p.src);
+      if (p.label || p.hero) {
+        let ph = photos.find(x => x.src === p.src);
+        if (!ph) { ph = {id:uid(), src:p.src, name:p.name, label:'', hero:false,
+                         thumb:thumbUrl(p.src, 320)}; photos.push(ph); }
+        if (p.label) ph.label = p.label;
+        if (p.hero) ph.hero = true;
+      }
+    });
   }
 
   const r = await (await fetch(`/api/folder?category=${meta.category}&slug=${encodeURIComponent(slug)}`)).json();
@@ -1053,6 +1145,7 @@ async function renderMemo(){
     grid.innerHTML = '';
     memoOrder.forEach((src, idx) => {
       const o = el('div','o'); o.draggable = true; o.dataset.src = src;
+      if (memoSkip.has(src)) o.style.opacity = '.35';
       const img = el('img'); img.src = thumbUrl(src, 320); img.loading = 'lazy';
       o.append(img, el('div','n', String(idx + 1)));
       const mv = el('div','mv');
@@ -1105,8 +1198,9 @@ async function renderMemo(){
 
   // ── 3단계: 사진별 메모 ──
   const st3 = el('div','step','3 · 사진별 메모');
-  st3.append(el('span', null, `사진 ${all.length}장`));
+  st3.append(el('span', null, '메모는 짧아도 되고, 안 적어도 됩니다. 사진을 누르면 크게 볼 수 있습니다.'));
   pane.append(st3);
+  const prog = el('div','prog'); pane.append(prog);
   const cards = el('div'); pane.append(cards);
 
   const presets = CFG.labels[meta.category] || [];
@@ -1114,35 +1208,77 @@ async function renderMemo(){
     cards.innerHTML = '';
     memoOrder.forEach((src, idx) => {
       const im = byId[src]; if (!im) return;
-      const card = el('div','memo-card');
-      const img = el('img'); img.src = thumbUrl(src, 320); img.loading='lazy';
-      card.append(img);
+      const card = el('div','memo-card' + (memoSkip.has(src) ? ' skip' : ''));
+
+      // 사진을 눌러 크게 보기 — 작은 썸네일만으로는 뭘 찍었는지 기억나지 않는다
+      const wrap = el('div','thumbwrap');
+      const img = el('img'); img.src = thumbUrl(src, 320); img.loading = 'lazy';
+      wrap.append(img, el('div','zoom','🔍'));
+      wrap.onclick = () => openLightbox(memoOrder, memoOrder.indexOf(src));
+      card.append(wrap);
+
       const side = el('div','side');
       side.append(el('div','fname', `${idx+1}. ${im.name}`));
 
+      const ensure = () => {
+        let ph = photos.find(p => p.src === src);
+        if (!ph) { ph = {id:uid(), src, name:im.name, label:'', hero:false,
+                         thumb:thumbUrl(src,320)}; photos.push(ph); }
+        return ph;
+      };
+
+      const tools = el('div','tools');
+      const cur = photos.find(p => p.src === src);
+      const star = el('button', cur && cur.hero ? 'on' : '', '★ 대표');
+      star.title = '글 목록과 검색 결과에 쓰이는 사진';
+      star.onclick = () => {
+        const ph = ensure(); const was = ph.hero;
+        photos.forEach(p => p.hero = false);
+        ph.hero = !was; memoDirty = true; drawCards();
+      };
+      const skip = el('button', memoSkip.has(src) ? 'on' : '',
+                      memoSkip.has(src) ? '뺀 사진' : '글에서 빼기');
+      skip.title = '파일은 그대로 두고 이 글에만 안 넣습니다';
+      skip.onclick = () => {
+        memoSkip.has(src) ? memoSkip.delete(src) : memoSkip.add(src);
+        memoDirty = true; drawGrid(); drawCards();
+      };
+      tools.append(star, skip);
+      side.append(tools);
+
       const chips = el('div','lbls');
-      chips.style.display='flex'; chips.style.justifyContent='flex-start';
-      let picked = (photos.find(p=>p.src===src)||{}).label || '';
-      presets.forEach(([name,ko]) => {
-        const b = el('button', picked===name?'on':'', ko);
-        b.onclick = () => {
-          let ph = photos.find(p=>p.src===src);
-          if (!ph) { ph = {id:uid(), src, name:im.name, label:'', hero:false,
-                           thumb:thumbUrl(src, 320)}; photos.push(ph); }
-          ph.label = name; picked = name; memoDirty = true;
-          [...chips.children].forEach(c => c.classList.toggle('on', c.textContent===ko));
+      chips.style.display = 'flex'; chips.style.justifyContent = 'flex-start';
+      let picked = (photos.find(p => p.src === src) || {}).label || '';
+      presets.forEach(([name, ko]) => {
+        const b2 = el('button', picked === name ? 'on' : '', ko);
+        b2.onclick = () => {
+          ensure().label = name; picked = name; memoDirty = true;
+          [...chips.children].forEach(c => c.classList.toggle('on', c.textContent === ko));
+          updateProg();
         };
-        chips.append(b);
+        chips.append(b2);
       });
       side.append(chips);
 
       const ta = el('textarea');
-      ta.placeholder = '이 사진에 대해 기억나는 대로…';
+      ta.placeholder = '이 사진에 대해 기억나는 대로… (안 적어도 됩니다)';
       ta.value = memoTexts[src] || '';
-      ta.oninput = () => { memoTexts[src] = ta.value; memoDirty = true; };
+      ta.oninput = () => { memoTexts[src] = ta.value; memoDirty = true; updateProg(); };
       side.append(ta);
       card.append(side); cards.append(card);
     });
+    updateProg();
+  };
+
+  const updateProg = () => {
+    const use = memoOrder.filter(x => !memoSkip.has(x));
+    const done = use.filter(x => (memoTexts[x] || '').trim()).length;
+    const lab = use.filter(x => (photos.find(p => p.src === x) || {}).label).length;
+    const hero = photos.some(p => p.hero && use.includes(p.src));
+    prog.innerHTML = `쓸 사진 <b>${use.length}</b>장`
+      + (memoSkip.size ? ` (뺀 사진 ${memoSkip.size}장)` : '')
+      + ` · 메모 <b>${done}</b>/${use.length} · 라벨 <b>${lab}</b>/${use.length}`
+      + ` · 대표 ${hero ? '<b>지정됨</b>' : '<span style="color:var(--warn)">미지정</span>'}`;
   };
 
   drawGrid(); drawCards();
@@ -1166,6 +1302,7 @@ async function saveMemo(slug, byId, hint){
       label: (photos.find(p=>p.src===src)||{}).label || '',
       hero: !!(photos.find(p=>p.src===src)||{}).hero,
       memo: memoTexts[src] || '',
+      skip: memoSkip.has(src),
     })),
   };
   const res = await (await fetch('/api/notes',{method:'POST',body:JSON.stringify(body)})).json();
