@@ -5,7 +5,7 @@
 set -e
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-APP="$HOME/Applications/Brothrone.app"
+APP="$HOME/Applications/Editor.app"
 PORT=4567
 
 # Finder에서 실행하면 PATH가 /usr/bin:/bin 수준으로 좁아져 homebrew 명령을 못 찾는다.
@@ -31,6 +31,7 @@ echo "magick      : $MAGICK"
 
 # 이전 이름으로 만든 앱이 있으면 정리
 rm -rf "$HOME/Applications/Brothrone 글쓰기.app"
+rm -rf "$HOME/Applications/Brothrone.app"
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 
@@ -72,7 +73,7 @@ export LANG="\${LANG:-en_US.UTF-8}"
 export LC_ALL="\${LC_ALL:-en_US.UTF-8}"
 
 alert() {
-  osascript -e "display alert \"Brothrone\" message \"\$1\" as critical" >/dev/null 2>&1
+  osascript -e "display alert \"Editor\" message \"\$1\" as critical" >/dev/null 2>&1
 }
 
 [ -d "\$REPO" ] || { alert "블로그 폴더를 찾을 수 없습니다:\n\$REPO\n\n폴더를 옮겼다면 tools/make-app.sh 를 다시 실행하세요."; exit 1; }
@@ -99,8 +100,8 @@ cat > "$APP/Contents/Info.plist" <<'EOF'
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>CFBundleName</key>              <string>Brothrone</string>
-  <key>CFBundleDisplayName</key>       <string>Brothrone</string>
+  <key>CFBundleName</key>              <string>Editor</string>
+  <key>CFBundleDisplayName</key>       <string>Editor</string>
   <key>CFBundleIdentifier</key>        <string>org.brothrone.blogeditor</string>
   <key>CFBundleExecutable</key>        <string>launch</string>
   <key>CFBundleIconFile</key>          <string>icon</string>
@@ -159,5 +160,5 @@ touch "$APP"   # Finder 아이콘 캐시 갱신
 
 echo ""
 echo "✅ 만들었습니다: $APP"
-echo "   Spotlight(⌘Space)에서 'Brothrone' 으로 검색하거나,"
+echo "   Spotlight(⌘Space)에서 'Editor' 로 검색하거나,"
 echo "   Finder에서 열어 Dock으로 끌어다 두면 됩니다."

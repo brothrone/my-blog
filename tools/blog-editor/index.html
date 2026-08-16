@@ -33,6 +33,8 @@ button{cursor:pointer;background:none;border:none}
   border:1px solid var(--line); border-radius:6px; padding:6px 9px; background:var(--bg);
 }
 .topbar input:focus,.topbar select:focus{outline:none;border-color:var(--accent)}
+.topbar .vsep{width:1px;height:20px;background:var(--line)}
+.tb-field{padding-right:2px}
 #slug{width:170px;font-family:ui-monospace,Menlo,monospace;font-size:13px}
 #date{width:140px;font-size:13px}
 .grow{flex:1}
@@ -43,6 +45,8 @@ button{cursor:pointer;background:none;border:none}
 .btn:hover{border-color:var(--accent);color:#0a7d3c}
 .btn.go{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
 .btn.go:hover{filter:brightness(.94);color:#fff}
+.btn.ib{display:inline-flex;align-items:center;gap:6px}
+.btn.ib:has(> svg:only-child){padding:7px 9px}
 
 /* ── 도구모음 ── */
 .toolbar{
@@ -50,12 +54,17 @@ button{cursor:pointer;background:none;border:none}
   padding:7px 18px; display:flex; align-items:center; gap:4px; flex-wrap:wrap; flex-shrink:0;
 }
 .tool{
-  display:flex;align-items:center;gap:5px; padding:7px 11px; border-radius:6px;
-  font-size:13.5px; color:#3d4450;
+  display:flex;align-items:center;gap:6px; padding:6px 9px; border-radius:6px;
+  font-size:13px; color:#3d4450; white-space:nowrap;
 }
 .tool:hover{background:var(--sel);color:#0a7d3c}
 .tool.on{background:var(--sel);color:#0a7d3c;font-weight:700}
 .tool b{font-weight:800}
+.ic{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;
+    stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ic.solid{fill:currentColor;stroke:none}
+.ic.blue{stroke:#3b82f6}
+.ic.blue-fill{fill:#3b82f6;stroke:#3b82f6;stroke-width:1}
 .tool i{font-style:italic;font-family:Georgia,serif}
 .sep{width:1px;height:20px;background:var(--line);margin:0 6px}
 
@@ -280,23 +289,24 @@ pre.log{
   <span class="brand">B</span>
   <div class="tb-field"><label>분류</label><select id="cat"></select></div>
   <div class="tb-field"><label>주소</label><input id="slug" placeholder="nikko-kanaya" autocomplete="off">
-    <button class="btn" id="pickFolder" title="assets/images 에서 사진 폴더 고르기" style="padding:6px 10px">📁</button></div>
+    <button class="btn ib" id="pickFolder" data-icon="folder" data-icon-cls="blue-fill" title="assets/images 에서 사진 폴더 고르기"></button></div>
   <div class="tb-field"><label>날짜</label><input id="date" type="date"></div>
   <span class="chip" id="chip">주소를 입력하세요</span>
   <div class="grow"></div>
   <span class="chip" id="editing" style="display:none"></span>
-  <button class="btn" id="prevBtn">👁 미리보기</button>
-  <button class="btn" id="listBtn">📋 글 목록</button>
+  <span class="vsep"></span>
+  <button class="btn ib" id="prevBtn" data-icon="eye"><span>미리보기</span></button>
+  <button class="btn ib" id="listBtn" data-icon="list"><span>글 목록</span></button>
   <button class="btn" id="newBtn">새 글</button>
   <button class="btn go" id="pubBtn">발행</button>
 </div>
 
 <div class="toolbar">
-  <button class="tool" data-cmd="photo">🖼 <span>사진</span></button>
-  <button class="tool" data-cmd="folder">📂 <span>폴더에서</span></button>
-  <button class="tool" data-cmd="row" title="고른 사진과 다음 사진을 가로로 묶습니다">⿲ 나란히</button>
+  <button class="tool" data-cmd="photo" data-icon="image"><span>사진</span></button>
+  <button class="tool" data-cmd="folder" data-icon="folder"><span>폴더에서</span></button>
+  <button class="tool" data-cmd="row" data-icon="columns" title="고른 사진과 다음 사진을 가로로 묶습니다"><span>나란히</span></button>
+  <button class="tool" data-cmd="tpl" data-icon="file" title="분류에 맞는 본문 뼈대를 넣습니다"><span>템플릿</span></button>
   <div class="sep"></div>
-  <button class="tool" data-cmd="tpl" title="분류에 맞는 본문 뼈대를 넣습니다">📄 템플릿</button>
   <div class="sep"></div>
   <button class="tool" data-blk="h2"><b>제목</b></button>
   <button class="tool" data-blk="h3">소제목</button>
@@ -308,7 +318,7 @@ pre.log{
   <button class="tool" data-cmd="strike" title="취소선"><s>가</s></button>
   <button class="tool" data-cmd="color" title="글자색"><span style="color:#d92d20;font-weight:700">가</span></button>
   <button class="tool" data-cmd="mark" title="형광펜"><span style="background:#fff3a3;padding:0 3px;border-radius:3px">가</span></button>
-  <button class="tool" data-cmd="link" title="링크 ⌘K">🔗</button>
+  <button class="tool" data-cmd="link" data-icon="link" title="링크 ⌘K"></button>
   <div class="sep"></div>
   <button class="tool" data-align="left"   title="왼쪽">⇤</button>
   <button class="tool" data-align="center" title="가운데">↔</button>
@@ -316,10 +326,10 @@ pre.log{
   <button class="tool" data-cmd="indent"   title="들여쓰기">→|</button>
   <button class="tool" data-cmd="outdent"  title="내어쓰기">|←</button>
   <div class="sep"></div>
-  <button class="tool" data-blk="quote">❝ 인용</button>
-  <button class="tool" data-blk="li">• 목록</button>
-  <button class="tool" data-blk="ol">1. 번호</button>
-  <button class="tool" data-cmd="hr">— 구분선</button>
+  <button class="tool" data-blk="quote" data-icon="quote" title="인용"></button>
+  <button class="tool" data-blk="li" data-icon="bullet" title="목록"></button>
+  <button class="tool" data-blk="ol" data-icon="number" title="번호 목록"></button>
+  <button class="tool" data-cmd="hr" data-icon="divider" title="구분선"></button>
 </div>
 
 <div class="tabs">
@@ -352,6 +362,43 @@ pre.log{
 
 <script>
 const $ = s => document.querySelector(s);
+
+/* ── 아이콘 ──
+   이모지는 기기·글꼴마다 모양과 크기가 제각각이라 줄이 흔들린다.
+   16px 선 아이콘으로 통일하고 색은 글자색을 따라가게 한다. */
+const ICONS = {
+  folder:  '<path d="M2 4.5A1.5 1.5 0 0 1 3.5 3h3l1.5 2h4.5A1.5 1.5 0 0 1 14 6.5v5A1.5 1.5 0 0 1 12.5 13h-9A1.5 1.5 0 0 1 2 11.5z"/>',
+  image:   '<rect x="2" y="3" width="12" height="10" rx="1.5"/><circle cx="5.75" cy="6.5" r="1.1"/><path d="M2.8 11.5 6 8.6l2.2 2 2-1.7 3 2.6"/>',
+  columns: '<rect x="2" y="3.5" width="5" height="9" rx="1"/><rect x="9" y="3.5" width="5" height="9" rx="1"/>',
+  file:    '<path d="M4 2h5l3 3v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M9 2v3h3"/>',
+  eye:     '<path d="M1.5 8S4 4 8 4s6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="1.8"/>',
+  list:    '<path d="M5.5 4.5h9M5.5 8h9M5.5 11.5h9M2.5 4.5h.01M2.5 8h.01M2.5 11.5h.01"/>',
+  link:    '<path d="M6.5 9.5a3 3 0 0 0 4.2 0l1.8-1.8a3 3 0 0 0-4.2-4.2l-1 1"/><path d="M9.5 6.5a3 3 0 0 0-4.2 0L3.5 8.3a3 3 0 0 0 4.2 4.2l1-1"/>',
+  quote:   '<path d="M6 5.5C4.3 6 3.5 7.2 3.5 9V11h3V8H5c0-.9.4-1.5 1.3-1.8zM12.5 5.5C10.8 6 10 7.2 10 9V11h3V8h-1.5c0-.9.4-1.5 1.3-1.8z"/>',
+  bullet:  '<circle cx="3" cy="5" r="1"/><circle cx="3" cy="11" r="1"/><path d="M6 5h8M6 11h8"/>',
+  number:  '<path d="M6 5h8M6 11h8"/><path d="M2.2 3.6 3 3.3V6.5M1.9 12.7h1.9M1.9 12.7c0-.9 1.6-1.1 1.6-2 0-.5-.4-.8-.9-.8s-.8.3-.8.7"/>',
+  divider: '<path d="M2 8h12"/>',
+  save:    '<path d="M3 3h7l3 3v7a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M5 3v3.5h5M5 13v-3.5h6"/>',
+  search:  '<circle cx="7" cy="7" r="4.2"/><path d="M10.2 10.2 14 14"/>',
+  star:     '<path d="M8 2.6l1.7 3.4 3.8.5-2.7 2.6.6 3.7L8 11.1l-3.4 1.7.6-3.7L2.5 6.5l3.8-.5z"/>',
+  send:    '<path d="M14 2 7 9M14 2l-4.5 12-2-5.5L2 6.5z"/>',
+  check:   '<path d="M3 8.5 6.5 12 13 4.5"/>',
+  close:   '<path d="M4 4l8 8M12 4l-8 8"/>',
+};
+function icon(name, cls){
+  const n = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  n.setAttribute('viewBox','0 0 16 16');
+  n.setAttribute('class','ic' + (cls ? ' ' + cls : ''));
+  n.innerHTML = ICONS[name] || '';
+  return n;
+}
+// data-icon 이 붙은 요소에 아이콘을 넣는다
+function paintIcons(root){
+  (root || document).querySelectorAll('[data-icon]').forEach(e => {
+    if (e.querySelector('svg.ic')) return;
+    e.prepend(icon(e.dataset.icon, e.dataset.iconCls || ''));
+  });
+}
 const el = (t,c,x) => { const n=document.createElement(t); if(c)n.className=c; if(x!=null)n.textContent=x; return n; };
 const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
@@ -385,7 +432,10 @@ const uid = (()=>{ let n=0; return ()=> 'b'+(++n)+Date.now().toString(36); })();
   $('#cat').value = meta.category;
   render(); updateChip();
   hist = [shot()];
-  renderMemo();                    // 첫 화면은 사진 메모 탭
+  renderMemo();                    // 첫 화면은 AI 작성 탭
+  document.querySelector('.toolbar').style.display = 'none';
+  $('#prevBtn').style.display = 'none';
+  paintIcons();
 })();
 
 // 분류를 바꾸면 사진 폴더 경로와 라벨 프리셋이 함께 바뀐다
@@ -451,7 +501,8 @@ function blockEl(b){
       img.onclick = () => selectImg(b.id);
       cell.append(img);
       const bar = el('div','imgbar');
-      const star = el('button', p&&p.hero?'on':'', '★');
+      const star = el('button', p&&p.hero?'on':'', '');
+      star.append(icon('star', p && p.hero ? 'solid' : '')); star.title = '대표 사진';
       star.onclick = e => { e.stopPropagation(); photos.forEach(x=>x.hero=(x.id===pid && !(p&&p.hero))); mark(); render(); };
       const fn = el('input','fname'); fn.value = p?(p.label||''):''; fn.placeholder='파일명';
       fn.onclick = e => e.stopPropagation();
@@ -463,14 +514,14 @@ function blockEl(b){
       w.append(cell);
     });
     const tools = el('div','rowtools');
-    const split = el('button','', '↕ 위아래로 나누기');
+    const split = el('button','', '위아래로 나누기');
     split.onclick = () => {
       const D = doc[lang], at = D.blocks.indexOf(b);
       snap();
       D.blocks.splice(at, 1, ...b.pids.map((pid,k)=>({id:uid(), t:'img', pid, cap:b.caps[k]||''})));
       mark(); render();
     };
-    const del = el('button','', '✕ 삭제');
+    const del = el('button','', '삭제');
     del.onclick = () => removeBlock(b.id);
     tools.append(split, del); w.append(tools);
     return w;
@@ -483,14 +534,16 @@ function blockEl(b){
     w.append(img);
 
     const bar = el('div','imgbar');
-    const star = el('button', p&&p.hero?'on':'', '★ 대표');
+    const star = el('button', p&&p.hero?'on':'', '대표');
+    star.prepend(icon('star', p && p.hero ? 'solid' : ''));
+    star.style.cssText = 'display:inline-flex;align-items:center;gap:4px';
     star.onclick = e => { e.stopPropagation();
       photos.forEach(x => x.hero = (x.id===b.pid && !(p&&p.hero)));
       mark(); render(); };
     const fn = el('input','fname'); fn.value = p?(p.label||''):''; fn.placeholder='파일명';
     fn.onclick = e => e.stopPropagation();
     fn.oninput = () => { if(p){ p.label = fn.value; p.keepName = null; mark(); } };
-    const del = el('button','','✕');
+    const del = el('button','',''); del.append(icon('close')); del.title = '사진 빼기';
     del.onclick = e => { e.stopPropagation(); removeBlock(b.id); };
     bar.append(star, fn, del); w.append(bar);
 
@@ -829,9 +882,12 @@ window.addEventListener('drop', e => {
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x===t));
   const v = t.dataset.lang;
-  $('#writePane').style.display = v === 'memo' ? 'none' : '';
-  $('#memoPane').style.display  = v === 'memo' ? '' : 'none';
-  if (v === 'memo') { renderMemo(); return; }
+  const memo = v === 'memo';
+  $('#writePane').style.display = memo ? 'none' : '';
+  $('#memoPane').style.display  = memo ? '' : 'none';
+  document.querySelector('.toolbar').style.display = memo ? 'none' : '';
+  $('#prevBtn').style.display = memo ? 'none' : '';
+  if (memo) { renderMemo(); return; }
   lang = v; render();
 });
 $('#title').oninput = () => { doc[lang].title = $('#title').value; mark(); updateDots(); };
@@ -1099,10 +1155,10 @@ async function renderMemo(){
   const pane = $('#memoPane');
   const slug = $('#slug').value.trim();
   pane.innerHTML = '';
-  pane.append(el('div','memo-head','사진 메모'));
+  pane.append(el('div','memo-head','AI 작성'));
   pane.append(el('div','memo-sub',
-    '사진 순서를 먼저 정하고, 한 장씩 기억나는 대로 적어두세요. 문장이 아니어도 됩니다. ' +
-    '다 적으면 Claude 에게 "메모 다 적었어" 라고 하세요.'));
+    '사진 순서를 정하고 기억나는 것만 적어두면, Claude 가 읽고 글을 씁니다. ' +
+    '문장이 아니어도 되고 비워둬도 됩니다. 다 되면 "메모 다 적었어" 라고 하세요.'));
 
   if (!slug) { pane.append(el('div','note warn','먼저 위쪽 주소(슬러그)를 입력하세요.')); return; }
 
@@ -1213,7 +1269,7 @@ async function renderMemo(){
       // 사진을 눌러 크게 보기 — 작은 썸네일만으로는 뭘 찍었는지 기억나지 않는다
       const wrap = el('div','thumbwrap');
       const img = el('img'); img.src = thumbUrl(src, 320); img.loading = 'lazy';
-      wrap.append(img, el('div','zoom','🔍'));
+      const z = el('div','zoom'); z.append(icon('search')); wrap.append(img, z);
       wrap.onclick = () => openLightbox(memoOrder, memoOrder.indexOf(src));
       card.append(wrap);
 
@@ -1229,7 +1285,8 @@ async function renderMemo(){
 
       const tools = el('div','tools');
       const cur = photos.find(p => p.src === src);
-      const star = el('button', cur && cur.hero ? 'on' : '', '★ 대표');
+      const star = el('button', 'ib' + (cur && cur.hero ? ' on' : ''), '대표');
+      star.prepend(icon('star', cur && cur.hero ? 'solid' : ''));
       star.title = '글 목록과 검색 결과에 쓰이는 사진';
       star.onclick = () => {
         const ph = ensure(); const was = ph.hero;
@@ -1284,7 +1341,7 @@ async function renderMemo(){
   drawGrid(); drawCards();
 
   const bar = el('div','memo-bar');
-  const save = el('button','btn go','💾 메모 저장');
+  const save = el('button','btn go ib','메모 저장'); save.prepend(icon('save'));
   const hint = el('span','memo-sub');
   save.onclick = () => saveMemo(slug, byId, hint);
   bar.append(save, hint);
@@ -1400,12 +1457,14 @@ $('#prevBtn').onclick = async () => {
 
 /* ── 시트 ── */
 function sheet(title, html, buttons){
+  // 시트 안에도 아이콘이 있을 수 있다
   $('#shTitle').textContent = title;
   $('#shBody').innerHTML = html;
   const f = $('#shFoot'); f.innerHTML='';
   (buttons||[]).forEach(([t,fn,go]) => {
     const b = el('button','btn'+(go?' go':''), t); b.onclick = fn; f.append(b);
   });
+  paintIcons($('#mask'));
   $('#mask').classList.add('on');
 }
 function close(){ $('#mask').classList.remove('on'); }
@@ -1513,7 +1572,7 @@ async function doPublish(push){
       [['닫기', close]]);
   }
   CFG.slugs.push(p.slug); needOw = false;
-  sheet('발행 완료 🎉',
+  sheet('발행 완료',
     `<pre class="log">${esc(r.log.join('\n'))}</pre>` +
     (r.git ? `<details><summary style="cursor:pointer;font-size:13px;color:var(--muted)">git 기록 보기</summary><pre class="log">${esc(r.git)}</pre></details>` : ''),
     [['닫기', close], ['새 글 쓰기', () => { resetAll(); close(); }, true]]);

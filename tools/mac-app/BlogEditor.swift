@@ -36,7 +36,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
                         \(Cfg.repo)
 
                         시스템 설정 → 개인정보 보호 및 보안 → 파일 및 폴더 에서
-                        Brothrone 의 폴더 접근을 허용한 뒤 다시 열어주세요.
+                        Editor 의 폴더 접근을 허용한 뒤 다시 열어주세요.
                         """)
                     return
                 }
@@ -60,7 +60,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
             contentRect: NSRect(x: 0, y: 0, width: 1280, height: 880),
             styleMask: [.titled, .closable, .miniaturizable, .resizable],
             backing: .buffered, defer: false)
-        window.title = "Brothrone"
+        window.title = "Editor"
         window.minSize = NSSize(width: 880, height: 600)
         window.center()
         window.setFrameAutosaveName("BrothroneEditorWindow")   // 위치·크기 기억
@@ -164,7 +164,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
     func fail(_ msg: String) {
         let a = NSAlert()
         a.alertStyle = .critical
-        a.messageText = "Brothrone"
+        a.messageText = "Editor"
         a.informativeText = msg
         a.addButton(withTitle: "종료")
         a.runModal()
@@ -178,7 +178,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
 
         let appItem = NSMenuItem(); main.addItem(appItem)
         let app = NSMenu()
-        app.addItem(withTitle: "Brothrone 정보",
+        app.addItem(withTitle: "Editor 정보",
                     action: #selector(NSApplication.orderFrontStandardAboutPanel(_:)), keyEquivalent: "")
         app.addItem(.separator())
         app.addItem(withTitle: "가리기", action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
