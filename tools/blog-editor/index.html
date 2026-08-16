@@ -138,6 +138,18 @@ button{cursor:pointer;background:none;border:none}
 .lbls button:hover{border-color:var(--accent);color:#0a7d3c;background:var(--sel)}
 .lbls button.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
 
+/* 사진 나란히 */
+.rowblk{display:flex;gap:8px;margin:24px 0;position:relative;flex-wrap:wrap}
+.rowblk .cell{flex:1;min-width:120px;position:relative}
+.rowblk .cell img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block;background:var(--bg)}
+.rowblk .cell .imgbar{opacity:0}
+.rowblk .cell:hover .imgbar{opacity:1}
+.rowblk.sel{outline:3px solid var(--accent);outline-offset:4px;border-radius:8px}
+.rowtools{position:absolute;bottom:-30px;right:0;display:flex;gap:6px;opacity:0;transition:.12s}
+.rowblk:hover .rowtools{opacity:1}
+.rowtools button{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px;background:var(--paper)}
+.rowtools button:hover{border-color:var(--accent);color:#0a7d3c}
+
 /* 직접 쓴 HTML — 건드리지 않고 보관만 */
 .rawblk{
   border:1px dashed var(--line);border-radius:9px;background:var(--bg);
@@ -174,6 +186,9 @@ button{cursor:pointer;background:none;border:none}
 .fld>span{font-size:12.5px;color:var(--muted);font-weight:600}
 .fld input,.fld textarea{border:1px solid var(--line);border-radius:7px;padding:9px 11px;outline:none;width:100%}
 .fld input:focus,.fld textarea:focus{border-color:var(--accent)}
+.sug{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+.sug button{border:1px solid var(--line);border-radius:99px;padding:3px 10px;font-size:11.5px;color:var(--muted)}
+.sug button:hover{border-color:var(--accent);color:#0a7d3c;background:var(--sel)}
 .cnt{font-size:11px;color:var(--muted);text-align:right}
 .cnt.over{color:var(--err)}
 .note{font-size:13px;padding:10px 12px;border-radius:8px;border:1px solid}
@@ -202,6 +217,7 @@ pre.log{
   <span class="chip" id="chip">주소를 입력하세요</span>
   <div class="grow"></div>
   <span class="chip" id="editing" style="display:none"></span>
+  <button class="btn" id="prevBtn">👁 미리보기</button>
   <button class="btn" id="listBtn">📋 글 목록</button>
   <button class="btn" id="newBtn">새 글</button>
   <button class="btn go" id="pubBtn">발행</button>
@@ -210,6 +226,7 @@ pre.log{
 <div class="toolbar">
   <button class="tool" data-cmd="photo">🖼 <span>사진</span></button>
   <button class="tool" data-cmd="folder">📂 <span>폴더에서</span></button>
+  <button class="tool" data-cmd="row" title="고른 사진과 다음 사진을 가로로 묶습니다">⿲ 나란히</button>
   <div class="sep"></div>
   <button class="tool" data-blk="h2"><b>제목</b></button>
   <button class="tool" data-blk="h3">소제목</button>
@@ -294,6 +311,7 @@ const uid = (()=>{ let n=0; return ()=> 'b'+(++n)+Date.now().toString(36); })();
   }
   $('#cat').value = meta.category;
   render(); updateChip();
+  hist = [shot()];
 })();
 
 // 분류를 바꾸면 사진 폴더 경로와 라벨 프리셋이 함께 바뀐다
@@ -335,6 +353,39 @@ function blockEl(b){
     const w = el('div','rawblk'); w.dataset.id = b.id;
     w.append(el('div','raw-tag','직접 작성한 HTML — 그대로 유지됩니다'));
     const pre = el('pre'); pre.textContent = b.raw; w.append(pre);
+    return w;
+  }
+  if (b.t === 'row') {
+    const w = el('div','rowblk'); w.dataset.id = b.id;
+    b.pids.forEach((pid,k) => {
+      const p = photos.find(x=>x.id===pid);
+      const cell = el('div','cell');
+      const img = el('img'); img.src = p ? p.thumb : ''; img.alt = b.caps[k]||'';
+      img.onclick = () => selectImg(b.id);
+      cell.append(img);
+      const bar = el('div','imgbar');
+      const star = el('button', p&&p.hero?'on':'', '★');
+      star.onclick = e => { e.stopPropagation(); photos.forEach(x=>x.hero=(x.id===pid && !(p&&p.hero))); mark(); render(); };
+      const fn = el('input','fname'); fn.value = p?(p.label||''):''; fn.placeholder='파일명';
+      fn.onclick = e => e.stopPropagation();
+      fn.oninput = () => { if(p){ p.label = fn.value; p.keepName = null; mark(); } };
+      bar.append(star, fn); cell.append(bar);
+      const cap = el('div','cap'); cap.contentEditable='true'; cap.textContent = b.caps[k]||'';
+      cap.oninput = () => { b.caps[k] = cap.textContent; mark(); };
+      cell.append(cap);
+      w.append(cell);
+    });
+    const tools = el('div','rowtools');
+    const split = el('button','', '↕ 위아래로 나누기');
+    split.onclick = () => {
+      const D = doc[lang], at = D.blocks.indexOf(b);
+      snap();
+      D.blocks.splice(at, 1, ...b.pids.map((pid,k)=>({id:uid(), t:'img', pid, cap:b.caps[k]||''})));
+      mark(); render();
+    };
+    const del = el('button','', '✕ 삭제');
+    del.onclick = () => removeBlock(b.id);
+    tools.append(split, del); w.append(tools);
     return w;
   }
   if (b.t === 'img') {
@@ -386,7 +437,7 @@ function blockEl(b){
   n.dataset.ph = b.t==='h2' ? '제목' : b.t==='h3' ? '소제목'
                : b.t==='quote' ? '인용할 내용' : (b.t==='li'||b.t==='ol') ? '목록'
                : (lang==='ko' ? '내용을 입력하세요' : 'Write here');
-  n.oninput = () => { b.html = clean(n.innerHTML); mark(); };
+  n.oninput = () => { b.html = clean(n.innerHTML); mark(); snapSoon(); };
   n.onkeydown = e => keyIn(e, b, n);
   n.onfocus = () => selectImg(null);
   return n;
@@ -432,13 +483,14 @@ function keyIn(e, b, n){
     // 목록·정렬·들여쓰기는 다음 줄에도 이어지게 한다
     const cont = (b.t==='li' || b.t==='ol');
     const nb = {id:uid(), t: cont ? b.t : 'p', html:'', a: b.a, ind: cont ? b.ind : 0};
+    snap();
     D.blocks.splice(i+1, 0, nb);
     render(); focusBlock(nb.id);
     mark(); return;
   }
   if (e.key === 'Backspace' && isEmpty(n) && D.blocks.length > 1) {
     e.preventDefault();
-    D.blocks.splice(i,1);
+    snap(); D.blocks.splice(i,1);
     render();
     const prev = D.blocks[Math.max(0,i-1)];
     if (prev) focusBlock(prev.id, true);
@@ -468,10 +520,12 @@ function curBlock(){
 }
 
 function removeBlock(id){
+  snap();
   const D = doc[lang];
   const i = D.blocks.findIndex(b=>b.id===id);
   if (i<0) return;
   const b = D.blocks[i];
+  if (b.t==='row') { D.blocks.splice(i,1); mark(); render(); return; }
   if (b.t==='img') {
     // 다른 언어 문서에서도 안 쓰면 사진 목록에서 제거
     const used = ['ko','en'].some(L => doc[L].blocks.some(x=>x!==b && x.t==='img' && x.pid===b.pid));
@@ -504,6 +558,7 @@ function run(d){
   // 블록 종류 바꾸기
   if (d.blk) {
     const b = curB(); if (!b) return;
+    snap();
     b.t = (b.t === d.blk && d.blk !== 'p') ? 'p' : d.blk;   // 한 번 더 누르면 해제
     mark(); render(); focusBlock(b.id, true);
     return;
@@ -529,6 +584,19 @@ function run(d){
     const b = curB(); if (!b) return;
     b.ind = Math.max(0, Math.min(3, (b.ind||0) + (cmd==='indent' ? 1 : -1)));
     mark(); render(); focusBlock(b.id, true);
+    return;
+  }
+  if (cmd==='row') {
+    const D = doc[lang];
+    const at = D.blocks.findIndex(x => x.id === selImg && x.t === 'img');
+    if (at < 0) return alert('먼저 사진을 클릭해서 고른 뒤 눌러주세요.');
+    const nx = D.blocks[at+1];
+    if (!nx || nx.t !== 'img') return alert('바로 다음에도 사진이 있어야 나란히 묶을 수 있습니다.');
+    const row = {id:uid(), t:'row', pids:[D.blocks[at].pid, nx.pid],
+                 caps:[D.blocks[at].cap||'', nx.cap||'']};
+    snap();
+    D.blocks.splice(at, 2, row);
+    mark(); render(); selectImg(row.id);
     return;
   }
   if (cmd==='hr')     insertBlocks([{id:uid(),t:'hr'}]);
@@ -565,6 +633,7 @@ function pickColor(){
 document.addEventListener('keydown', e => {
   if (!(e.metaKey || e.ctrlKey)) return;
   const k = e.key.toLowerCase();
+  if (k === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
   const map = {b:'bold', i:'italic', u:'underline', k:'link'};
   if (map[k]) { e.preventDefault(); run({cmd: map[k]}); return; }
   if (k === '1') { e.preventDefault(); run({blk:'h2'}); }
@@ -583,6 +652,7 @@ function insertBlocks(list){
   const n = curBlock();
   let at = D.blocks.length;
   if (n) { const i = D.blocks.findIndex(x=>x.id===n.dataset.id); if (i>=0) at = i+1; }
+  snap();
   D.blocks.splice(at, 0, ...list);
   const tail = {id:uid(), t:'p', html:''};
   D.blocks.splice(at+list.length, 0, tail);
@@ -701,11 +771,26 @@ function mdOf(L){
   const dir = `/assets/images/${meta.category}/${slug}`;
   const names = fileNames();
   const out = [], glues = [];
-  const emit = (line, b) => { out.push(line); glues.push(!!(b && b.glue)); };
+  // glue: true=붙임, false=빈 줄, null=원본 정보 없음(새로 쓴 내용)
+  const emit = (line, b) => {
+    out.push(line);
+    glues.push(b && b.glue !== undefined ? !!b.glue : null);
+  };
   let olN = [];
   doc[L].blocks.forEach(b => {
     if (b.t==='hr') { emit('---', b); return; }
     if (b.t==='raw') { emit(b.raw, b); return; }
+    if (b.t==='row') {
+      const lines2 = b.pids.map((pid,k) => {
+        const idx = photos.findIndex(x=>x.id===pid);
+        if (idx < 0) return null;
+        const pad = b.pad === undefined ? '  ' : b.pad;
+        return `${pad}<img src="${photos[idx].dir || dir}/${names[idx]}" alt="${(b.caps[k]||'').trim()}">`;
+      }).filter(Boolean);
+      if (!lines2.length) return;
+      emit('<div class="img-row">\n' + lines2.join('\n') + '\n</div>', b);
+      return;
+    }
     if (b.t==='img') {
       const i = photos.findIndex(p=>p.id===b.pid);
       if (i<0) return;
@@ -751,8 +836,11 @@ function mdOf(L){
   let md = '';
   out.forEach((line,i) => {
     // 같은 종류의 목록끼리만 붙이고, 종류가 바뀌면 빈 줄로 나눈다
-    const glue = glues[i-1] ? '\n'
-               : (kind(line) && kind(line) === kind(out[i-1])) ? '\n' : '\n\n';
+    const g = glues[i-1];
+    const sameList = kind(line) && kind(line) === kind(out[i-1]);
+    const glue = sameList ? '\n'
+               : g === true ? '\n'
+               : '\n\n';
     md += (i ? glue : '') + line;
   });
   return md;
@@ -774,6 +862,41 @@ function fileNames(){
     used[base] = (used[base]||0)+1;
     return base + (used[base]>1?used[base]:'') + '.webp';
   });
+}
+
+/* ── 되돌리기 ──
+   화면을 다시 그릴 때 브라우저의 실행취소 기록이 사라진다. 그래서 문서 전체를
+   찍어두는 방식으로 직접 관리한다. 글자 입력은 잠시 멈췄을 때 한 번만 찍는다. */
+let hist = [], future = [], snapTimer = null;
+
+const shot = () => JSON.stringify({doc, photos});
+
+function snap(){                       // 구조를 바꾸기 직전/직후에 찍는다
+  clearTimeout(snapTimer);
+  hist.push(shot());
+  if (hist.length > 60) hist.shift();
+  future = [];
+}
+function snapSoon(){                   // 타이핑은 멈춘 뒤에 한 번만
+  clearTimeout(snapTimer);
+  snapTimer = setTimeout(() => { hist.push(shot()); if (hist.length>60) hist.shift(); future=[]; }, 700);
+}
+function restore(json){
+  const d = JSON.parse(json);
+  doc.ko = d.doc.ko; doc.en = d.doc.en; photos = d.photos;
+  render(); mark();
+}
+function undo(){
+  if (!hist.length) return;
+  future.push(shot());
+  restore(hist.pop());
+  $('#saveHint').textContent = '되돌림';
+}
+function redo(){
+  if (!future.length) return;
+  hist.push(shot());
+  restore(future.pop());
+  $('#saveHint').textContent = '다시 실행';
 }
 
 /* ── 상태/저장 ── */
@@ -812,6 +935,43 @@ function updateChip(){
   else { c.className='chip ok'; c.textContent='새 글'; }
 }
 
+/* ── 미리보기 ──
+   사이트와 같은 kramdown 으로 변환하고 블로그의 실제 CSS 를 입혀서 보여준다.
+   아직 발행 전이라 새 사진은 파일이 없으므로 임시 이미지로 바꿔 끼운다. */
+$('#prevBtn').onclick = async () => {
+  const md = mdOf(lang);
+  if (!md.trim()) return alert('아직 본문이 비어 있습니다.');
+  sheet(lang === 'ko' ? '미리보기' : 'Preview', '<div class="note ok">변환하는 중…</div>', [['닫기', close]]);
+
+  const r = await (await fetch('/api/preview', {method:'POST', body: JSON.stringify({markdown: md})})).json();
+  if (!r.ok) return sheet('미리보기 실패', `<pre class="log">${esc(r.html || '')}</pre>`, [['닫기', close]]);
+
+  // 발행 전이라 아직 없는 사진은 지금 보고 있는 임시 이미지로 바꾼다
+  const names = fileNames();
+  const map = {};
+  photos.forEach((p,i) => { map[`${p.dir || `/assets/images/${meta.category}/${$('#slug').value.trim()}`}/${names[i]}`] = p.thumb; });
+
+  const doc2 = new DOMParser().parseFromString(r.html, 'text/html');
+  doc2.querySelectorAll('img').forEach(im => {
+    const src = im.getAttribute('src');
+    if (map[src]) im.setAttribute('src', map[src]);
+  });
+
+  const title = esc(doc[lang].title || '(제목 없음)');
+  const html = `<!doctype html><html><head><meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>body{margin:0;background:#fff}.post-header,.post-content{max-width:720px;margin:0 auto;padding:0 40px}
+      .post-header{padding-top:32px}h1{font-size:28px;margin:0 0 24px}</style></head>
+    <body><div class="post-header"><h1>${title}</h1></div>
+    <div class="post-content">${doc2.body.innerHTML}</div></body></html>`;
+
+  sheet(lang === 'ko' ? '미리보기 — 실제 사이트 모습' : 'Preview',
+    `<iframe id="pv" style="width:100%;height:64vh;border:1px solid var(--line);border-radius:9px;background:#fff"></iframe>`,
+    [['닫기', close]]);
+  const f = $('#pv');
+  f.srcdoc = html;
+};
+
 /* ── 시트 ── */
 function sheet(title, html, buttons){
   $('#shTitle').textContent = title;
@@ -831,12 +991,14 @@ $('#pubBtn').onclick = async () => {
   sheet('발행 설정', `
     <div class="note ok">분류 <b>${CFG.categories[meta.category].ko}</b> · 주소 <b>${esc($('#slug').value.trim()||'(없음)')}</b></div>
     <div class="fld"><span>태그 (쉼표로 구분)</span>
-      <input id="f_tk" value="${esc(meta.tags_ko)}" placeholder="일본, 닛코, 온천"></div>
+      <input id="f_tk" value="${esc(meta.tags_ko)}" placeholder="일본, 닛코, 온천">
+      <div id="sugKo" class="sug"></div></div>
     <div class="fld"><span>검색 설명 — 한국어</span>
       <textarea id="f_dk" rows="2" placeholder="검색 결과에 보이는 설명">${esc(meta.desc_ko)}</textarea>
       <div class="cnt" id="c_dk"></div></div>
     <div class="fld"><span>Tags (English)</span>
-      <input id="f_te" value="${esc(meta.tags_en)}" placeholder="Japan, Nikko, Onsen"></div>
+      <input id="f_te" value="${esc(meta.tags_en)}" placeholder="Japan, Nikko, Onsen">
+      <div id="sugKo2" class="sug"></div></div>
     <div class="fld"><span>검색 설명 — English</span>
       <textarea id="f_de" rows="2">${esc(meta.desc_en)}</textarea>
       <div class="cnt" id="c_de"></div></div>
@@ -857,6 +1019,21 @@ $('#pubBtn').onclick = async () => {
   };
   ['f_tk','f_te','f_dk','f_de'].forEach(id => $('#'+id).oninput = sync);
   sync();
+
+  // 기존 글에서 쓰던 태그를 제안한다 — 표기가 갈리면 태그 페이지가 쪼개진다
+  const tg = await (await fetch('/api/tags')).json();
+  [['sugKo', 'f_tk', tg.ko], ['sugKo2', 'f_te', tg.en]].forEach(([box, inp, list]) => {
+    const b = $('#'+box); if (!b) return;
+    (list || []).slice(0, 14).forEach(t => {
+      const btn = el('button', '', t);
+      btn.onclick = () => {
+        const cur = $('#'+inp).value.split(',').map(x=>x.trim()).filter(Boolean);
+        if (!cur.includes(t)) cur.push(t);
+        $('#'+inp).value = cur.join(', '); sync();
+      };
+      b.append(btn);
+    });
+  });
 };
 
 async function step2(){
@@ -976,6 +1153,35 @@ function md2blocks(body, photos){
     const ln = raw.trim();
 
     if (/^---+$/.test(ln)) { push({t:'hr'}); continue; }
+
+    // 사진 나란히 배치
+    if (/^<div class="img-row">$/.test(ln)) {
+      const imgs = [];
+      let j = i + 1, okRow = true;
+      while (j < lines.length && lines[j].trim() !== '</div>') {
+        const mm = /^(\s*)<img src="([^"]+)" alt="([^"]*)">$/.exec(lines[j]);
+        if (!mm) { okRow = false; break; }
+        imgs.push({pad: mm[1], src: mm[2], alt: mm[3]});
+        j++;
+      }
+      if (okRow && imgs.length && j < lines.length) {
+        const pids = imgs.map(im => {
+          const path = im.src, dir = path.slice(0, path.lastIndexOf('/'));
+          const file = path.slice(path.lastIndexOf('/') + 1);
+          let ph = photos.find(x => x.src === path.replace(/^\//,''));
+          if (!ph) {
+            ph = {id:uid(), src:path.replace(/^\//,''), name:file, dir, keepName:file,
+                  label:file.replace(/\.[a-z0-9]+$/i,''), hero:false,
+                  thumb:'/api/thumb?path=' + encodeURIComponent(path.replace(/^\//,''))};
+            photos.push(ph);
+          }
+          return ph.id;
+        });
+        i = j;                                   // </div> 까지 소비
+        push({t:'row', pids, caps: imgs.map(x => x.alt), pad: imgs[0].pad});
+        continue;
+      }
+    }
 
     // 직접 쓴 HTML(<div class="img-row"> 같은 것)은 편집기가 표현할 수 없으니
     // 원문 그대로 담아 두고, 내보낼 때도 손대지 않는다.

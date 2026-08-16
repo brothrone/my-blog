@@ -106,8 +106,10 @@ def safe_name(text: str) -> str:
     return re.sub(r"_+", "_", text).strip("_") or "photo"
 
 
-def run(cmd, cwd=BLOG):
-    p = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True)
+def run(cmd, cwd=BLOG, stdin=None):
+    # stdin 을 명시적으로 닫는다. 안 그러면 입력을 기다리는 명령이 그대로 멈춰버린다.
+    p = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True,
+                       input=(stdin if stdin is not None else ""), timeout=60)
     return p.returncode, (p.stdout or "") + (p.stderr or "")
 
 
@@ -172,6 +174,24 @@ def list_posts():
         })
     out.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
     return out
+
+
+def all_tags():
+    """기존 글에서 쓰던 태그. 표기가 갈리지 않도록 입력할 때 제안한다."""
+    ko, en = {}, {}
+    for base, bag in ((BLOG / "_posts", ko), (BLOG / "_en_posts", en)):
+        if not base.exists():
+            continue
+        for md in base.rglob("*.md"):
+            try:
+                fm, _ = parse_front(md.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            for t in (fm.get("tags") or []):
+                if isinstance(t, str) and t:
+                    bag[t] = bag.get(t, 0) + 1
+    top = lambda d: [k for k, _ in sorted(d.items(), key=lambda x: -x[1])]
+    return {"ko": top(ko), "en": top(en)}
 
 
 def find_existing(slug: str) -> list[Path]:
@@ -403,6 +423,14 @@ def validate(d: dict) -> list[dict]:
     if photos and not any(p.get("hero") for p in photos):
         err("warn", "대표 이미지(썸네일)가 지정되지 않았습니다.")
 
+    # 설명 없는 사진은 검색에 안 잡힌다
+    for body_key, lang in (("body_ko", "한국어"), ("body_en", "영문")):
+        blank = len(re.findall(r"!\[\s*\]\(", d.get(body_key) or "")) \
+              + len(re.findall(r'<img [^>]*alt=""', d.get(body_key) or ""))
+        if blank:
+            err("warn", f"{lang} 본문에 설명 없는 사진이 {blank}장 있습니다 "
+                        f"(사진 아래 설명을 넣으면 검색 노출에 도움이 됩니다).")
+
     # 본문에서 참조하는데 목록에 없는 이미지
     for body_key, lang in (("body_ko", "한국어"), ("body_en", "영문")):
         for path in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", d.get(body_key) or ""):
@@ -592,6 +620,23 @@ class Handler(BaseHTTPRequestHandler):
                 "blog": str(BLOG),
             })
 
+        if u.path == "/api/tags":
+            return self._send(200, all_tags())
+
+        if u.path.startswith("/assets/"):
+            f = BLOG / u.path.lstrip("/")
+            try:
+                f.resolve().relative_to(BLOG.resolve())
+            except ValueError:
+                return self._send(403, {"error": "허용되지 않은 경로"})
+            if not f.is_file():
+                return self._send(404, {"error": "없음"})
+            ct = {".css": "text/css", ".webp": "image/webp", ".jpg": "image/jpeg",
+                  ".jpeg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml",
+                  ".js": "application/javascript"}.get(f.suffix.lower(),
+                                                       "application/octet-stream")
+            return self._send(200, f.read_bytes(), ct)
+
         if u.path == "/api/posts":
             return self._send(200, {"posts": list_posts()})
 
@@ -668,6 +713,22 @@ class Handler(BaseHTTPRequestHandler):
                 dest = STAGING / f"{int(time.time()*1000)}_{name}"
                 dest.write_bytes(base64.b64decode(d["data"].split(",")[-1]))
                 return self._send(200, {"src": str(dest), "name": d["name"]})
+
+            if u.path == "/api/preview":
+                # 사이트와 똑같이 보이도록 Jekyll 이 쓰는 kramdown 으로 직접 변환한다
+                md = (self._body().get("markdown") or "")
+                # Jekyll 은 GFM 파서를 쓴다. hard_wrap(줄바꿈 → <br>)도 거기서만 동작하므로
+                # 사이트와 똑같이 보이려면 파서까지 맞춰야 한다.
+                code, out = run(
+                    ["ruby", "-rkramdown", "-rkramdown-parser-gfm", "-e",
+                     'print Kramdown::Document.new($stdin.read, input: "GFM", '
+                     'hard_wrap: true).to_html'],
+                    stdin=md)
+                if code != 0:      # GFM 파서가 없으면 기본 파서로라도 보여준다
+                    code, out = run(
+                        ["ruby", "-rkramdown", "-e",
+                         'print Kramdown::Document.new($stdin.read).to_html'], stdin=md)
+                return self._send(200, {"ok": code == 0, "html": out})
 
             if u.path == "/api/validate":
                 return self._send(200, {"issues": validate(self._body())})
