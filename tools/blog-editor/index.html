@@ -347,7 +347,10 @@ const uid = (()=>{ let n=0; return ()=> 'b'+(++n)+Date.now().toString(36); })();
 // 분류를 바꾸면 사진 폴더 경로와 라벨 프리셋이 함께 바뀐다
 $('#cat').onchange = () => { meta.category = $('#cat').value; mark(); render(); updateChip(); };
 
-const thumbUrl = src => '/api/thumb?path=' + encodeURIComponent(src);
+const thumbUrl = (src, w) => '/api/thumb?path=' + encodeURIComponent(src) + (w ? '&w=' + w : '');
+// 편집기 본문은 사진을 크게 펼쳐 보여주므로 큰 미리보기를 쓴다 (작은 걸 늘리면 뭉개진다)
+const bigThumb = p => (p && p.thumb && p.thumb.startsWith('data:')) ? p.thumb
+                    : (p && p.src) ? thumbUrl(p.src, 1200) : '';
 
 /* ── 렌더 ── */
 function render(){
@@ -390,7 +393,7 @@ function blockEl(b){
     b.pids.forEach((pid,k) => {
       const p = photos.find(x=>x.id===pid);
       const cell = el('div','cell');
-      const img = el('img'); img.src = p ? p.thumb : ''; img.alt = b.caps[k]||'';
+      const img = el('img'); img.src = bigThumb(p); img.alt = b.caps[k]||'';
       img.onclick = () => selectImg(b.id);
       cell.append(img);
       const bar = el('div','imgbar');
@@ -421,7 +424,7 @@ function blockEl(b){
   if (b.t === 'img') {
     const p = photos.find(x=>x.id===b.pid);
     const w = el('div','imgblk'); w.dataset.id=b.id;
-    const img = el('img'); img.src = p ? p.thumb : ''; img.alt = b.cap||'';
+    const img = el('img'); img.src = bigThumb(p); img.alt = b.cap||'';
     img.onclick = () => selectImg(b.id);
     w.append(img);
 

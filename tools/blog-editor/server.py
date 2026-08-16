@@ -397,14 +397,23 @@ def convert_image(src: Path, dst: Path, mark: bool = True) -> tuple[bool, str]:
     return True, f"{src.name} → {dst.name} ({saved}KB 절감)" + ("\n" + note if note else "")
 
 
-def make_thumb(src: Path) -> Path:
+def make_thumb(src: Path, w: int = 320) -> Path:
+    """미리보기 이미지. 쓰임새에 따라 크기를 나눈다.
+
+    목록·메모는 작게(320) 빠르게, 편집기 본문은 크게(1200) — 본문에서는 사진을
+    640px 폭으로 펼쳐 보여주는데, 레티나 화면이면 1280px 가 필요해서
+    작은 썸네일을 쓰면 네 배로 늘어나 뭉개져 보인다.
+    """
     THUMBS.mkdir(parents=True, exist_ok=True)
     key = safe_name(str(src).replace("/", "_"))[-80:]
-    thumb = THUMBS / f"{key}.jpg"
+    thumb = THUMBS / f"{key}_{w}.jpg"
     if thumb.exists() and thumb.stat().st_mtime >= src.stat().st_mtime:
         return thumb
-    run(["magick", str(src), "-auto-orient", "-resize", "320x320^",
-         "-quality", "70", str(thumb)])
+    if w >= 800:                       # 실제 업로드본과 같은 방식으로 줄인다
+        size, q = f"{w}x>", "82"
+    else:                              # 목록용은 정사각형에 맞춰 채운다
+        size, q = f"{w}x{w}^", "70"
+    run(["magick", str(src), "-auto-orient", "-resize", size, "-quality", q, str(thumb)])
     return thumb
 
 
@@ -801,7 +810,11 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(403, {"error": "허용되지 않은 경로"})
             if not src.exists():
                 return self._send(404, {"error": "없음"})
-            t = make_thumb(src)
+            try:
+                w = max(80, min(1600, int((q.get("w") or ["320"])[0])))
+            except ValueError:
+                w = 320
+            t = make_thumb(src, w)
             if t.exists():
                 return self._send(200, t.read_bytes(), "image/jpeg")
             return self._send(404, {"error": "썸네일 생성 실패"})
