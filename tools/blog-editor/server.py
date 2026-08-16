@@ -278,6 +278,40 @@ def existing_slugs():
 
 NOTES = WORK / "notes"
 CONFIG = WORK / "config.json"        # 토큰 등 (저장소에 올라가지 않는다)
+DRAFTS = WORK / "drafts"             # 쓰다 만 글 (주소별로 따로 보관)
+
+
+def draft_key(slug: str) -> str:
+    return safe_name(slug) or "_새글"
+
+
+def list_drafts():
+    """쓰다 만 글 목록. 최근에 손댄 순."""
+    if not DRAFTS.exists():
+        return []
+    out = []
+    for f in DRAFTS.glob("*.json"):
+        try:
+            d = json.loads(f.read_text("utf-8"))
+        except Exception:
+            continue
+        doc = d.get("doc") or {}
+        ko = doc.get("ko") or {}
+        blocks = ko.get("blocks") or []
+        text = sum(len(re.sub("<[^>]+>", "", b.get("html") or "")) for b in blocks)
+        out.append({
+            "key": f.stem,
+            "slug": d.get("slug", ""),
+            "date": d.get("date", ""),
+            "category": (d.get("meta") or {}).get("category", ""),
+            "title": ko.get("title") or "(제목 없음)",
+            "photos": len(d.get("photos") or []),
+            "chars": text,
+            "blocks": len(blocks),
+            "saved": int(f.stat().st_mtime),
+        })
+    out.sort(key=lambda x: -x["saved"])
+    return out
 
 
 def load_cfg():
@@ -978,7 +1012,16 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(200, t.read_bytes(), "image/jpeg")
             return self._send(404, {"error": "썸네일 생성 실패"})
 
+        if u.path == "/api/drafts":
+            return self._send(200, {"drafts": list_drafts()})
+
         if u.path == "/api/draft":
+            key = (q.get("key") or [""])[0]
+            if key:
+                f = DRAFTS / f"{safe_name(key) or key}.json"
+                if f.exists():
+                    return self._send(200, json.loads(f.read_text("utf-8")))
+                return self._send(200, {})
             if DRAFT.exists():
                 return self._send(200, json.loads(DRAFT.read_text("utf-8")))
             return self._send(200, {})
@@ -1092,9 +1135,27 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(200, {"issues": validate(self._body())})
 
             if u.path == "/api/draft":
+                d = self._body()
                 WORK.mkdir(parents=True, exist_ok=True)
-                DRAFT.write_text(json.dumps(self._body(), ensure_ascii=False),
-                                 encoding="utf-8")
+                DRAFT.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+                # 주소별로도 따로 남긴다 — 다른 글로 옮겨가도 쓰던 게 사라지지 않게
+                doc = d.get("doc") or {}
+                ko = doc.get("ko") or {}
+                has = bool((ko.get("title") or "").strip()
+                           or any((b.get("html") or "").strip() for b in (ko.get("blocks") or []))
+                           or d.get("photos"))
+                if has:
+                    DRAFTS.mkdir(parents=True, exist_ok=True)
+                    key = draft_key(d.get("slug", ""))
+                    (DRAFTS / f"{key}.json").write_text(
+                        json.dumps(d, ensure_ascii=False), encoding="utf-8")
+                return self._send(200, {"ok": True})
+
+            if u.path == "/api/draft-delete":
+                key = (self._body().get("key") or "")
+                f = DRAFTS / f"{safe_name(key) or key}.json"
+                if f.exists():
+                    f.unlink()
                 return self._send(200, {"ok": True})
 
             if u.path == "/api/publish":

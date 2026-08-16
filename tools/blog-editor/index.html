@@ -370,6 +370,7 @@ pre.log{
   <button class="tab on" data-lang="memo">AI 작성</button>
   <button class="tab" data-lang="ko">한국어 <span class="dot" id="dotKo" style="display:none"></span></button>
   <button class="tab" data-lang="en">English <span class="dot" id="dotEn" style="display:none"></span></button>
+  <button class="tab" data-lang="drafts">임시저장 <span class="dot" id="dotDraft" style="display:none"></span></button>
   <button class="tab" data-lang="manage">관리</button>
 </div>
 
@@ -379,6 +380,7 @@ pre.log{
     <div id="canvas"></div>
   </div>
   <div class="paper" id="memoPane"></div>
+  <div class="paper" id="draftPane" style="display:none"></div>
   <div class="paper" id="managePane" style="display:none"></div>
 </div>
 
@@ -468,6 +470,9 @@ const uid = (()=>{ let n=0; return ()=> 'b'+(++n)+Date.now().toString(36); })();
   $('#cat').value = meta.category;
   render(); updateChip();
   hist = [shot()];
+  fetch('/api/drafts').then(r => r.json()).then(v => {
+    if (v.drafts && v.drafts.length) $('#dotDraft').style.display = '';
+  });
   renderMemo();                    // 첫 화면은 AI 작성 탭
   document.querySelector('.toolbar').style.display = 'none';
   $('#prevBtn').style.display = 'none';
@@ -943,14 +948,17 @@ window.addEventListener('drop', e => {
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x===t));
   const v = t.dataset.lang;
-  const memo = v === 'memo', mng = v === 'manage', write = !memo && !mng;
+  const memo = v === 'memo', mng = v === 'manage', dft = v === 'drafts';
+  const write = !memo && !mng && !dft;
   $('#writePane').style.display   = write ? '' : 'none';
   $('#memoPane').style.display    = memo ? '' : 'none';
   $('#managePane').style.display  = mng ? '' : 'none';
+  $('#draftPane').style.display   = dft ? '' : 'none';
   document.querySelector('.toolbar').style.display = write ? '' : 'none';
   $('#prevBtn').style.display = write ? '' : 'none';
   if (memo) { renderMemo(); return; }
   if (mng)  { renderManage(); return; }
+  if (dft)  { renderDrafts(); return; }
   lang = v; render();
 });
 $('#title').oninput = () => { doc[lang].title = $('#title').value; mark(); updateDots(); };
@@ -1499,6 +1507,73 @@ async function saveMemo(slug, byId, hint){
 
 // 적다가 탭을 옮기거나 앱을 닫아도 잃지 않게 주기적으로 저장한다
 setInterval(() => { if (memoDirty && memoSaver) memoSaver(); }, 6000);
+
+/* ── 임시저장 ──
+   쓰다 만 글을 주소별로 따로 보관한다. 전에는 초안 자리가 하나뿐이라
+   다른 글을 시작하면 앞서 쓰던 게 사라졌다. */
+async function renderDrafts(){
+  const pane = $('#draftPane');
+  pane.innerHTML = '';
+  pane.append(el('div','memo-head','임시저장'));
+  pane.append(el('div','memo-sub','쓰다 만 글이 주소별로 저장됩니다. 눌러서 이어서 쓰세요.'));
+
+  const r = await (await fetch('/api/drafts')).json();
+  if (!r.drafts.length) {
+    pane.append(el('div','note ok','쓰다 만 글이 없습니다.'));
+    return;
+  }
+  const now = Date.now() / 1000;
+  const ago = t => {
+    const s2 = now - t;
+    if (s2 < 3600) return Math.max(1, Math.round(s2/60)) + '분 전';
+    if (s2 < 86400) return Math.round(s2/3600) + '시간 전';
+    return Math.round(s2/86400) + '일 전';
+  };
+  r.drafts.forEach(d => {
+    const row = el('div','mg-row');
+    const m = el('div','main');
+    m.append(el('div','t', d.title));
+    const cat = CFG.categories[d.category] ? CFG.categories[d.category].ko : d.category;
+    const sub = el('div');
+    sub.style.cssText = 'font-size:11.5px;color:var(--muted);margin-top:3px';
+    sub.textContent = [cat, d.slug || '주소 없음', d.date,
+                       `사진 ${d.photos}장`, `${d.chars}자`, ago(d.saved)]
+                       .filter(Boolean).join(' · ');
+    m.append(sub);
+    row.append(m);
+
+    const open = el('button','save','이어쓰기');
+    open.onclick = async () => {
+      const v = await (await fetch('/api/draft?key=' + encodeURIComponent(d.key))).json();
+      if (!v || !v.doc) return alert('불러오지 못했습니다.');
+      $('#slug').value = v.slug || '';
+      $('#date').value = v.date || CFG.today;
+      meta = Object.assign(meta, v.meta || {});
+      $('#cat').value = meta.category;
+      photos = (v.photos || []).map(p => ({...p, thumb: p.thumb || thumbUrl(p.src, 320)}));
+      doc.ko = v.doc.ko || {title:'',blocks:[]};
+      doc.en = v.doc.en || {title:'',blocks:[]};
+      editingPost = null; $('#editing').style.display='none';
+      hist = [shot()]; future = [];
+      lang = 'ko';
+      document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x.dataset.lang === 'ko'));
+      $('#draftPane').style.display = 'none';
+      $('#writePane').style.display = '';
+      document.querySelector('.toolbar').style.display = '';
+      $('#prevBtn').style.display = '';
+      render(); updateChip();
+      $('#scroll').scrollTo({top:0});
+    };
+    const del = el('button','save','삭제');
+    del.onclick = async () => {
+      if (!confirm(`"${d.title}" 임시저장을 지울까요?`)) return;
+      await fetch('/api/draft-delete',{method:'POST',body:JSON.stringify({key: d.key})});
+      renderDrafts();
+    };
+    row.append(open, del);
+    pane.append(row);
+  });
+}
 
 /* ── 관리 ──
    검색 노출에 걸리는 것, 배포 상태, 방문 통계를 한 화면에서 본다. */
