@@ -6,6 +6,7 @@
 
 import Cocoa
 import WebKit
+import UniformTypeIdentifiers
 
 final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDelegate {
 
@@ -19,9 +20,30 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
     func applicationDidFinishLaunching(_ note: Notification) {
         buildMenu()
         buildWindow()
-        startServerIfNeeded()
-        waitForServerThenLoad()
         NSApp.activate(ignoringOtherApps: true)
+
+        // 블로그 폴더 접근 권한을 앱이 먼저 확인한다.
+        // 폴더가 ~/Desktop 안에 있으면 macOS 가 접근 허용을 묻는데,
+        // 그 관문을 자식 파이썬이 먼저 건드리면 시작 단계(getcwd)에서 멈춰 버린다.
+        // 앱이 먼저 물어보게 하면 안내문과 함께 정상적으로 허용창이 뜬다.
+        DispatchQueue.global().async {
+            let ok = FileManager.default.isReadableFile(atPath: Cfg.repo + "/_config.yml")
+            DispatchQueue.main.async {
+                guard ok else {
+                    self.fail("""
+                        블로그 폴더를 읽을 수 없습니다.
+
+                        \(Cfg.repo)
+
+                        시스템 설정 → 개인정보 보호 및 보안 → 파일 및 폴더 에서
+                        Brothrone 의 폴더 접근을 허용한 뒤 다시 열어주세요.
+                        """)
+                    return
+                }
+                self.startServerIfNeeded()
+                self.waitForServerThenLoad()
+            }
+        }
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ s: NSApplication) -> Bool { true }
@@ -38,7 +60,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
             contentRect: NSRect(x: 0, y: 0, width: 1280, height: 880),
             styleMask: [.titled, .closable, .miniaturizable, .resizable],
             backing: .buffered, defer: false)
-        window.title = "Brothrone 글쓰기"
+        window.title = "Brothrone"
         window.minSize = NSSize(width: 880, height: 600)
         window.center()
         window.setFrameAutosaveName("BrothroneEditorWindow")   // 위치·크기 기억
@@ -61,8 +83,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
 
         let p = Process()
         p.executableURL = URL(fileURLWithPath: Cfg.python)
-        p.arguments = ["tools/blog-editor/server.py", "--no-open"]
-        p.currentDirectoryURL = URL(fileURLWithPath: Cfg.repo)
+        // 절대 경로로 넘기고 작업 폴더는 건드리지 않는다.
+        // 작업 폴더가 ~/Desktop 안이면 파이썬이 시작하자마자 getcwd() 에서
+        // 폴더 접근 관문에 걸려 그대로 멈춰버린다. server.py 는 자기 파일 위치로
+        // 블로그 폴더를 찾으므로 작업 폴더가 필요 없다.
+        p.arguments = [Cfg.repo + "/tools/blog-editor/server.py", "--no-open"]
+        p.currentDirectoryURL = URL(fileURLWithPath: "/")
 
         var env = ProcessInfo.processInfo.environment
         // Finder에서 켜면 PATH가 좁아져 magick(homebrew)을 못 찾는다
@@ -101,17 +127,36 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
     }
 
     /// 서버가 뜨기 전에 열면 오류 페이지가 보이므로, 준비될 때까지 기다렸다 연다.
+    ///
+    /// 첫 실행에서는 macOS 폴더 접근 허용창이 떠서 사용자가 누를 때까지 서버가 멈춰 있다.
+    /// 그래서 시간만으로 끊지 않고, 서버 프로세스가 살아 있는 동안은 계속 기다린다.
     func waitForServerThenLoad() {
         DispatchQueue.global().async {
-            for _ in 0..<40 {                       // 최대 약 12초
+            let deadline = Date().addingTimeInterval(300)   // 마지막 안전장치 5분
+            while Date() < deadline {
                 if self.ping() {
                     DispatchQueue.main.async { self.webView.load(URLRequest(url: self.url)) }
                     return
                 }
-                Thread.sleep(forTimeInterval: 0.3)
+                // 우리가 띄운 서버가 죽었다면 더 기다릴 이유가 없다
+                if let s = self.server, !s.isRunning {
+                    let log = (try? String(contentsOfFile: Cfg.logPath, encoding: .utf8)) ?? ""
+                    DispatchQueue.main.async {
+                        self.fail("글쓰기 서버가 시작하자마자 종료됐습니다.\n\n"
+                            + (log.isEmpty ? "기록: \(Cfg.logPath)" : String(log.suffix(400))))
+                    }
+                    return
+                }
+                Thread.sleep(forTimeInterval: 0.4)
             }
             DispatchQueue.main.async {
-                self.fail("글쓰기 서버가 응답하지 않습니다.\n\n기록: \(Cfg.logPath)")
+                self.fail("""
+                    글쓰기 서버가 응답하지 않습니다.
+
+                    폴더 접근 허용창이 떠 있다면 '허용'을 누른 뒤 다시 열어주세요.
+
+                    기록: \(Cfg.logPath)
+                    """)
             }
         }
     }
@@ -119,7 +164,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
     func fail(_ msg: String) {
         let a = NSAlert()
         a.alertStyle = .critical
-        a.messageText = "Brothrone 글쓰기"
+        a.messageText = "Brothrone"
         a.informativeText = msg
         a.addButton(withTitle: "종료")
         a.runModal()
@@ -133,7 +178,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
 
         let appItem = NSMenuItem(); main.addItem(appItem)
         let app = NSMenu()
-        app.addItem(withTitle: "Brothrone 글쓰기 정보",
+        app.addItem(withTitle: "Brothrone 정보",
                     action: #selector(NSApplication.orderFrontStandardAboutPanel(_:)), keyEquivalent: "")
         app.addItem(.separator())
         app.addItem(withTitle: "가리기", action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
@@ -189,6 +234,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         done(.allow)
     }
 
+    /// 파일 선택창. WKWebView 는 이 델리게이트가 없으면 <input type="file"> 클릭을
+    /// 아무 반응 없이 무시한다 — 사진 버튼이 안 먹던 원인.
+    func webView(_ w: WKWebView, runOpenPanelWith params: WKOpenPanelParameters,
+                 initiatedByFrame frame: WKFrameInfo,
+                 completionHandler done: @escaping ([URL]?) -> Void) {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = params.allowsMultipleSelection
+        panel.allowedContentTypes = [.image]
+        panel.message = "본문에 넣을 사진을 고르세요"
+        panel.prompt = "넣기"
+        panel.beginSheetModal(for: window) { r in
+            done(r == .OK ? panel.urls : nil)
+        }
+    }
+
     /// window.alert / confirm 을 실제 시스템 대화상자로 띄운다 (없으면 무시돼 버린다)
     func webView(_ w: WKWebView, runJavaScriptAlertPanelWithMessage msg: String,
                  initiatedByFrame f: WKFrameInfo, completionHandler done: @escaping () -> Void) {
@@ -201,6 +263,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         let a = NSAlert(); a.messageText = msg
         a.addButton(withTitle: "확인"); a.addButton(withTitle: "취소")
         a.beginSheetModal(for: window) { r in done(r == .alertFirstButtonReturn) }
+    }
+
+    /// window.prompt — 이것도 없으면 무시된다 (링크 주소 입력창이 안 뜨던 원인)
+    func webView(_ w: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String,
+                 defaultText: String?, initiatedByFrame f: WKFrameInfo,
+                 completionHandler done: @escaping (String?) -> Void) {
+        let a = NSAlert()
+        a.messageText = prompt
+        a.addButton(withTitle: "확인"); a.addButton(withTitle: "취소")
+        let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 320, height: 24))
+        field.stringValue = defaultText ?? ""
+        a.accessoryView = field
+        a.window.initialFirstResponder = field
+        a.beginSheetModal(for: window) { r in
+            done(r == .alertFirstButtonReturn ? field.stringValue : nil)
+        }
     }
 }
 
