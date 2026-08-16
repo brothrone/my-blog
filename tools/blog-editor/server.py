@@ -860,6 +860,41 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         u = urllib.parse.urlparse(self.path)
         try:
+            if u.path == "/api/add-photos":
+                # 사진을 바로 목표 폴더에 넣는다. 폴더가 없으면 만든다.
+                # (Finder 로 폴더를 만들고 복사해 넣던 일을 없앤다)
+                d = self._body()
+                cat, slug = d.get("category", ""), d.get("slug", "")
+                if cat not in CATEGORIES or not re.fullmatch(r"[a-z0-9][a-z0-9-]*", slug or ""):
+                    return self._send(400, {"ok": False,
+                                            "error": "분류와 주소를 먼저 정해주세요."})
+                dest = BLOG / "assets" / "images" / cat / slug
+                dest.mkdir(parents=True, exist_ok=True)
+                added = []
+                for f in (d.get("files") or []):
+                    name = Path(f.get("name") or "photo").name
+                    stem, ext = Path(name).stem, Path(name).suffix
+                    safe = (safe_name(stem) or "photo") + (ext if ext else ".jpg")
+                    out = dest / safe
+                    n = 2
+                    while out.exists():                 # 같은 이름이 있으면 번호를 붙인다
+                        out = dest / f"{Path(safe).stem}_{n}{Path(safe).suffix}"
+                        n += 1
+                    out.write_bytes(base64.b64decode(f["data"].split(",")[-1]))
+                    added.append(str(out.relative_to(BLOG)))
+                return self._send(200, {"ok": True, "added": added,
+                                        "dir": str(dest.relative_to(BLOG))})
+
+            if u.path == "/api/reveal":
+                # 사진 폴더를 Finder 로 연다
+                d = self._body()
+                cat, slug = d.get("category", ""), d.get("slug", "")
+                dest = BLOG / "assets" / "images" / cat / slug
+                dest.mkdir(parents=True, exist_ok=True)
+                run(["open", str(dest)])
+                return self._send(200, {"ok": True,
+                                        "dir": str(dest.relative_to(BLOG))})
+
             if u.path == "/api/upload":
                 d = self._body()
                 STAGING.mkdir(parents=True, exist_ok=True)

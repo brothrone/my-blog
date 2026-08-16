@@ -171,6 +171,15 @@ button{cursor:pointer;background:none;border:none}
   padding:16px 0 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;
 }
 .memo-bar .memo-sub{margin:0;flex:1;min-width:200px}
+/* 사진 추가 */
+.addbox{
+  border:2px dashed var(--line);border-radius:10px;padding:18px;text-align:center;
+  color:var(--muted);font-size:13px;transition:.15s;margin-bottom:14px;
+}
+.addbox.hot{border-color:var(--accent);background:var(--sel);color:#0a7d3c}
+.addbox .row{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.addbox .row .btn{font-size:12.5px;padding:6px 12px}
+
 /* 사진 크게 보기 */
 #lb{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;place-items:center;z-index:90;padding:24px}
 #lb.on{display:grid}
@@ -1186,10 +1195,55 @@ async function renderMemo(){
   const byId = Object.fromEntries(r.images.map(x => [x.src, x]));
 
   if (!all.length) {
-    pane.append(el('div','note warn',
-      `assets/images/${meta.category}/${slug}/ 에 사진이 없습니다. 그 폴더에 사진을 넣어주세요.`));
+    pane.append(el('div','note warn', '아직 사진이 없습니다. 위에 끌어다 놓거나 [파일 선택] 을 누르세요.'));
     return;
   }
+
+  // ── 사진 추가 ──
+  const add = el('div','addbox');
+  add.append(document.createTextNode('사진을 여기로 끌어다 놓으면 이 글의 폴더에 바로 들어갑니다'));
+  const arow = el('div','row');
+  const pickBtn = el('button','btn ib','파일 선택'); pickBtn.prepend(icon('image'));
+  const revealBtn = el('button','btn ib','Finder에서 열기'); revealBtn.prepend(icon('folder','blue-fill'));
+  const addHint = el('div'); addHint.style.cssText='font-size:12px;margin-top:8px';
+  arow.append(pickBtn, revealBtn); add.append(arow, addHint);
+  const where = el('div', null, `assets/images/${meta.category}/${slug}/`);
+  where.style.cssText = 'font-size:11.5px;margin-top:8px;color:var(--muted);font-family:ui-monospace,Menlo,monospace';
+  add.append(where);
+  pane.append(add);
+
+  const sendFiles = async (files) => {
+    const list = [...files].filter(f => f.type.startsWith('image/') || /\.(heic|heif)$/i.test(f.name));
+    if (!list.length) return;
+    addHint.textContent = `${list.length}장 넣는 중…`;
+    const payload = [];
+    for (const f of list) {
+      const data = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(f); });
+      payload.push({ name: f.name, data });
+    }
+    const res = await (await fetch('/api/add-photos', {method:'POST',
+      body: JSON.stringify({category: meta.category, slug, files: payload})})).json();
+    if (!res.ok) { addHint.textContent = res.error || '넣지 못했습니다.'; return; }
+    addHint.textContent = `${res.added.length}장 넣었습니다.`;
+    renderMemo();                        // 목록을 다시 읽는다
+  };
+
+  const fp = el('input'); fp.type='file'; fp.multiple = true;
+  fp.accept = 'image/*,.heic,.heif'; fp.style.display='none';
+  fp.onchange = e => { sendFiles(e.target.files); e.target.value=''; };
+  add.append(fp);
+  pickBtn.onclick = () => fp.click();
+  revealBtn.onclick = async () => {
+    await fetch('/api/reveal', {method:'POST',
+      body: JSON.stringify({category: meta.category, slug})});
+  };
+  ['dragenter','dragover'].forEach(ev => add.addEventListener(ev, e => {
+    e.preventDefault(); e.stopPropagation(); add.classList.add('hot');
+  }));
+  ['dragleave','drop'].forEach(ev => add.addEventListener(ev, e => {
+    e.preventDefault(); e.stopPropagation(); add.classList.remove('hot');
+  }));
+  add.addEventListener('drop', e => sendFiles(e.dataTransfer.files));
 
   // ── 1단계: 순서 ──
   const st1 = el('div','step','1 · 사진 순서');
