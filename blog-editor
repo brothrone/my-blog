@@ -1,0 +1,14 @@
+#!/bin/bash
+# Brothrone Travel — 로컬 블로그 글쓰기 앱 실행
+cd "$(dirname "$0")" || exit 1
+
+# LANG이 비어 있으면 Ruby/Jekyll이 US-ASCII로 동작해 한글 처리에서 깨진다
+export LANG="${LANG:-en_US.UTF-8}"
+export LC_ALL="${LC_ALL:-en_US.UTF-8}"
+
+if ! command -v magick >/dev/null 2>&1; then
+  echo "❌ ImageMagick(magick)이 없습니다.  brew install imagemagick 으로 설치하세요."
+  exit 1
+fi
+
+exec python3 tools/blog-editor/server.py "$@"

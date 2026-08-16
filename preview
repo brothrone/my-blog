@@ -1,0 +1,17 @@
+#!/bin/bash
+# 로컬에서 블로그를 띄워 발행 전에 눈으로 확인한다.
+#   ./preview          → http://127.0.0.1:4000 에서 서버 실행
+#   ./preview build    → 빌드만 (_site 생성)
+cd "$(dirname "$0")" || exit 1
+
+# LANG이 없으면 Ruby가 US-ASCII로 동작해서
+# 한글 태그 URL 인코딩 중 Encoding::UndefinedConversionError 로 빌드가 죽는다
+export LANG="${LANG:-en_US.UTF-8}"
+export LC_ALL="${LC_ALL:-en_US.UTF-8}"
+
+if [ "$1" = "build" ]; then
+  exec bundle exec jekyll build
+fi
+
+echo "🌐  http://127.0.0.1:4000   (종료: Ctrl+C)"
+exec bundle exec jekyll serve --host 127.0.0.1 --port 4000 --livereload
