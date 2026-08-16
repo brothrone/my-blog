@@ -4,3 +4,15 @@ _site
 .jekyll-metadata
 vendor
 .claude/
+
+# macOS
+.DS_Store
+Icon?
+._*
+
+# Obsidian (작업 상태 파일 — 내용 아님)
+.obsidian/workspace.json
+
+# 블로그 글쓰기 앱 작업 파일
+.blog-editor/
+__pycache__/
