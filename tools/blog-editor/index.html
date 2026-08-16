@@ -158,11 +158,23 @@ button{cursor:pointer;background:none;border:none}
 }
 .memo-card textarea:focus{border-color:var(--accent)}
 .memo-bar{
-  position:sticky;bottom:-1px;z-index:5;background:var(--paper);
-  border-top:1px solid var(--line);margin-top:20px;
-  padding:14px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+  background:var(--paper);border-top:1px solid var(--line);margin-top:24px;
+  padding:16px 0 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;
 }
 .memo-bar .memo-sub{margin:0;flex:1;min-width:200px}
+/* 순서 정하기 */
+.ord{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-bottom:8px}
+.ord .o{position:relative;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:grab}
+.ord .o img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--bg)}
+.ord .o .n{position:absolute;top:4px;left:4px;background:rgba(0,0,0,.66);color:#fff;
+  width:20px;height:20px;border-radius:99px;font-size:11px;display:grid;place-items:center;font-weight:700}
+.ord .o.drag{opacity:.35}
+.ord .o.over{border-color:var(--accent)}
+.ord .o .mv{position:absolute;bottom:3px;right:3px;display:flex;gap:2px;opacity:0;transition:.12s}
+.ord .o:hover .mv{opacity:1}
+.ord .o .mv button{background:rgba(0,0,0,.66);color:#fff;border-radius:5px;width:20px;height:20px;font-size:11px;line-height:1}
+.step{font-size:12.5px;font-weight:700;color:var(--accent);margin:26px 0 8px;letter-spacing:.2px}
+.step span{color:var(--muted);font-weight:400;margin-left:6px}
 
 /* 사진 나란히 */
 .rowblk{display:flex;gap:8px;margin:24px 0;position:relative;flex-wrap:wrap}
@@ -281,17 +293,17 @@ pre.log{
 </div>
 
 <div class="tabs">
-  <button class="tab on" data-lang="ko">한국어 <span class="dot" id="dotKo" style="display:none"></span></button>
+  <button class="tab on" data-lang="memo">📝 사진 메모</button>
+  <button class="tab" data-lang="ko">한국어 <span class="dot" id="dotKo" style="display:none"></span></button>
   <button class="tab" data-lang="en">English <span class="dot" id="dotEn" style="display:none"></span></button>
-  <button class="tab" data-lang="memo">📝 사진 메모</button>
 </div>
 
 <div class="scroll" id="scroll">
-  <div class="paper" id="writePane">
+  <div class="paper" id="writePane" style="display:none">
     <input class="title-in" id="title" placeholder="제목">
     <div id="canvas"></div>
   </div>
-  <div class="paper" id="memoPane" style="display:none"></div>
+  <div class="paper" id="memoPane"></div>
 </div>
 
 <div class="statusbar">
@@ -342,10 +354,21 @@ const uid = (()=>{ let n=0; return ()=> 'b'+(++n)+Date.now().toString(36); })();
   $('#cat').value = meta.category;
   render(); updateChip();
   hist = [shot()];
+  renderMemo();                    // 첫 화면은 사진 메모 탭
 })();
 
 // 분류를 바꾸면 사진 폴더 경로와 라벨 프리셋이 함께 바뀐다
-$('#cat').onchange = () => { meta.category = $('#cat').value; mark(); render(); updateChip(); };
+$('#cat').onchange = () => {
+  meta.category = $('#cat').value; mark(); render(); updateChip();
+  if ($('#memoPane').style.display !== 'none') renderMemo();
+};
+let slugTimer = null;
+$('#slug').addEventListener('input', () => {
+  clearTimeout(slugTimer);
+  slugTimer = setTimeout(() => {
+    if ($('#memoPane').style.display !== 'none') renderMemo();
+  }, 600);
+});
 
 const thumbUrl = (src, w) => '/api/thumb?path=' + encodeURIComponent(src) + (w ? '&w=' + w : '');
 // 편집기 본문은 사진을 크게 펼쳐 보여주므로 큰 미리보기를 쓴다 (작은 걸 늘리면 뭉개진다)
@@ -754,8 +777,17 @@ async function loadFolder(){
 
 /* 창 어디에 떨어뜨려도 본문에 들어간다 */
 let dragN = 0;
-window.addEventListener('dragenter', e => { e.preventDefault(); if(++dragN===1) $('#drophint').classList.add('on'); });
-window.addEventListener('dragleave', e => { e.preventDefault(); if(--dragN<=0){dragN=0;$('#drophint').classList.remove('on');} });
+const isFileDrag = e => [...(e.dataTransfer && e.dataTransfer.types || [])].includes('Files');
+window.addEventListener('dragenter', e => {
+  e.preventDefault();
+  if (!isFileDrag(e)) return;                 // 사진 순서 바꾸는 중이면 무시
+  if (++dragN === 1) $('#drophint').classList.add('on');
+});
+window.addEventListener('dragleave', e => {
+  e.preventDefault();
+  if (!isFileDrag(e)) return;
+  if (--dragN <= 0) { dragN = 0; $('#drophint').classList.remove('on'); }
+});
 window.addEventListener('dragover',  e => e.preventDefault());
 window.addEventListener('drop', e => {
   e.preventDefault(); dragN=0; $('#drophint').classList.remove('on');
@@ -979,27 +1011,82 @@ function updateChip(){
 let memoInfo = {title:'', basic:'', place:'', good:'', bad:'', etc:''};
 let memoTexts = {};        // {사진 src: 메모}
 
+let memoOrder = [];        // 사진 순서 (src 배열)
+
 async function renderMemo(){
   const pane = $('#memoPane');
   const slug = $('#slug').value.trim();
   pane.innerHTML = '';
   pane.append(el('div','memo-head','사진 메모'));
   pane.append(el('div','memo-sub',
-    '사진마다 기억나는 대로 편하게 적어두세요. 문장이 아니어도 됩니다. ' +
-    '저장한 뒤 Claude 에게 "메모 다 적었어" 라고 하면 이 메모를 읽고 본문을 씁니다.'));
+    '사진 순서를 먼저 정하고, 한 장씩 기억나는 대로 적어두세요. 문장이 아니어도 됩니다. ' +
+    '다 적으면 Claude 에게 "메모 다 적었어" 라고 하세요.'));
 
-  if (!slug) {
-    pane.append(el('div','note warn','먼저 위쪽 주소(슬러그)를 입력하세요.'));
-    return;
-  }
+  if (!slug) { pane.append(el('div','note warn','먼저 위쪽 주소(슬러그)를 입력하세요.')); return; }
 
-  // 저장해 둔 메모 복원
   const saved = await (await fetch('/api/notes?slug=' + encodeURIComponent(slug))).json();
   if (saved && saved.info) {
     memoInfo = Object.assign(memoInfo, saved.info);
     (saved.photos || []).forEach(p => { if (p.memo) memoTexts[p.src] = p.memo; });
   }
 
+  const r = await (await fetch(`/api/folder?category=${meta.category}&slug=${encodeURIComponent(slug)}`)).json();
+  const all = r.images.map(x => x.src);
+  // 저장해 둔 순서를 살리고, 새로 들어온 사진은 뒤에 붙인다
+  const prev = (saved && saved.photos || []).map(p => p.src).filter(x => all.includes(x));
+  memoOrder = [...prev, ...all.filter(x => !prev.includes(x))];
+  const byId = Object.fromEntries(r.images.map(x => [x.src, x]));
+
+  if (!all.length) {
+    pane.append(el('div','note warn',
+      `assets/images/${meta.category}/${slug}/ 에 사진이 없습니다. 그 폴더에 사진을 넣어주세요.`));
+    return;
+  }
+
+  // ── 1단계: 순서 ──
+  const st1 = el('div','step','1 · 사진 순서');
+  st1.append(el('span', null, '끌어서 옮기거나 사진 위 화살표를 누르세요. 이 순서대로 글에 들어갑니다.'));
+  pane.append(st1);
+  const grid = el('div','ord'); pane.append(grid);
+
+  const drawGrid = () => {
+    grid.innerHTML = '';
+    memoOrder.forEach((src, idx) => {
+      const o = el('div','o'); o.draggable = true; o.dataset.src = src;
+      const img = el('img'); img.src = thumbUrl(src, 320); img.loading = 'lazy';
+      o.append(img, el('div','n', String(idx + 1)));
+      const mv = el('div','mv');
+      const L = el('button', null, '‹'), R = el('button', null, '›');
+      L.onclick = e => { e.stopPropagation(); move(idx, -1); };
+      R.onclick = e => { e.stopPropagation(); move(idx, 1); };
+      mv.append(L, R); o.append(mv);
+
+      o.ondragstart = e => { e.dataTransfer.setData('text/plain', src); o.classList.add('drag'); };
+      o.ondragend = () => o.classList.remove('drag');
+      o.ondragover = e => { e.preventDefault(); o.classList.add('over'); };
+      o.ondragleave = () => o.classList.remove('over');
+      o.ondrop = e => {
+        e.preventDefault(); e.stopPropagation(); o.classList.remove('over');
+        const from = e.dataTransfer.getData('text/plain');
+        if (!from || from === src) return;
+        const a = memoOrder.indexOf(from);
+        memoOrder.splice(a, 1);
+        memoOrder.splice(memoOrder.indexOf(src), 0, from);
+        drawGrid(); drawCards();
+      };
+      grid.append(o);
+    });
+  };
+  const move = (i, d) => {
+    const j = i + d; if (j < 0 || j >= memoOrder.length) return;
+    [memoOrder[i], memoOrder[j]] = [memoOrder[j], memoOrder[i]];
+    drawGrid(); drawCards();
+  };
+
+  // ── 2단계: 글 정보 ──
+  const st2 = el('div','step','2 · 글 정보');
+  st2.append(el('span', null, '아는 것만 적으면 됩니다.'));
+  pane.append(st2);
   const info = el('div','memo-info');
   [['title','제목(가제)','예: 닛코 카나야 호텔'],
    ['basic','기본 정보','1박 가격 · 몇 박 · 언제 갔는지'],
@@ -1011,73 +1098,85 @@ async function renderMemo(){
     const n = (k==='title'||k==='place') ? el('input') : el('textarea');
     n.value = memoInfo[k] || ''; if (ph) n.placeholder = ph;
     if (n.tagName==='TEXTAREA') n.rows = 2;
-    n.oninput = () => { memoInfo[k] = n.value; };
+    n.oninput = () => { memoInfo[k] = n.value; memoDirty = true; };
     w.append(n); info.append(w);
   });
   pane.append(info);
 
-  // 폴더 사진
-  const r = await (await fetch(`/api/folder?category=${meta.category}&slug=${encodeURIComponent(slug)}`)).json();
-  if (!r.images.length) {
-    pane.append(el('div','note warn',
-      `assets/images/${meta.category}/${slug}/ 에 사진이 없습니다. 사진을 그 폴더에 넣어주세요.`));
-  }
-  pane.append(el('div','memo-sub', `사진 ${r.images.length}장`));
+  // ── 3단계: 사진별 메모 ──
+  const st3 = el('div','step','3 · 사진별 메모');
+  st3.append(el('span', null, `사진 ${all.length}장`));
+  pane.append(st3);
+  const cards = el('div'); pane.append(cards);
 
   const presets = CFG.labels[meta.category] || [];
-  r.images.forEach(im => {
-    const card = el('div','memo-card');
-    const img = el('img'); img.src = '/api/thumb?path=' + encodeURIComponent(im.src); img.loading='lazy';
-    card.append(img);
-    const side = el('div','side');
-    side.append(el('div','fname', im.name));
+  const drawCards = () => {
+    cards.innerHTML = '';
+    memoOrder.forEach((src, idx) => {
+      const im = byId[src]; if (!im) return;
+      const card = el('div','memo-card');
+      const img = el('img'); img.src = thumbUrl(src, 320); img.loading='lazy';
+      card.append(img);
+      const side = el('div','side');
+      side.append(el('div','fname', `${idx+1}. ${im.name}`));
 
-    const chips = el('div','lbls'); chips.style.display='flex'; chips.style.justifyContent='flex-start';
-    let picked = (photos.find(p=>p.src===im.src)||{}).label || '';
-    presets.forEach(([name,ko]) => {
-      const b = el('button', picked===name?'on':'', ko);
-      b.onclick = () => {
-        picked = name;
-        let ph = photos.find(p=>p.src===im.src);
-        if (!ph) { ph = {id:uid(), src:im.src, name:im.name, label:'', hero:false,
-                         thumb:'/api/thumb?path='+encodeURIComponent(im.src)}; photos.push(ph); }
-        ph.label = name;
-        [...chips.children].forEach(c => c.classList.toggle('on', c.textContent===ko));
-        mark();
-      };
-      chips.append(b);
+      const chips = el('div','lbls');
+      chips.style.display='flex'; chips.style.justifyContent='flex-start';
+      let picked = (photos.find(p=>p.src===src)||{}).label || '';
+      presets.forEach(([name,ko]) => {
+        const b = el('button', picked===name?'on':'', ko);
+        b.onclick = () => {
+          let ph = photos.find(p=>p.src===src);
+          if (!ph) { ph = {id:uid(), src, name:im.name, label:'', hero:false,
+                           thumb:thumbUrl(src, 320)}; photos.push(ph); }
+          ph.label = name; picked = name; memoDirty = true;
+          [...chips.children].forEach(c => c.classList.toggle('on', c.textContent===ko));
+        };
+        chips.append(b);
+      });
+      side.append(chips);
+
+      const ta = el('textarea');
+      ta.placeholder = '이 사진에 대해 기억나는 대로…';
+      ta.value = memoTexts[src] || '';
+      ta.oninput = () => { memoTexts[src] = ta.value; memoDirty = true; };
+      side.append(ta);
+      card.append(side); cards.append(card);
     });
-    side.append(chips);
+  };
 
-    const ta = el('textarea');
-    ta.placeholder = '이 사진에 대해 기억나는 대로…';
-    ta.value = memoTexts[im.src] || '';
-    ta.oninput = () => { memoTexts[im.src] = ta.value; };
-    side.append(ta);
-    card.append(side); pane.append(card);
-  });
+  drawGrid(); drawCards();
 
   const bar = el('div','memo-bar');
   const save = el('button','btn go','💾 메모 저장');
-  const hint = el('span','memo-sub'); hint.style.margin='0';
-  save.onclick = async () => {
-    const body = {
-      slug, date: $('#date').value, category: meta.category, info: memoInfo,
-      photos: r.images.map(im => ({
-        src: im.src, name: im.name,
-        label: (photos.find(p=>p.src===im.src)||{}).label || '',
-        hero: !!(photos.find(p=>p.src===im.src)||{}).hero,
-        memo: memoTexts[im.src] || '',
-      })),
-    };
-    const res = await (await fetch('/api/notes',{method:'POST',body:JSON.stringify(body)})).json();
-    hint.innerHTML = res.ok
-      ? `저장됨 → <code>${esc(res.path)}</code><br>이제 Claude 에게 <b>"메모 다 적었어"</b> 라고 하세요.`
-      : '저장 실패';
-  };
+  const hint = el('span','memo-sub');
+  save.onclick = () => saveMemo(slug, byId, hint);
   bar.append(save, hint);
   pane.append(bar);
+  memoSaver = () => saveMemo(slug, byId, hint);
 }
+
+let memoDirty = false, memoSaver = null;
+
+async function saveMemo(slug, byId, hint){
+  const body = {
+    slug, date: $('#date').value, category: meta.category, info: memoInfo,
+    photos: memoOrder.filter(s => byId[s]).map(src => ({
+      src, name: byId[src].name,
+      label: (photos.find(p=>p.src===src)||{}).label || '',
+      hero: !!(photos.find(p=>p.src===src)||{}).hero,
+      memo: memoTexts[src] || '',
+    })),
+  };
+  const res = await (await fetch('/api/notes',{method:'POST',body:JSON.stringify(body)})).json();
+  memoDirty = false;
+  if (hint) hint.innerHTML = res.ok
+    ? `저장됨 → <code>${esc(res.path)}</code> · <b>"메모 다 적었어"</b> 라고 하시면 제가 읽습니다.`
+    : '저장 실패';
+}
+
+// 적다가 탭을 옮기거나 앱을 닫아도 잃지 않게 주기적으로 저장한다
+setInterval(() => { if (memoDirty && memoSaver) memoSaver(); }, 6000);
 
 /* ── 본문 템플릿 ──
    분류에 맞는 소제목 뼈대를 한/영 양쪽에 한 번에 깔아준다.
