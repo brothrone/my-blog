@@ -3,643 +3,1140 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brothrone Travel — 글쓰기</title>
+<title>Brothrone</title>
 <style>
 :root{
-  --bg:#f6f7f9; --panel:#fff; --ink:#16181d; --muted:#6b7280; --line:#e4e7ec;
-  --accent:#2563eb; --accent-soft:#eff5ff; --ok:#15803d; --warn:#b45309; --err:#b91c1c;
-  --warn-bg:#fffbeb; --err-bg:#fef2f2; --radius:10px;
-}
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#0f1115; --panel:#171a21; --ink:#e7e9ee; --muted:#9aa3b2; --line:#272b35;
-    --accent:#60a5fa; --accent-soft:#16233a; --ok:#4ade80; --warn:#fbbf24; --err:#f87171;
-    --warn-bg:#2a2113; --err-bg:#2b1517;
-  }
+  --bg:#f7f8fa; --paper:#fff; --ink:#1a1a1a; --muted:#8b95a1; --line:#e5e8eb;
+  --accent:#03c75a;            /* 네이버 그린 */
+  --accent-ink:#fff; --sel:#e8f8ee;
+  --warn:#b45309; --warn-bg:#fffbeb; --err:#d92d20; --err-bg:#fef3f2;
 }
 *{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font:15px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",sans-serif;
+  display:flex; flex-direction:column;
 }
 button,input,textarea,select{font:inherit;color:inherit}
-button{cursor:pointer}
+button{cursor:pointer;background:none;border:none}
 
-/* ── 헤더 ── */
-header{
-  position:sticky; top:0; z-index:20; background:var(--panel);
-  border-bottom:1px solid var(--line); padding:10px 16px;
-  display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+/* ── 상단 바 ── */
+.topbar{
+  background:var(--paper); border-bottom:1px solid var(--line);
+  padding:0 18px; height:54px; display:flex; align-items:center; gap:12px; flex-shrink:0;
 }
-header h1{font-size:15px;margin:0 12px 0 0;font-weight:700;white-space:nowrap}
-header h1 span{color:var(--muted);font-weight:400}
-.field{display:flex;align-items:center;gap:6px}
-.field label{font-size:12px;color:var(--muted);white-space:nowrap}
-input,select,textarea{
-  background:var(--bg); border:1px solid var(--line); border-radius:8px;
-  padding:7px 10px; outline:none;
+.brand{font:700 20px/1 "Times New Roman",serif; letter-spacing:-.5px}
+.tb-field{display:flex;align-items:center;gap:5px}
+.tb-field label{font-size:12px;color:var(--muted);white-space:nowrap}
+.topbar input,.topbar select{
+  border:1px solid var(--line); border-radius:6px; padding:6px 9px; background:var(--bg);
 }
-input:focus,textarea:focus,select:focus{border-color:var(--accent)}
-#slug{width:190px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-#date{width:145px}
-.spacer{flex:1}
-.badge{font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
-.badge.ok{color:var(--ok);border-color:currentColor}
-.badge.warn{color:var(--warn);border-color:currentColor}
-.badge.err{color:var(--err);border-color:currentColor}
+.topbar input:focus,.topbar select:focus{outline:none;border-color:var(--accent)}
+#slug{width:170px;font-family:ui-monospace,Menlo,monospace;font-size:13px}
+#date{width:140px;font-size:13px}
+.grow{flex:1}
+.chip{font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.chip.ok{color:#0a7d3c;border-color:#9fe3bd;background:#f0fbf5}
+.chip.bad{color:var(--err);border-color:#fda29b;background:var(--err-bg)}
+.btn{border:1px solid var(--line);border-radius:6px;padding:7px 14px;font-size:13.5px;background:var(--paper)}
+.btn:hover{border-color:var(--accent);color:#0a7d3c}
+.btn.go{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn.go:hover{filter:brightness(.94);color:#fff}
 
-/* ── 본문 ── */
-main{padding:16px;display:flex;flex-direction:column;gap:16px;max-width:1600px;margin:0 auto}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.panel>h2{
-  margin:0;padding:11px 14px;font-size:13px;font-weight:700;
-  border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;
+/* ── 도구모음 ── */
+.toolbar{
+  background:var(--paper); border-bottom:1px solid var(--line);
+  padding:7px 18px; display:flex; align-items:center; gap:4px; flex-wrap:wrap; flex-shrink:0;
 }
-.panel>h2 .sub{font-weight:400;color:var(--muted);font-size:12px}
-.editors{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:1000px){.editors{grid-template-columns:1fr}}
-.pane-body{padding:14px;display:flex;flex-direction:column;gap:10px}
-.pane-body input,.pane-body textarea{width:100%}
-.counter{font-size:11px;color:var(--muted);text-align:right;margin-top:-6px}
-.counter.over{color:var(--err)}
-textarea.body{
-  min-height:420px;resize:vertical;line-height:1.7;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;
+.tool{
+  display:flex;align-items:center;gap:5px; padding:7px 11px; border-radius:6px;
+  font-size:13.5px; color:#3d4450;
 }
-.toolbar{display:flex;gap:5px;flex-wrap:wrap}
-.toolbar button{
-  background:var(--bg);border:1px solid var(--line);border-radius:7px;
-  padding:4px 9px;font-size:12px;color:var(--muted);
-}
-.toolbar button:hover{border-color:var(--accent);color:var(--accent)}
-.hint{font-size:11.5px;color:var(--muted)}
+.tool:hover{background:var(--sel);color:#0a7d3c}
+.tool.on{background:var(--sel);color:#0a7d3c;font-weight:700}
+.tool b{font-weight:800}
+.tool i{font-style:italic;font-family:Georgia,serif}
+.sep{width:1px;height:20px;background:var(--line);margin:0 6px}
 
-/* ── 사진 ── */
-#drop{
-  margin:14px;padding:22px;border:2px dashed var(--line);border-radius:var(--radius);
-  text-align:center;color:var(--muted);font-size:13px;transition:.15s;
-}
-#drop.hot{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
-.photo-actions{padding:0 14px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.grid{
-  padding:0 14px 14px;display:grid;gap:12px;
-  grid-template-columns:repeat(auto-fill,minmax(168px,1fr));
-}
-.card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg);position:relative}
-.card.is-hero{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
-.card .thumb{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--line)}
-.card .meta{padding:8px;display:flex;flex-direction:column;gap:6px}
-.card .meta input{width:100%;padding:5px 8px;font-size:12.5px}
-.card .fname{
-  font-size:11px;color:var(--accent);font-family:ui-monospace,Menlo,monospace;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-}
-.card .row{display:flex;gap:4px}
-.card .row button{
-  flex:1;background:var(--panel);border:1px solid var(--line);border-radius:6px;
-  padding:4px;font-size:11px;color:var(--muted);
-}
-.card .row button:hover{border-color:var(--accent);color:var(--accent)}
-.card .corner{position:absolute;top:6px;right:6px;display:flex;gap:4px}
-.card .corner button{
-  width:26px;height:26px;border-radius:6px;border:none;font-size:13px;
-  background:rgba(0,0,0,.58);color:#fff;display:grid;place-items:center;
-}
-.card .corner button.on{background:var(--accent)}
-.chips{display:flex;gap:5px;flex-wrap:wrap;padding:0 14px 14px}
-.chips button{
-  background:var(--bg);border:1px solid var(--line);border-radius:99px;
-  padding:4px 11px;font-size:12px;color:var(--muted);
-}
-.chips button:hover{border-color:var(--accent);color:var(--accent)}
+/* ── 언어 탭 ── */
+.tabs{background:var(--paper);border-bottom:1px solid var(--line);padding:0 18px;display:flex;gap:2px;flex-shrink:0}
+.tab{padding:10px 18px;font-size:13.5px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.on{color:var(--ink);font-weight:700;border-bottom-color:var(--ink)}
+.tab .dot{display:inline-block;width:6px;height:6px;border-radius:99px;background:var(--accent);margin-left:6px;vertical-align:middle}
 
-/* ── 검증 ── */
-#issues{display:flex;flex-direction:column;gap:6px;padding:0 14px 14px}
-.issue{font-size:13px;padding:8px 11px;border-radius:8px;border:1px solid}
-.issue.error{background:var(--err-bg);border-color:var(--err);color:var(--err)}
-.issue.warn{background:var(--warn-bg);border-color:var(--warn);color:var(--warn)}
+/* ── 문서 영역 ── */
+.scroll{flex:1;overflow-y:auto;padding:28px 20px 120px}
+.paper{
+  max-width:760px;margin:0 auto;background:var(--paper);
+  border:1px solid var(--line);border-radius:12px;padding:52px 60px 80px;
+  min-height:calc(100vh - 320px);
+}
+@media (max-width:720px){.paper{padding:32px 22px 60px}}
 
-/* ── 발행 바 ── */
-footer{
-  position:sticky;bottom:0;background:var(--panel);border-top:1px solid var(--line);
-  padding:11px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;z-index:20;
+.title-in{
+  width:100%;border:none;outline:none;font-size:30px;font-weight:700;line-height:1.35;
+  padding:0 0 18px;border-bottom:1px solid var(--line);margin-bottom:26px;
 }
-.btn{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:9px 15px;font-size:13.5px}
-.btn:hover{border-color:var(--accent)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
-.btn.primary:disabled{opacity:.45;cursor:not-allowed}
-.check{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.title-in::placeholder{color:#c9cfd6;font-weight:400}
 
-/* ── 모달 ── */
-.modal{
-  position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;
-  place-items:center;z-index:50;padding:20px;
+/* 블록 */
+.blk{position:relative;outline:none;margin:0 0 14px}
+.blk[data-t="p"]{font-size:16.5px;line-height:1.85;min-height:1.85em}
+.blk[data-t="h2"]{font-size:23px;font-weight:700;margin:34px 0 12px;line-height:1.4}
+.blk[data-t="h3"]{font-size:19px;font-weight:700;margin:26px 0 10px}
+.blk[data-t="quote"]{
+  border-left:4px solid var(--accent);padding:4px 0 4px 18px;color:#4b5563;
+  font-size:16.5px;line-height:1.8;margin:20px 0;
 }
-.modal.open{display:grid}
-.modal .box{
-  background:var(--panel);border-radius:14px;max-width:760px;width:100%;
-  max-height:86vh;overflow:auto;border:1px solid var(--line);
+.blk[data-t="li"]{font-size:16.5px;line-height:1.85;padding-left:24px;position:relative}
+.blk[data-t="li"]::before{content:"•";position:absolute;left:6px;color:var(--muted)}
+.blk[data-t="ol"]{font-size:16.5px;line-height:1.85;padding-left:30px;position:relative}
+.blk[data-t="ol"]::before{content:attr(data-n) ".";position:absolute;left:2px;color:var(--muted)}
+.blk[data-t="hr"]{border-top:1px solid var(--line);margin:34px 0;height:0}
+.blk:empty::before{content:attr(data-ph);color:#c9cfd6;pointer-events:none}
+.blk b,.blk strong{font-weight:700}
+.blk mark{background:#fff3a3;padding:0 2px;border-radius:3px}
+.blk font{font-size:inherit}
+/* 정렬·들여쓰기 */
+.blk[data-a="center"]{text-align:center}
+.blk[data-a="right"]{text-align:right}
+.blk[data-i="1"]{padding-left:2.2em}
+.blk[data-i="2"]{padding-left:4.4em}
+.blk[data-i="3"]{padding-left:6.6em}
+.blk[data-t="li"][data-i="1"],.blk[data-t="ol"][data-i="1"]{padding-left:calc(2.2em + 24px)}
+.blk[data-t="li"][data-i="2"],.blk[data-t="ol"][data-i="2"]{padding-left:calc(4.4em + 24px)}
+
+/* 이미지 블록 */
+.imgblk{margin:24px 0;position:relative}
+.imgblk img{width:100%;border-radius:8px;display:block;background:var(--bg)}
+.imgblk.sel img{outline:3px solid var(--accent);outline-offset:2px}
+.imgblk .cap{
+  text-align:center;font-size:13px;color:var(--muted);margin-top:9px;outline:none;min-height:1.4em;
 }
-.modal .box h3{margin:0;padding:15px 18px;border-bottom:1px solid var(--line);font-size:15px}
-.modal .box .inner{padding:18px;display:flex;flex-direction:column;gap:12px}
-.modal .box .foot{padding:14px 18px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+.imgblk .cap:empty::before{content:"사진 설명 (검색 노출에 쓰입니다)";color:#ced4da}
+.imgbar{
+  position:absolute;top:10px;right:10px;display:flex;gap:6px;
+  opacity:0;transition:.12s;
+}
+.imgblk:hover .imgbar,.imgblk.sel .imgbar{opacity:1}
+.imgbar button{
+  background:rgba(0,0,0,.62);color:#fff;border-radius:6px;padding:5px 9px;font-size:12px;
+  backdrop-filter:blur(4px);
+}
+.imgbar button.on{background:var(--accent)}
+.imgbar .fname{
+  background:rgba(0,0,0,.62);color:#fff;border:none;border-radius:6px;padding:5px 8px;
+  font-size:11.5px;font-family:ui-monospace,Menlo,monospace;width:118px;outline:none;
+}
+/* 사진을 고르면 뜨는 빠른 라벨 — 파일명을 손으로 안 쳐도 되게 */
+.lbls{display:none;gap:5px;flex-wrap:wrap;margin-top:9px;justify-content:center}
+.imgblk.sel .lbls{display:flex}
+.lbls button{
+  border:1px solid var(--line);border-radius:99px;padding:4px 11px;font-size:12px;color:#3d4450;
+}
+.lbls button:hover{border-color:var(--accent);color:#0a7d3c;background:var(--sel)}
+.lbls button.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+
+/* 직접 쓴 HTML — 건드리지 않고 보관만 */
+.rawblk{
+  border:1px dashed var(--line);border-radius:9px;background:var(--bg);
+  padding:10px 12px;margin:18px 0;
+}
+.rawblk .raw-tag{font-size:11px;color:var(--muted);margin-bottom:6px}
+.rawblk pre{
+  margin:0;font:12px/1.6 ui-monospace,Menlo,monospace;color:#4b5563;
+  white-space:pre-wrap;word-break:break-all;max-height:180px;overflow:auto;
+}
+
+/* 드롭 표시 */
+#drophint{
+  position:fixed;inset:0;background:rgba(3,199,90,.08);border:3px dashed var(--accent);
+  display:none;place-items:center;z-index:60;pointer-events:none;
+  font-size:19px;color:#0a7d3c;font-weight:700;
+}
+#drophint.on{display:grid}
+
+/* ── 하단 ── */
+.statusbar{
+  background:var(--paper);border-top:1px solid var(--line);padding:8px 18px;
+  display:flex;align-items:center;gap:12px;font-size:12px;color:var(--muted);flex-shrink:0;
+}
+
+/* ── 패널/모달 ── */
+.mask{position:fixed;inset:0;background:rgba(20,22,26,.45);display:none;place-items:center;z-index:70;padding:20px}
+.mask.on{display:grid}
+.sheet{background:var(--paper);border-radius:14px;width:100%;max-width:620px;max-height:88vh;overflow:auto}
+.sheet h3{margin:0;padding:16px 20px;border-bottom:1px solid var(--line);font-size:16px}
+.sheet .in{padding:20px;display:flex;flex-direction:column;gap:14px}
+.sheet .ft{padding:14px 20px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld>span{font-size:12.5px;color:var(--muted);font-weight:600}
+.fld input,.fld textarea{border:1px solid var(--line);border-radius:7px;padding:9px 11px;outline:none;width:100%}
+.fld input:focus,.fld textarea:focus{border-color:var(--accent)}
+.cnt{font-size:11px;color:var(--muted);text-align:right}
+.cnt.over{color:var(--err)}
+.note{font-size:13px;padding:10px 12px;border-radius:8px;border:1px solid}
+.note.warn{background:var(--warn-bg);border-color:#fde68a;color:var(--warn)}
+.note.err{background:var(--err-bg);border-color:#fda29b;color:var(--err)}
+.note.ok{background:#f0fbf5;border-color:#9fe3bd;color:#0a7d3c}
 pre.log{
-  background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;
-  font-size:12px;font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;
-  max-height:340px;overflow:auto;margin:0;
+  background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;margin:0;
+  font:12px/1.6 ui-monospace,Menlo,monospace;white-space:pre-wrap;max-height:320px;overflow:auto;
 }
-.preview{padding:18px;line-height:1.75}
-.preview img{max-width:100%;border-radius:8px;margin:10px 0}
-.preview h2{font-size:19px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
-.preview h3{font-size:16px;margin:20px 0 8px}
-.preview p{margin:10px 0}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:9px}
+.thumbs .t{border:2px solid transparent;border-radius:8px;overflow:hidden;position:relative}
+.thumbs .t img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.thumbs .t.pick{border-color:var(--accent)}
+.thumbs .t .n{position:absolute;top:4px;left:4px;background:var(--accent);color:#fff;
+  width:19px;height:19px;border-radius:99px;font-size:11px;display:grid;place-items:center;font-weight:700}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>✍️ Brothrone <span>글쓰기</span></h1>
-  <div class="field">
-    <label>카테고리</label>
-    <select id="category"></select>
-  </div>
-  <div class="field">
-    <label>슬러그</label>
-    <input id="slug" placeholder="nikko-kanaya" autocomplete="off">
-  </div>
-  <div class="field">
-    <label>날짜</label>
-    <input id="date" type="date">
-  </div>
-  <div class="spacer"></div>
-  <span class="badge" id="status">준비</span>
-</header>
+<div class="topbar">
+  <span class="brand">B</span>
+  <div class="tb-field"><label>분류</label><select id="cat"></select></div>
+  <div class="tb-field"><label>주소</label><input id="slug" placeholder="nikko-kanaya" autocomplete="off"></div>
+  <div class="tb-field"><label>날짜</label><input id="date" type="date"></div>
+  <span class="chip" id="chip">주소를 입력하세요</span>
+  <div class="grow"></div>
+  <span class="chip" id="editing" style="display:none"></span>
+  <button class="btn" id="listBtn">📋 글 목록</button>
+  <button class="btn" id="newBtn">새 글</button>
+  <button class="btn go" id="pubBtn">발행</button>
+</div>
 
-<main>
-  <!-- 사진 -->
-  <section class="panel">
-    <h2>🖼 사진 <span class="sub" id="photoCount">0장</span>
-      <span class="sub" id="folderHint"></span></h2>
-    <div id="drop">사진을 여기로 드래그하거나 <button class="btn" id="pickBtn" style="padding:5px 12px">파일 선택</button>
-      <input type="file" id="picker" multiple accept="image/*" hidden>
-    </div>
-    <div class="photo-actions">
-      <button class="btn" id="loadFolder">📂 폴더에서 불러오기</button>
-      <button class="btn" id="insertAll">📝 전체를 본문 뼈대로 삽입</button>
-      <button class="btn" id="clearPhotos">비우기</button>
-      <span class="hint">라벨을 정하면 파일명이 자동으로 만들어집니다 · ⭐ = 대표 이미지</span>
-    </div>
-    <div class="chips" id="chips"></div>
-    <div class="grid" id="grid"></div>
-  </section>
+<div class="toolbar">
+  <button class="tool" data-cmd="photo">🖼 <span>사진</span></button>
+  <button class="tool" data-cmd="folder">📂 <span>폴더에서</span></button>
+  <div class="sep"></div>
+  <button class="tool" data-blk="h2"><b>제목</b></button>
+  <button class="tool" data-blk="h3">소제목</button>
+  <button class="tool" data-blk="p">본문</button>
+  <div class="sep"></div>
+  <button class="tool" data-cmd="bold" title="굵게 ⌘B"><b>가</b></button>
+  <button class="tool" data-cmd="italic" title="기울임 ⌘I"><i>가</i></button>
+  <button class="tool" data-cmd="underline" title="밑줄 ⌘U"><u>가</u></button>
+  <button class="tool" data-cmd="strike" title="취소선"><s>가</s></button>
+  <button class="tool" data-cmd="color" title="글자색"><span style="color:#d92d20;font-weight:700">가</span></button>
+  <button class="tool" data-cmd="mark" title="형광펜"><span style="background:#fff3a3;padding:0 3px;border-radius:3px">가</span></button>
+  <button class="tool" data-cmd="link" title="링크 ⌘K">🔗</button>
+  <div class="sep"></div>
+  <button class="tool" data-align="left"   title="왼쪽">⇤</button>
+  <button class="tool" data-align="center" title="가운데">↔</button>
+  <button class="tool" data-align="right"  title="오른쪽">⇥</button>
+  <button class="tool" data-cmd="indent"   title="들여쓰기">→|</button>
+  <button class="tool" data-cmd="outdent"  title="내어쓰기">|←</button>
+  <div class="sep"></div>
+  <button class="tool" data-blk="quote">❝ 인용</button>
+  <button class="tool" data-blk="li">• 목록</button>
+  <button class="tool" data-blk="ol">1. 번호</button>
+  <button class="tool" data-cmd="hr">— 구분선</button>
+</div>
 
-  <!-- 에디터 -->
-  <section class="editors">
-    <div class="panel">
-      <h2>🇰🇷 한국어 <span class="sub" id="koPath"></span></h2>
-      <div class="pane-body">
-        <input id="title_ko" placeholder="제목 (앞의 [숙박후기] 는 자동으로 붙습니다)">
-        <input id="tags_ko" placeholder="태그 (쉼표로 구분) — 예: 일본, 닛코, 온천">
-        <textarea id="desc_ko" rows="2" placeholder="메타 description (검색 결과에 보이는 설명, 160자 이내)"></textarea>
-        <div class="counter" id="c_desc_ko">0 / 160</div>
-        <div class="toolbar" data-target="body_ko">
-          <button data-md="## ">## 소제목</button>
-          <button data-md="**|**">굵게</button>
-          <button data-md="- ">목록</button>
-          <button data-md="> ">인용</button>
-          <button data-preview="ko">👁 미리보기</button>
-        </div>
-        <textarea class="body" id="body_ko" placeholder="본문을 마크다운으로 작성하세요.
+<div class="tabs">
+  <button class="tab on" data-lang="ko">한국어 <span class="dot" id="dotKo" style="display:none"></span></button>
+  <button class="tab" data-lang="en">English <span class="dot" id="dotEn" style="display:none"></span></button>
+</div>
 
-## 외관
-
-사진은 위에서 [본문 삽입] 버튼으로 넣을 수 있습니다."></textarea>
-      </div>
-    </div>
-
-    <div class="panel">
-      <h2>🌐 English <span class="sub" id="enPath"></span></h2>
-      <div class="pane-body">
-        <input id="title_en" placeholder="Title — e.g. Nikko Kanaya Hotel Review (2026)">
-        <input id="tags_en" placeholder="Tags (comma separated) — e.g. Japan, Nikko, Onsen">
-        <textarea id="desc_en" rows="2" placeholder="Meta description (max 160 chars)"></textarea>
-        <div class="counter" id="c_desc_en">0 / 160</div>
-        <div class="toolbar" data-target="body_en">
-          <button data-md="## ">## Heading</button>
-          <button data-md="**|**">Bold</button>
-          <button data-md="- ">List</button>
-          <button data-md="> ">Quote</button>
-          <button data-preview="en">👁 Preview</button>
-        </div>
-        <textarea class="body" id="body_en" placeholder="Write the English version here.
-
-비워두면 한국어 글만 발행됩니다."></textarea>
-      </div>
-    </div>
-  </section>
-
-  <!-- 검증 -->
-  <section class="panel" id="issuePanel" style="display:none">
-    <h2>🔎 발행 전 점검</h2>
-    <div id="issues"></div>
-  </section>
-</main>
-
-<footer>
-  <span class="hint" id="saveHint">자동 저장됨</span>
-  <button class="btn" id="newBtn">📄 새 글</button>
-  <div class="spacer"></div>
-  <label class="check"><input type="checkbox" id="doPush" checked> 발행 후 푸시 (자동 배포)</label>
-  <button class="btn" id="checkBtn">점검하기</button>
-  <button class="btn primary" id="publishBtn">🚀 발행하기</button>
-</footer>
-
-<!-- 발행 확인 모달 -->
-<div class="modal" id="modal">
-  <div class="box">
-    <h3 id="modalTitle">발행 확인</h3>
-    <div class="inner" id="modalBody"></div>
-    <div class="foot" id="modalFoot"></div>
+<div class="scroll" id="scroll">
+  <div class="paper">
+    <input class="title-in" id="title" placeholder="제목">
+    <div id="canvas"></div>
   </div>
 </div>
+
+<div class="statusbar">
+  <span id="saveHint">자동 저장됨</span>
+  <div class="grow"></div>
+  <span id="pathHint"></span>
+</div>
+
+<div id="drophint">여기에 놓으면 본문에 사진이 들어갑니다</div>
+<input type="file" id="picker" multiple accept="image/*" hidden>
+
+<div class="mask" id="mask"><div class="sheet">
+  <h3 id="shTitle"></h3><div class="in" id="shBody"></div><div class="ft" id="shFoot"></div>
+</div></div>
 
 <script>
 const $ = s => document.querySelector(s);
 const el = (t,c,x) => { const n=document.createElement(t); if(c)n.className=c; if(x!=null)n.textContent=x; return n; };
+const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
-let CFG = {categories:{},labels:{},slugs:[]};
-let photos = [];          // {src,name,label,hero,thumbUrl,fromFolder}
-let lastEditor = 'body_ko';
-let dirty = false;
+let CFG={categories:{},labels:{},slugs:[]}, lang='ko', dirty=false, needOw=false;
+let photos=[];   // {id,src,name,file,label,hero,thumb}
+// 언어별 문서: {title, blocks:[...]}
+const doc = { ko:{title:'',blocks:[]}, en:{title:'',blocks:[]} };
+let meta = { category:'hotel-review', tags_ko:'', tags_en:'', desc_ko:'', desc_en:'' };
 
-const F = ['category','slug','date','title_ko','title_en','tags_ko','tags_en','desc_ko','desc_en','body_ko','body_en'];
+/* ═══ 블록 모델 ═══
+   {t:'p'|'h2'|'h3'|'quote'|'li', html:'...'}   ← 인라인은 <b>,<a> 만 허용
+   {t:'hr'}
+   {t:'img', pid:<photo id>, cap:'...'}
+   블록마다 종류가 정해져 있어 마크다운 변환이 어긋나지 않는다.               */
 
-// ───────── 초기화 ─────────
-(async function init(){
+const uid = (()=>{ let n=0; return ()=> 'b'+(++n)+Date.now().toString(36); })();
+
+/* ── 초기화 ── */
+(async function(){
   CFG = await (await fetch('/api/config')).json();
-  const sel = $('#category');
-  for (const [k,v] of Object.entries(CFG.categories)) {
-    sel.append(new Option(`${v.ko} (${k})`, k));
-  }
   $('#date').value = CFG.today;
-
-  const draft = await (await fetch('/api/draft')).json();
-  if (draft && draft.slug) {
-    F.forEach(k => { if (draft[k] != null && $('#'+k)) $('#'+k).value = draft[k]; });
-    photos = (draft.photos||[]).map(p => ({...p, thumbUrl: thumbFor(p)}));
+  for (const [k,v] of Object.entries(CFG.categories)) $('#cat').append(new Option(v.ko, k));
+  const d = await (await fetch('/api/draft')).json();
+  if (d && d.slug) {
+    $('#slug').value = d.slug || '';
+    $('#date').value = d.date || CFG.today;
+    meta = Object.assign(meta, d.meta || {});
+    photos = (d.photos||[]).map(p => ({...p, thumb: p.thumb || thumbUrl(p.src)}));
+    if (d.doc) { doc.ko = d.doc.ko || doc.ko; doc.en = d.doc.en || doc.en; }
   }
-  renderChips(); renderPhotos(); updatePaths(); count();
+  $('#cat').value = meta.category;
+  render(); updateChip();
 })();
 
-function thumbFor(p){
-  return p.thumbUrl || ('/api/thumb?path=' + encodeURIComponent(p.src) + '&v=' + Date.now());
+// 분류를 바꾸면 사진 폴더 경로와 라벨 프리셋이 함께 바뀐다
+$('#cat').onchange = () => { meta.category = $('#cat').value; mark(); render(); updateChip(); };
+
+const thumbUrl = src => '/api/thumb?path=' + encodeURIComponent(src);
+
+/* ── 렌더 ── */
+function render(){
+  const D = doc[lang];
+  $('#title').value = D.title || '';
+  $('#title').placeholder = lang==='ko' ? '제목' : 'Title';
+  const c = $('#canvas'); c.innerHTML='';
+  if (!D.blocks.length) D.blocks.push({id:uid(), t:'p', html:''});
+  D.blocks.forEach(b => c.append(blockEl(b)));
+  numberOl();
+  updateDots();
 }
 
-// ───────── 상태/자동저장 ─────────
-function collect(){
-  const d = {};
-  F.forEach(k => d[k] = $('#'+k) ? $('#'+k).value : '');
-  d.tags_ko = splitTags(d.tags_ko);
-  d.tags_en = splitTags(d.tags_en);
-  d.photos = photos.map(p => ({src:p.src, name:p.name, label:p.label, hero:!!p.hero}));
-  return d;
+/* 번호 목록은 블록이 따로따로라, 이어진 것끼리 다시 센다 */
+function numberOl(){
+  let n = 0;
+  doc[lang].blocks.forEach(b => {
+    if (b.t !== 'ol') { n = 0; return; }
+    n++;
+    const e = document.querySelector(`.blk[data-id="${b.id}"]`);
+    if (e) e.dataset.n = String(n);
+  });
 }
-const splitTags = s => (s||'').split(',').map(t=>t.trim()).filter(Boolean);
 
+function blockEl(b){
+  if (b.t === 'hr') {
+    const n = el('div','blk'); n.dataset.t='hr'; n.dataset.id=b.id;
+    n.contentEditable = 'false';
+    n.onclick = () => selectImg(null);
+    return n;
+  }
+  if (b.t === 'raw') {
+    const w = el('div','rawblk'); w.dataset.id = b.id;
+    w.append(el('div','raw-tag','직접 작성한 HTML — 그대로 유지됩니다'));
+    const pre = el('pre'); pre.textContent = b.raw; w.append(pre);
+    return w;
+  }
+  if (b.t === 'img') {
+    const p = photos.find(x=>x.id===b.pid);
+    const w = el('div','imgblk'); w.dataset.id=b.id;
+    const img = el('img'); img.src = p ? p.thumb : ''; img.alt = b.cap||'';
+    img.onclick = () => selectImg(b.id);
+    w.append(img);
+
+    const bar = el('div','imgbar');
+    const star = el('button', p&&p.hero?'on':'', '★ 대표');
+    star.onclick = e => { e.stopPropagation();
+      photos.forEach(x => x.hero = (x.id===b.pid && !(p&&p.hero)));
+      mark(); render(); };
+    const fn = el('input','fname'); fn.value = p?(p.label||''):''; fn.placeholder='파일명';
+    fn.onclick = e => e.stopPropagation();
+    fn.oninput = () => { if(p){ p.label = fn.value; p.keepName = null; mark(); } };
+    const del = el('button','','✕');
+    del.onclick = e => { e.stopPropagation(); removeBlock(b.id); };
+    bar.append(star, fn, del); w.append(bar);
+
+    const cap = el('div','cap'); cap.contentEditable='true'; cap.textContent = b.cap||'';
+    cap.oninput = () => { b.cap = cap.textContent; mark(); };
+    w.append(cap);
+
+    // 빠른 라벨 — 누르면 파일명이 정해지고, 설명이 비어 있으면 같이 채운다
+    const lb = el('div','lbls');
+    (CFG.labels[meta.category] || []).forEach(([name, ko]) => {
+      const btn = el('button', p && p.label === name ? 'on' : '', ko);
+      btn.title = name + '.webp';
+      btn.onclick = e => {
+        e.stopPropagation();
+        if (!p) return;
+        p.label = name;
+        if (!b.cap) b.cap = ko;
+        mark(); render(); selectImg(b.id);
+      };
+      lb.append(btn);
+    });
+    if (lb.children.length) w.append(lb);
+    return w;
+  }
+
+  const n = el('div','blk'); n.dataset.t=b.t; n.dataset.id=b.id;
+  n.contentEditable = 'true';
+  n.innerHTML = b.html || '';
+  if (b.a && b.a !== 'left') n.dataset.a = b.a;
+  if (b.ind) n.dataset.i = String(b.ind);
+  n.dataset.ph = b.t==='h2' ? '제목' : b.t==='h3' ? '소제목'
+               : b.t==='quote' ? '인용할 내용' : (b.t==='li'||b.t==='ol') ? '목록'
+               : (lang==='ko' ? '내용을 입력하세요' : 'Write here');
+  n.oninput = () => { b.html = clean(n.innerHTML); mark(); };
+  n.onkeydown = e => keyIn(e, b, n);
+  n.onfocus = () => selectImg(null);
+  return n;
+}
+
+/* 허용한 서식만 남긴다 — 그래야 마크다운으로 정확히 바뀐다.
+   b(굵게) i(기울임) u(밑줄) s(취소선) mark(형광펜) a(링크) span[color] br */
+function clean(html){
+  const d = document.createElement('div'); d.innerHTML = html;
+  (function walk(node){
+    [...node.childNodes].forEach(ch => {
+      if (ch.nodeType === 3) return;
+      if (ch.nodeType !== 1) { ch.remove(); return; }
+      walk(ch);
+      const tag = ch.tagName.toLowerCase();
+      const swap = (name, attrs) => {
+        const e = document.createElement(name);
+        Object.entries(attrs||{}).forEach(([k,v]) => e.setAttribute(k,v));
+        e.innerHTML = ch.innerHTML; ch.replaceWith(e);
+      };
+      if (tag==='b' || tag==='strong')      swap('b');
+      else if (tag==='i' || tag==='em')     swap('i');
+      else if (tag==='u')                   swap('u');
+      else if (tag==='s' || tag==='strike' || tag==='del') swap('s');
+      else if (tag==='mark')                swap('mark');
+      else if (tag==='a' && ch.getAttribute('href')) swap('a', {href: ch.getAttribute('href')});
+      else if (tag==='font' && ch.getAttribute('color'))
+        swap('font', {color: ch.getAttribute('color')});     // 원문 그대로 보존
+      else if (tag==='span' && /(^|;)\s*color\s*:/.test(ch.getAttribute('style')||''))
+        swap('span', {style: (ch.getAttribute('style').match(/color\s*:\s*[^;]+/)||[''])[0]});
+      else if (tag==='br') { /* 유지 */ }
+      else ch.replaceWith(...ch.childNodes);
+    });
+  })(d);
+  return d.innerHTML.replace(/<br>\s*$/,'');
+}
+
+/* ── 키 입력 ── */
+function keyIn(e, b, n){
+  const D = doc[lang], i = D.blocks.indexOf(b);
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    // 목록·정렬·들여쓰기는 다음 줄에도 이어지게 한다
+    const cont = (b.t==='li' || b.t==='ol');
+    const nb = {id:uid(), t: cont ? b.t : 'p', html:'', a: b.a, ind: cont ? b.ind : 0};
+    D.blocks.splice(i+1, 0, nb);
+    render(); focusBlock(nb.id);
+    mark(); return;
+  }
+  if (e.key === 'Backspace' && isEmpty(n) && D.blocks.length > 1) {
+    e.preventDefault();
+    D.blocks.splice(i,1);
+    render();
+    const prev = D.blocks[Math.max(0,i-1)];
+    if (prev) focusBlock(prev.id, true);
+    mark(); return;
+  }
+}
+const isEmpty = n => !n.textContent.trim() && !n.querySelector('img');
+
+function focusBlock(id, end){
+  requestAnimationFrame(()=>{
+    const n = document.querySelector(`.blk[data-id="${id}"]`);
+    if (!n) return;
+    n.focus();
+    if (end) {
+      const r=document.createRange(); r.selectNodeContents(n); r.collapse(false);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  });
+}
+
+function curBlock(){
+  const s = getSelection();
+  if (!s.rangeCount) return null;
+  let n = s.anchorNode;
+  while (n && !(n.classList && n.classList.contains('blk'))) n = n.parentNode;
+  return n;
+}
+
+function removeBlock(id){
+  const D = doc[lang];
+  const i = D.blocks.findIndex(b=>b.id===id);
+  if (i<0) return;
+  const b = D.blocks[i];
+  if (b.t==='img') {
+    // 다른 언어 문서에서도 안 쓰면 사진 목록에서 제거
+    const used = ['ko','en'].some(L => doc[L].blocks.some(x=>x!==b && x.t==='img' && x.pid===b.pid));
+    if (!used) photos = photos.filter(p=>p.id!==b.pid);
+  }
+  D.blocks.splice(i,1);
+  if (!D.blocks.length) D.blocks.push({id:uid(),t:'p',html:''});
+  mark(); render();
+}
+
+let selImg = null;
+function selectImg(id){
+  selImg = id;
+  document.querySelectorAll('.imgblk').forEach(w =>
+    w.classList.toggle('sel', w.dataset.id === id));
+}
+
+/* ── 도구모음 ── */
+document.querySelectorAll('.tool').forEach(t => {
+  t.onmousedown = e => e.preventDefault();     // 선택 영역 유지
+  t.onclick = () => run(t.dataset);
+});
+
+function curB(){
+  const n = curBlock(); if (!n) return null;
+  return doc[lang].blocks.find(x => x.id === n.dataset.id) || null;
+}
+
+function run(d){
+  // 블록 종류 바꾸기
+  if (d.blk) {
+    const b = curB(); if (!b) return;
+    b.t = (b.t === d.blk && d.blk !== 'p') ? 'p' : d.blk;   // 한 번 더 누르면 해제
+    mark(); render(); focusBlock(b.id, true);
+    return;
+  }
+  // 정렬
+  if (d.align) {
+    const b = curB(); if (!b) return;
+    b.a = d.align; mark(); render(); focusBlock(b.id, true);
+    return;
+  }
+  const cmd = d.cmd;
+  if (cmd==='bold')      { document.execCommand('bold');      syncCur(); }
+  if (cmd==='italic')    { document.execCommand('italic');    syncCur(); }
+  if (cmd==='underline') { document.execCommand('underline'); syncCur(); }
+  if (cmd==='strike')    { document.execCommand('strikeThrough'); syncCur(); }
+  if (cmd==='mark')      { wrapSel('mark'); }
+  if (cmd==='color')     { pickColor(); }
+  if (cmd==='link') {
+    const u = prompt('링크 주소를 입력하세요', 'https://');
+    if (u) { document.execCommand('createLink', false, u); syncCur(); }
+  }
+  if (cmd==='indent' || cmd==='outdent') {
+    const b = curB(); if (!b) return;
+    b.ind = Math.max(0, Math.min(3, (b.ind||0) + (cmd==='indent' ? 1 : -1)));
+    mark(); render(); focusBlock(b.id, true);
+    return;
+  }
+  if (cmd==='hr')     insertBlocks([{id:uid(),t:'hr'}]);
+  if (cmd==='photo')  $('#picker').click();
+  if (cmd==='folder') loadFolder();
+}
+
+/* 선택 영역을 태그로 감싼다 (execCommand 로 안 되는 형광펜용) */
+function wrapSel(tag){
+  const s = getSelection();
+  if (!s.rangeCount || s.isCollapsed) return;
+  const r = s.getRangeAt(0);
+  const e = document.createElement(tag);
+  try { r.surroundContents(e); } catch { return; }   // 여러 블록 걸치면 무시
+  s.removeAllRanges();
+  syncCur();
+}
+
+const COLORS = ['#1a1a1a','#d92d20','#e07800','#0a7d3c','#1d4ed8','#7c3aed','#8b95a1'];
+function pickColor(){
+  const saved = getSelection().rangeCount ? getSelection().getRangeAt(0).cloneRange() : null;
+  sheet('글자색', `<div style="display:flex;gap:10px;flex-wrap:wrap">` +
+    COLORS.map(c=>`<button data-c="${c}" style="width:40px;height:40px;border-radius:9px;border:1px solid var(--line);background:${c}"></button>`).join('') +
+    `</div>`, [['닫기', close]]);
+  $('#shBody').querySelectorAll('button[data-c]').forEach(b => b.onclick = () => {
+    close();
+    if (saved) { const s=getSelection(); s.removeAllRanges(); s.addRange(saved); }
+    document.execCommand('foreColor', false, b.dataset.c);
+    syncCur();
+  });
+}
+
+/* 단축키 */
+document.addEventListener('keydown', e => {
+  if (!(e.metaKey || e.ctrlKey)) return;
+  const k = e.key.toLowerCase();
+  const map = {b:'bold', i:'italic', u:'underline', k:'link'};
+  if (map[k]) { e.preventDefault(); run({cmd: map[k]}); return; }
+  if (k === '1') { e.preventDefault(); run({blk:'h2'}); }
+  if (k === '2') { e.preventDefault(); run({blk:'h3'}); }
+  if (k === '0') { e.preventDefault(); run({blk:'p'}); }
+});
+function syncCur(){
+  const n = curBlock(); if (!n) return;
+  const b = doc[lang].blocks.find(x=>x.id===n.dataset.id);
+  if (b) { b.html = clean(n.innerHTML); mark(); }
+}
+
+/* 현재 위치 다음에 블록들을 끼워 넣는다 */
+function insertBlocks(list){
+  const D = doc[lang];
+  const n = curBlock();
+  let at = D.blocks.length;
+  if (n) { const i = D.blocks.findIndex(x=>x.id===n.dataset.id); if (i>=0) at = i+1; }
+  D.blocks.splice(at, 0, ...list);
+  const tail = {id:uid(), t:'p', html:''};
+  D.blocks.splice(at+list.length, 0, tail);
+  mark(); render(); focusBlock(tail.id);
+}
+
+/* ── 사진 ── */
+$('#picker').onchange = e => { addFiles(e.target.files); e.target.value=''; };
+
+async function addFiles(files){
+  const made = [];
+  for (const f of files) {
+    if (!f.type.startsWith('image/')) continue;
+    const data = await new Promise(r=>{ const fr=new FileReader(); fr.onload=()=>r(fr.result); fr.readAsDataURL(f); });
+    const res = await (await fetch('/api/upload',{method:'POST',body:JSON.stringify({name:f.name,data})})).json();
+    const p = {id:uid(), src:res.src, name:f.name, label:'', hero:false, thumb:data};
+    photos.push(p);
+    made.push({id:uid(), t:'img', pid:p.id, cap:''});
+  }
+  if (made.length) { if (!photos.some(p=>p.hero)) photos[0].hero = true; insertBlocks(made); }
+}
+
+async function loadFolder(){
+  const slug = $('#slug').value.trim();
+  if (!slug) return alert('먼저 위쪽 주소(슬러그)를 입력하세요.');
+  const r = await (await fetch(`/api/folder?category=${meta.category}&slug=${encodeURIComponent(slug)}`)).json();
+  if (!r.images.length) return alert(`assets/images/${meta.category}/${slug}/ 에 사진이 없습니다.`);
+
+  const picked = new Set();
+  sheet('폴더에서 사진 넣기', `
+    <div class="note ok">사진을 눌러 고르면 <b>고른 순서대로</b> 본문에 들어갑니다.</div>
+    <div class="thumbs" id="th"></div>`, [
+      ['취소', close],
+      ['본문에 넣기', () => {
+        const list = [...picked].map(src => {
+          const im = r.images.find(i=>i.src===src);
+          const p = {id:uid(), src, name:im.name, hero:false, thumb:thumbUrl(src),
+                     label: im.converted ? im.name.replace(/\.webp$/,'') : ''};
+          photos.push(p);
+          return {id:uid(), t:'img', pid:p.id, cap:''};
+        });
+        if (!list.length) return close();
+        if (!photos.some(p=>p.hero)) photos[0].hero = true;
+        close(); insertBlocks(list);
+      }, true]
+    ]);
+
+  const box = $('#th');
+  r.images.forEach(im => {
+    const t = el('div','t');
+    const img = el('img'); img.src = thumbUrl(im.src); img.loading='lazy';
+    t.append(img);
+    t.onclick = () => {
+      if (picked.has(im.src)) picked.delete(im.src); else picked.add(im.src);
+      t.classList.toggle('pick', picked.has(im.src));
+      [...box.children].forEach(c=>{ const o=c.querySelector('.n'); if(o)o.remove(); });
+      [...picked].forEach((s,i)=>{
+        const c=[...box.children][r.images.findIndex(x=>x.src===s)];
+        if(c) c.append(el('div','n',String(i+1)));
+      });
+    };
+    box.append(t);
+  });
+}
+
+/* 창 어디에 떨어뜨려도 본문에 들어간다 */
+let dragN = 0;
+window.addEventListener('dragenter', e => { e.preventDefault(); if(++dragN===1) $('#drophint').classList.add('on'); });
+window.addEventListener('dragleave', e => { e.preventDefault(); if(--dragN<=0){dragN=0;$('#drophint').classList.remove('on');} });
+window.addEventListener('dragover',  e => e.preventDefault());
+window.addEventListener('drop', e => {
+  e.preventDefault(); dragN=0; $('#drophint').classList.remove('on');
+  if (e.dataTransfer.files.length) addFiles(e.dataTransfer.files);
+});
+
+/* ── 탭 / 제목 ── */
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x===t));
+  lang = t.dataset.lang; render();
+});
+$('#title').oninput = () => { doc[lang].title = $('#title').value; mark(); updateDots(); };
+function updateDots(){
+  $('#dotKo').style.display = (doc.ko.title || mdOf('ko').trim()) ? '' : 'none';
+  $('#dotEn').style.display = (doc.en.title || mdOf('en').trim()) ? '' : 'none';
+}
+
+/* ── 마크다운 변환 ── */
+function inline2md(html){
+  const d = document.createElement('div'); d.innerHTML = html || '';
+  let out = '';
+  (function walk(n){
+    n.childNodes.forEach(c => {
+      if (c.nodeType === 3) { out += c.nodeValue; return; }
+      const tag = c.tagName.toLowerCase();
+      if (tag==='b'||tag==='strong'){ out+='**'; walk(c); out+='**'; }
+      else if (tag==='i'||tag==='em'){ out+='*'; walk(c); out+='*'; }
+      else if (tag==='u'){ out+='<u>'; walk(c); out+='</u>'; }
+      else if (tag==='s'){ out+='<s>'; walk(c); out+='</s>'; }
+      else if (tag==='mark'){ out+='<mark>'; walk(c); out+='</mark>'; }
+      else if (tag==='span' && c.getAttribute('style')){
+        out+='<span style="'+c.getAttribute('style')+'">'; walk(c); out+='</span>';
+      }
+      else if (tag==='font' && c.getAttribute('color')){
+        out+='<font color="'+c.getAttribute('color')+'">'; walk(c); out+='</font>';
+      }
+      else if (tag==='a'){ out+='['; walk(c); out+='](' + c.getAttribute('href') + ')'; }
+      else if (tag==='br'){ out+='\n'; }
+      else walk(c);
+    });
+  })(d);
+  return out.replace(/ /g,' ').trim();
+}
+
+function mdOf(L){
+  const slug = $('#slug').value.trim();
+  const dir = `/assets/images/${meta.category}/${slug}`;
+  const names = fileNames();
+  const out = [], glues = [];
+  const emit = (line, b) => { out.push(line); glues.push(!!(b && b.glue)); };
+  let olN = [];
+  doc[L].blocks.forEach(b => {
+    if (b.t==='hr') { emit('---', b); return; }
+    if (b.t==='raw') { emit(b.raw, b); return; }
+    if (b.t==='img') {
+      const i = photos.findIndex(p=>p.id===b.pid);
+      if (i<0) return;
+      emit(`![${(b.cap||'').trim()}](${photos[i].dir || dir}/${names[i]})`, b);
+      return;
+    }
+    const t = inline2md(b.html);
+    if (!t) return;
+
+    // 목록은 들여쓰기를 마크다운 방식(공백)으로 표현한다.
+    // 번호는 단계별로 따로 세야 한다 — 안쪽 목록이 1부터 다시 시작하도록.
+    if (b.t==='li' || b.t==='ol') {
+      const lv = b.ind || 0;
+      const pad = '   '.repeat(lv);
+      if (b.t==='li') {
+        olN.length = lv;                       // 더 안쪽 단계의 번호는 초기화
+        out.push(pad + '- ' + t);
+      } else {
+        olN.length = lv + 1;
+        olN[lv] = (olN[lv] || 0) + 1;
+        emit(pad + olN[lv] + '. ' + t, b);
+      }
+      return;
+    }
+    olN = [];                                   // 목록에서 빠져나오면 번호 초기화
+
+    // 정렬·들여쓰기는 마크다운에 없으므로 HTML 블록으로 내보낸다.
+    // (kramdown 이 HTML 블록 안은 마크다운으로 처리하지 않아 b.html 을 그대로 쓴다)
+    const st = blockStyle(b);
+    if (st) {
+      const tag = b.t==='h2' ? 'h2' : b.t==='h3' ? 'h3' : b.t==='quote' ? 'blockquote' : 'p';
+      emit(`<${tag} style="${st}">${b.html}</${tag}>`, b);
+      return;
+    }
+
+    if (b.t==='h2') emit('## ' + t, b);
+    else if (b.t==='h3') emit('### ' + t, b);
+    else if (b.t==='quote') emit('>' + (b.pad === undefined ? ' ' : b.pad) + t.replace(/\n/g,'\n> '), b);
+    else emit(t, b);
+  });
+  // 목록끼리는 붙이고 나머지는 빈 줄로 나눈다
+  const kind = s => { const m = /^\s*(-|\d+\.)\s/.exec(s || ''); return m ? (m[1]==='-'?'ul':'ol') : null; };
+  let md = '';
+  out.forEach((line,i) => {
+    // 같은 종류의 목록끼리만 붙이고, 종류가 바뀌면 빈 줄로 나눈다
+    const glue = glues[i-1] ? '\n'
+               : (kind(line) && kind(line) === kind(out[i-1])) ? '\n' : '\n\n';
+    md += (i ? glue : '') + line;
+  });
+  return md;
+}
+
+/* 정렬·들여쓰기 → 인라인 스타일 */
+function blockStyle(b){
+  const s = [];
+  if (b.a && b.a !== 'left') s.push('text-align:' + b.a);
+  if (b.ind) s.push('padding-left:' + (b.ind * 2.2) + 'em');
+  return s.join(';');
+}
+
+function fileNames(){
+  const used = {};
+  return photos.map(p => {
+    if (p.keepName) { used[p.keepName] = 1; return p.keepName; }   // 기존 글의 사진은 이름 그대로
+    const base = (p.label||'photo').toLowerCase().replace(/[^a-z0-9_-]/g,'_').replace(/_+/g,'_') || 'photo';
+    used[base] = (used[base]||0)+1;
+    return base + (used[base]>1?used[base]:'') + '.webp';
+  });
+}
+
+/* ── 상태/저장 ── */
 function mark(){ dirty = true; $('#saveHint').textContent='저장 중…'; }
 setInterval(async () => {
-  if (!dirty) return;
-  dirty = false;
-  const d = collect();
-  d.tags_ko = $('#tags_ko').value; d.tags_en = $('#tags_en').value;
-  await fetch('/api/draft',{method:'POST',body:JSON.stringify(d)});
+  if (!dirty) return; dirty = false;
+  await fetch('/api/draft',{method:'POST',body:JSON.stringify(draft())});
   $('#saveHint').textContent = '자동 저장됨 · ' + new Date().toLocaleTimeString('ko-KR');
 }, 2500);
 
-document.addEventListener('input', e => {
-  if (e.target.closest('header, .pane-body, .card')) { mark(); count(); }
-  if (e.target.id==='slug' || e.target.id==='category' || e.target.id==='date') updatePaths();
-});
-$('#category').addEventListener('change', () => { renderChips(); renderPhotos(); updatePaths(); });
-['body_ko','body_en'].forEach(id => $('#'+id).addEventListener('focus', () => lastEditor = id));
-
-function count(){
-  [['desc_ko','c_desc_ko'],['desc_en','c_desc_en']].forEach(([a,b])=>{
-    const n = $('#'+a).value.length;
-    $('#'+b).textContent = `${n} / 160`;
-    $('#'+b).classList.toggle('over', n>160);
-  });
-}
-
-function updatePaths(){
-  const cat = $('#category').value, slug = $('#slug').value.trim(), date = $('#date').value;
-  $('#koPath').textContent = slug ? `_posts/${cat}/${date}-${slug}.md` : '';
-  $('#enPath').textContent = slug ? `_en_posts/${cat}/${date}-${slug}-en.md` : '';
-  const dup = CFG.slugs.includes(slug);
-  const s = $('#status');
-  if (!slug)      { s.className='badge';      s.textContent='슬러그를 입력하세요'; }
-  else if (dup)   { s.className='badge err';  s.textContent='⚠ 같은 슬러그의 글이 이미 있습니다'; }
-  else            { s.className='badge ok';   s.textContent='새 글'; }
-  $('#folderHint').textContent = slug ? `assets/images/${cat}/${slug}/` : '';
-  renderPhotos();
-}
-
-// ───────── 사진 ─────────
-// 라벨 → 한글 표시. 직접 타이핑한 라벨도 프리셋과 맞으면 한글 제목을 쓴다
-function altFor(p){
-  const presets = CFG.labels[$('#category').value] || [];
-  const hit = presets.find(([name]) => name === (p.label||'').trim().toLowerCase());
-  return hit ? hit[1] : (p.label||'').trim();
-}
-
-function renderChips(){
-  const box = $('#chips'); box.innerHTML='';
-  const presets = CFG.labels[$('#category').value] || [];
-  if (!presets.length) return;
-  box.append(el('span','hint','라벨 빠른 지정 — 사진을 고른 뒤 클릭:'));
-  presets.forEach(([name,ko]) => {
-    const b = el('button', null, `${ko}`);
-    b.title = name + '.webp';
-    b.onclick = () => {
-      const target = photos.find(p => p.selected) || photos.find(p => !p.label);
-      if (!target) return;
-      target.label = name; target.selected = false;
-      mark(); renderPhotos();
-    };
-    box.append(b);
-  });
-}
-
-function resolveNames(){
-  const used = {};
-  return photos.map(p => {
-    const base = (p.label||'photo').toLowerCase().replace(/[^a-z0-9_-]/g,'_');
-    used[base] = (used[base]||0)+1;
-    return base + (used[base]>1 ? used[base] : '') + '.webp';
-  });
-}
-
-function renderPhotos(){
-  const grid = $('#grid'); grid.innerHTML='';
-  const names = resolveNames();
-  const cat = $('#category').value, slug = $('#slug').value.trim();
-  $('#photoCount').textContent = photos.length + '장';
-
-  photos.forEach((p,i) => {
-    const c = el('div','card' + (p.hero?' is-hero':'') + (p.selected?' is-sel':''));
-    if (p.selected) c.style.outline = '2px solid var(--accent)';
-
-    const img = el('img','thumb');
-    img.src = p.thumbUrl; img.loading='lazy'; img.alt = p.name||'';
-    img.onclick = () => { photos.forEach((q,j)=>q.selected = (j===i && !p.selected)); renderPhotos(); };
-    c.append(img);
-
-    const corner = el('div','corner');
-    const star = el('button', p.hero?'on':null, '★'); star.title='대표 이미지로 지정';
-    star.onclick = () => { photos.forEach((q,j)=>q.hero = (j===i && !p.hero)); mark(); renderPhotos(); };
-    const del = el('button',null,'✕'); del.title='제거';
-    del.onclick = () => { photos.splice(i,1); mark(); renderPhotos(); };
-    corner.append(star, del); c.append(corner);
-
-    const meta = el('div','meta');
-    const inp = el('input'); inp.placeholder='라벨 (예: room)'; inp.value = p.label||'';
-    inp.oninput = () => { p.label = inp.value; mark();
-      c.querySelector('.fname').textContent = '→ ' + resolveNames()[i]; };
-    meta.append(inp);
-    meta.append(el('div','fname','→ ' + names[i]));
-
-    const row = el('div','row');
-    const ins = el('button',null,'본문 삽입');
-    ins.onclick = () => {
-      if (!slug) return alert('먼저 슬러그를 입력하세요.');
-      const alt = lastEditor === 'body_ko' ? altFor(p) : (p.label||'');
-      insert(lastEditor, `\n![${alt}](/assets/images/${cat}/${slug}/${resolveNames()[i]})\n`);
-    };
-    const left = el('button',null,'←'); left.onclick = () => move(i,-1);
-    const right= el('button',null,'→'); right.onclick = () => move(i, 1);
-    row.append(left, ins, right); meta.append(row);
-
-    c.append(meta); grid.append(c);
-  });
-}
-
-function move(i,d){
-  const j = i+d; if (j<0||j>=photos.length) return;
-  [photos[i],photos[j]] = [photos[j],photos[i]]; mark(); renderPhotos();
-}
-
-function insert(id, text){
-  const t = $('#'+id);
-  const s = t.selectionStart ?? t.value.length;
-  t.value = t.value.slice(0,s) + text + t.value.slice(t.selectionEnd ?? s);
-  t.focus(); t.selectionStart = t.selectionEnd = s + text.length;
-  mark();
-}
-
-// 업로드
-async function addFiles(files){
-  for (const f of files) {
-    if (!f.type.startsWith('image/')) continue;
-    const data = await new Promise(r => { const fr=new FileReader(); fr.onload=()=>r(fr.result); fr.readAsDataURL(f); });
-    const res = await (await fetch('/api/upload',{method:'POST',body:JSON.stringify({name:f.name,data})})).json();
-    photos.push({src:res.src, name:f.name, label:'', thumbUrl:data});
-    renderPhotos();
-  }
-  mark();
-}
-$('#pickBtn').onclick = () => $('#picker').click();
-$('#picker').onchange = e => addFiles(e.target.files);
-const drop = $('#drop');
-['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => {e.preventDefault();drop.classList.add('hot')}));
-['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {e.preventDefault();drop.classList.remove('hot')}));
-drop.addEventListener('drop', e => addFiles(e.dataTransfer.files));
-// 드롭존 밖에 사진을 떨어뜨리면 브라우저가 그 파일로 이동해 작성 중인 글이 날아간다.
-// 드롭존 핸들러가 먼저 실행된 뒤 여기서 기본 동작만 막는다.
-document.addEventListener('dragover', e => e.preventDefault());
-document.addEventListener('drop', e => e.preventDefault());
-
-$('#loadFolder').onclick = async () => {
-  const cat = $('#category').value, slug = $('#slug').value.trim();
-  if (!slug) return alert('먼저 슬러그를 입력하세요.');
-  const r = await (await fetch(`/api/folder?category=${cat}&slug=${encodeURIComponent(slug)}`)).json();
-  if (!r.images.length) return alert(`assets/images/${cat}/${slug}/ 에 사진이 없습니다.`);
-  const have = new Set(photos.map(p=>p.src));
-  r.images.filter(i=>!have.has(i.src)).forEach(i => photos.push({
-    src:i.src, name:i.name, label: i.converted ? i.name.replace(/\.webp$/,'') : '',
-    fromFolder:true, thumbUrl:'/api/thumb?path='+encodeURIComponent(i.src)
-  }));
-  mark(); renderPhotos();
-};
-
-$('#clearPhotos').onclick = () => { if(confirm('사진 목록을 비울까요? (파일은 지워지지 않습니다)')) {photos=[];mark();renderPhotos();} };
-
-$('#insertAll').onclick = () => {
-  const cat=$('#category').value, slug=$('#slug').value.trim();
-  if (!slug) return alert('먼저 슬러그를 입력하세요.');
-  if (!photos.length) return alert('사진이 없습니다.');
-  const names = resolveNames();
-  const ko = photos.map((p,i)=>`## ${altFor(p)||'제목'}\n\n![${altFor(p)}](/assets/images/${cat}/${slug}/${names[i]})\n\n`).join('');
-  const en = photos.map((p,i)=>`## ${cap(p.label||'Section')}\n\n![${p.label||''}](/assets/images/${cat}/${slug}/${names[i]})\n\n`).join('');
-  $('#body_ko').value += (($('#body_ko').value.trim()?'\n\n':'') + ko);
-  $('#body_en').value += (($('#body_en').value.trim()?'\n\n':'') + en);
-  mark();
-};
-const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
-
-// 툴바
-document.querySelectorAll('.toolbar').forEach(tb => {
-  const target = tb.dataset.target;
-  tb.querySelectorAll('button').forEach(b => {
-    b.onclick = () => {
-      if (b.dataset.preview) return preview(b.dataset.preview);
-      const md = b.dataset.md;
-      if (md.includes('|')) {
-        const t=$('#'+target), s=t.selectionStart, e=t.selectionEnd;
-        const [a,z]=md.split('|');
-        t.value = t.value.slice(0,s)+a+t.value.slice(s,e)+z+t.value.slice(e);
-        t.focus(); t.selectionStart=s+a.length; t.selectionEnd=e+a.length;
-      } else insert(target, md);
-      mark();
-    };
-  });
+const draft = () => ({
+  slug: $('#slug').value.trim(), date: $('#date').value, meta, doc,
+  photos: photos.map(p=>({id:p.id,src:p.src,name:p.name,label:p.label,hero:p.hero,dir:p.dir||''})),
 });
 
-// ───────── 미리보기 ─────────
-function md2html(md){
-  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-  return esc(md)
-    .replace(/^### (.*)$/gm,'<h3>$1</h3>')
-    .replace(/^## (.*)$/gm,'<h2>$1</h2>')
-    .replace(/^&gt; (.*)$/gm,'<blockquote>$1</blockquote>')
-    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img alt="$1" src="$2">')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>')
-    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
-    .replace(/^- (.*)$/gm,'<li>$1</li>')
-    .split(/\n{2,}/).map(b => /^<(h2|h3|img|li|blockquote)/.test(b.trim()) ? b : `<p>${b.replace(/\n/g,'<br>')}</p>`)
-    .join('\n');
-}
-function preview(lang){
-  const body = $('#body_'+lang).value;
-  const title = $('#title_'+lang).value;
-  openModal(lang==='ko'?'미리보기':'Preview',
-    `<div class="preview"><h1 style="font-size:22px;margin:0 0 14px">${title||'(제목 없음)'}</h1>${md2html(body)}</div>`,
-    [['닫기', closeModal]]);
+function payload(){
+  const names = fileNames();
+  return {
+    category: meta.category, slug: $('#slug').value.trim(), date: $('#date').value,
+    title_ko: doc.ko.title, title_en: doc.en.title,
+    tags_ko: meta.tags_ko.split(',').map(s=>s.trim()).filter(Boolean),
+    tags_en: meta.tags_en.split(',').map(s=>s.trim()).filter(Boolean),
+    desc_ko: meta.desc_ko, desc_en: meta.desc_en,
+    body_ko: mdOf('ko'), body_en: mdOf('en'),
+    photos: photos.map(p=>({src:p.src, name:p.name, label:(p.label||'photo'), hero:!!p.hero, dir:p.dir||''})),
+  };
 }
 
-// ───────── 점검 / 발행 ─────────
-async function check(){
-  const r = await (await fetch('/api/validate',{method:'POST',body:JSON.stringify(collect())})).json();
-  const box = $('#issues'); box.innerHTML='';
-  $('#issuePanel').style.display = r.issues.length ? '' : 'none';
-  r.issues.forEach(i => box.append(el('div','issue '+(i.level==='error'?'error':'warn'),
-    (i.level==='error'?'❌ ':'⚠️ ')+i.msg)));
-  if (!r.issues.length) {
-    $('#issuePanel').style.display='';
-    box.append(el('div','issue warn','✅ 문제 없습니다. 발행할 수 있습니다.'));
-    box.lastChild.style.color='var(--ok)'; box.lastChild.style.borderColor='var(--ok)';
-    box.lastChild.style.background='transparent';
-  }
-  return r.issues;
+$('#slug').oninput = () => { mark(); updateChip(); };
+$('#date').oninput = () => { mark(); updateChip(); };
+function updateChip(){
+  const s = $('#slug').value.trim(), c = $('#chip');
+  $('#pathHint').textContent = s ? `_posts/${meta.category}/${$('#date').value}-${s}.md` : '';
+  if (!s) { c.className='chip'; c.textContent='주소를 입력하세요'; }
+  else if (CFG.slugs.includes(s)) { c.className='chip bad'; c.textContent='같은 주소의 글이 이미 있습니다'; }
+  else { c.className='chip ok'; c.textContent='새 글'; }
 }
-$('#checkBtn').onclick = check;
 
-let needOverwrite = false;
+/* ── 시트 ── */
+function sheet(title, html, buttons){
+  $('#shTitle').textContent = title;
+  $('#shBody').innerHTML = html;
+  const f = $('#shFoot'); f.innerHTML='';
+  (buttons||[]).forEach(([t,fn,go]) => {
+    const b = el('button','btn'+(go?' go':''), t); b.onclick = fn; f.append(b);
+  });
+  $('#mask').classList.add('on');
+}
+function close(){ $('#mask').classList.remove('on'); }
+$('#mask').onclick = e => { if (e.target.id==='mask') close(); };
+document.addEventListener('keydown', e => { if (e.key==='Escape') close(); });
 
-$('#publishBtn').onclick = async () => {
-  const issues = await check();
-  const errs = issues.filter(i => i.level === 'error');
-  // '이미 발행된 글' 은 확인만 받으면 진행 가능, 나머지 오류는 발행 자체를 막는다
-  needOverwrite = errs.some(i => i.code === 'exists');
-  const blocking = errs.filter(i => i.code !== 'exists');
-  if (blocking.length) { window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}); return; }
+/* ── 발행 ── */
+$('#pubBtn').onclick = async () => {
+  sheet('발행 설정', `
+    <div class="note ok">분류 <b>${CFG.categories[meta.category].ko}</b> · 주소 <b>${esc($('#slug').value.trim()||'(없음)')}</b></div>
+    <div class="fld"><span>태그 (쉼표로 구분)</span>
+      <input id="f_tk" value="${esc(meta.tags_ko)}" placeholder="일본, 닛코, 온천"></div>
+    <div class="fld"><span>검색 설명 — 한국어</span>
+      <textarea id="f_dk" rows="2" placeholder="검색 결과에 보이는 설명">${esc(meta.desc_ko)}</textarea>
+      <div class="cnt" id="c_dk"></div></div>
+    <div class="fld"><span>Tags (English)</span>
+      <input id="f_te" value="${esc(meta.tags_en)}" placeholder="Japan, Nikko, Onsen"></div>
+    <div class="fld"><span>검색 설명 — English</span>
+      <textarea id="f_de" rows="2">${esc(meta.desc_en)}</textarea>
+      <div class="cnt" id="c_de"></div></div>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13.5px">
+      <input type="checkbox" id="f_push" checked> 발행 후 사이트에 바로 반영 (푸시)</label>
+    <div id="f_issues"></div>
+  `, [['취소', close], ['다음', step2, true]]);
 
-  const d = collect();
-  const names = resolveNames();
-  const push = $('#doPush').checked;
-  const list = photos.map((p,i)=>`  ${p.name||p.src.split('/').pop()}  →  ${names[i]}${p.hero?'   ⭐대표':''}`).join('\n');
-
-  openModal(needOverwrite ? '⚠️ 덮어쓰기 확인' : '발행 확인', `
-    ${needOverwrite ? `<div class="issue error">
-      <b>이미 발행된 글을 덮어씁니다.</b><br>
-      <code>${d.date}-${d.slug}</code> 의 기존 내용은 사라지고 되돌릴 수 없습니다.
-      새 글이라면 <b>취소</b>하고 슬러그나 날짜를 바꾸세요.
-      <label style="display:flex;gap:7px;align-items:center;margin-top:9px;font-weight:600">
-        <input type="checkbox" id="owAgree"> 기존 글을 덮어쓰는 데 동의합니다
-      </label></div>` : '<div>다음 내용으로 발행합니다.</div>'}
-    <pre class="log">글:
-  _posts/${d.category}/${d.date}-${d.slug}.md
-  ${d.body_en.trim()? `_en_posts/${d.category}/${d.date}-${d.slug}-en.md` : '(영문 글 없음)'}
-
-사진 ${photos.length}장 → assets/images/${d.category}/${d.slug}/
-${list||'  (없음)'}
-
-git: add → commit${push?' → push (자동 배포됨)':' (푸시 안 함)'}</pre>
-    ${push?'<div class="issue warn">⚠️ 푸시하면 실제 사이트에 공개됩니다.</div>':''}
-    <label style="font-size:13px;color:var(--muted)">커밋 메시지<input id="cmsg" style="width:100%;margin-top:5px" value="${needOverwrite?'Update':'Add'} ${d.slug} post"></label>
-  `, [['취소', closeModal], [needOverwrite ? '덮어쓰고 발행' : '발행', doPublish, true]]);
+  const sync = () => {
+    meta.tags_ko=$('#f_tk').value; meta.tags_en=$('#f_te').value;
+    meta.desc_ko=$('#f_dk').value; meta.desc_en=$('#f_de').value; mark(); updateChip();
+    [['f_dk','c_dk'],['f_de','c_de']].forEach(([a,b])=>{
+      const n=$('#'+a).value.length; $('#'+b).textContent=`${n} / 160`;
+      $('#'+b).classList.toggle('over', n>160);
+    });
+  };
+  ['f_tk','f_te','f_dk','f_de'].forEach(id => $('#'+id).oninput = sync);
+  sync();
 };
 
-async function doPublish(){
-  if (needOverwrite && !($('#owAgree') && $('#owAgree').checked)) {
-    alert('기존 글을 덮어쓰려면 동의 체크가 필요합니다.');
+async function step2(){
+  const push = $('#f_push').checked;
+  const p = payload();
+  const r = await (await fetch('/api/validate',{method:'POST',body:JSON.stringify(p)})).json();
+  const errs = r.issues.filter(i=>i.level==='error');
+  needOw = errs.some(i=>i.code==='exists');
+  const block = errs.filter(i=>i.code!=='exists');
+
+  if (block.length) {
+    $('#f_issues').innerHTML = block.map(i=>`<div class="note err">❌ ${esc(i.msg)}</div>`).join('');
     return;
   }
-  const d = collect();
-  d.push = $('#doPush').checked;
-  d.git = true;
-  d.overwrite = needOverwrite;
-  d.commit_msg = $('#cmsg') ? $('#cmsg').value : undefined;
-  openModal('발행 중…', '<pre class="log">처리하고 있습니다…</pre>', []);
-  const res = await fetch('/api/publish',{method:'POST',body:JSON.stringify(d)});
-  const r = await res.json();
-  if (!r.ok) {
-    return openModal('발행 실패',
-      `<pre class="log">${(r.issues? r.issues.map(i=>i.msg).join('\n') : (r.error+'\n\n'+(r.trace||'')))}</pre>`,
-      [['닫기', closeModal]]);
-  }
-  CFG.slugs.push(d.slug);
-  needOverwrite = false;
-  openModal('발행 완료 🎉',
-    `<pre class="log">${r.log.join('\n')}</pre>` +
-    (r.git? `<details><summary style="cursor:pointer;font-size:13px;color:var(--muted)">git 로그 보기</summary><pre class="log">${r.git}</pre></details>`:'') +
-    `<div class="hint">이 글은 발행됐습니다. 이어서 다른 글을 쓰려면 <b>새 글 쓰기</b>를 누르세요.</div>`,
-    [['닫기', closeModal], ['새 글 쓰기', () => { resetAll(); closeModal(); }, true]]);
+  const warns = r.issues.filter(i=>i.level==='warn');
+  const names = fileNames();
+  const list = photos.map((x,i)=>`  ${x.name||'사진'}  →  ${names[i]}${x.hero?'   ★대표':''}`).join('\n');
+
+  sheet(needOw ? '⚠️ 덮어쓰기 확인' : '이대로 발행할까요?', `
+    ${needOw ? `<div class="note err"><b>이미 발행된 글을 덮어씁니다.</b><br>
+        <code>${p.date}-${p.slug}</code> 의 기존 내용은 되돌릴 수 없습니다.
+        <label style="display:flex;gap:7px;margin-top:9px;font-weight:700">
+          <input type="checkbox" id="ow"> 덮어쓰기에 동의합니다</label></div>` : ''}
+    ${warns.map(i=>`<div class="note warn">⚠️ ${esc(i.msg)}</div>`).join('')}
+    <pre class="log">글
+  _posts/${p.category}/${p.date}-${p.slug}.md
+  ${p.body_en.trim() ? `_en_posts/${p.category}/${p.date}-${p.slug}-en.md` : '(영문 글 없음)'}
+
+사진 ${photos.length}장 → assets/images/${p.category}/${p.slug}/
+${list || '  (없음)'}
+
+git: add → commit${push ? ' → push (사이트 반영)' : ' (푸시 안 함)'}</pre>
+    <div class="fld"><span>커밋 메시지</span>
+      <input id="cmsg" value="${needOw?'Update':'Add'} ${esc(p.slug)} post"></div>
+  `, [['뒤로', () => $('#pubBtn').click()], [needOw?'덮어쓰고 발행':'발행', () => doPublish(push), true]]);
 }
 
-// 발행이 끝난 내용을 그대로 두면 모르고 다시 눌러 덮어쓰게 된다
+async function doPublish(push){
+  if (needOw && !($('#ow') && $('#ow').checked)) return alert('덮어쓰기에 동의해야 발행할 수 있습니다.');
+  const p = payload();
+  p.push = push; p.git = true; p.overwrite = needOw;
+  p.commit_msg = $('#cmsg') ? $('#cmsg').value : undefined;
+
+  sheet('발행 중…', '<pre class="log">처리하고 있습니다…</pre>', []);
+  const r = await (await fetch('/api/publish',{method:'POST',body:JSON.stringify(p)})).json();
+  if (!r.ok) {
+    return sheet('발행 실패',
+      `<pre class="log">${esc(r.issues ? r.issues.map(i=>i.msg).join('\n') : (r.error||'') + '\n' + (r.trace||''))}</pre>`,
+      [['닫기', close]]);
+  }
+  CFG.slugs.push(p.slug); needOw = false;
+  sheet('발행 완료 🎉',
+    `<pre class="log">${esc(r.log.join('\n'))}</pre>` +
+    (r.git ? `<details><summary style="cursor:pointer;font-size:13px;color:var(--muted)">git 기록 보기</summary><pre class="log">${esc(r.git)}</pre></details>` : ''),
+    [['닫기', close], ['새 글 쓰기', () => { resetAll(); close(); }, true]]);
+}
+
+/* ── 새 글 ── */
 function resetAll(){
-  F.forEach(k => {
-    if (k === 'category') return;
-    const n = $('#'+k); if (!n) return;
-    n.value = (k === 'date') ? CFG.today : '';
-  });
-  photos = []; needOverwrite = false;
-  $('#issuePanel').style.display = 'none';
-  renderPhotos(); updatePaths(); count();
-  fetch('/api/draft', {method:'POST', body: JSON.stringify({})});
-  $('#saveHint').textContent = '새 글';
-  window.scrollTo({top:0, behavior:'smooth'});
+  $('#slug').value=''; $('#date').value=CFG.today;
+  photos=[]; needOw=false; editingPost=null;
+  $('#editing').style.display='none';
+  doc.ko={title:'',blocks:[]}; doc.en={title:'',blocks:[]};
+  meta={category:meta.category, tags_ko:'', tags_en:'', desc_ko:'', desc_en:''};
+  lang='ko';
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x.dataset.lang==='ko'));
+  $('#cat').value = meta.category;
+  render(); updateChip();
+  fetch('/api/draft',{method:'POST',body:JSON.stringify({})});
+  $('#saveHint').textContent='새 글';
+  $('#scroll').scrollTo({top:0});
 }
 $('#newBtn').onclick = () => {
-  const has = $('#slug').value || $('#title_ko').value || $('#body_ko').value || photos.length;
-  if (has && !confirm('지금 작성 중인 내용을 비우고 새 글을 시작할까요?')) return;
+  const has = $('#slug').value || doc.ko.title || mdOf('ko').trim() || photos.length;
+  if (has && !confirm('지금 쓰던 내용을 비우고 새 글을 시작할까요?')) return;
   resetAll();
 };
 
-// ───────── 모달 ─────────
-function openModal(title, html, buttons){
-  $('#modalTitle').textContent = title;
-  $('#modalBody').innerHTML = html;
-  const foot = $('#modalFoot'); foot.innerHTML='';
-  (buttons||[]).forEach(([label, fn, primary]) => {
-    const b = el('button','btn'+(primary?' primary':''), label);
-    b.onclick = fn; foot.append(b);
-  });
-  $('#modal').classList.add('open');
+/* ═══════════ 기존 글 불러오기 ═══════════
+   마크다운을 블록으로 되돌린다. 되돌린 뒤 다시 마크다운으로 만들어 원본과
+   대조해서(왕복 검사), 한 글자라도 다르면 편집을 막는다 — 저장할 때
+   내용이 조용히 바뀌는 사고를 막기 위한 안전장치.                        */
+
+function mdInline2html(s){
+  return s
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+    .replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<i>$2</i>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g,
+      (_,t,u) => `<a href="${u.replace(/"/g,'&quot;')}">${t}</a>`);
 }
-function closeModal(){ $('#modal').classList.remove('open'); }
-$('#modal').addEventListener('click', e => { if (e.target.id==='modal') closeModal(); });
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+
+/* 문단으로 이어 붙이면 안 되는 줄 */
+function isSpecialLine(s){
+  const t = (s||'').trim();
+  return /^---+$/.test(t) || /^#{2,3}\s/.test(t) || /^>/.test(t)
+      || /^!\[[^\]]*\]\([^)\s]+\)$/.test(t) || /^</.test(t)
+      || /^\s*-\s+/.test(s) || /^\s*\d+\.\s+/.test(s);
+}
+
+function md2blocks(body, photos){
+  const lines = (body||'').replace(/\r\n/g,'\n').split('\n');
+  const blocks = [];
+  let i = 0;
+  // glue = 원본에서 이 블록 바로 다음 줄이 빈 줄이 아니었다는 뜻.
+  // (사진과 설명글이 빈 줄 없이 붙어 있는 글이 많아 그대로 되살려야 한다)
+  const push = b => {
+    b.id = uid();
+    b.glue = (i + 1 < lines.length && lines[i + 1].trim() !== '');
+    blocks.push(b);
+  };
+
+  for (i = 0; i < lines.length; i++) {
+    const raw = lines[i];
+    if (!raw.trim()) continue;
+    const ln = raw.trim();
+
+    if (/^---+$/.test(ln)) { push({t:'hr'}); continue; }
+
+    // 직접 쓴 HTML(<div class="img-row"> 같은 것)은 편집기가 표현할 수 없으니
+    // 원문 그대로 담아 두고, 내보낼 때도 손대지 않는다.
+    if (ln.startsWith('<') && !/^<(p|h2|h3|blockquote) style="/.test(ln)) {
+      const buf = [raw];
+      while (i + 1 < lines.length && lines[i + 1].trim()) { buf.push(lines[i + 1]); i++; }
+      push({t:'raw', raw: buf.join('\n')});
+      continue;
+    }
+
+    // 우리가 내보낸 정렬·들여쓰기 블록
+    let m = /^<(p|h2|h3|blockquote) style="([^"]*)">([\s\S]*)<\/\1>$/.exec(ln);
+    if (m) {
+      const st = m[2];
+      const t = m[1]==='blockquote' ? 'quote' : m[1]==='p' ? 'p' : m[1];
+      const a = (/text-align:\s*(center|right)/.exec(st)||[])[1];
+      const ind = Math.round(parseFloat((/padding-left:\s*([\d.]+)em/.exec(st)||[])[1] || 0) / 2.2);
+      push({t, html:m[3], a, ind: ind||0});
+      continue;
+    }
+
+    // 사진
+    m = /^!\[([^\]]*)\]\(([^)\s]+)\)$/.exec(ln);
+    if (m) {
+      const path = m[2];
+      const dir = path.slice(0, path.lastIndexOf('/'));
+      const file = path.slice(path.lastIndexOf('/')+1);
+      let p = photos.find(x => x.src === path.replace(/^\//,''));
+      if (!p) {
+        p = {id:uid(), src:path.replace(/^\//,''), name:file, dir, keepName:file,
+             label:file.replace(/\.[a-z0-9]+$/i,''), hero:false,
+             thumb:'/api/thumb?path=' + encodeURIComponent(path.replace(/^\//,''))};
+        photos.push(p);
+      }
+      push({t:'img', pid:p.id, cap:m[1]});
+      continue;
+    }
+
+    m = /^##\s+(.*)$/.exec(ln);   if (m) { push({t:'h2', html:mdInline2html(m[1])}); continue; }
+    m = /^###\s+(.*)$/.exec(ln);  if (m) { push({t:'h3', html:mdInline2html(m[1])}); continue; }
+    m = /^>(\s*)(.*)$/.exec(ln);
+    if (m) { push({t:'quote', html:mdInline2html(m[2]), pad:m[1]}); continue; }
+
+    m = /^(\s*)-\s+(.*)$/.exec(raw);
+    if (m) { push({t:'li', html:mdInline2html(m[2]), ind: Math.floor(m[1].length/3)}); continue; }
+    m = /^(\s*)\d+\.\s+(.*)$/.exec(raw);
+    if (m) { push({t:'ol', html:mdInline2html(m[2]), ind: Math.floor(m[1].length/3)}); continue; }
+
+    // 빈 줄 없이 이어진 줄들은 한 문단이다.
+    // _config.yml 의 hard_wrap: true 때문에 그 줄바꿈이 그대로 <br> 로 살아난다.
+    const buf = [ln];
+    while (i + 1 < lines.length) {
+      const nx = lines[i + 1];
+      if (!nx.trim() || isSpecialLine(nx)) break;
+      buf.push(nx.trim());
+      i++;
+    }
+    push({t:'p', html: buf.map(mdInline2html).join('<br>')});
+  }
+  if (!blocks.length) push({t:'p', html:''});
+  return blocks;
+}
+
+// 왕복 비교용 정규화. 줄 끝 공백과 '빈 줄 여러 개'는 렌더링 결과가 같으므로
+// 차이로 치지 않는다. 그 외에는 한 글자라도 다르면 편집을 막는다.
+const norm = s => (s||'').replace(/\r\n/g,'\n')
+                         .replace(/[ \t]+$/gm,'')
+                         .replace(/\n{3,}/g,'\n\n')
+                         .trim();
+
+let editingPost = null;   // 수정 중인 글 (없으면 새 글)
+
+$('#listBtn').onclick = async () => {
+  const r = await (await fetch('/api/posts')).json();
+  sheet(`글 목록 (${r.posts.length}개)`, `
+    <input id="q" placeholder="제목·주소로 찾기" style="border:1px solid var(--line);border-radius:7px;padding:9px 11px">
+    <div id="plist" style="display:flex;flex-direction:column;gap:6px;max-height:52vh;overflow:auto"></div>`,
+    [['닫기', close]]);
+
+  const box = $('#plist');
+  const draw = (kw='') => {
+    box.innerHTML='';
+    r.posts.filter(p => !kw || (p.title+p.slug).toLowerCase().includes(kw.toLowerCase()))
+     .forEach(p => {
+      const row = el('button');
+      row.style.cssText = 'display:flex;gap:11px;align-items:center;text-align:left;padding:9px;border:1px solid var(--line);border-radius:9px;background:var(--paper)';
+      row.onmouseenter = () => row.style.borderColor = 'var(--accent)';
+      row.onmouseleave = () => row.style.borderColor = 'var(--line)';
+      const th = el('img'); th.style.cssText='width:52px;height:52px;object-fit:cover;border-radius:7px;background:var(--bg);flex:none';
+      if (p.image) th.src = '/api/thumb?path=' + encodeURIComponent(p.image.replace(/^\//,''));
+      const info = el('div'); info.style.cssText='flex:1;min-width:0';
+      info.innerHTML = `<div style="font-size:13.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(p.title)}</div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:2px">${p.date} · ${CFG.categories[p.category]?CFG.categories[p.category].ko:p.category} · ${esc(p.slug)} ${p.has_en?'· 영문 O':'· 영문 X'}</div>`;
+      row.append(th, info);
+      row.onclick = () => loadPost(p);
+      box.append(row);
+    });
+    if (!box.children.length) box.append(el('div','note warn','찾는 글이 없습니다.'));
+  };
+  draw();
+  $('#q').oninput = e => draw(e.target.value);
+};
+
+async function loadPost(p){
+  const d = await (await fetch(`/api/post?slug=${encodeURIComponent(p.slug)}&date=${p.date}&category=${p.category}`)).json();
+  if (d.error) return alert(d.error);
+
+  const ph = [];
+  const nd = { ko:{title:'',blocks:[]}, en:{title:'',blocks:[]} };
+  const bad = [];
+
+  for (const L of ['ko','en']) {
+    const src = d[L];
+    if (!src) { nd[L] = {title:'', blocks:[{id:uid(),t:'p',html:''}]}; continue; }
+    let title = src.front.title || '';
+    if (L==='ko') title = title.replace(/^\[[^\]]+\]\s*/, '');   // 말머리는 발행할 때 다시 붙는다
+    nd[L] = { title, blocks: md2blocks(src.body, ph) };
+  }
+
+  // 대표 이미지 표시
+  const heroPath = (d.ko && d.ko.front.image || '').replace(/^\//,'');
+  const hero = ph.find(x => x.src === heroPath);
+  if (hero) hero.hero = true; else if (ph.length) ph[0].hero = true;
+
+  // ── 왕복 검사 ──
+  const keep = {doc:{ko:doc.ko,en:doc.en}, photos, cat:meta.category, slug:$('#slug').value};
+  doc.ko = nd.ko; doc.en = nd.en; photos = ph;
+  meta.category = p.category; $('#cat').value = p.category;
+  $('#slug').value = p.slug; $('#date').value = p.date;
+  for (const L of ['ko','en']) {
+    if (!d[L]) continue;
+    if (norm(mdOf(L)) !== norm(d[L].body)) bad.push(L==='ko'?'한국어':'영문');
+  }
+
+  if (bad.length) {
+    // 원래 상태로 되돌리고 편집을 막는다
+    doc.ko = keep.doc.ko; doc.en = keep.doc.en; photos = keep.photos;
+    meta.category = keep.cat; $('#cat').value = keep.cat; $('#slug').value = keep.slug;
+    render(); updateChip();
+    return sheet('이 글은 편집기로 열 수 없습니다', `
+      <div class="note err"><b>${bad.join('·')} 본문</b>에 편집기가 그대로 재현하지 못하는 내용이 있습니다.
+      (표·원본 HTML·특수 문법 등)<br><br>
+      억지로 열어 저장하면 <b>원본이 손상됩니다.</b> 이 글은 VSCode나 오비시디언에서 고쳐주세요.</div>
+      <pre class="log">${esc(d.ko.path)}</pre>`, [['닫기', close]]);
+  }
+
+  meta.tags_ko = (d.ko.front.tags||[]).join(', ');
+  meta.desc_ko = d.ko.front.description || '';
+  meta.tags_en = (d.en && d.en.front.tags || []).join(', ');
+  meta.desc_en = (d.en && d.en.front.description) || '';
+  editingPost = p;
+  $('#editing').style.display=''; $('#editing').className='chip ok';
+  $('#editing').textContent = '수정 중';
+  lang='ko'; document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x.dataset.lang==='ko'));
+  close(); render(); updateChip(); mark();
+  $('#scroll').scrollTo({top:0});
+}
+
+/* 붙여넣기는 서식을 버리고 글자만 — 다른 곳에서 복사해도 글이 깨지지 않게 */
+document.addEventListener('paste', e => {
+  const n = curBlock(); if (!n) return;
+  e.preventDefault();
+  const t = (e.clipboardData || window.clipboardData).getData('text/plain');
+  document.execCommand('insertText', false, t);
+});
 </script>
 </body>
 </html>

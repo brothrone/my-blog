@@ -107,6 +107,69 @@ def run(cmd, cwd=BLOG):
     return p.returncode, (p.stdout or "") + (p.stderr or "")
 
 
+def parse_front(text: str):
+    """프론트매터를 갈라낸다. 이 블로그가 쓰는 단순한 형태만 다룬다."""
+    if not text.startswith("---"):
+        return {}, text
+    end = text.find("\n---", 3)
+    if end < 0:
+        return {}, text
+    raw, body = text[3:end].strip("\n"), text[end + 4:].lstrip("\n")
+
+    fm, key = {}, None
+    for line in raw.split("\n"):
+        if re.match(r"^\s+-\s", line):                 # tags 같은 목록 항목
+            if key:
+                fm.setdefault(key, [])
+                if isinstance(fm[key], list):
+                    fm[key].append(line.strip()[1:].strip())
+            continue
+        m = re.match(r"^([A-Za-z_][A-Za-z0-9_]*):\s*(.*)$", line)
+        if not m:
+            continue
+        key, val = m.group(1), m.group(2).strip()
+        if val == "":
+            fm[key] = []
+        else:
+            if len(val) > 1 and val[0] == val[-1] and val[0] in "\"'":
+                val = val[1:-1].replace('\\"', '"').replace("\\\\", "\\")
+            fm[key] = val
+    return fm, body
+
+
+def post_files(slug: str, date: str, cat: str):
+    return (BLOG / "_posts" / cat / f"{date}-{slug}.md",
+            BLOG / "_en_posts" / cat / f"{date}-{slug}-en.md")
+
+
+def list_posts():
+    out = []
+    base = BLOG / "_posts"
+    if not base.exists():
+        return out
+    for md in base.rglob("*.md"):
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})-(.+)\.md$", md.name)
+        if not m:
+            continue
+        date, slug = m.group(1), m.group(2)
+        cat = md.parent.name
+        try:
+            fm, _ = parse_front(md.read_text(encoding="utf-8"))
+        except Exception:
+            fm = {}
+        _, en = post_files(slug, date, cat)
+        out.append({
+            "slug": slug, "date": date, "category": cat,
+            "title": fm.get("title", slug),
+            "image": fm.get("image", ""),
+            "tags": fm.get("tags", []) if isinstance(fm.get("tags"), list) else [],
+            "has_en": en.exists(),
+            "path": str(md.relative_to(BLOG)),
+        })
+    out.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
+    return out
+
+
 def find_existing(slug: str) -> list[Path]:
     """같은 슬러그를 쓰는 글 파일을 모두 찾는다 (날짜가 달라도 URL이 겹치므로)"""
     hits = []
@@ -316,20 +379,28 @@ def publish(d: dict) -> dict:
     # 1) 사진 변환 + 이름 정리
     photos = resolve_photo_names(d.get("photos") or [])
     hero = ""
-    touched = []
+    touched_dirs = set()
     for p in photos:
         src = Path(p["src"])
         if not src.is_absolute():
             src = BLOG / src
+        # 기존 글을 고칠 때는 사진이 원래 있던 폴더를 그대로 쓴다.
+        # 슬러그와 폴더 이름이 다른 글이 있어서, 옮기면 사이트의 이미지 주소가 바뀐다.
+        pdir = (p.get("dir") or web_dir).lstrip("/")
+        dst = BLOG / pdir / p["filename"]
         if not src.exists():
+            if dst.exists():          # 이미 자리에 있는 사진 (수정 중인 글)
+                touched_dirs.add(dst.parent)
+                if p.get("hero"):
+                    hero = "/" + str(dst.relative_to(BLOG))
+                continue
             log.append(f"⚠️  원본 없음, 건너뜀: {src.name}")
             continue
-        dst = img_dir / p["filename"]
         ok, msg = convert_image(src, dst)
         log.append(("✅ " if ok else "❌ ") + msg)
         if not ok:
             continue
-        touched.append(dst)
+        touched_dirs.add(dst.parent)
         # 원본이 저장소 안의 변환 전 파일이면 삭제 (기존 스크립트와 동일 동작)
         if src.exists() and src.resolve() != dst.resolve():
             if src.resolve().is_relative_to(STAGING.resolve()):
@@ -338,7 +409,7 @@ def publish(d: dict) -> dict:
                 src.unlink()
                 log.append(f"   원본 삭제: {src.name}")
         if p.get("hero"):
-            hero = f"{web_dir}/{p['filename']}"
+            hero = "/" + str(dst.relative_to(BLOG))
 
     if not hero and photos:
         hero = f"{web_dir}/{photos[0]['filename']}"
@@ -372,8 +443,9 @@ def publish(d: dict) -> dict:
     if d.get("git", True):
         paths = [str(p.relative_to(BLOG)) for p in written]
         # 사진이 없으면 이미지 폴더 자체가 없다 — 없는 경로를 add 하면 git이 실패한다
-        if img_dir.exists() and any(img_dir.iterdir()):
-            paths.append(str(img_dir.relative_to(BLOG)))
+        for dd in sorted(touched_dirs):
+            if dd.exists() and any(dd.iterdir()):
+                paths.append(str(dd.relative_to(BLOG)))
         code, out = run(["git", "add", *paths])
         git_log.append(f"$ git add {' '.join(paths)}\n{out}".strip())
         if code != 0:
@@ -459,6 +531,31 @@ class Handler(BaseHTTPRequestHandler):
                 "today": datetime.now().strftime("%Y-%m-%d"),
                 "blog": str(BLOG),
             })
+
+        if u.path == "/api/posts":
+            return self._send(200, {"posts": list_posts()})
+
+        if u.path == "/api/post":
+            slug = (q.get("slug") or [""])[0]
+            date = (q.get("date") or [""])[0]
+            cat = (q.get("category") or [""])[0]
+            ko_p, en_p = post_files(slug, date, cat)
+            if not ko_p.exists():
+                return self._send(404, {"error": "글을 찾을 수 없습니다."})
+            out = {}
+            for name, p in (("ko", ko_p), ("en", en_p)):
+                if not p.exists():
+                    out[name] = None
+                    continue
+                text = p.read_text(encoding="utf-8")
+                fm, body = parse_front(text)
+                out[name] = {"front": fm, "body": body,
+                             "path": str(p.relative_to(BLOG))}
+            img_dir = BLOG / "assets" / "images" / cat / slug
+            out["images"] = ([str(f.relative_to(BLOG)) for f in sorted(img_dir.iterdir())
+                              if f.suffix in IMAGE_EXT and not f.name.startswith(".")]
+                             if img_dir.exists() else [])
+            return self._send(200, out)
 
         if u.path == "/api/folder":
             cat = (q.get("category") or [""])[0]
