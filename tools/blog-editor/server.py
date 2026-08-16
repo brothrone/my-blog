@@ -19,6 +19,7 @@ import subprocess
 import threading
 import time
 import urllib.parse
+import urllib.request
 import webbrowser
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -276,6 +277,107 @@ def existing_slugs():
 
 
 NOTES = WORK / "notes"
+CONFIG = WORK / "config.json"        # 토큰 등 (저장소에 올라가지 않는다)
+
+
+def load_cfg():
+    try:
+        return json.loads(CONFIG.read_text("utf-8"))
+    except Exception:
+        return {}
+
+
+def save_cfg(d):
+    WORK.mkdir(parents=True, exist_ok=True)
+    cur = load_cfg()
+    cur.update(d)
+    CONFIG.write_text(json.dumps(cur, ensure_ascii=False, indent=2), encoding="utf-8")
+    return cur
+
+
+def seo_scan():
+    """검색 노출에 걸리는 것들을 글마다 짚어준다."""
+    out = []
+    en_slugs = set()
+    base_en = BLOG / "_en_posts"
+    if base_en.exists():
+        for md in base_en.rglob("*.md"):
+            m = re.match(r"^\d{4}-\d{2}-\d{2}-(.+)-en\.md$", md.name)
+            if m:
+                en_slugs.add(m.group(1))
+
+    for md in sorted((BLOG / "_posts").rglob("*.md"), reverse=True):
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})-(.+)\.md$", md.name)
+        if not m:
+            continue
+        date, slug = m.group(1), m.group(2)
+        fm, body = parse_front(md.read_text(encoding="utf-8"))
+        desc = fm.get("description") or ""
+        if isinstance(desc, list):
+            desc = ""
+        tags = fm.get("tags") if isinstance(fm.get("tags"), list) else []
+
+        issues = []
+        if not desc:
+            issues.append("설명 없음")
+        elif len(desc) < 70:
+            issues.append(f"설명 짧음 ({len(desc)}자)")
+        elif len(desc) > 160:
+            issues.append(f"설명 김 ({len(desc)}자)")
+        if not fm.get("image"):
+            issues.append("대표사진 없음")
+        if slug not in en_slugs:
+            issues.append("영문판 없음")
+        if len(tags) < 3:
+            issues.append(f"태그 {len(tags)}개")
+        # 사진 설명(alt) 비어 있는 것
+        blank_alt = len(re.findall(r"!\[\s*\]\(", body)) + len(re.findall(r'alt=""', body))
+        if blank_alt:
+            issues.append(f"사진 설명 없음 {blank_alt}장")
+
+        out.append({
+            "slug": slug, "date": date, "category": md.parent.name,
+            "title": fm.get("title", slug), "description": desc,
+            "image": fm.get("image", ""), "tags": tags,
+            "has_en": slug in en_slugs, "issues": issues,
+            "path": str(md.relative_to(BLOG)),
+        })
+    return out
+
+
+def set_front_field(path: Path, key: str, value: str):
+    """본문은 그대로 두고 프론트매터의 한 줄만 바꾼다."""
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return False
+    end = text.find("\n---", 3)
+    if end < 0:
+        return False
+    head, tail = text[:end], text[end:]
+    line = f"{key}: {yaml_str(value)}"
+    pat = re.compile(rf"^{re.escape(key)}:.*$", re.M)
+    head = pat.sub(line, head) if pat.search(head) else head.rstrip("\n") + "\n" + line
+    path.write_text(head + tail, encoding="utf-8")
+    return True
+
+
+def repo_state():
+    _, branch = run(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+    _, ahead = run(["git", "rev-list", "--count", "@{u}..HEAD"])
+    _, dirty = run(["git", "status", "--porcelain"])
+    _, last = run(["git", "log", "-1", "--format=%h|%s|%cr"])
+    changed = [l for l in dirty.splitlines() if l.strip()
+               and not l.strip().endswith(".DS_Store")]
+    parts = last.strip().split("|")
+    return {
+        "branch": branch.strip(),
+        "ahead": int(ahead.strip() or 0) if ahead.strip().isdigit() else 0,
+        "changed": len(changed),
+        "changed_files": [c[3:] for c in changed[:8]],
+        "last": {"hash": parts[0] if parts else "", 
+                 "subject": parts[1] if len(parts) > 1 else "",
+                 "when": parts[2] if len(parts) > 2 else ""},
+    }
 
 
 def write_notes(d: dict) -> Path:
@@ -735,6 +837,33 @@ class Handler(BaseHTTPRequestHandler):
                 "blog": str(BLOG),
             })
 
+        if u.path == "/api/manage":
+            return self._send(200, {"seo": seo_scan(), "repo": repo_state(),
+                                    "has_token": bool(load_cfg().get("goat_token"))})
+
+        if u.path == "/api/stats":
+            c = load_cfg()
+            tok, site = c.get("goat_token"), c.get("goat_site", "brothrone")
+            if not tok:
+                return self._send(200, {"ok": False, "need_token": True})
+            def get(path):
+                rq = urllib.request.Request(
+                    f"https://{site}.goatcounter.com/api/v0/{path}",
+                    headers={"Authorization": "Bearer " + tok})
+                with urllib.request.urlopen(rq, timeout=12) as r:
+                    return json.loads(r.read())
+            try:
+                today = datetime.now().date()
+                start = (today.replace(day=1) if today.day > 7
+                         else today.replace(month=max(1, today.month - 1), day=1))
+                total = get("stats/total?start=2020-01-01&end=2099-12-31")
+                pages = get(f"stats/hits?start={start}&end={today}&limit=10")
+                return self._send(200, {"ok": True, "total": total.get("total"),
+                                        "since": str(start),
+                                        "pages": pages.get("hits", [])[:10]})
+            except Exception as e:
+                return self._send(200, {"ok": False, "error": str(e)[:200]})
+
         if u.path == "/api/folders":
             # assets/images 아래 사진이 든 폴더를 훑어서 고를 수 있게 한다
             out = []
@@ -884,6 +1013,25 @@ class Handler(BaseHTTPRequestHandler):
                     added.append(str(out.relative_to(BLOG)))
                 return self._send(200, {"ok": True, "added": added,
                                         "dir": str(dest.relative_to(BLOG))})
+
+            if u.path == "/api/meta":
+                d = self._body()
+                f = BLOG / d.get("path", "")
+                try:
+                    f.resolve().relative_to((BLOG / "_posts").resolve())
+                except ValueError:
+                    try:
+                        f.resolve().relative_to((BLOG / "_en_posts").resolve())
+                    except ValueError:
+                        return self._send(403, {"ok": False, "error": "허용되지 않은 경로"})
+                if not f.is_file():
+                    return self._send(404, {"ok": False, "error": "글을 찾을 수 없습니다."})
+                ok = set_front_field(f, d.get("key", "description"), d.get("value", ""))
+                return self._send(200, {"ok": ok})
+
+            if u.path == "/api/config":
+                return self._send(200, {"ok": True,
+                                        "has_token": bool(save_cfg(self._body()).get("goat_token"))})
 
             if u.path == "/api/mkdir":
                 d = self._body()

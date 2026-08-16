@@ -171,6 +171,30 @@ button{cursor:pointer;background:none;border:none}
   padding:16px 0 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;
 }
 .memo-bar .memo-sub{margin:0;flex:1;min-width:200px}
+/* 관리 탭 */
+.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:24px}
+.mg-card{border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.mg-card .k{font-size:11.5px;color:var(--muted)}
+.mg-card .v{font-size:21px;font-weight:700;margin-top:3px}
+.mg-card .v.warn{color:var(--warn)}
+.mg-card .v.ok{color:#0a7d3c}
+.mg-card .s{font-size:11.5px;color:var(--muted);margin-top:3px}
+.mg-row{border-top:1px solid var(--line);padding:13px 0;display:flex;gap:12px;align-items:flex-start}
+.mg-row .main{flex:1;min-width:0}
+.mg-row .t{font-size:13.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mg-row .tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.mg-row .tags span{font-size:11px;border:1px solid var(--line);border-radius:99px;padding:2px 8px;color:var(--warn)}
+.mg-row textarea{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+  margin-top:7px;font-size:13px;line-height:1.6;resize:vertical;outline:none;min-height:52px;
+}
+.mg-row textarea:focus{border-color:var(--accent)}
+.mg-row .save{border:1px solid var(--line);border-radius:7px;padding:5px 12px;font-size:12px;color:var(--muted);white-space:nowrap}
+.mg-row .save:hover{border-color:var(--accent);color:#0a7d3c}
+.mg-row .save.done{background:var(--sel);border-color:var(--accent);color:#0a7d3c}
+.mg-sec{font-size:12.5px;font-weight:700;color:var(--accent);margin:28px 0 10px}
+.mg-sec span{color:var(--muted);font-weight:400;margin-left:6px}
+
 /* 사진 추가 */
 .addbox{
   border:2px dashed var(--line);border-radius:10px;padding:18px;text-align:center;
@@ -345,6 +369,7 @@ pre.log{
   <button class="tab on" data-lang="memo">AI 작성</button>
   <button class="tab" data-lang="ko">한국어 <span class="dot" id="dotKo" style="display:none"></span></button>
   <button class="tab" data-lang="en">English <span class="dot" id="dotEn" style="display:none"></span></button>
+  <button class="tab" data-lang="manage">관리</button>
 </div>
 
 <div class="scroll" id="scroll">
@@ -353,6 +378,7 @@ pre.log{
     <div id="canvas"></div>
   </div>
   <div class="paper" id="memoPane"></div>
+  <div class="paper" id="managePane" style="display:none"></div>
 </div>
 
 <div class="statusbar">
@@ -891,12 +917,14 @@ window.addEventListener('drop', e => {
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x===t));
   const v = t.dataset.lang;
-  const memo = v === 'memo';
-  $('#writePane').style.display = memo ? 'none' : '';
-  $('#memoPane').style.display  = memo ? '' : 'none';
-  document.querySelector('.toolbar').style.display = memo ? 'none' : '';
-  $('#prevBtn').style.display = memo ? 'none' : '';
+  const memo = v === 'memo', mng = v === 'manage', write = !memo && !mng;
+  $('#writePane').style.display   = write ? '' : 'none';
+  $('#memoPane').style.display    = memo ? '' : 'none';
+  $('#managePane').style.display  = mng ? '' : 'none';
+  document.querySelector('.toolbar').style.display = write ? '' : 'none';
+  $('#prevBtn').style.display = write ? '' : 'none';
   if (memo) { renderMemo(); return; }
+  if (mng)  { renderManage(); return; }
   lang = v; render();
 });
 $('#title').oninput = () => { doc[lang].title = $('#title').value; mark(); updateDots(); };
@@ -1445,6 +1473,130 @@ async function saveMemo(slug, byId, hint){
 
 // 적다가 탭을 옮기거나 앱을 닫아도 잃지 않게 주기적으로 저장한다
 setInterval(() => { if (memoDirty && memoSaver) memoSaver(); }, 6000);
+
+/* ── 관리 ──
+   검색 노출에 걸리는 것, 배포 상태, 방문 통계를 한 화면에서 본다. */
+async function renderManage(){
+  const pane = $('#managePane');
+  pane.innerHTML = '';
+  pane.append(el('div','memo-head','관리'));
+  pane.append(el('div','memo-sub','검색 노출에 손볼 것과 배포 상태를 한눈에 봅니다.'));
+
+  const d = await (await fetch('/api/manage')).json();
+  const bad = d.seo.filter(p => p.issues.length);
+  const noDesc = d.seo.filter(p => p.issues.some(i => i.startsWith('설명')));
+  const r = d.repo;
+
+  // ── 요약 ──
+  const cards = el('div','mg-cards');
+  const card = (k, v, cls, sub) => {
+    const c = el('div','mg-card');
+    c.append(el('div','k',k));
+    c.append(el('div','v' + (cls ? ' ' + cls : ''), v));
+    if (sub) c.append(el('div','s',sub));
+    cards.append(c);
+  };
+  card('전체 글', String(d.seo.length), '', d.seo.filter(p=>p.has_en).length + '개 영문판 있음');
+  card('설명 필요', String(noDesc.length), noDesc.length ? 'warn' : 'ok', '검색 결과에 쓰이는 문장');
+  card('안 올린 커밋', String(r.ahead), r.ahead ? 'warn' : 'ok',
+       r.changed ? `저장 안 한 변경 ${r.changed}개` : '모두 올림');
+  card('마지막 배포', r.last.when || '-', '', r.last.subject.slice(0, 24));
+  pane.append(cards);
+
+  // ── 배포 ──
+  if (r.ahead || r.changed) {
+    const note = el('div','note warn');
+    note.innerHTML = (r.ahead ? `올리지 않은 커밋이 <b>${r.ahead}개</b> 있습니다. ` : '')
+      + (r.changed ? `저장하지 않은 변경이 <b>${r.changed}개</b> 있습니다.<br><span style="font-size:11.5px">${r.changed_files.map(esc).join(', ')}</span>` : '');
+    pane.append(note);
+  }
+
+  // ── 방문 통계 ──
+  const st = el('div','mg-sec','방문 통계'); pane.append(st);
+  const statBox = el('div'); pane.append(statBox);
+  statBox.append(el('div','memo-sub','불러오는 중…'));
+  fetch('/api/stats').then(r2 => r2.json()).then(v => {
+    statBox.innerHTML = '';
+    if (v.need_token) {
+      const w = el('div','note warn');
+      w.innerHTML = '통계를 보려면 GoatCounter 읽기 토큰이 필요합니다. '
+        + '이 토큰은 <b>이 컴퓨터에만</b> 저장되고 사이트 소스에는 들어가지 않습니다.';
+      const row = el('div'); row.style.cssText='display:flex;gap:7px;margin-top:9px';
+      const inp = el('input'); inp.placeholder='GoatCounter API 토큰';
+      inp.style.cssText='flex:1;border:1px solid var(--line);border-radius:7px;padding:8px 10px';
+      const go = el('button','btn go','저장');
+      go.onclick = async () => {
+        await fetch('/api/config',{method:'POST',body:JSON.stringify({goat_token: inp.value.trim()})});
+        renderManage();
+      };
+      row.append(inp, go); w.append(row); statBox.append(w);
+      return;
+    }
+    if (!v.ok) { statBox.append(el('div','note warn','통계를 불러오지 못했습니다: ' + (v.error||''))); return; }
+    const c2 = el('div','mg-cards');
+    const cc = el('div','mg-card');
+    cc.append(el('div','k','전체 방문'));
+    cc.append(el('div','v', Number(v.total||0).toLocaleString('ko-KR')));
+    c2.append(cc); statBox.append(c2);
+    if (v.pages && v.pages.length) {
+      statBox.append(el('div','memo-sub', v.since + ' 이후 많이 본 글'));
+      v.pages.forEach(h => {
+        const row = el('div','mg-row');
+        const m = el('div','main');
+        m.append(el('div','t', h.path || '-'));
+        row.append(m);
+        row.append(el('div','k', String((h.count!=null?h.count:(h.count_unique||0)))+ '회'));
+        statBox.append(row);
+      });
+    }
+  });
+
+  // ── 설명 채우기 ──
+  pane.append(Object.assign(el('div','mg-sec','검색 설명 채우기'),
+    {innerHTML: '검색 설명 채우기 <span>여기서 바로 적고 저장하면 글 파일에 들어갑니다 (70~160자 권장)</span>'}));
+  if (!noDesc.length) pane.append(el('div','note ok','모든 글에 설명이 있습니다.'));
+
+  noDesc.forEach(p => {
+    const row = el('div','mg-row');
+    const main = el('div','main');
+    main.append(el('div','t', p.title));
+    const tg = el('div','tags');
+    p.issues.forEach(i => tg.append(el('span', null, i)));
+    main.append(tg);
+    const ta = el('textarea');
+    ta.placeholder = '검색 결과에 보일 한두 문장 (예: 닛코 카나야 호텔 솔직 후기. 온천·조식·객실과 가격을 정리했습니다.)';
+    ta.value = p.description || '';
+    const cnt = el('div','cnt'); cnt.style.cssText='font-size:11px;color:var(--muted);text-align:right';
+    const upd = () => { const n = ta.value.length;
+      cnt.textContent = n + ' / 160'; cnt.style.color = (n>160||(n&&n<70)) ? 'var(--warn)' : 'var(--muted)'; };
+    ta.oninput = upd; upd();
+    main.append(ta, cnt);
+    row.append(main);
+    const save = el('button','save','저장');
+    save.onclick = async () => {
+      const res = await (await fetch('/api/meta',{method:'POST',
+        body: JSON.stringify({path: p.path, key: 'description', value: ta.value.trim()})})).json();
+      save.textContent = res.ok ? '저장됨' : '실패';
+      save.classList.toggle('done', !!res.ok);
+      setTimeout(() => { save.textContent = '저장'; save.classList.remove('done'); }, 1800);
+    };
+    row.append(save);
+    pane.append(row);
+  });
+
+  // ── 그 밖의 점검 ──
+  const others = bad.filter(p => !p.issues.some(i => i.startsWith('설명')));
+  if (others.length) {
+    pane.append(el('div','mg-sec','그 밖에 손볼 것'));
+    others.forEach(p => {
+      const row = el('div','mg-row');
+      const m = el('div','main');
+      m.append(el('div','t', p.title));
+      const tg = el('div','tags'); p.issues.forEach(i => tg.append(el('span',null,i)));
+      m.append(tg); row.append(m); pane.append(row);
+    });
+  }
+}
 
 /* ── 본문 템플릿 ──
    분류에 맞는 소제목 뼈대를 한/영 양쪽에 한 번에 깔아준다.
