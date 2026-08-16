@@ -885,6 +885,21 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(200, {"ok": True, "added": added,
                                         "dir": str(dest.relative_to(BLOG))})
 
+            if u.path == "/api/mkdir":
+                d = self._body()
+                cat, slug = d.get("category", ""), (d.get("slug") or "").strip()
+                if cat not in CATEGORIES:
+                    return self._send(400, {"ok": False, "error": "분류를 골라주세요."})
+                if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", slug):
+                    return self._send(400, {"ok": False,
+                        "error": "폴더 이름은 영문 소문자·숫자·하이픈만 쓸 수 있습니다."})
+                dest = BLOG / "assets" / "images" / cat / slug
+                existed = dest.exists()
+                dest.mkdir(parents=True, exist_ok=True)
+                return self._send(200, {"ok": True, "existed": existed,
+                                        "category": cat, "slug": slug,
+                                        "dir": str(dest.relative_to(BLOG))})
+
             if u.path == "/api/reveal":
                 # 사진 폴더를 Finder 로 연다
                 d = self._body()

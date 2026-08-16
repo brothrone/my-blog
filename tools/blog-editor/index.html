@@ -1113,9 +1113,33 @@ let memoSkip = new Set();  // 글에서 뺄 사진
 /* ── 폴더 고르기 (Finder 대신 앱 안에서) ── */
 $('#pickFolder').onclick = async () => {
   const r = await (await fetch('/api/folders')).json();
-  sheet('사진 폴더 고르기', `
-    <div class="note ok">assets/images 안의 사진 폴더입니다. 고르면 분류와 주소가 함께 채워집니다.</div>
+  const cats = Object.entries(CFG.categories)
+    .map(([k,v]) => `<option value="${k}" ${k===meta.category?'selected':''}>${v.ko}</option>`).join('');
+  sheet('사진 폴더', `
+    <div class="fld"><span>새 폴더 만들기</span>
+      <div style="display:flex;gap:7px">
+        <select id="nfCat" style="border:1px solid var(--line);border-radius:7px;padding:9px 11px">${cats}</select>
+        <input id="nfName" placeholder="폴더 이름 (예: nikko-kanaya)" style="flex:1">
+        <button class="btn go" id="nfGo" style="white-space:nowrap">만들기</button>
+      </div>
+      <div id="nfMsg" style="font-size:12px;color:var(--muted)"></div></div>
+    <div style="height:1px;background:var(--line);margin:4px 0"></div>
+    <div class="note ok">이미 있는 폴더입니다. 고르면 분류와 주소가 함께 채워집니다.</div>
     <div class="folders" id="fl"></div>`, [['닫기', close]]);
+
+  const pickIt = (cat, slug) => {
+    meta.category = cat; $('#cat').value = cat;
+    $('#slug').value = slug; memoSkip = new Set();
+    mark(); updateChip(); close(); renderMemo();
+  };
+  $('#nfGo').onclick = async () => {
+    const cat = $('#nfCat').value, name = $('#nfName').value.trim().toLowerCase();
+    const res = await (await fetch('/api/mkdir', {method:'POST',
+      body: JSON.stringify({category: cat, slug: name})})).json();
+    if (!res.ok) { $('#nfMsg').textContent = res.error; return; }
+    pickIt(res.category, res.slug);
+  };
+  $('#nfName').onkeydown = e => { if (e.key === 'Enter') $('#nfGo').click(); };
   const box = $('#fl');
   if (!r.folders.length) { box.append(el('div','note warn','사진이 든 폴더가 없습니다.')); return; }
   r.folders.forEach(f => {
@@ -1127,11 +1151,7 @@ $('#pickFolder').onclick = async () => {
       <div style="font-size:11.5px;color:var(--muted);margin-top:2px">
         ${esc(catKo)} · 사진 ${f.count}장${f.raw ? ` · <b style="color:var(--accent)">새 사진 ${f.raw}장</b>` : ' · 변환 완료'}${f.used ? ' · 글 있음' : ''}</div>`;
     b.append(img, info);
-    b.onclick = () => {
-      meta.category = f.category; $('#cat').value = f.category;
-      $('#slug').value = f.slug; memoSkip = new Set();
-      mark(); updateChip(); close(); renderMemo();
-    };
+    b.onclick = () => pickIt(f.category, f.slug);
     box.append(b);
   });
 };
@@ -1639,13 +1659,15 @@ function resetAll(){
   $('#editing').style.display='none';
   doc.ko={title:'',blocks:[]}; doc.en={title:'',blocks:[]};
   meta={category:meta.category, tags_ko:'', tags_en:'', desc_ko:'', desc_en:''};
-  lang='ko';
-  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x.dataset.lang==='ko'));
+  memoInfo = {title:'', basic:'', place:'', good:'', bad:'', etc:''};
+  memoTexts = {}; memoOrder = []; memoSkip = new Set();
   $('#cat').value = meta.category;
   render(); updateChip();
   fetch('/api/draft',{method:'POST',body:JSON.stringify({})});
   $('#saveHint').textContent='새 글';
   $('#scroll').scrollTo({top:0});
+  // 보던 탭에 그대로 머문다 (전에는 표시만 한국어로 바뀌고 화면은 그대로라 어긋났다)
+  if ($('#memoPane').style.display !== 'none') renderMemo();
 }
 $('#newBtn').onclick = () => {
   const has = $('#slug').value || doc.ko.title || mdOf('ko').trim() || photos.length;
