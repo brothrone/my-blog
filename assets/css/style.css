@@ -122,6 +122,16 @@ nav a:hover { color: var(--text); }
   flex-shrink: 0;
 }
 
+/* 스위치 모양(36x20)은 그대로 두고 누르는 범위만 44px 로 넓힌다 */
+.dark-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+}
 .dark-toggle::after {
   content: '';
   position: absolute;
@@ -157,6 +167,12 @@ nav a:hover { color: var(--text); }
   cursor: pointer;
   font-size: 1.2rem;
   color: var(--text);
+  /* 손가락으로 누르는 영역은 44px 이상이어야 한다 (아이콘 크기는 그대로) */
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
 }
 .mobile-menu {
@@ -192,6 +208,11 @@ nav a:hover { color: var(--text); }
   padding: 0;
   color: var(--text-muted);
   transition: color 0.2s;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .search-btn:hover { color: var(--text); }
 
@@ -833,13 +854,17 @@ nav a:hover { color: var(--text); }
 }
 .post-content img {
   display: block;
-  max-width: 480px;
   width: 100%;
   height: auto;
-  margin: 28px 0 28px 14px;
+  margin: 28px 0;
   border-radius: 10px;
   cursor: zoom-in;
   transition: transform 0.2s, box-shadow 0.2s;
+}
+/* 사진만 있는 문단은 글머리 세로선·들여쓰기를 빼서 사진이 글과 같은 선에 놓이게 한다 */
+.post-content p:has(> img:only-child) {
+  padding-left: 0;
+  border-left: none;
 }
 .post-content img:hover {
   transform: scale(1.01);
@@ -1568,3 +1593,18 @@ nav a:hover { color: var(--text); }
 .en-version-icon { font-size: 1rem; flex-shrink: 0; }
 .en-version-text { flex: 1; }
 .en-version-arrow { color: var(--text-muted); flex-shrink: 0; }
+
+
+/* ===========================
+   모바일 터치 영역
+   손가락으로 누르는 곳은 44px 이상 (아이콘 크기는 그대로 둔다)
+   =========================== */
+@media (max-width: 700px) {
+  .site-header .logo,
+  .site-header .lang-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .mobile-menu a { padding: 16px 24px; }
+}
