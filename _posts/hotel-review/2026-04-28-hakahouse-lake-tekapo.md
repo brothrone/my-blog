@@ -12,7 +12,7 @@ tags:
   - 남섬여행
   - 숙박후기
 image: /assets/images/hotel-review/hakahouse/secondfloor.webp
-description: 뉴질랜드 테카포 호수 바로 앞 게스트하우스 Haka House Lake Tekapo 개인실 솔직 후기. 2월 성수기 1박 20만원대 가격, 공용 주방, 2층 라운지, 주변 맛집 정보까지 정리했습니다.
+description: "뉴질랜드 테카포 호수 바로 앞 게스트하우스 Haka House Lake Tekapo 개인실 솔직 후기. 2월 성수기 1박 20만원대 가격, 공용 주방, 2층 라운지, 주변 맛집 정보까지 정리했습니다."
 en_permalink: /en/hotel-review/hakahouse-lake-tekapo/
 ---
 
@@ -26,7 +26,7 @@ Haka House Lake Tekapo는 게스트하우스지만 도미토리 형식의 다인
 
 ![Haka House Lake Tekapo 외관 2](/assets/images/hotel-review/hakahouse/exteriror2.webp)
 
-건물 외관은 전형적인 뉴질랜드 소도시 스타일로, 아담하고 깔끔한 편입니다. 주차 공간도 있어서 렌트카 여행객도 편하게 이용할 수 있습니다.
+건물 외관은 전형적인 뉴질랜드 소도시 스타일로, 아담하고 깔끔한 편입니다. 주차 공간도 있어서 렌트카 여행객도 편하게 이용할 수 있습니다!
 
 ## 체크인 & 안내사항
 
@@ -57,7 +57,7 @@ Haka House Lake Tekapo는 게스트하우스지만 도미토리 형식의 다인
 
 숙소 바로 근처에 **4Square 마트**가 있습니다. 뉴질랜드 각종 즉석식품, 신선한 식재료, 과자와 음료 등 다양한 상품을 구매할 수 있어서 정말 편리했습니다. 물가가 비싼 테카포에서 마트를 활용하면 식비를 꽤 절약할 수 있습니다.
 
-## 공용 주방 
+## 공용 주방
 
 ![Haka House 공용 주방 풍경](/assets/images/hotel-review/hakahouse/kitchen1.webp)
 
@@ -69,9 +69,9 @@ Haka House Lake Tekapo는 게스트하우스지만 도미토리 형식의 다인
 
 ![완성된 양고기 스테이크](/assets/images/hotel-review/hakahouse/kitchen4.webp)
 
-4Square에서 양고기를 사와서 옆 방 여행자에게 양념을 빌려 **직접 양고기 스테이크**를 구워 먹었습니다. 
+4Square에서 양고기를 사와서 옆 방 여행자에게 양념을 빌려 **직접 양고기 스테이크**를 구워 먹었습니다.
 여기서 구워먹은 양고기가 지금까지 먹었던 양고기 중에 가장 맛있었습니다 진짜..
-고기 가격도 한국에서 사는 가격보다 거의 절반정도 저렴했습니다. 
+고기 가격도 한국에서 사는 가격보다 거의 절반정도 저렴했습니다.
 
 ## 근처 맛집 — Kohan Restaurant
 
