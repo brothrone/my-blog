@@ -421,8 +421,10 @@ def publish(d: dict) -> dict:
 # ─────────────────────────────────────────────────────────────
 
 class Handler(BaseHTTPRequestHandler):
-    def log_message(self, *a):
-        pass
+    def log_message(self, fmt, *a):
+        if os.environ.get("BLOG_EDITOR_TRACE"):
+            with open("/tmp/blog-editor-trace.log", "a") as f:
+                f.write((fmt % a) + "\n")
 
     def _send(self, code, body, ctype="application/json; charset=utf-8"):
         if isinstance(body, (dict, list)):

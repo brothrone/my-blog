@@ -25,7 +25,34 @@ echo "magick      : $MAGICK"
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 
-# ── 실행 스크립트 ──────────────────────────────────────────────
+# ── 실행 파일 ─────────────────────────────────────────────────
+# swiftc가 있으면 자체 창을 가진 네이티브 앱으로, 없으면 브라우저를 여는 셸 앱으로 만든다.
+MODE="shell"
+if command -v swiftc >/dev/null 2>&1; then
+  echo "빌드 방식    : Swift 네이티브 (자체 창)"
+  BUILD="$(mktemp -d)"
+  cat > "$BUILD/Cfg.swift" <<EOF
+enum Cfg {
+    static let repo      = "$REPO"
+    static let python    = "$PYTHON"
+    static let extraPath = "$EXTRA_PATH"
+    static let port      = $PORT
+    static let logPath   = "$HOME/Library/Logs/brothrone-editor.log"
+}
+EOF
+  if swiftc -O "$BUILD/Cfg.swift" "$REPO/tools/mac-app/BlogEditor.swift" \
+            -o "$APP/Contents/MacOS/launch" 2>"$BUILD/err.txt"; then
+    codesign -s - -f "$APP/Contents/MacOS/launch" >/dev/null 2>&1
+    MODE="swift"
+  else
+    echo "⚠️  Swift 빌드 실패 — 셸 방식으로 대체합니다."
+    sed 's/^/    /' "$BUILD/err.txt" | head -12
+  fi
+else
+  echo "빌드 방식    : 셸 래퍼 (swiftc 없음)"
+fi
+
+if [ "$MODE" = "shell" ]; then
 cat > "$APP/Contents/MacOS/launch" <<EOF
 #!/bin/bash
 REPO="$REPO"
@@ -54,6 +81,7 @@ cd "\$REPO" || exit 1
   exit 1
 }
 EOF
+fi
 chmod +x "$APP/Contents/MacOS/launch"
 
 # ── Info.plist ────────────────────────────────────────────────

@@ -453,6 +453,10 @@ const drop = $('#drop');
 ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => {e.preventDefault();drop.classList.add('hot')}));
 ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {e.preventDefault();drop.classList.remove('hot')}));
 drop.addEventListener('drop', e => addFiles(e.dataTransfer.files));
+// 드롭존 밖에 사진을 떨어뜨리면 브라우저가 그 파일로 이동해 작성 중인 글이 날아간다.
+// 드롭존 핸들러가 먼저 실행된 뒤 여기서 기본 동작만 막는다.
+document.addEventListener('dragover', e => e.preventDefault());
+document.addEventListener('drop', e => e.preventDefault());
 
 $('#loadFolder').onclick = async () => {
   const cat = $('#category').value, slug = $('#slug').value.trim();
