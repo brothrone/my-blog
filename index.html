@@ -1,12 +1,14 @@
 ---
 layout: default
 title: "항공·호텔·여행 블로그"
+mobile_home: true
 ---
 <!-- 히어로 + 카테고리 통합 -->
 <section class="hero">
   <div class="hero-inner">
     <h1 class="hero-title">Welcome to the BROTHRONE</h1>
     <p class="hero-sub">호텔, 항공, 그리고 여행의 모든 것</p>
+    <a class="home-mobile-only home-hero-cta" href="#home-stories">여행기 둘러보기 <span aria-hidden="true">↗</span></a>
   </div>
   <a class="hero-scroll-btn" href="#cat-bar" aria-label="스크롤 다운">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -18,21 +20,29 @@ title: "항공·호텔·여행 블로그"
 <!-- 카테고리 바 (히어로 외부, 흰색 배경) -->
 <div class="hero-cats-bar" id="cat-bar" style="display:flex;">
   <a href="/category/airline-review/" class="hero-cat">
+    <span class="home-mobile-only home-category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21 3-6 18-3-9-9-3 18-6Z"/><path d="m12 12 9-9"/></svg></span>
+    <span class="home-mobile-only home-category-label">항공 리뷰</span>
     <div class="hero-cat-name">항공 리뷰</div>
     <div class="hero-cat-sub">Airline Review</div>
   </a>
   <div class="hero-cat-divider"></div>
   <a href="/category/hotel-review/" class="hero-cat">
+    <span class="home-mobile-only home-category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v15M2 20h20M10 20v-5h4v5M8 8h1m6 0h1M8 11h1m6 0h1"/></svg></span>
+    <span class="home-mobile-only home-category-label">호텔 리뷰</span>
     <div class="hero-cat-name">호텔 리뷰</div>
     <div class="hero-cat-sub">Hotel Review</div>
   </a>
   <div class="hero-cat-divider"></div>
   <a href="/category/tips/" class="hero-cat">
+    <span class="home-mobile-only home-category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3Z"/></svg></span>
+    <span class="home-mobile-only home-category-label">여행 팁</span>
     <div class="hero-cat-name">항공/숙박 꿀팁</div>
     <div class="hero-cat-sub">Travel Tips</div>
   </a>
   <div class="hero-cat-divider"></div>
   <a href="/categories/" class="hero-cat">
+    <span class="home-mobile-only home-category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg></span>
+    <span class="home-mobile-only home-category-label">모두 보기</span>
     <div class="hero-cat-name">전체 카테고리</div>
     <div class="hero-cat-sub">All Categories</div>
   </a>
@@ -43,7 +53,8 @@ title: "항공·호텔·여행 블로그"
 {% assign ko_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
 {% assign featured_post = ko_posts.first %}
 {% if featured_post %}
-<section class="featured">
+<section class="featured" id="home-stories">
+  <div class="home-mobile-only home-section-heading"><h2>가장 최근의 기록</h2><span>NEW STORY</span></div>
   {% if featured_post.naver_url %}
   <a href="{{ featured_post.naver_url }}" target="_blank" class="featured-link">
   {% else %}
@@ -62,7 +73,7 @@ title: "항공·호텔·여행 블로그"
           <span>{{ tag }}</span>
         {% endfor %}
       </div>
-      <h2 class="featured-title">{{ featured_post.title }}</h2>
+      <h2 class="featured-title">{{ featured_post.title | escape }}</h2>
       <p class="featured-excerpt">{{ featured_post.excerpt | strip_html | truncate: 140 }}</p>
       {% if featured_post.naver_url %}
       <span class="featured-cta">네이버 블로그에서 보기 →</span>
@@ -76,8 +87,9 @@ title: "항공·호텔·여행 블로그"
 {% endif %}
 
 <!-- 구분선 -->
-<div class="section-divider">
-  <span>{% if paginator.page == 1 %}Recent Stories{% else %}Page {{ paginator.page }}{% endif %}</span>
+<div class="section-divider" id="recent-stories">
+  <span class="home-desktop-copy">{% if paginator.page == 1 %}Recent Stories{% else %}Page {{ paginator.page }}{% endif %}</span>
+  <div class="home-mobile-only home-section-heading"><h2>{% if paginator.page == 1 %}더 많은 여행 이야기{% else %}여행 이야기 · {{ paginator.page }}{% endif %}</h2><span>TRAVEL NOTES</span></div>
 </div>
 
 <!-- 카드 그리드 -->
@@ -102,7 +114,7 @@ title: "항공·호텔·여행 블로그"
             · {{ tag }}
           {% endfor %}
         </div>
-        <h3 class="card-title">{{ post.title }}</h3>
+        <h3 class="card-title">{{ post.title | escape }}</h3>
         <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 70 }}</p>
       </div>
     </a>
