@@ -54,7 +54,7 @@ mobile_home: true
 {% assign featured_post = ko_posts.first %}
 {% if featured_post %}
 <section class="featured" id="home-stories">
-  <div class="home-mobile-only home-section-heading"><h2>가장 최근의 기록</h2><span>NEW STORY</span></div>
+  <div class="home-mobile-only home-section-heading"><h2>The latest story</h2><span>NEW STORY</span></div>
   {% if featured_post.naver_url %}
   <a href="{{ featured_post.naver_url }}" target="_blank" class="featured-link">
   {% else %}
@@ -89,7 +89,7 @@ mobile_home: true
 <!-- 구분선 -->
 <div class="section-divider" id="recent-stories">
   <span class="home-desktop-copy">{% if paginator.page == 1 %}Recent Stories{% else %}Page {{ paginator.page }}{% endif %}</span>
-  <div class="home-mobile-only home-section-heading"><h2>{% if paginator.page == 1 %}더 많은 여행 이야기{% else %}여행 이야기 · {{ paginator.page }}{% endif %}</h2><span>TRAVEL NOTES</span></div>
+  <div class="home-mobile-only home-section-heading"><h2>{% if paginator.page == 1 %}More travel stories{% else %}Travel stories · {{ paginator.page }}{% endif %}</h2><span>TRAVEL NOTES</span></div>
 </div>
 
 <!-- 카드 그리드 -->

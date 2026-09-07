@@ -104,10 +104,10 @@
   {% endif %}
 
   <!-- CSS 동기 로드 (히어로 배경 즉시 적용) -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
   {% if page.mobile_home %}
-  <link rel="stylesheet" href="{{ '/assets/css/home-mobile.css' | relative_url }}" />
-  <link rel="stylesheet" href="{{ '/assets/css/home-desktop.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/home-mobile.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/home-desktop.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
   {% endif %}
 
   <!--
@@ -198,7 +198,7 @@
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1937515639440274"
      crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{{ "/assets/css/subpages.css" | relative_url }}" />
+<link rel="stylesheet" href="{{ "/assets/css/subpages.css" | relative_url }}?v={{ site.time | date: '%s' }}" />
 </head>
 <body{% if page.mobile_home %} class="home-page{% if paginator.page > 1 %} home-page--archive{% endif %}"{% else %} class="{% if page.layout == 'post' %}article-page{% else %}subpage{% endif %}"{% endif %}>
 

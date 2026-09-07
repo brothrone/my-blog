@@ -90,7 +90,7 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
 
   <style>
     body {
@@ -111,10 +111,10 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1937515639440274"
      crossorigin="anonymous"></script>
 {% if page.mobile_home %}
-<link rel="stylesheet" href="{{ '/assets/css/home-mobile.css' | relative_url }}" />
-<link rel="stylesheet" href="{{ '/assets/css/home-desktop.css' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/home-mobile.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
+<link rel="stylesheet" href="{{ '/assets/css/home-desktop.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
 {% endif %}
-<link rel="stylesheet" href="{{ "/assets/css/subpages.css" | relative_url }}" />
+<link rel="stylesheet" href="{{ "/assets/css/subpages.css" | relative_url }}?v={{ site.time | date: '%s' }}" />
 </head>
 <body class="{% if page.layout == 'en-post' %}article-page{% elsif page.mobile_home %}home-page{% else %}subpage{% endif %}">
 
