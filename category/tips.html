@@ -5,7 +5,7 @@ layout: default
 <div class="cat-page">
   <div class="cat-header">
     <a href="{{ '/' | relative_url }}" class="back-link">← Home</a>
-    <span class="cat-icon-lg">💡</span>
+    <span class="cat-icon-lg">{% include ui-icon.html name='tips' %}</span>
     <h1 class="cat-title">항공/숙박 꿀팁</h1>
     <p class="cat-desc">항공권 예매, 마일리지, 호텔 예약, 업그레이드 등 여행 준비에 도움이 되는 모든 팁을 공유합니다.</p>
   </div>
@@ -15,7 +15,7 @@ layout: default
       {% assign airline_tips = site.posts | where: "category", "항공팁" %}
       {% assign travel_tips = site.posts | where: "category", "tips" %}
       {% assign hotel_tips = site.posts | where: "category", "숙박팁" %}
-      {% assign all_tips = airline_tips | concat: hotel_tips | concat: travel_tips | sort: "date" | reverse %}
+      {% assign all_tips = airline_tips | concat: hotel_tips | concat: travel_tips | where_exp: "post", "post.lang != 'en'" | sort: "date" | reverse %}
       
       {% for post in all_tips %}
       {% if post.naver_url %}

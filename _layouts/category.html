@@ -5,7 +5,7 @@ layout: default
 <div class="cat-page">
   <div class="cat-header">
     <a href="{{ '/' | relative_url }}" class="back-link">← Home</a>
-    <span class="cat-icon-lg">{{ page.icon }}</span>
+    <span class="cat-icon-lg">{% include ui-icon.html name=page.category_name %}</span>
     <h1 class="cat-title">{{ page.cat_title }}</h1>
     <p class="cat-desc">{{ page.description }}</p>
   </div>

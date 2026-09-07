@@ -5,6 +5,7 @@ permalink: /categories/
 sitemap: false
 ---
 
+{% assign ko_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
 <div class="all-cats-page">
   <div class="all-cats-header">
     <h1>Categories</h1>
@@ -13,7 +14,7 @@ sitemap: false
 
   <div class="all-cats-grid">
     <a href="/travel-map/" class="all-cat-card highlight-card">
-      <span class="all-cat-icon">🗺️</span>
+      <span class="all-cat-icon">{% include ui-icon.html name='map' %}</span>
       <div class="all-cat-info">
         <h3>여행 지도</h3>
         <p>Travel Map</p>
@@ -21,9 +22,9 @@ sitemap: false
       <span class="all-cat-arrow">→</span>
     </a>
 
-    {% assign airline_count = site.posts | where: "category", "airline-review" | size %}
+    {% assign airline_count = ko_posts | where: "category", "airline-review" | size %}
     <a href="/category/airline-review/" class="all-cat-card">
-      <span class="all-cat-icon">✈️</span>
+      <span class="all-cat-icon">{% include ui-icon.html name='airline-review' %}</span>
       <div class="all-cat-info">
         <h3>항공 리뷰</h3>
         <p>Airline Review</p>
@@ -32,9 +33,9 @@ sitemap: false
       <span class="all-cat-arrow">→</span>
     </a>
 
-    {% assign hotel_count = site.posts | where: "category", "hotel-review" | size %}
+    {% assign hotel_count = ko_posts | where: "category", "hotel-review" | size %}
     <a href="/category/hotel-review/" class="all-cat-card">
-      <span class="all-cat-icon">🏨</span>
+      <span class="all-cat-icon">{% include ui-icon.html name='hotel-review' %}</span>
       <div class="all-cat-info">
         <h3>호텔 리뷰</h3>
         <p>Hotel Review</p>
@@ -43,9 +44,9 @@ sitemap: false
       <span class="all-cat-arrow">→</span>
     </a>
 
-    {% assign tips_count = site.posts | where: "category", "tips" | size %}
+    {% assign tips_count = ko_posts | where: "category", "tips" | size %}
     <a href="/category/tips/" class="all-cat-card">
-      <span class="all-cat-icon">💡</span>
+      <span class="all-cat-icon">{% include ui-icon.html name='tips' %}</span>
       <div class="all-cat-info">
         <h3>항공/숙박 꿀팁</h3>
         <p>Travel Tips</p>
@@ -54,9 +55,10 @@ sitemap: false
       <span class="all-cat-arrow">→</span>
     </a>
 
-    {% assign travel_count = site.posts | where: "category", "travel" | size %}
+    {% assign travel_count = ko_posts | where: "category", "travel" | size %}
+    {% if travel_count > 0 %}
     <a href="/category/travel/" class="all-cat-card">
-      <span class="all-cat-icon">🌏</span>
+      <span class="all-cat-icon">{% include ui-icon.html name='map' %}</span>
       <div class="all-cat-info">
         <h3>여행</h3>
         <p>Travel</p>
@@ -64,28 +66,6 @@ sitemap: false
       <span class="all-cat-count">{{ travel_count }}편</span>
       <span class="all-cat-arrow">→</span>
     </a>
+    {% endif %}
   </div>
 </div>
-
-<style>
-.all-cat-count {
-  font-size: 0.8rem;
-  color: #888;
-  margin-left: auto;
-  margin-right: 0.5rem;
-}
-
-.highlight-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-  color: white !important;
-  border-color: transparent !important;
-}
-.highlight-card .all-cat-icon { font-size: 2.5rem; }
-.highlight-card .all-cat-info h3,
-.highlight-card .all-cat-info p,
-.highlight-card .all-cat-arrow { color: white !important; }
-.highlight-card:hover {
-  transform: translateX(6px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
-}
-</style>

@@ -32,7 +32,7 @@
     letter-spacing: .03em;
   }
   .home-page .mobile-nav .lang-btn .flag-icon { display: none; }
-  .home-page .mobile-nav .lang-btn::after { content: 'EN'; }
+  .home-page .mobile-nav .lang-btn::after { content: none; }
   .home-page .mobile-nav .search-btn,
   .home-page .mobile-nav .hamburger { min-width: 40px; color: var(--home-ink); font-size: 0; }
   .home-page .mobile-nav .search-btn::after {
@@ -63,8 +63,8 @@
 
   .home-page .hero {
     width: calc(100% - 32px);
-    height: 460px;
-    height: clamp(400px, 61svh, 510px);
+    height: 560px;
+    height: clamp(460px, 75svh, 680px);
     min-height: 0;
     margin: 4px 16px 0;
     border-radius: 24px;

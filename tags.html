@@ -15,12 +15,15 @@ sitemap: false
     <p style="font-size:0.9rem; color:var(--text-muted);">태그를 클릭하면 관련 글을 모아볼 수 있어요.</p>
   </div>
 
+  <label class="tag-search-label" for="tagSearch">태그 찾기</label>
+  <input id="tagSearch" class="tag-search" type="search" placeholder="도시, 항공사, 호텔 이름으로 찾기" oninput="searchTags(this.value)" />
+  <p id="tagSearchEmpty" hidden>일치하는 태그가 없습니다.</p>
   <!-- 태그 클라우드 -->
   <div class="tag-cloud" id="tagCloud">
     {% for tag in unique_tags %}
       {% if tag != "" %}
         {% assign tag_posts = ko_posts | where_exp: "p", "p.tags contains tag" %}
-        <button class="tag-cloud-item" onclick="filterTag('{{ tag | escape }}')" data-tag="{{ tag | escape }}">
+        <button class="tag-cloud-item" onclick="filterTag(this.dataset.tag)" aria-pressed="false" data-tag="{{ tag | escape }}">
           #{{ tag }}
           <span class="count">{{ tag_posts.size }}</span>
         </button>
@@ -39,16 +42,10 @@ sitemap: false
           </div>
           <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px;">
             {% for post in tag_posts %}
-            <a href="{{ post.url | relative_url }}" style="display:flex; align-items:center; gap:16px; padding:16px 20px; background:var(--surface); border-radius:12px; border:1px solid transparent; transition:all 0.2s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='transparent'">
+            <a class="tag-story" href="{{ post.url | relative_url }}" style="display:flex; align-items:center; gap:16px; padding:16px 20px; background:var(--surface); border-radius:12px; border:1px solid transparent; transition:all 0.2s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='transparent'">
               <span style="font-size:0.7rem; color:var(--text-muted); white-space:nowrap; min-width:80px;">{{ post.date | date: "%Y. %m. %d" }}</span>
               <span style="font-size:0.9rem; font-weight:500; color:var(--text); flex:1;">{{ post.title }}</span>
-              {% if post.tags %}
-                <span style="display:flex; gap:4px;">
-                  {% for t in post.tags limit:3 %}
-                    <span style="font-size:0.62rem; background:var(--surface2); padding:2px 7px; border-radius:4px; color:var(--text-muted);">#{{ t }}</span>
-                  {% endfor %}
-                </span>
-              {% endif %}
+
             </a>
             {% endfor %}
           </div>
@@ -63,6 +60,15 @@ sitemap: false
 </div>
 
 <script>
+  function searchTags(query) {
+    var count = 0;
+    document.querySelectorAll('.tag-cloud-item').forEach(function(button) {
+      var match = button.dataset.tag.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase());
+      button.hidden = !match;
+      if (match) count++;
+    });
+    document.getElementById('tagSearchEmpty').hidden = count > 0;
+  }
   var activeTag = null;
 
   function filterTag(tag) {
@@ -74,7 +80,7 @@ sitemap: false
       // 같은 태그 다시 클릭 → 전체 해제
       activeTag = null;
       allResults.forEach(function(r) { r.classList.remove('active'); });
-      allBtns.forEach(function(b) { b.classList.remove('active'); });
+      allBtns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
       noResult.style.display = 'none';
       return;
     }
@@ -82,6 +88,7 @@ sitemap: false
     activeTag = tag;
     allBtns.forEach(function(b) {
       b.classList.toggle('active', b.getAttribute('data-tag') === tag);
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-tag') === tag));
     });
 
     var found = false;

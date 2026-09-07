@@ -10,7 +10,8 @@ permalink: /travel-map/
      crossorigin=""/>
 
 {% assign total_countries = site.data.places | map: "data_country" | uniq | size %}
-{% assign total_posts = site.data.places | map: "post_count" | sum %}
+{% assign total_posts = 0 %}
+{% for place in site.data.places %}{% assign total_posts = total_posts | plus: place.posts.size %}{% endfor %}
 {% assign total_cities = site.data.places | size %}
 
 <div class="travel-map-page">
@@ -23,11 +24,11 @@ permalink: /travel-map/
         <span class="stat-label">국가</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">{{ total_cities }}+</span>
+        <span class="stat-number">{{ total_cities }}</span>
         <span class="stat-label">도시</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">{{ site.posts.size }}</span>
+        <span class="stat-number">{{ total_posts }}</span>
         <span class="stat-label">여행기</span>
       </div>
     </div>
@@ -46,17 +47,17 @@ permalink: /travel-map/
         {% for p in country_places %}
           {% assign country_post_count = country_post_count | plus: p.post_count %}
         {% endfor %}
-        <div class="country-card" data-country="{{ country_key }}">
-          <div class="country-flag">{{ first_place.flag }}</div>
-          <h3>{{ first_place.country }}</h3>
+        <button type="button" class="country-card" data-country="{{ country_key }}">
+          <span class="country-flag">{% include ui-icon.html name='map' %}</span>
+          <span class="country-name">{{ first_place.country }}</span>
           <span class="post-count">{{ country_post_count }}개 글</span>
-        </div>
+        </button>
       {% endfor %}
-      <div class="country-card" data-country="korea">
-        <div class="country-flag">🇰🇷</div>
-        <h3>한국</h3>
+      <button type="button" class="country-card" data-country="korea">
+        <span class="country-flag">{% include ui-icon.html name='map' %}</span>
+        <span class="country-name">한국</span>
         <span class="post-count">홈</span>
-      </div>
+      </button>
     </div>
   </div>
 </div>
@@ -71,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const map = L.map('map', {
     center: [30, 20],
     zoom: 2,
-    minZoom: 2,
+    minZoom: 0,
     maxZoom: 10,
-    scrollWheelZoom: true
+    scrollWheelZoom: false
   });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     {% for place in site.data.places %}
     {
       name: {{ place.name | jsonify }},
-      country: {{ place.flag | jsonify }} + " " + {{ place.country | jsonify }},
+      country: {{ place.country | jsonify }},
       coords: [{{ place.coords | join: ", " }}],
       color: {{ place.color | jsonify }},
       posts: [
@@ -116,7 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   places.forEach(place => {
     const marker = L.marker(place.coords, {
-      icon: customIcon(place.color)
+      icon: customIcon("#467766"),
+      title: place.name,
+      alt: place.name
     }).addTo(map);
 
     const popupContent = `
@@ -135,6 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
       className: 'custom-popup'
     });
   });
+
+  if (places.length) map.fitBounds(places.map(place => place.coords), { padding: [24, 24], maxZoom: 3 });
 
   document.querySelectorAll('.country-card').forEach(card => {
     card.addEventListener('click', function() {
