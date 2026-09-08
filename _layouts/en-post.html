@@ -120,6 +120,8 @@ layout: en-default
     <a href="/en/" class="back-link">← Back to list</a>
   </article>
 
+  {% include comments.html english=true %}
+
   <nav class="post-nav">
     {% assign en_posts = site.en_posts %}
     {% assign current_index = 0 %}

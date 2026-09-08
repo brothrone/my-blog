@@ -16,3 +16,9 @@ Icon?
 # 블로그 글쓰기 앱 작업 파일
 .blog-editor/
 __pycache__/
+
+# Local comment development
+.wrangler/
+.dev.vars*
+.env*
+node_modules/

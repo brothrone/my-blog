@@ -1,0 +1,20 @@
+{% assign comment_thread = page.kr_permalink | default: page.url %}
+<section class="comments" id="comments" data-comment-thread="{{ comment_thread | escape }}" data-comment-language="{% if include.english %}en{% else %}ko{% endif %}" aria-labelledby="comments-heading">
+  <div class="comments-heading"><span class="comments-eyebrow">THE CONVERSATION</span><h2 id="comments-heading">{% if include.english %}Leave a note{% else %}여행 이야기를 나눠요{% endif %}</h2><p>{% if include.english %}A question, a tip, or your own experience. No account needed.{% else %}궁금한 점이나 나만의 여행 경험을 남겨주세요. 로그인은 필요 없어요.{% endif %}</p></div>
+  <form class="comment-form" hidden>
+    <div class="comment-name-row"><label for="comment-name">{% if include.english %}Nickname{% else %}닉네임{% endif %}</label><input id="comment-name" name="name" maxlength="40" required autocomplete="off" placeholder="{% if include.english %}A name of your choice{% else %}편하게 부를 이름{% endif %}"></div>
+    <label for="comment-body">{% if include.english %}Comment{% else %}댓글{% endif %}</label>
+    <textarea id="comment-body" name="body" maxlength="2000" rows="4" required placeholder="{% if include.english %}What would you like to share?{% else %}어떤 이야기를 나누고 싶으세요?{% endif %}"></textarea>
+    <div class="comment-trap" aria-hidden="true"><label for="comment-website">Website</label><input id="comment-website" name="website" tabindex="-1" autocomplete="off"></div>
+    <p class="comment-note">{% if include.english %}Your nickname and comment will be public. Avoid personal details. You can delete your comment from this browser. {% else %}닉네임과 댓글은 공개됩니다. 개인정보는 적지 마세요. 작성한 브라우저에서 내 댓글을 삭제할 수 있어요. {% endif %}<a href="{% if include.english %}/en/privacy/{% else %}/privacy/{% endif %}">{% if include.english %}Privacy{% else %}개인정보 안내{% endif %}</a></p>
+    <div class="comment-challenge"></div>
+    <div class="comment-actions"><span class="comment-counter" aria-hidden="true">0 / 2,000</span><button class="comment-submit" type="submit" disabled>{% if include.english %}Post comment{% else %}댓글 남기기{% endif %}<span aria-hidden="true">↗</span></button></div>
+  </form>
+  <p class="comment-status" role="status" aria-live="polite">{% if include.english %}Loading comments…{% else %}댓글을 불러오는 중이에요…{% endif %}</p>
+  <button class="comment-retry" type="button" hidden>{% if include.english %}Try again{% else %}다시 시도{% endif %}</button>
+  <ol class="comment-list" aria-label="{% if include.english %}Comments{% else %}댓글 목록{% endif %}"></ol>
+  <button class="comment-more" type="button" hidden>{% if include.english %}Earlier comments{% else %}이전 댓글 더 보기{% endif %}</button>
+  <noscript>{% if include.english %}Enable JavaScript to read and write comments.{% else %}댓글을 보거나 작성하려면 자바스크립트를 켜주세요.{% endif %}</noscript>
+</section>
+<link rel="stylesheet" href="/assets/css/comments.css?v={{ site.time | date: '%s' }}">
+<script src="/assets/js/comments.js?v={{ site.time | date: '%s' }}" defer></script>

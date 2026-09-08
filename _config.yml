@@ -34,6 +34,11 @@ exclude:
   - convert_to_webp.sh
   - tests/
   - scripts/
+  - server/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - wrangler.toml
 encoding: utf-8
 
 # 페이지네이션
