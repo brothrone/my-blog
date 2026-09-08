@@ -26,6 +26,14 @@ exclude:
   - Gemfile.lock
   - README.md
   - Templates/
+  - CLAUDE.md
+  - AGENTS.md
+  - tools/
+  - blog-editor
+  - preview
+  - convert_to_webp.sh
+  - tests/
+  - scripts/
 encoding: utf-8
 
 # 페이지네이션

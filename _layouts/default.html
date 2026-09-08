@@ -110,26 +110,19 @@
   <link rel="stylesheet" href="{{ '/assets/css/home-desktop.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
   {% endif %}
 
-  <!--
-    ★ 웹폰트 전략:
-    1. Cormorant Garamond — 제목용. display:optional → 첫 로드 시 시스템폰트 fallback,
-       캐시 후부터 즉시 적용. FOUT/CLS 완전 제거.
-    2. Noto Sans KR — 본문용. text= 파라미터로 한글 subset만 요청해 용량 90% 절감.
-       display:swap → 폰트 로드 전까지 시스템폰트 표시(가독성 우선).
-    3. 두 폰트 모두 preconnect 후 비동기 로드 → 렌더 블로킹 0.
-  -->
+  <!-- Webfonts use swap so the selected font replaces the fallback after loading. -->
 
   <!-- Playfair Display (히어로 전용) -->
   <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap"
         onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" /></noscript>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" onload="this.onload=null;this.rel='stylesheet'" />  <!-- Cormorant Garamond (제목) — optional: CLS 없음 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" onload="this.onload=null;this.rel='stylesheet'" />  <!-- Cormorant Garamond title font -->
   <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
         onload="this.onload=null;this.rel='stylesheet'" />
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
   </noscript>
 
   <!-- Noto Sans KR (본문) — swap: 가독성 우선, subset으로 경량화 -->
@@ -210,12 +203,12 @@
         <a href="{{ '/categories' | relative_url }}">카테고리</a>
         <a href="{{ '/tags' | relative_url }}">태그</a>
         <a href="{{ '/about' | relative_url }}">About</a>
-        <a href="/en/" class="lang-btn"><span class="language-label">EN</span></a>
+        <a href="{% include language-path.html %}" class="lang-btn"><span class="language-label">EN</span></a>
         <button class="search-btn" onclick="toggleSearch()" aria-label="검색">{% include ui-icon.html name='search' %}</button>
         <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" aria-label="다크모드 전환"></button>
       </nav>
       <div class="mobile-nav">
-        <a href="/en/" class="lang-btn"><span class="language-label">EN</span></a>
+        <a href="{% include language-path.html %}" class="lang-btn"><span class="language-label">EN</span></a>
         <button class="search-btn" onclick="toggleSearch()" aria-label="검색">{% include ui-icon.html name='search' %}</button>
         <button class="dark-toggle" id="darkToggleMobile" onclick="toggleDark()" aria-label="다크모드 전환"></button>
         <button class="hamburger" onclick="toggleMenu()" aria-label="메뉴">{% include ui-icon.html name='menu' %}</button>

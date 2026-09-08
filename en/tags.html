@@ -1,0 +1,120 @@
+---
+layout: en-default
+title: Tags
+permalink: /en/tags/
+sitemap: false
+---
+
+{% assign ko_posts = site.en_posts | sort: "date" | reverse %}
+{% assign all_tags = ko_posts | map: "tags" | join: "," | split: "," | sort %}
+{% assign unique_tags = all_tags | uniq %}
+
+<div class="tags-page">
+  <div class="tags-header">
+    <h1>Tags</h1>
+    <p style="font-size:0.9rem; color:var(--text-muted);">Choose a tag to explore related stories.</p>
+  </div>
+
+  <label class="tag-search-label" for="tagSearch">Find a tag</label>
+  <input id="tagSearch" class="tag-search" type="search" placeholder="Search cities, airlines, or hotels" oninput="searchTags(this.value)" />
+  <p id="tagSearchEmpty" hidden>No matching tags.</p>
+  <!-- 태그 클라우드 -->
+  <div class="tag-cloud" id="tagCloud">
+    {% for tag in unique_tags %}
+      {% if tag != "" %}
+        {% assign tag_posts = ko_posts | where_exp: "p", "p.tags contains tag" %}
+        <button class="tag-cloud-item" onclick="filterTag(this.dataset.tag)" aria-pressed="false" data-tag="{{ tag | escape }}">
+          #{{ tag }}
+          <span class="count">{{ tag_posts.size }}</span>
+        </button>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- 태그별 결과 -->
+  <div id="tagResultsContainer">
+    {% for tag in unique_tags %}
+      {% if tag != "" %}
+        {% assign tag_posts = ko_posts | where_exp: "p", "p.tags contains tag" %}
+        <div class="tag-results" id="tag-{{ tag | slugify | escape }}" data-tag="{{ tag | escape }}">
+          <div class="section-divider" style="margin-bottom: 24px;">
+            <span>#{{ tag }} · {{ tag_posts.size }} stories</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px;">
+            {% for post in tag_posts %}
+            <a class="tag-story" href="{{ post.url | relative_url }}" style="display:flex; align-items:center; gap:16px; padding:16px 20px; background:var(--surface); border-radius:12px; border:1px solid transparent; transition:all 0.2s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='transparent'">
+              <span style="font-size:0.7rem; color:var(--text-muted); white-space:nowrap; min-width:80px;">{{ post.date | date: "%Y. %m. %d" }}</span>
+              <span style="font-size:0.9rem; font-weight:500; color:var(--text); flex:1;">{{ post.title }}</span>
+
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div id="tagNoResult" style="display:none; text-align:center; padding:60px 0; color:var(--text-muted); font-size:0.9rem;">
+    No stories for this tag.
+  </div>
+</div>
+
+<script>
+  function searchTags(query) {
+    var count = 0;
+    document.querySelectorAll('.tag-cloud-item').forEach(function(button) {
+      var match = button.dataset.tag.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase());
+      button.hidden = !match;
+      if (match) count++;
+    });
+    document.getElementById('tagSearchEmpty').hidden = count > 0;
+  }
+  var activeTag = null;
+
+  function filterTag(tag) {
+    var allResults = document.querySelectorAll('.tag-results');
+    var allBtns = document.querySelectorAll('.tag-cloud-item');
+    var noResult = document.getElementById('tagNoResult');
+
+    if (activeTag === tag) {
+      // 같은 태그 다시 클릭 → 전체 해제
+      activeTag = null;
+      allResults.forEach(function(r) { r.classList.remove('active'); });
+      allBtns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      noResult.style.display = 'none';
+      return;
+    }
+
+    activeTag = tag;
+    allBtns.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-tag') === tag);
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-tag') === tag));
+    });
+
+    var found = false;
+    allResults.forEach(function(r) {
+      var match = r.getAttribute('data-tag') === tag;
+      r.classList.toggle('active', match);
+      if (match) found = true;
+    });
+
+    noResult.style.display = found ? 'none' : 'block';
+
+    // 결과로 스크롤
+    if (found) {
+      var target = document.querySelector('.tag-results.active');
+      if (target) {
+        setTimeout(function() {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.scrollBy(0, -80);
+        }, 50);
+      }
+    }
+  }
+
+  // URL 해시로 태그 자동 선택
+  window.addEventListener('DOMContentLoaded', function() {
+    var hash = decodeURIComponent(location.hash.replace('#', ''));
+    if (hash) filterTag(hash);
+  });
+</script>

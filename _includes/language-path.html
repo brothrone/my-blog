@@ -1,0 +1,18 @@
+{%- if include.english -%}
+  {%- if page.kr_permalink -%}{{ page.kr_permalink }}
+  {%- elsif page.url contains '/en/airline-review' -%}/category/airline-review/
+  {%- elsif page.url contains '/en/hotel-review' -%}/category/hotel-review/
+  {%- elsif page.url contains '/en/tips' -%}/category/tips/
+  {%- elsif page.url contains '/en/travel/' -%}/category/travel/
+  {%- elsif page.url == '/en/' -%}/
+  {%- else -%}{{ page.url | remove_first: '/en' }}{%- endif -%}
+{%- else -%}
+  {%- if page.en_permalink -%}{{ page.en_permalink }}
+  {%- elsif page.url contains '/category/airline-review' -%}/en/airline-review/
+  {%- elsif page.url contains '/category/hotel-review' -%}/en/hotel-review/
+  {%- elsif page.url contains '/category/travel' -%}/en/travel/
+  {%- elsif page.url contains '/category/' -%}/en/tips/
+  {%- elsif page.url contains '/page/' or page.url == '/' or page.layout == 'post' -%}/en/
+  {%- elsif page.url == '/404.html' -%}/en/
+  {%- else -%}/en{{ page.url }}{%- endif -%}
+{%- endif -%}

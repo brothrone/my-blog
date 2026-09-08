@@ -41,10 +41,10 @@ mobile_home: true
     <div class="hero-cat-sub">Travel Tips</div>
   </a>
   <div class="hero-cat-divider"></div>
-  <a href="#recent-stories" class="hero-cat">
+  <a href="/en/categories/" class="hero-cat">
     <span class="home-mobile-only home-category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg></span>
-    <span class="home-mobile-only home-category-label">All stories</span>
-    <div class="hero-cat-name">All stories</div>
+    <span class="home-mobile-only home-category-label">Categories</span>
+    <div class="hero-cat-name">Categories</div>
     <div class="hero-cat-sub">The Journal</div>
   </a>
 </div>
@@ -110,8 +110,9 @@ mobile_home: true
   function button(label, page, disabled, current) {
     return '<button type="button" class="' + (typeof label === 'number' ? 'pagination-page' : 'pagination-btn') + (current ? ' active' : '') + '" data-page="' + page + '"' + (disabled ? ' disabled' : '') + (current ? ' aria-current="page"' : '') + '>' + label + '</button>';
   }
-  function showPage(page, scroll) {
-    page = Math.max(1, Math.min(page, Math.max(totalPages,1)));
+  function showPage(page, scroll, updateUrl) {
+    if (!Number.isFinite(page)) page = 1;
+    page = Math.max(1, Math.min(Math.trunc(page), Math.max(totalPages,1)));
     cards.forEach(function(card,i) { card.style.display = i >= (page-1)*12 && i < page*12 ? '' : 'none'; });
     document.body.classList.toggle('home-page--archive',page > 1);
     if (featured) featured.style.display = page === 1 ? '' : 'none';
@@ -123,13 +124,21 @@ mobile_home: true
       html += button('Next →',page+1,page===totalPages)+button('»',totalPages,page===totalPages);
       nav.innerHTML = html;
     }
+    if (updateUrl) {
+      var url = new URL(location.href);
+      if(page === 1) url.searchParams.delete('page'); else url.searchParams.set('page',page);
+      url.hash = '';
+      history.pushState({page:page},'',url);
+    }
     if(scroll) window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
   }
   nav.addEventListener('click',function(event) {
     var button = event.target.closest('[data-page]');
-    if(button && !button.disabled) showPage(Number(button.dataset.page),true);
+    if(button && !button.disabled) showPage(Number(button.dataset.page),true,true);
   });
-  showPage(1,false);
+  function restorePage() { showPage(Number(new URL(location.href).searchParams.get('page') || 1),false,false); }
+  window.addEventListener('popstate',restorePage);
+  restorePage();
 })();
 </script>
 <style>

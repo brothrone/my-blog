@@ -146,3 +146,25 @@ body.subpage {
 .home-page .pagination button { font-family:inherit; cursor:pointer; }
 .home-page .pagination button:disabled { opacity:.3; cursor:default; }
 html[lang="en"] .home-page .home-section-heading h2 { letter-spacing:-.035em; }
+
+.error-page { text-align:center; }
+.error-code { font-size:64px; color:var(--text-muted); }
+.error-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+@media (max-width:600px) {
+ .home-page .card-title, .subpage .card-title { display:block; -webkit-line-clamp:unset; overflow:visible; font-size:16px; line-height:1.65; }
+ .home-page .card-meta, .subpage .card-meta, .home-page .featured-meta { font-size:12px; line-height:1.6; }
+ .home-page .card-excerpt, .subpage .card-excerpt { display:none; }
+ .home-page .featured-excerpt { font-size:14px; }
+ .home-page .card { align-items:start; }
+ .subpage .card { align-items:start; }
+ .subpage .tag-story > span:first-child { font-size:12px !important; }
+}
+@media (min-width:601px) and (max-width:1050px) {
+ html[lang="en"] .desktop-nav { gap:12px; }
+ html[lang="en"] .header-inner { padding-left:20px; padding-right:20px; }
+ html[lang="en"] .logo { font-size:12px; }
+}
+
+@media (min-width: 601px) and (max-width: 850px) {
+  .subpage .all-cats-grid { grid-template-columns: 1fr; }
+}

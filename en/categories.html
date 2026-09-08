@@ -1,0 +1,71 @@
+---
+layout: en-default
+title: Categories
+permalink: /en/categories/
+sitemap: false
+---
+
+{% assign ko_posts = site.en_posts %}
+<div class="all-cats-page">
+  <div class="all-cats-header">
+    <h1>Categories</h1>
+    <p>Choose your next story</p>
+  </div>
+
+  <div class="all-cats-grid">
+    <a href="/en/travel-map/" class="all-cat-card highlight-card">
+      <span class="all-cat-icon">{% include ui-icon.html name='map' %}</span>
+      <div class="all-cat-info">
+        <h3>Travel map</h3>
+        <p>Explore by destination</p>
+      </div>
+      <span class="all-cat-arrow">→</span>
+    </a>
+
+    {% assign airline_count = ko_posts | where: "category", "airline-review" | size %}
+    <a href="/en/airline-review/" class="all-cat-card">
+      <span class="all-cat-icon">{% include ui-icon.html name='airline-review' %}</span>
+      <div class="all-cat-info">
+        <h3>Airline reviews</h3>
+        <p>Cabins, lounges and journeys</p>
+      </div>
+      <span class="all-cat-count">{{ airline_count }} {% if airline_count == 1 %}story{% else %}stories{% endif %}</span>
+      <span class="all-cat-arrow">→</span>
+    </a>
+
+    {% assign hotel_count = ko_posts | where: "category", "hotel-review" | size %}
+    <a href="/en/hotel-review/" class="all-cat-card">
+      <span class="all-cat-icon">{% include ui-icon.html name='hotel-review' %}</span>
+      <div class="all-cat-info">
+        <h3>Hotel reviews</h3>
+        <p>Hotels, ryokans and memorable stays</p>
+      </div>
+      <span class="all-cat-count">{{ hotel_count }} {% if hotel_count == 1 %}story{% else %}stories{% endif %}</span>
+      <span class="all-cat-arrow">→</span>
+    </a>
+
+    {% assign tips_count = ko_posts | where: "category", "tips" | size %}
+    <a href="/en/tips/" class="all-cat-card">
+      <span class="all-cat-icon">{% include ui-icon.html name='tips' %}</span>
+      <div class="all-cat-info">
+        <h3>Travel tips</h3>
+        <p>Practical notes for your next trip</p>
+      </div>
+      <span class="all-cat-count">{{ tips_count }} {% if tips_count == 1 %}story{% else %}stories{% endif %}</span>
+      <span class="all-cat-arrow">→</span>
+    </a>
+
+    {% assign travel_count = ko_posts | where: "category", "travel" | size %}
+    {% if travel_count > 0 %}
+    <a href="/en/travel/" class="all-cat-card">
+      <span class="all-cat-icon">{% include ui-icon.html name='map' %}</span>
+      <div class="all-cat-info">
+        <h3>Travel</h3>
+        <p>Places and experiences</p>
+      </div>
+      <span class="all-cat-count">{{ travel_count }} {% if travel_count == 1 %}story{% else %}stories{% endif %}</span>
+      <span class="all-cat-arrow">→</span>
+    </a>
+    {% endif %}
+  </div>
+</div>

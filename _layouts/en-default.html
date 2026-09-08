@@ -59,13 +59,18 @@
   <link rel="alternate" hreflang="x-default" href="{{ page.kr_permalink | prepend: site.url }}" />
   {% endif %}
 
+  {% if page.mobile_home %}
+  <link rel="preload" as="image" href="/assets/images/sapporo.webp" media="(min-width: 961px)" />
+  <link rel="preload" as="image" href="/assets/images/sapporo-tablet.webp" media="(min-width: 601px) and (max-width: 960px)" />
+  <link rel="preload" as="image" href="/assets/images/sapporo-mobile.webp" media="(max-width: 600px)" />
+  {% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
         onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=optional" rel="stylesheet" /></noscript>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" /></noscript>
 
   <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap&subset=korean"
@@ -122,15 +127,16 @@
     <div class="header-inner">
       <a href="/en/" class="logo">BROTHRONE</a>
       <nav class="desktop-nav">
-        <a href="/en/airline-review/">Airline</a>
-        <a href="/en/hotel-review/">Hotel</a>
-        <a href="/en/tips/">Tips</a>
-        <a href="/" class="lang-btn lang-btn-active"><span class="language-label">KR</span></a>
+        <a href="/en/travel-map/">Travel map</a>
+        <a href="/en/categories/">Categories</a>
+        <a href="/en/tags/">Tags</a>
+        <a href="/en/about/">About</a>
+        <a href="{% include language-path.html english=true %}" class="lang-btn lang-btn-active"><span class="language-label">KR</span></a>
         <button class="search-btn" onclick="toggleSearch()" aria-label="Search">{% include ui-icon.html name='search' %}</button>
         <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" aria-label="Toggle dark mode"></button>
       </nav>
       <div class="mobile-nav">
-        <a href="/" class="lang-btn" aria-label="한국어"><span class="language-label">KR</span></a>
+        <a href="{% include language-path.html english=true %}" class="lang-btn" aria-label="한국어"><span class="language-label">KR</span></a>
         <button class="search-btn" onclick="toggleSearch()" aria-label="Search">{% include ui-icon.html name='search' %}</button>
         <button class="dark-toggle" id="darkToggleMobile" onclick="toggleDark()" aria-label="Toggle dark mode"></button>
         <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">{% include ui-icon.html name='menu' %}</button>
@@ -138,10 +144,11 @@
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
-      <a href="/en/airline-review/" onclick="toggleMenu()">Airline Review</a>
-      <a href="/en/hotel-review/" onclick="toggleMenu()">Hotel Review</a>
-      <a href="/en/tips/" onclick="toggleMenu()">Tips</a>
-      <a href="/" onclick="toggleMenu()" class="lang-btn"><span class="language-label">KR</span> Korean</a>
+      <a href="/en/travel-map/" onclick="toggleMenu()">Travel map</a>
+      <a href="/en/categories/" onclick="toggleMenu()">Categories</a>
+      <a href="/en/tags/" onclick="toggleMenu()">Tags</a>
+      <a href="/en/about/" onclick="toggleMenu()">About</a>
+      <a href="/en/contact/" onclick="toggleMenu()">Contact</a>
     </div>
 
     <div class="search-bar" id="searchBar">
@@ -229,7 +236,7 @@
         <div class="footer-links">
           <a href="/en/privacy">Privacy Policy</a>
           <span class="footer-links-sep">·</span>
-          <a href="/contact">Contact</a>
+          <a href="/en/contact/">Contact</a>
         </div>
       </div>
       <div class="footer-stats">
