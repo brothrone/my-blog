@@ -16,12 +16,14 @@ import os
 import re
 import shutil
 import subprocess
+import tempfile
 import threading
 import time
 import urllib.parse
 import urllib.request
 import webbrowser
 from datetime import datetime
+from preflight import check_site
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -588,7 +590,7 @@ def build_markdown(d: dict, lang: str, hero: str) -> str:
             fm.append(f"image: {hero}")
         fm += [
             f"description: {yaml_str(d.get('desc_ko', ''))}",
-            f"en_permalink: /en/{cat}/{slug}/",
+            *([f"en_permalink: /en/{cat}/{slug}/"] if (d.get("body_en") or "").strip() else []),
             "---",
         ]
         body = d.get("body_ko", "").strip()
@@ -776,6 +778,19 @@ def publish(d: dict) -> dict:
     else:
         log.append("⏭  영문 본문이 비어 영문 글은 만들지 않았습니다.")
 
+    # Check the actual rendered pages before staging or pushing anything.
+    urls = [f"/posts/{slug}/"]
+    if en_path in written:
+        urls.append(f"/en/{cat}/{slug}/")
+    with tempfile.TemporaryDirectory(prefix="brothrone-preflight-") as destination:
+        code, output = run(["bundle", "exec", "jekyll", "build", "--destination", destination,
+                            "--disable-disk-cache"])
+        problems = (["사이트 빌드 실패: " + output[-3000:]] if code else check_site(destination, urls))
+    if problems:
+        return {"ok": False, "error": "발행 전 검사에서 문제가 발견됐습니다. 파일과 초안은 보존했습니다.",
+                "issues": [{"level": "error", "msg": msg} for msg in problems], "log": log}
+    log.append("발행 전 검사 통과: 이미지, 내부 링크, 언어 전환 페이지")
+
     # 3) git
     git_log = []
     if d.get("git", True):
@@ -830,6 +845,20 @@ def publish(d: dict) -> dict:
 # HTTP
 # ─────────────────────────────────────────────────────────────
 
+def comment_admin(method="GET", data=None, query=""):
+    key_path = WORK / "comment-admin.key"
+    if not key_path.exists():
+        return {"ok": False, "error": "댓글 관리 키 설정이 필요합니다."}
+    request = urllib.request.Request("https://brothrone.org/api/comment-admin" + query,
+        data=json.dumps(data).encode() if data is not None else None,
+        headers={"Authorization": "Bearer " + key_path.read_text().strip(), "Content-Type": "application/json"}, method=method)
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            return json.load(response)
+    except Exception:
+        return {"ok": False, "error": "댓글 관리 서버 연결 또는 인증에 실패했습니다."}
+
+
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *a):
         if os.environ.get("BLOG_EDITOR_TRACE"):
@@ -856,6 +885,13 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         u = urllib.parse.urlparse(self.path)
         q = urllib.parse.parse_qs(u.query)
+
+        if u.path == "/api/comments-admin":
+            if self.headers.get("Host") not in (f"127.0.0.1:{PORT}", f"localhost:{PORT}"):
+                return self._send(403, {"ok": False})
+            before = q.get("before", [""])[0]
+            query = "?before=" + before if re.fullmatch(r"[1-9][0-9]{0,14}", before) else ""
+            return self._send(200, comment_admin(query=query))
 
         if u.path in ("/", "/index.html"):
             html = (APP_DIR / "index.html").read_bytes()
@@ -1032,6 +1068,23 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         u = urllib.parse.urlparse(self.path)
         try:
+            if u.path == "/api/comments-admin-key":
+                if self.headers.get("Host") not in (f"127.0.0.1:{PORT}", f"localhost:{PORT}") or self.headers.get("Origin") not in (f"http://127.0.0.1:{PORT}", f"http://localhost:{PORT}"):
+                    return self._send(403, {"ok": False})
+                key = self._body().get("key", "")
+                if not re.fullmatch(r"[a-f0-9]{64}", key):
+                    return self._send(400, {"ok": False, "error": "64자리 관리 키가 필요합니다."})
+                WORK.mkdir(exist_ok=True)
+                key_path = WORK / "comment-admin.key"
+                fd = os.open(str(key_path), os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+                with os.fdopen(fd, "w") as key_file:
+                    key_file.write(key)
+                os.chmod(key_path, 0o600)
+                return self._send(200, {"ok": True})
+            if u.path == "/api/comments-admin":
+                if self.headers.get("Host") not in (f"127.0.0.1:{PORT}", f"localhost:{PORT}") or self.headers.get("Origin") not in (f"http://127.0.0.1:{PORT}", f"http://localhost:{PORT}"):
+                    return self._send(403, {"ok": False})
+                return self._send(200, comment_admin("POST", self._body()))
             if u.path == "/api/add-photos":
                 # 사진을 바로 목표 폴더에 넣는다. 폴더가 없으면 만든다.
                 # (Finder 로 폴더를 만들고 복사해 넣던 일을 없앤다)

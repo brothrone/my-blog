@@ -372,6 +372,7 @@ pre.log{
   <button class="tab" data-lang="en">English <span class="dot" id="dotEn" style="display:none"></span></button>
   <button class="tab" data-lang="drafts">임시저장 <span class="dot" id="dotDraft" style="display:none"></span></button>
   <button class="tab" data-lang="manage">관리</button>
+  <button class="tab" data-lang="comments">댓글</button>
 </div>
 
 <div class="scroll" id="scroll">
@@ -381,6 +382,7 @@ pre.log{
   </div>
   <div class="paper" id="memoPane"></div>
   <div class="paper" id="draftPane" style="display:none"></div>
+  <div class="paper" id="commentsPane" style="display:none"></div>
   <div class="paper" id="managePane" style="display:none"></div>
 </div>
 
@@ -944,18 +946,64 @@ window.addEventListener('drop', e => {
   if (e.dataTransfer.files.length) addFiles(e.dataTransfer.files);
 });
 
+async function renderComments(before=null) {
+  const pane=$('#commentsPane');
+  if(!before) pane.innerHTML='<h2>댓글 관리</h2><p>댓글을 확인하고 숨기거나, 운영자 답글을 남길 수 있습니다.</p>';
+  if(!before){
+    const setup=document.createElement('details');const title=document.createElement('summary');title.textContent='관리 연결 설정';
+    const key=document.createElement('input');key.type='password';key.placeholder='Cloudflare 댓글 관리 키';key.setAttribute('aria-label','댓글 관리 키');key.autocomplete='off';
+    const save=document.createElement('button');save.textContent='관리 키 저장';save.className='btn';
+    const hint=document.createElement('p');hint.textContent='Cloudflare의 COMMENTS_ADMIN_SECRET과 동일한 키를 이 Mac에 저장합니다.';
+    save.onclick=async()=>{const r=await fetch('/api/comments-admin-key',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({key:key.value})});if(r.ok){key.value='';renderComments();}else hint.textContent='키 형식을 확인해주세요.';};
+    setup.append(title,hint,key,save);pane.append(setup);
+  }
+  try {
+    const response=await fetch('/api/comments-admin'+(before?'?before='+before:''));
+    const data=await response.json();
+    if(data.error) throw new Error(data.error);
+    for(const c of data.comments) {
+      const card=document.createElement('section');card.style.cssText='border-bottom:1px solid #ddd;padding:24px 0';
+      const heading=document.createElement('strong');heading.textContent=c.name+' · '+(c.status==='hidden'?'숨김':'공개');
+      const link=document.createElement('a');link.href='https://brothrone.org'+c.thread+'#comments';link.target='_blank';link.rel='noopener';link.textContent='글 보기';link.style.marginLeft='16px';
+      const body=document.createElement('p');body.textContent=c.body;body.style.whiteSpace='pre-wrap';
+      const reply=document.createElement('textarea');reply.value=c.reply||'';reply.placeholder='운영자 답글';reply.maxLength=2000;reply.style.cssText='width:100%;min-height:90px;margin:12px 0';
+      const status=document.createElement('p');status.setAttribute('role','status');
+      card.append(heading,link,body,reply);
+      for(const [action,label] of [['reply','답글 저장'],[c.status==='hidden'?'restore':'hide',c.status==='hidden'?'공개하기':'숨기기'],['delete','삭제']]) {
+        const button=document.createElement('button');button.className='btn';button.textContent=label;button.style.marginRight='8px';
+        button.onclick=async()=>{
+          if(action==='delete'&&!confirm('댓글과 운영자 답글을 영구 삭제할까요?'))return;
+          if(action==='reply'&&!reply.value.trim()){status.textContent='답글을 입력해주세요.';return;}
+          button.disabled=true;
+          try {
+            const response=await fetch('/api/comments-admin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:c.id,action,body:reply.value})});
+            const result=await response.json();if(!response.ok||result.error||result.ok===false)throw new Error(result.error||'저장 실패');
+            await renderComments();
+          } catch(error){status.textContent=error.message;button.disabled=false;}
+        };card.append(button);
+      }
+      card.append(status);pane.append(card);
+    }
+    if(!data.comments.length&&!before){const empty=document.createElement('p');empty.textContent='아직 댓글이 없습니다.';pane.append(empty);}
+    if(data.next){const more=document.createElement('button');more.className='btn';more.textContent='더 보기';more.onclick=()=>{more.remove();renderComments(data.next);};pane.append(more);}
+  } catch(error){const message=document.createElement('p');message.textContent=error.message;pane.append(message);}
+}
+
 /* ── 탭 / 제목 ── */
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x===t));
   const v = t.dataset.lang;
   const memo = v === 'memo', mng = v === 'manage', dft = v === 'drafts';
-  const write = !memo && !mng && !dft;
+  const cmt = v === 'comments';
+  const write = !memo && !mng && !dft && !cmt;
+  $('#commentsPane').style.display = cmt ? '' : 'none';
   $('#writePane').style.display   = write ? '' : 'none';
   $('#memoPane').style.display    = memo ? '' : 'none';
   $('#managePane').style.display  = mng ? '' : 'none';
   $('#draftPane').style.display   = dft ? '' : 'none';
   document.querySelector('.toolbar').style.display = write ? '' : 'none';
   $('#prevBtn').style.display = write ? '' : 'none';
+  if (cmt) { renderComments(); return; }
   if (memo) { renderMemo(); return; }
   if (mng)  { renderManage(); return; }
   if (dft)  { renderDrafts(); return; }

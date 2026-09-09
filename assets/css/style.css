@@ -1609,3 +1609,11 @@ nav a:hover { color: var(--text); }
   }
   .mobile-menu a { padding: 16px 24px; }
 }
+
+/* Related stories: restrained photo cards, shared by both languages. */
+.related-card { overflow: hidden; padding: 0 0 18px; border: 1px solid var(--border); text-decoration: none; }
+.related-card-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; margin-bottom: 16px; }
+.related-card-meta, .related-card-title { margin-left: 18px; margin-right: 18px; }
+.related-card-meta:first-child { margin-top: 18px; }
+.related-card:focus-visible { outline: 2px solid var(--text-muted); outline-offset: 4px; }
+@media (max-width: 480px) { .related-grid { gap: 12px; } .related-card-title { font-size: .85rem; } .related-card-meta, .related-card-title { margin-left: 12px; margin-right: 12px; } }

@@ -75,3 +75,20 @@ test('static assets bypass comment configuration and unsupported methods are ref
  const {env}=setup();assert.equal(await(await worker.fetch(new Request('https://brothrone.org/about/'),env)).text(),'static');
  assert.equal((await worker.fetch(request('PUT',{}),env)).status,405);
 });
+test('admin authentication, moderation and verified replies',async()=>{
+ const {db,env}=setup();env.COMMENTS_ADMIN_SECRET=token();
+ const admin=(data,key=env.COMMENTS_ADMIN_SECRET)=>new Request('https://brothrone.org/api/comment-admin',{method:data?'POST':'GET',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:data?JSON.stringify(data):undefined});
+ assert.equal((await worker.fetch(admin(undefined,'wrong'),env)).status,401);
+ const data=payload({reply:{body:'forged'},is_operator:true});
+ const {comment}=await(await worker.fetch(request('POST',data),env)).json();
+ assert.equal((await(await worker.fetch(request(),env)).json()).comments[0].reply,undefined);
+ assert.equal((await worker.fetch(admin({action:'reply',id:comment.id,body:'Thank you.'}),env)).status,200);
+ assert.equal((await(await worker.fetch(request(),env)).json()).comments[0].reply.body,'Thank you.');
+ const listing=await(await worker.fetch(admin(),env)).json();assert.equal(listing.comments[0].delete_hash,undefined);
+ await worker.fetch(admin({action:'hide',id:comment.id}),env);
+ assert.equal((await(await worker.fetch(request(),env)).json()).comments.length,0);
+ await worker.fetch(admin({action:'restore',id:comment.id}),env);
+ assert.equal((await(await worker.fetch(request(),env)).json()).comments.length,1);
+ await worker.fetch(request('DELETE',{thread:data.thread,id:comment.id,deleteToken:data.deleteToken}),env);
+ assert.equal(db.sqlite.prepare('SELECT COUNT(*) AS n FROM comment_replies').get().n,0);
+});

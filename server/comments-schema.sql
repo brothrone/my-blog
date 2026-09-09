@@ -15,3 +15,8 @@ CREATE TABLE IF NOT EXISTS comment_limits (
   expires_at INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS comment_limits_expiry ON comment_limits(expires_at);
+CREATE TABLE IF NOT EXISTS comment_replies (
+  comment_id INTEGER PRIMARY KEY REFERENCES comments(id) ON DELETE CASCADE,
+  body TEXT NOT NULL CHECK(length(body) BETWEEN 1 AND 2000),
+  created_at INTEGER NOT NULL
+);

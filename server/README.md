@@ -22,3 +22,15 @@ The app stores nickname, plaintext comment, timestamp, canonical thread, and del
 ## Validation
 
 Run `bundle exec jekyll build --destination /private/tmp/brothrone-comments-build --disable-disk-cache`, then `node --test tests/comments.test.mjs`. Tests use Node's built-in SQLite and a mocked Turnstile validator; no production database or comments are touched. `node scripts/comments-preview.mjs /private/tmp/brothrone-comments-build` serves a local preview with an isolated SQLite file in `/private/tmp`. Local preview accepts only a test token at the backend test harness and must never be deployed.
+
+## Editor 댓글 관리
+
+`comment_replies` 테이블을 포함한 schema를 D1에 적용하고, Pages Production에
+`COMMENTS_ADMIN_SECRET`을 암호화된 Secret으로 설정합니다. 32바이트 무작위 값을
+64자리 hex로 사용합니다. Editor → 댓글 → 관리 연결 설정에서 같은 키를 저장합니다.
+키는 `.blog-editor/comment-admin.key`에 소유자 전용 권한(600)으로 저장되며 Git에 포함되지 않습니다.
+Editor를 다시 열면 댓글 목록, 숨기기/복원, 영구 삭제, 운영자 답글을 사용할 수 있습니다.
+운영자 답글은 댓글당 하나이며 다시 저장하면 수정됩니다. 원댓글 삭제 시 답글도 삭제됩니다.
+
+발행 시 실제 Jekyll 빌드 결과의 이미지와 내부 링크를 검사합니다. 검사 실패 시
+작성한 파일과 초안을 보존하고 커밋/푸시를 중단합니다.

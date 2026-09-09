@@ -170,13 +170,14 @@ layout: en-default
     </button>
   </div>
 
-  {% assign related = site.en_posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | limit: 4 %}
+  {% assign related = site.en_posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | sort: "date" | reverse | slice: 0, 4 %}
   {% if related.size > 0 %}
   <div class="related-posts">
     <h2>Related Posts</h2>
     <div class="related-grid">
       {% for post in related %}
       <a href="{{ post.url }}" class="related-card">
+        {% if post.image %}<img class="related-card-image" src="{{ post.image | relative_url }}" alt="" loading="lazy" decoding="async" width="600" height="400">{% endif %}
         <div class="related-card-meta">{{ post.date | date: "%b %d, %Y" }}</div>
         <div class="related-card-title">{{ post.title }}</div>
       </a>

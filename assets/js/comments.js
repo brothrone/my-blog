@@ -43,6 +43,12 @@
       });
       header.append(remove);
     }
+    if (comment.reply) {
+      const reply=document.createElement('div'), badge=document.createElement('span'), content=document.createElement('p');
+      reply.className='comment-operator-reply';badge.className='comment-operator-badge';
+      badge.textContent=text('BROTHRONE · 운영자','BROTHRONE · Author');content.className='comment-text';content.textContent=comment.reply.body;
+      reply.append(badge,content);item.append(reply);
+    }
     return item;
   }
   async function load(append=false) {

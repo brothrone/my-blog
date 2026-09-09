@@ -65,3 +65,5 @@ defaults:
       path: "naverc57e7918696030d2018a7f9419a797fc.html"
     values:
       sitemap: false
+
+timezone: Asia/Seoul
