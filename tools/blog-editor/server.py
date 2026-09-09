@@ -165,10 +165,10 @@ def safe_name(text: str) -> str:
     return re.sub(r"_+", "_", text).strip("_") or "photo"
 
 
-def run(cmd, cwd=BLOG, stdin=None):
+def run(cmd, cwd=BLOG, stdin=None, env=None):
     # stdin 을 명시적으로 닫는다. 안 그러면 입력을 기다리는 명령이 그대로 멈춰버린다.
     p = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True,
-                       input=(stdin if stdin is not None else ""), timeout=60)
+                       input=(stdin if stdin is not None else ""), timeout=60, env=env)
     return p.returncode, (p.stdout or "") + (p.stderr or "")
 
 
@@ -783,8 +783,17 @@ def publish(d: dict) -> dict:
     if en_path in written:
         urls.append(f"/en/{cat}/{slug}/")
     with tempfile.TemporaryDirectory(prefix="brothrone-preflight-") as destination:
-        code, output = run(["bundle", "exec", "jekyll", "build", "--destination", destination,
-                            "--disable-disk-cache"])
+        build_env = os.environ.copy()
+        version_file = BLOG / ".ruby-version"
+        if version_file.exists():
+            ruby_bin = Path.home() / ".rbenv" / "versions" / version_file.read_text().strip() / "bin"
+            if (ruby_bin / "bundle").is_file():
+                build_env["PATH"] = str(ruby_bin) + os.pathsep + build_env.get("PATH", "")
+        try:
+            code, output = run(["bundle", "exec", "jekyll", "build", "--destination", destination,
+                                "--disable-disk-cache"], env=build_env)
+        except (OSError, subprocess.TimeoutExpired):
+            code, output = 1, "Jekyll 실행 환경을 확인해주세요. 빌드를 실행하지 못했거나 제한 시간을 초과했습니다."
         problems = (["사이트 빌드 실패: " + output[-3000:]] if code else check_site(destination, urls))
     if problems:
         return {"ok": False, "error": "발행 전 검사에서 문제가 발견됐습니다. 파일과 초안은 보존했습니다.",
