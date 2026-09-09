@@ -860,7 +860,7 @@ def comment_admin(method="GET", data=None, query=""):
         return {"ok": False, "error": "댓글 관리 키 설정이 필요합니다."}
     request = urllib.request.Request("https://brothrone.org/api/comment-admin" + query,
         data=json.dumps(data).encode() if data is not None else None,
-        headers={"Authorization": "Bearer " + key_path.read_text().strip(), "Content-Type": "application/json"}, method=method)
+        headers={"Authorization": "Bearer " + key_path.read_text().strip(), "Content-Type": "application/json", "User-Agent": "BrothroneEditor/1.0"}, method=method)
     try:
         with urllib.request.urlopen(request, timeout=20) as response:
             return json.load(response)
