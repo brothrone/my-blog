@@ -1,0 +1,8 @@
+{% if include.post or page.url == '/' or page.url == '/en/' %}
+{% assign counter_path = 'TOTAL' %}
+{% if include.post %}{% assign counter_path = page.url | split: '/' | join: '/' %}{% endif %}
+<div class="{% if include.post %}post-visitors{% else %}footer-visitors{% endif %}" title="{% if include.lang == 'en' %}{% if include.post %}Page views{% else %}Site-wide visits{% endif %} · updates may take up to 4 hours{% else %}{% if include.post %}이 페이지 조회수{% else %}사이트 전체 누적 방문{% endif %} · 최대 4시간 간격으로 갱신{% endif %}">
+  <span>{% if include.post %}{% if include.lang == 'en' %}Views{% else %}조회수{% endif %}{% elsif include.lang == 'en' %}Total visits{% else %}누적 방문{% endif %}</span>
+  <span class="visitor-number"><img src="https://brothrone.goatcounter.com/counter/{{ counter_path | url_encode }}.svg?no_branding=1" width="160" height="48" alt="{% if include.lang == 'en' %}GoatCounter visit count{% else %}GoatCounter 방문 수{% endif %}"></span>
+</div>
+{% endif %}

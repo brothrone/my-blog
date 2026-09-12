@@ -363,6 +363,7 @@
         <span class="footer-stat">카테고리 <strong>{{ all_cats | size }}</strong>개</span>
       </div>
     </div>
+    {% include visitor-counter.html lang="ko" %}
   </footer>
 
   <!-- ★ 읽기진행바 + 맨위로 버튼 + 라이트박스 JS -->
@@ -489,11 +490,6 @@
   });
   </script>
 
-  <!--
-    방문자 수 표시는 걷어냈다. API 토큰이 필요한데 이 저장소는 공개라
-    누구나 볼 수 있게 된다. 통계는 글쓰기 앱의 '관리' 탭에서 본다
-    (토큰은 그 컴퓨터에만 저장된다).
-  -->
 
   <!-- 이미지 우클릭/드래그 저장 방지 -->
   <style>

@@ -24,6 +24,7 @@ import urllib.request
 import webbrowser
 from datetime import datetime
 from preflight import check_site
+from gps import strip_new_photo_gps
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -1115,6 +1116,11 @@ class Handler(BaseHTTPRequestHandler):
                         out = dest / f"{Path(safe).stem}_{n}{Path(safe).suffix}"
                         n += 1
                     out.write_bytes(base64.b64decode(f["data"].split(",")[-1]))
+                    try:
+                        strip_new_photo_gps(out)
+                    except Exception:
+                        out.unlink(missing_ok=True)  # only this newly uploaded copy
+                        raise
                     added.append(str(out.relative_to(BLOG)))
                 return self._send(200, {"ok": True, "added": added,
                                         "dir": str(dest.relative_to(BLOG))})
@@ -1169,6 +1175,11 @@ class Handler(BaseHTTPRequestHandler):
                 name = safe_name(Path(d["name"]).stem) + Path(d["name"]).suffix
                 dest = STAGING / f"{int(time.time()*1000)}_{name}"
                 dest.write_bytes(base64.b64decode(d["data"].split(",")[-1]))
+                try:
+                    strip_new_photo_gps(dest)
+                except Exception:
+                    dest.unlink(missing_ok=True)
+                    raise
                 return self._send(200, {"src": str(dest), "name": d["name"]})
 
             if u.path == "/api/notes":
