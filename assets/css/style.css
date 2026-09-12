@@ -1624,3 +1624,8 @@ nav a:hover { color: var(--text); }
 .visitor-number { display:inline-block; position:relative; width:80px; height:20px; overflow:hidden; }
 .visitor-number img { position:absolute; width:160px; height:48px; max-width:none; left:-40px; top:-23px; filter:grayscale(1); mix-blend-mode:multiply; }
 [data-theme="dark"] .visitor-number img { filter:grayscale(1) invert(1); mix-blend-mode:screen; }
+
+/* Keep page views secondary to the date and title. */
+.post-meta .post-visitors { display:inline-flex; justify-content:flex-start; gap:2px; margin:0; font-size:.65rem; letter-spacing:0; text-transform:none; opacity:.75; white-space:nowrap; }
+.post-visitors .visitor-number { width:40px; height:13px; }
+.post-visitors .visitor-number img { width:100px; height:30px; left:-30px; top:-15px; }
