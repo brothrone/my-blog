@@ -44,6 +44,8 @@ MAX_WIDTH = 1200
 # ─────────────────────────────────────────────────────────────
 
 CATEGORIES = {
+    "news": {"ko": "정보 및 뉴스", "prefix": "[정보 및 뉴스]",
+             "tags_ko": ["여행소식"], "tags_en": ["Travel News"]},
     "hotel-review": {
         "ko": "숙박후기", "prefix": "[숙박후기]",
         "tags_ko": ["숙박후기"], "tags_en": ["Hotel Review"],

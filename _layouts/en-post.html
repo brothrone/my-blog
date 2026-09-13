@@ -120,7 +120,11 @@ layout: en-default
   {% include comments.html english=true %}
 
   <nav class="post-nav">
-    {% assign en_posts = site.en_posts %}
+    {% if page.category == 'news' %}
+    {% assign en_posts = site.en_posts | where: 'category', 'news' %}
+    {% else %}
+    {% assign en_posts = site.en_posts | where_exp: 'post', "post.category != 'news'" %}
+    {% endif %}
     {% assign current_index = 0 %}
     {% for post in en_posts %}
       {% if post.url == page.url %}{% assign current_index = forloop.index0 %}{% endif %}

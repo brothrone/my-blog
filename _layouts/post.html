@@ -128,7 +128,7 @@ layout: default
 
   <!-- 이전글 / 다음글 -->
   <nav class="post-nav">
-    {% if page.previous.url %}
+    {% if page.previous.url and page.previous.category != "news" and page.category != "news" %}
     <a href="{{ page.previous.url | relative_url }}" class="post-nav-item post-nav-prev">
       <span class="post-nav-label">← 이전 글</span>
       <span class="post-nav-title">{{ page.previous.title }}</span>
@@ -137,7 +137,7 @@ layout: default
     <div class="post-nav-item post-nav-empty"></div>
     {% endif %}
 
-    {% if page.next.url %}
+    {% if page.next.url and page.next.category != "news" and page.category != "news" %}
     <a href="{{ page.next.url | relative_url }}" class="post-nav-item post-nav-next">
       <span class="post-nav-label">다음 글 →</span>
       <span class="post-nav-title">{{ page.next.title }}</span>

@@ -67,5 +67,12 @@ sitemap: false
       <span class="all-cat-arrow">→</span>
     </a>
     {% endif %}
+    {% assign news_count = site.en_posts | where: "category", "news" | size %}
+    <a href="/en/news/" class="all-cat-card">
+      <span class="all-cat-icon">{% include ui-icon.html name='news' %}</span>
+      <div class="all-cat-info"><h3>Travel News</h3><p>Official travel updates</p></div>
+      <span class="all-cat-count">{{ news_count }} articles</span>
+      <span class="all-cat-arrow">→</span>
+    </a>
   </div>
 </div>

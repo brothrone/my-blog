@@ -163,6 +163,7 @@
     <script>
       const posts = [
         {% for post in site.en_posts %}
+        {% if post.category == "news" %}{% continue %}{% endif %}
         {
           title: {{ post.title | jsonify }},
           url: {{ post.url | relative_url | jsonify }},

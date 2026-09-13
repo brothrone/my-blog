@@ -4,7 +4,7 @@ title: "Brothrone Travel — English"
 permalink: /en/
 mobile_home: true
 ---
-{% assign en_posts = site.en_posts | sort: "date" | reverse %}
+{% assign en_posts = site.en_posts | where_exp: "post", "post.category != 'news'" | sort: "date" | reverse %}
 <section class="hero">
   <div class="hero-inner">
     <h1 class="hero-title">Welcome to the BROTHRONE</h1>

@@ -54,6 +54,18 @@ include:
 # 사이트맵 제외: 카테고리 목록·페이지네이션·유틸리티 페이지
 defaults:
   - scope:
+      path: "_posts/news"
+    values:
+      hidden: true
+      category: news
+      sitemap: true
+  - scope:
+      path: "_en_posts/news"
+    values:
+      hidden: true
+      category: news
+      sitemap: true
+  - scope:
       path: "category"
     values:
       sitemap: false

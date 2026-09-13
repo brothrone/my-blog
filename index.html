@@ -50,7 +50,7 @@ mobile_home: true
 
 <!-- 피처드 (최신 글) — 1페이지에서만 표시 -->
 {% if paginator.page == 1 %}
-{% assign ko_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
+{% assign ko_posts = site.posts | where_exp: "post", "post.lang != 'en'" | where_exp: "post", "post.category != 'news'" %}
 {% assign featured_post = ko_posts.first %}
 {% if featured_post %}
 <section class="featured" id="home-stories">
