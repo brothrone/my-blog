@@ -2,7 +2,7 @@
 layout: "en-post"
 title: "Korean Air returns to Oita on October 25: dates and trip planning"
 date: "2026-09-14 09:00:00 +0900"
-image: /assets/images/hotel-review/fuk_3/fuk3-10.webp
+image: /assets/images/news/korean-air-oita/korean-air-a321neo.jpg
 category: "news"
 hidden: true
 sitemap: true
@@ -20,8 +20,8 @@ If you're planning a winter trip to Yufuin or Beppu, Oita is another airport to 
 
 
 <figure style="margin: 28px 0; text-align: center;">
-  <img src="/assets/images/hotel-review/fuk_1/fuk_a_20.webp" alt="Yufuin street and mountain view" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
-  <figcaption style="font-size: 0.85em; color: var(--muted, #777); margin-top: 8px;">Yufuin on an earlier trip. All photos in this article are from my previous visits.</figcaption>
+<img src="/assets/images/news/korean-air-oita/korean-air-a321neo.jpg" alt="Korean Air Airbus A321neo at Haneda Airport" width="3648" height="2052" decoding="async" style="width:100%;height:auto;border-radius:12px;" />
+<figcaption style="font-size:.8em;color:var(--muted,#777);margin-top:8px;">Korean Air A321neo (HL8557), Haneda Airport, September 2024. <a href="https://commons.wikimedia.org/wiki/File:Korean_Air_HL8557_A321-272NX_HND_26-09-2024_(1).jpg">BWard 1997</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
 ## Dates and flight times
@@ -40,11 +40,6 @@ These are local airport times. Korean Air lists the A321neo for the route. [Offi
 This isn't a daily flight. If you've already booked a ryokan, check that the flight days fit your stay. A cheaper ticket may not save much if moving the hotel booking comes with a cancellation fee.
 
 
-<figure style="margin: 28px 0; text-align: center;">
-  <img src="/assets/images/hotel-review/fuk_1/fuk_a_5.webp" alt="Snow outside Oyado Yufunoshou in Yufuin" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
-  <figcaption style="font-size: 0.85em; color: var(--muted, #777); margin-top: 8px;">Oyado Yufunoshou during a previous winter stay.</figcaption>
-</figure>
-
 The morning departure also matters if you're travelling to Incheon from another part of Korea. Check whether the first train or bus gets you there in time, or whether you'd need a night near the airport.
 
 For the return, a noon departure means working backwards from the airport check-in time. If you want breakfast at the ryokan before leaving, check the transfer first. I haven't checked the airport bus timetable for this article, so the flight times alone aren't enough to plan that connection.
@@ -53,8 +48,8 @@ The announcement doesn't settle the fare or baggage allowance for your booking e
 
 
 <figure style="margin: 28px 0; text-align: center;">
-  <img src="/assets/images/hotel-review/fuk_3/fuk3-10.webp" alt="Outdoor bath and mountain view at Ikkoten in Yufuin" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
-  <figcaption style="font-size: 0.85em; color: var(--muted, #777); margin-top: 8px;">The outdoor bath at Ikkoten, photographed on a previous stay.</figcaption>
+  <img src="/assets/images/hotel-review/fuk_1/fuk_a_20.webp" alt="Yufuin street and mountain view" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
+  <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">Yufuin Station. Photo: Brothrone.</figcaption>
 </figure>
 
 For accommodation, my earlier reviews cover [Ikkoten](/en/hotel-review/yufuin-ikkouten/) and [Oyado Yufunoshou](/en/hotel-review/yufunosho-ryokan/). They describe those past stays; check current rates separately.
