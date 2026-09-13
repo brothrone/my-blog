@@ -108,7 +108,7 @@ layout: default
       <span class="post-date">{{ page.date | date: "%Y. %m. %d" }}</span>
       {% include visitor-counter.html lang="ko" post=true %}
       {% if page.tags %}
-        {% for tag in page.tags %}
+        {% for tag in page.tags limit:2 %}
           <span class="post-tag">{{ tag }}</span>
         {% endfor %}
       {% endif %}
@@ -118,11 +118,7 @@ layout: default
 
   <article class="post-content">
     {% if page.en_permalink %}
-    <a href="{{ page.en_permalink }}" class="en-version-card">
-      <span class="en-version-icon">{% include ui-icon.html name='map' %}</span>
-      <span class="en-version-text">Read this post in English</span>
-      <span class="en-version-arrow">→</span>
-    </a>
+    <a href="{{ page.en_permalink }}" class="post-language-link" hreflang="en" lang="en">Read in English <span aria-hidden="true">→</span></a>
     {% endif %}
     {{ content }}
     <a href="{{ '/' | relative_url }}" class="back-link">← 목록으로 돌아가기</a>
