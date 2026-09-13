@@ -14,6 +14,7 @@ tags:
   - US Travel
   - Hilton Honors
 image: /assets/images/hotel-review/hiltonseattle/hiltonseattle-07.webp
+description: "A look back at my two-night Hilton Seattle stay, with the Priceline booking, downtown location, double queen room, bathroom and Redtrees breakfast."
 ---
 
 > **⚠️ This hotel is permanently closed and no longer in operation.** This is a retrospective review from February 2023. Prices and conditions may differ significantly from current market rates.

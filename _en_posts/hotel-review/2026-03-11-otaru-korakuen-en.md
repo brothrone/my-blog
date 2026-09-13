@@ -15,6 +15,7 @@ tags:
 image: /assets/images/hotel-review/korakuen/korakuen-18.webp
 permalink: /en/hotel-review/otaru-korakuen/
 excerpt: "1-night review of Korakuen onsen ryokan in Otaru, Hokkaido. Kaiseki dinner and breakfast, indoor and outdoor onsen, and a surprisingly spacious room."
+description: "A family stay at Otaru Korakuen, covering the booking, spacious mezzanine room with a private outdoor bath, kaiseki meals and shared hot springs."
 ---
 ### Korakuen (後楽苑)
 

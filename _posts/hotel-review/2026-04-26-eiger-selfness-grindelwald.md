@@ -14,6 +14,7 @@ en_permalink: /en/hotel-review/eiger-selfness-grindelwald/
 image: /assets/images/hotel-review/eiger/lobby1.webp
 permalink: /posts/eiger-selfness-grindelwald/
 excerpt: "가는 길이 은근 오르막길이라 캐리어를 끌고 가기엔 살짝 힘든 감이 있었습니다."
+description: "스위스 그린델발트 아이거 셀프니스 호텔 2박 후기. 역에서 호텔까지 오르막길 이동, 킹베드 객실과 해피아워 라운지, 사우나, Barry’s 조식과 주변 마트 이용 경험을 담았습니다."
 ---
 ### 아이거 셀프니스 호텔 (Eiger Selfness Hotel)
 

@@ -11,6 +11,7 @@ tags:
   - 탑승기
 image: /assets/images/airline-review/dl196/dl196_1.webp
 en_permalink: /en/airline-review/delta-icn-sea/
+description: "델타항공 인천–시애틀 이코노미 탑승 후기. 좌석과 기내식, 유료 와이파이 이용 경험부터 시애틀 공항 도착 후 겪은 입국 심사와 세컨더리 조사까지 기록했습니다."
 ---
 
 코로나 항원검사 음성 결과를 받고 행복하게 체크인 카운터에 줄을 섰다.

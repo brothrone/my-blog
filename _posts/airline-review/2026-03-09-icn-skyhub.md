@@ -15,6 +15,7 @@ en_permalink: /en/airline-review/icn-skyhub/
 image: /assets/images/airline-review/icn-skyhub/icn-skyhub-04.webp
 permalink: /posts/icn-skyhub/
 excerpt: "인천국제공항 제2터미널 스카이허브 서편 라운지 심야 이용 후기. 24시간 운영 라운지에서 마사지 체어로 밤을 보내고 이른 아침 비행기를 탄 경험."
+description: "인천공항 제2터미널 스카이허브 서편 라운지 심야 이용 후기. 이른 아침 후쿠오카행 비행기를 기다리며 경험한 라운지 위치, 내부 휴식 공간과 음식, 밤 시간대 분위기를 담았습니다."
 ---
 ### 인천공항 2터미널 스카이허브 라운지
 

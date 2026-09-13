@@ -16,6 +16,7 @@ image: /assets/images/hotel-review/hiltonsydney/hiltonsydney-01.webp
 series: Sydney
 series_no: 1
 series_icon: 🇦🇺
+description: "My three-night stay in a twin room at Hilton Sydney, covering the booking, central location, hotel facilities, gym and breakfast experience."
 ---
 
 A 3-night stay at the Hilton Sydney. Booked via the Hilton official app in February 2025. Located in the heart of Sydney's CBD, the hotel offered excellent access to virtually everything.

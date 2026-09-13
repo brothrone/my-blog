@@ -13,6 +13,7 @@ tags:
   - 힐튼아너스
 image: /assets/images/hotel-review/hiltonseattle/hiltonseattle-07.webp
 en_permalink: /en/hotel-review/hilton-seattle/
+description: "힐튼 시애틀에서 보낸 과거 2박 숙박 기록. 프라이스라인 예약 비용과 다운타운 위치, 더블퀸룸과 욕실, Redtrees 조식 경험을 사진과 함께 남긴 당시 여행 후기입니다."
 ---
 
 > **⚠️ 현재 이 호텔은 폐업하여 운영하지 않습니다.**

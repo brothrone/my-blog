@@ -14,6 +14,7 @@ tags:
 image: /assets/images/hotel-review/fuk_1/fuk_a_5.webp
 permalink: /en/hotel-review/yufunosho-ryokan/
 excerpt: "Yufuin ryokan Oyado Yufunosho second-visit review. Returning to a ryokan loved for its kaiseki and hot springs — a detailed second-stay record."
+description: "My second stay at Oyado Yufunoshou in Yufuin: the trip from the station, room, private and shared hot springs, plus kaiseki dinner and breakfast."
 ---
 
 ### Oyado Yufunosho Ryokan Review

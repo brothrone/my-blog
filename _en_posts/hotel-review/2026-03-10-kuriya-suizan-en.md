@@ -16,6 +16,7 @@ tags:
 image: /assets/images/hotel-review/kuriya-suizan/kuriya-suizan-09.webp
 permalink: /en/hotel-review/kuriya-suizan/
 excerpt: "We arrived after dark, and the sight of the snow-piled roof lit up at night was already pretty striking."
+description: "My stay at Kuriya Suizan in Jozankei: the room, lounge, kaiseki dinner and breakfast, snowy outdoor baths and a visit to a sister ryokan's onsen."
 ---
 ### Kuriya Suizan (厨 水山)
 

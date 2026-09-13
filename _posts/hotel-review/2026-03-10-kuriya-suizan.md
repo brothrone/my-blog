@@ -15,6 +15,7 @@ en_permalink: /en/hotel-review/kuriya-suizan/
 image: /assets/images/hotel-review/kuriya-suizan/kuriya-suizan-09.webp
 permalink: /posts/kuriya-suizan/
 excerpt: "도착하니 이미 해가 진 저녁이었는데, 지붕에 눈이 수북이 쌓인 료칸 외관이 꽤 인상적이었습니다."
+description: "홋카이도 조잔케이 쿠리야 스이잔 료칸 숙박 후기. 렌터카 이동과 예약 비용, 객실과 라운지, 가이세키 석식·조식, 눈 속 노천탕과 자매 료칸 온천 이용 경험을 정리했습니다."
 ---
 ### 쿠리야 스이잔 (厨 水山)
 

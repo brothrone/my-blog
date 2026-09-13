@@ -10,6 +10,7 @@ tags:
   - 여행팁
 image: /assets/images/tips/visit-japan-web/vjw2.webp
 en_permalink: /en/tips/visit-japan-web/
+description: "일본 여행을 준비하며 작성한 Visit Japan Web 등록 과정 안내. 준비물과 로그인, 동반가족 및 여행 일정 등록, 일본 체류지 입력과 세관신고 단계를 화면과 함께 정리했습니다."
 ---
 ## Visit Japan Web 이란?
 요즘 정말 많은 사람들이 일본여행을 간다. 

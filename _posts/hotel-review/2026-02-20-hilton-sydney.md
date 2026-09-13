@@ -13,6 +13,7 @@ tags:
   - 힐튼아너스
 image: /assets/images/hotel-review/hiltonsydney/hiltonsydney-01.webp
 en_permalink: /en/hotel-review/hilton-sydney/
+description: "힐튼 시드니 트윈룸 3박 숙박 후기. 직접 예약한 비용과 시내 접근성, 체크인 과정부터 객실과 운동 시설, 조식까지 시드니 여행 중 이용한 경험을 사진과 함께 정리했습니다."
 ---
 
 힐튼 시드니(Hilton Sydney) 3박 숙박 후기. 2025년 2월 기준, 힐튼 공식앱으로 예약했으며 시드니 CBD 중심부에 위치해 접근성이 매우 뛰어났다.

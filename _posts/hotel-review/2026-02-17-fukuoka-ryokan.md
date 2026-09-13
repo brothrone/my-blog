@@ -14,6 +14,7 @@ tags:
 image: /assets/images/hotel-review/fuk_1/fuk_a_5.webp
 en_permalink: /en/hotel-review/yufunosho-ryokan/
 excerpt: "유후인 료칸 오야도 유후노쇼 두 번째 방문 후기. 가이세키 요리와 온천이 좋아서 다시 찾은 유후인 료칸의 상세 이용 기록."
+description: "유후인 오야도 유후노쇼 료칸 두 번째 방문 후기. 유후인역에서 이동한 경험부터 객실과 전용 노천탕, 공용 온천, 가이세키 석식과 조식까지 눈 내린 계절의 숙박 경험을 담았습니다."
 ---
 ### 유후인 오야도 유후노쇼 후기 
 안녕하세요 오늘은 유후인 지역 료칸, 오야도 유후노쇼 료칸 후기글을 작성해보겠습니다. 

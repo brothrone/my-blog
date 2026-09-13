@@ -13,6 +13,7 @@ tags:
   - IHG
 image: /assets/images/hotel-review/crown-plaza-seattle/crown-plaza-seattle-01.webp
 en_permalink: /en/hotel-review/crowne-plaza-seattle/
+description: "크라운 플라자 시애틀에서 보낸 2박 숙박 후기. 프라이스라인 예약 당시 결제 금액과 역에서 걸어간 경로, 객실과 욕실, 전망을 정리했습니다. 조식 후기는 포함하지 않았습니다."
 ---
 
 안녕하세요 오늘은 크라운 플라자 시애틀(Crowne Plaza Seattle) 2박 숙박 후기를 작성하려고 합니다.

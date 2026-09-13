@@ -16,6 +16,7 @@ tags:
 image: /assets/images/airline-review/icn-skyhub/icn-skyhub-04.webp
 permalink: /en/airline-review/icn-skyhub/
 excerpt: "Incheon Airport T2 SkyHub West Lounge late-night review. Spending a night in a massage chair at the 24-hour lounge before an early-morning departure."
+description: "An overnight visit to the west Sky Hub Lounge at Incheon Terminal 2, covering the location, food and rest areas before an early flight to Fukuoka."
 ---
 ### Incheon Airport Terminal 2 SkyHub Lounge
 

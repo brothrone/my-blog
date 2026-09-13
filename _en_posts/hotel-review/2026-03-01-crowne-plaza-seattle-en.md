@@ -14,6 +14,7 @@ tags:
   - US Travel
   - IHG
 image: /assets/images/hotel-review/crown-plaza-seattle/crown-plaza-seattle-01.webp
+description: "A two-night stay at Crowne Plaza Seattle, covering my Priceline booking, walk from the station, room, bathroom and views. Breakfast was not reviewed."
 ---
 
 A 2-night stay at the Crowne Plaza Seattle. Based on a February 2022 visit, booked via Priceline. Located right in the heart of downtown Seattle. *Note: no breakfast review included.*

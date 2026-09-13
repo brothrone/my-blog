@@ -13,6 +13,7 @@ tags:
   - Economy Class
 image: /assets/images/airline-review/dl196/dl196_1.webp
 permalink: /en/airline-review/delta-icn-sea/
+description: "My Delta economy flight from Seoul to Seattle, covering the seat, meals, paid Wi-Fi and my experience of secondary inspection on arrival."
 ---
 
 After receiving a negative COVID antigen test result, I happily joined the check-in line.

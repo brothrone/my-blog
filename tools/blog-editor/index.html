@@ -949,18 +949,22 @@ window.addEventListener('drop', e => {
 async function renderComments(before=null) {
   const pane=$('#commentsPane');
   if(!before) pane.innerHTML='<h2>댓글 관리</h2><p>댓글을 확인하고 숨기거나, 운영자 답글을 남길 수 있습니다.</p>';
+  let connectionStatus = null;
   if(!before){
-    const setup=document.createElement('details');const title=document.createElement('summary');title.textContent='관리 연결 설정';
+    connectionStatus=document.createElement('p');connectionStatus.setAttribute('role','status');
+    connectionStatus.textContent='댓글 관리 연결 확인 중…';pane.append(connectionStatus);
+    const setup=document.createElement('details');const title=document.createElement('summary');title.textContent='관리 키 변경';
     const key=document.createElement('input');key.type='password';key.placeholder='Cloudflare 댓글 관리 키';key.setAttribute('aria-label','댓글 관리 키');key.autocomplete='off';
     const save=document.createElement('button');save.textContent='관리 키 저장';save.className='btn';
-    const hint=document.createElement('p');hint.textContent='Cloudflare의 COMMENTS_ADMIN_SECRET과 동일한 키를 이 Mac에 저장합니다.';
+    const hint=document.createElement('p');hint.textContent='키를 변경할 때만 입력하세요. 저장된 키는 보안을 위해 표시하지 않습니다.';
     save.onclick=async()=>{const r=await fetch('/api/comments-admin-key',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({key:key.value})});if(r.ok){key.value='';renderComments();}else hint.textContent='키 형식을 확인해주세요.';};
     setup.append(title,hint,key,save);pane.append(setup);
   }
   try {
     const response=await fetch('/api/comments-admin'+(before?'?before='+before:''));
     const data=await response.json();
-    if(data.error) throw new Error(data.error);
+    if(!response.ok || data.error || !Array.isArray(data.comments)) throw new Error(data.error || '댓글 목록을 불러오지 못했습니다.');
+    if(connectionStatus) connectionStatus.textContent='연결됨 · 저장된 관리 키로 인증되었습니다.';
     for(const c of data.comments) {
       const card=document.createElement('section');card.style.cssText='border-bottom:1px solid #ddd;padding:24px 0';
       const heading=document.createElement('strong');heading.textContent=c.name+' · '+(c.status==='hidden'?'숨김':'공개');
@@ -986,7 +990,10 @@ async function renderComments(before=null) {
     }
     if(!data.comments.length&&!before){const empty=document.createElement('p');empty.textContent='아직 댓글이 없습니다.';pane.append(empty);}
     if(data.next){const more=document.createElement('button');more.className='btn';more.textContent='더 보기';more.onclick=()=>{more.remove();renderComments(data.next);};pane.append(more);}
-  } catch(error){const message=document.createElement('p');message.textContent=error.message;pane.append(message);}
+  } catch(error){
+    if(connectionStatus) connectionStatus.textContent='댓글 관리 연결을 확인해주세요.';
+    const message=document.createElement('p');message.textContent=error.message;pane.append(message);
+  }
 }
 
 /* ── 탭 / 제목 ── */
@@ -1213,8 +1220,9 @@ function updateChip(){
 
 /* ── 사진 메모 ──
    폴더의 사진을 불러와 한 장씩 메모를 적어 두는 화면.
-   저장하면 .blog-editor/notes/{주소}.md 로 남고, 그 파일을 Claude 가 읽고 본문을 쓴다. */
-let memoInfo = {title:'', basic:'', place:'', good:'', bad:'', etc:''};
+   저장하면 .blog-editor/notes/{주소}.md 로 남고, 그 파일을 Codex가 읽고 본문을 쓴다. */
+let memoInfo = {};
+let memoSlug = '';
 let memoTexts = {};        // {사진 src: 메모}
 
 let memoOrder = [];        // 사진 순서 (src 배열)
@@ -1296,12 +1304,19 @@ async function renderMemo(){
   pane.innerHTML = '';
   pane.append(el('div','memo-head','AI 작성'));
   pane.append(el('div','memo-sub',
-    '사진 순서를 정하고 기억나는 것만 적어두면, Claude 가 읽고 글을 씁니다. ' +
-    '문장이 아니어도 되고 비워둬도 됩니다. 다 되면 "메모 다 적었어" 라고 하세요.'));
+    '사진 순서를 정하고 기억나는 것만 적어두면, Codex가 읽고 글을 씁니다. ' +
+    '확실히 기억나는 사실만 적어주세요. 자동으로 글이 생성되지는 않습니다. 다 되면 "메모 다 적었어" 라고 하세요.'));
 
   if (!slug) { pane.append(el('div','note warn','먼저 위쪽 주소(슬러그)를 입력하세요.')); return; }
 
+  if (memoDirty && memoSaver) {
+    if (!await memoSaver()) { pane.append(el('div','note warn','이전 메모를 저장하지 못했습니다. 다시 시도해주세요.')); return; }
+  }
+  memoSaver = null;
   const saved = await (await fetch('/api/notes?slug=' + encodeURIComponent(slug))).json();
+  if (memoSlug !== slug) {
+    memoInfo = {}; memoTexts = {}; memoSkip = new Set(); memoSlug = slug;
+  }
   if (saved && saved.info) {
     memoInfo = Object.assign(memoInfo, saved.info);
     (saved.photos || []).forEach(p => {
@@ -1326,7 +1341,6 @@ async function renderMemo(){
 
   if (!all.length) {
     pane.append(el('div','note warn', '아직 사진이 없습니다. 위에 끌어다 놓거나 [파일 선택] 을 누르세요.'));
-    return;
   }
 
   // ── 사진 추가 ──
@@ -1421,20 +1435,38 @@ async function renderMemo(){
   st2.append(el('span', null, '아는 것만 적으면 됩니다.'));
   pane.append(st2);
   const info = el('div','memo-info');
-  [['title','제목(가제)','예: 닛코 카나야 호텔'],
-   ['basic','기본 정보','1박 가격 · 몇 박 · 언제 갔는지'],
-   ['place','위치','역·명소에서 얼마나 걸리는지'],
-   ['good','좋았던 점',''],
-   ['bad','아쉬웠던 점',''],
-   ['etc','그 밖에 남길 말','']].forEach(([k,label,ph]) => {
+  [['title','제목(가제)','장소와 이번 글의 핵심'],
+   ['visited','방문·탑승 시기','예: 2025년 7월 말, 2박 (게시일과 별도)'],
+   ['cost','실제 비용','금액·통화·인원·박수, 세금 포함 여부. 모르면 비워두세요'],
+   ['booking','예약 조건','예약 경로, 객실·좌석 종류, 조식·수하물 포함 여부'],
+   ['place','위치와 이동','직접 이용한 출구·교통수단·이동 시간'],
+   ['experience','직접 경험한 내용','객실 소음과 공간, 먹어본 조식, 좌석·서비스 등 구체적으로'],
+   ['good','좋았던 점과 이유','어떤 상황에서 무엇이 편했나요?'],
+   ['bad','아쉬웠던 점과 이유','불편했던 상황, 다음 방문 때 주의할 점'],
+   ['audience','추천·비추천 대상','누구에게 맞는지, 다시 이용할지와 이유'],
+   ['sources','확인 자료와 확인일','공식 URL·확인 날짜 또는 예약 내역으로 확인한 사실. 예약번호·개인정보 제외'],
+   ['disclosure','비용 지원 여부','직접 결제·협찬·초대 등 실제 해당하는 내용'],
+   ['related','함께 읽을 글','관련된 내 블로그 글의 제목이나 주소'],
+   ['basic','기존 기본 정보·추가 메모','예전에 적어둔 정보도 그대로 보관됩니다'],
+   ['etc','불확실한 기억·그 밖에 남길 말','추가 확인이 필요한 부분을 적어주세요']].forEach(([k,label,ph]) => {
     const w = el('label'); w.append(document.createTextNode(label));
     const n = (k==='title'||k==='place') ? el('input') : el('textarea');
     n.value = memoInfo[k] || ''; if (ph) n.placeholder = ph;
     if (n.tagName==='TEXTAREA') n.rows = 2;
-    n.oninput = () => { memoInfo[k] = n.value; memoDirty = true; };
+    n.oninput = () => { memoInfo[k] = n.value; memoDirty = true; updateFacts(); };
     w.append(n); info.append(w);
   });
   pane.append(info);
+  const facts = el('div','note'); facts.setAttribute('aria-live','polite'); pane.append(facts);
+  const updateFacts = () => {
+    const missing = [['visited','방문 시기'],['cost','비용'],['booking','예약 조건'],
+      ['experience','구체적인 경험'],['audience','추천 대상']]
+      .filter(([key]) => !(memoInfo[key] || '').trim()).map(([,label]) => label);
+    facts.textContent = missing.length
+      ? '더 적으면 도움이 되는 정보: ' + missing.join(' · ') + '. 모르는 항목은 비워두어도 저장할 수 있습니다.'
+      : '핵심 경험 정보가 입력되었습니다. 금액과 시점이 정확한지 한 번 더 확인해주세요.';
+  };
+  updateFacts();
 
   // ── 3단계: 사진별 메모 ──
   const st3 = el('div','step','3 · 사진별 메모');
@@ -1527,17 +1559,20 @@ async function renderMemo(){
   const bar = el('div','memo-bar');
   const save = el('button','btn go ib','메모 저장'); save.prepend(icon('save'));
   const hint = el('span','memo-sub');
-  save.onclick = () => saveMemo(slug, byId, hint);
   bar.append(save, hint);
   pane.append(bar);
-  memoSaver = () => saveMemo(slug, byId, hint);
+  const memoContext = {date: $('#date').value, category: meta.category};
+  memoSaver = () => saveMemo(slug, byId, hint, memoContext);
+  save.onclick = memoSaver;
 }
 
-let memoDirty = false, memoSaver = null;
+let memoDirty = false, memoSaver = null, memoSaving = false;
 
-async function saveMemo(slug, byId, hint){
+async function saveMemo(slug, byId, hint, memoContext){
+  if (memoSaving) return false;
+  memoSaving = true;
   const body = {
-    slug, date: $('#date').value, category: meta.category, info: memoInfo,
+    slug, date: memoContext.date, category: memoContext.category, info: memoInfo,
     photos: memoOrder.filter(s => byId[s]).map(src => ({
       src, name: byId[src].name,
       label: (photos.find(p=>p.src===src)||{}).label || '',
@@ -1546,11 +1581,19 @@ async function saveMemo(slug, byId, hint){
       skip: memoSkip.has(src),
     })),
   };
-  const res = await (await fetch('/api/notes',{method:'POST',body:JSON.stringify(body)})).json();
+  const snapshot = JSON.stringify(body);
   memoDirty = false;
-  if (hint) hint.innerHTML = res.ok
-    ? `저장됨 → <code>${esc(res.path)}</code> · <b>"메모 다 적었어"</b> 라고 하시면 제가 읽습니다.`
-    : '저장 실패';
+  try {
+    const response = await fetch('/api/notes',{method:'POST',body:snapshot});
+    const res = await response.json();
+    if (!response.ok || !res.ok) throw new Error('저장 실패');
+    if (hint) hint.innerHTML = `저장됨 → <code>${esc(res.path)}</code> · Codex에 <b>“메모 다 적었어”</b>라고 알려주세요.`;
+    return true;
+  } catch (error) {
+    memoDirty = true;
+    if (hint) hint.textContent = '저장하지 못했습니다. 입력 내용은 유지됩니다. 메모 저장을 다시 눌러주세요.';
+    return false;
+  } finally { memoSaving = false; }
 }
 
 // 적다가 탭을 옮기거나 앱을 닫아도 잃지 않게 주기적으로 저장한다
@@ -1645,18 +1688,18 @@ async function renderManage(){
     if (sub) c.append(el('div','s',sub));
     cards.append(c);
   };
-  card('전체 글', String(d.seo.length), '', d.seo.filter(p=>p.has_en).length + '개 영문판 있음');
+  card('전체 글', String(d.seo.length), '', d.seo.filter(p=>p.language==='ko').length + '개 한국어 · ' + d.seo.filter(p=>p.language==='en').length + '개 영어');
   card('설명 필요', String(noDesc.length), noDesc.length ? 'warn' : 'ok', '검색 결과에 쓰이는 문장');
   card('안 올린 커밋', String(r.ahead), r.ahead ? 'warn' : 'ok',
-       r.changed ? `저장 안 한 변경 ${r.changed}개` : '모두 올림');
-  card('마지막 배포', r.last.when || '-', '', r.last.subject.slice(0, 24));
+       r.changed ? `Git에 기록 전인 변경 ${r.changed}개` : '모두 올림');
+  card('마지막 커밋', r.last.when || '-', '', r.last.subject.slice(0, 24));
   pane.append(cards);
 
   // ── 배포 ──
   if (r.ahead || r.changed) {
     const note = el('div','note warn');
     note.innerHTML = (r.ahead ? `올리지 않은 커밋이 <b>${r.ahead}개</b> 있습니다. ` : '')
-      + (r.changed ? `저장하지 않은 변경이 <b>${r.changed}개</b> 있습니다.<br><span style="font-size:11.5px">${r.changed_files.map(esc).join(', ')}</span>` : '');
+      + (r.changed ? `파일에는 저장됐지만 Git에 기록하지 않은 변경이 <b>${r.changed}개</b> 있습니다.<br><span style="font-size:11.5px">${r.changed_files.map(esc).join(', ')}</span>` : '');
     pane.append(note);
   }
 
@@ -1708,7 +1751,7 @@ async function renderManage(){
   noDesc.forEach(p => {
     const row = el('div','mg-row');
     const main = el('div','main');
-    main.append(el('div','t', p.title));
+    main.append(el('div','t', (p.language==='en'?'[EN] ':'[KO] ') + p.title));
     const tg = el('div','tags');
     p.issues.forEach(i => tg.append(el('span', null, i)));
     main.append(tg);
@@ -1723,11 +1766,16 @@ async function renderManage(){
     row.append(main);
     const save = el('button','save','저장');
     save.onclick = async () => {
-      const res = await (await fetch('/api/meta',{method:'POST',
-        body: JSON.stringify({path: p.path, key: 'description', value: ta.value.trim()})})).json();
-      save.textContent = res.ok ? '저장됨' : '실패';
-      save.classList.toggle('done', !!res.ok);
-      setTimeout(() => { save.textContent = '저장'; save.classList.remove('done'); }, 1800);
+      save.disabled = true;
+      try {
+        const response = await fetch('/api/meta',{method:'POST',
+          body: JSON.stringify({path: p.path, key: 'description', value: ta.value.trim()})});
+        const res = await response.json();
+        if (!response.ok || !res.ok) throw new Error(res.error || '저장 실패');
+        save.textContent = '파일에 저장됨'; save.classList.add('done');
+      } catch (error) {
+        save.textContent = '저장 재시도'; cnt.textContent = error.message;
+      } finally { save.disabled = false; }
     };
     row.append(save);
     pane.append(row);
@@ -1965,7 +2013,7 @@ function resetAll(){
   $('#editing').style.display='none';
   doc.ko={title:'',blocks:[]}; doc.en={title:'',blocks:[]};
   meta={category:meta.category, tags_ko:'', tags_en:'', desc_ko:'', desc_en:''};
-  memoInfo = {title:'', basic:'', place:'', good:'', bad:'', etc:''};
+  memoInfo = {}; memoSlug = ''; memoSaver = null; memoDirty = false;
   memoTexts = {}; memoOrder = []; memoSkip = new Set();
   $('#cat').value = meta.category;
   render(); updateChip();

@@ -14,6 +14,7 @@ image: /assets/images/hotel-review/korakuen/korakuen-18.webp
 permalink: /posts/otaru-korakuen/
 en_permalink: /en/hotel-review/otaru-korakuen/
 excerpt: 홋카이도 오타루 고라쿠엔 온천 료칸 1박 후기. 석식·조식 가이세키, 실내외 온천, 그리고 넓고 쾌적한 객실까지.
+description: "홋카이도 오타루 고라쿠엔 료칸 1박 후기. 석식·조식 포함 예약 비용, 복층 구조와 전용 노천탕이 있는 객실, 가이세키 식사와 공용 온천을 가족 여행 경험으로 소개합니다."
 ---
 ### 고라쿠엔 (後楽苑)
 

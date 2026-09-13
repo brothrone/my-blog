@@ -12,6 +12,7 @@ tags:
 image: /assets/images/airline-review/ke2101/ke2101-21.webp
 en_permalink: /en/airline-review/gimpo-skyhub-lounge/
 excerpt: "김포국제공항 국제선 스카이허브 라운지 이용 후기. KE2101 탑승 전 들른 라운지의 음식·시설·분위기 정리."
+description: "김포공항 국제선 스카이허브 라운지 이용 후기. 출국심사 후 찾아가는 위치와 방문 당시 운영 안내, 음식 구성, 입장 조건과 할인 정보를 이용 경험 및 사진과 함께 정리했습니다."
 ---
 ### 김포국제공항 스카이허브 라운지  후기
 안녕하세요 오늘은 김포국제공항 국제선 스카이허브 라운지 후기를 작성해보려고 합니다.

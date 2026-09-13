@@ -15,6 +15,7 @@ tags:
 image: /assets/images/hotel-review/eiger/hotelexterior.webp
 permalink: /en/hotel-review/eiger-selfness-grindelwald/
 excerpt: "The uphill walk from the station with a suitcase is a bit of a workout — but the hotel more than makes up for it."
+description: "Two nights at Eiger Selfness Hotel in Grindelwald: the uphill station walk, king room, happy hour, sauna, Barry's breakfast and nearby supermarket."
 ---
 ### Eiger Selfness Hotel
 
