@@ -2,6 +2,7 @@
 layout: "post"
 title: "대한항공 인천–오이타 10월 25일 운항 재개, 겨울 일정 잡기 전에 볼 것"
 date: "2026-09-14 09:00:00 +0900"
+image: /assets/images/hotel-review/fuk_3/fuk3-10.webp
 category: "news"
 hidden: true
 sitemap: true
@@ -16,6 +17,12 @@ en_permalink: "/en/news/korean-air-oita-winter-2026/"
 대한항공이 10월 25일부터 인천–오이타 노선을 다시 운항한다고 한다. 9월 11일에 나온 소식이다.
 
 겨울에 유후인이나 벳부 쪽으로 갈 생각이었다면 항공권 검색할 때 오이타도 같이 넣어볼 만하다. 후쿠오카로 들어가는 일정만 생각하고 있었다면 비교할 선택지가 하나 생긴 셈이다.
+
+
+<figure style="margin: 28px 0; text-align: center;">
+  <img src="/assets/images/hotel-review/fuk_1/fuk_a_20.webp" alt="유후인 역 앞 거리와 뒤로 보이는 산" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
+  <figcaption style="font-size: 0.85em; color: var(--muted, #777); margin-top: 8px;">예전에 다녀온 유후인 역 앞. 이 글의 사진은 모두 이전 여행에서 찍은 사진이다.</figcaption>
+</figure>
 
 ## 언제, 몇 번 운항하나
 
@@ -32,11 +39,23 @@ en_permalink: "/en/news/korean-air-oita-winter-2026/"
 
 매일 뜨는 편은 아니라서, 이미 료칸을 예약했다면 체크인 날짜부터 맞춰봐야 한다. 항공권이 싸더라도 숙박일을 바꾸면서 취소 수수료가 붙으면 계산이 달라진다.
 
+
+<figure style="margin: 28px 0; text-align: center;">
+  <img src="/assets/images/hotel-review/fuk_1/fuk_a_5.webp" alt="눈이 쌓인 유후인 오야도 유후노쇼 료칸 외관" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
+  <figcaption style="font-size: 0.85em; color: var(--muted, #777); margin-top: 8px;">겨울에 묵었던 오야도 유후노쇼. 숙소 주변에도 눈이 쌓여 있었다.</figcaption>
+</figure>
+
 오전 출발이라 인천공항까지 이동하는 방법도 같이 봐야 한다. 지방에서 출발한다면 첫차로 가능한지, 전날 올라가야 하는지에 따라 드는 돈이 다를 수 있다.
 
 귀국편은 정오 출발이다. 마지막 날 료칸 조식을 먹고 나올 계획이라면 숙소에서 공항까지 가는 시간을 먼저 확인하는 게 좋겠다. 이번 글에서는 공항버스 시간표까지 확인하지 않았으니, 항공편 시간만 보고 이동 일정을 잡지는 말자.
 
 항공권 가격이나 수하물 조건도 이 발표만으로는 비교할 수 없다. 예약 화면에서 같은 날짜의 후쿠오카편과 총액을 나란히 놓고 보면 판단하기 편할 것 같다.
+
+
+<figure style="margin: 28px 0; text-align: center;">
+  <img src="/assets/images/hotel-review/fuk_3/fuk3-10.webp" alt="유후인 잇코텐 노천탕과 산 전망" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
+  <figcaption style="font-size: 0.85em; color: var(--muted, #777); margin-top: 8px;">이전에 숙박하면서 찍은 잇코텐 노천탕.</figcaption>
+</figure>
 
 유후인 숙소를 고르는 중이라면 전에 올린 [잇코텐 후기](/posts/yufuin-ikkouten/)와 [오야도 유후노쇼 후기](/posts/fukuoka-ryokan/)도 같이 볼 수 있다. 두 글은 당시 숙박 기록이라 현재 가격은 따로 확인해야 한다.
 
