@@ -20,7 +20,7 @@ tags: ["여행소식", "아시아나항공"]
 <figcaption>인천공항의 아시아나 A350, 2026년 6월. <a href="https://commons.wikimedia.org/wiki/File:(KOR-Incheon)_Asiana_Airlines_Airbus_A350-941_HL8360_@_RKSI_2026-06-04.jpg">S5A-0043</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
-## 날짜는 두 가지를 구분해서 보세요
+## 예약 이관 일정과 적용 대상
 
 | 구분 | 공식 발표 내용 |
 | --- | --- |
@@ -32,7 +32,7 @@ tags: ["여행소식", "아시아나항공"]
 
 왕복 일정이 12월 17일을 사이에 두고 있다면 가는 편과 돌아오는 편을 따로 살펴보세요. 두 구간이 한 예약에 묶여 있다는 이유만으로 동일하게 처리된다고 생각하기보다는, 각 편의 출발일과 개별 안내를 대조하는 편이 좋겠습니다.
 
-## 안내를 받기 전에 준비할 것
+## 변경 안내 전 준비 사항
 
 <figure>
 <img src="/assets/images/news/asiana-reservation-transfer/asiana-checkin.jpg" alt="상하이 푸둥공항 아시아나 체크인 카운터, 2019년 8월." loading="lazy" width="1280" height="960" style="width:100%;height:auto" />
@@ -43,7 +43,7 @@ tags: ["여행소식", "아시아나항공"]
 
 기존 전자항공권과 결제 내역도 함께 보관해두세요. 나중에 새 예약과 비교할 때 편명뿐 아니라 원래 예약한 날짜, 구간, 좌석을 한 번에 확인할 수 있습니다. 가족이나 동행인의 예약을 따로 했다면 예약별로 확인해두시는 게 좋겠습니다.
 
-## 새 예약은 이렇게 대조해보세요
+## 변경 후 예약 확인 사항
 
 아래는 변경 통보를 받은 뒤 확인할 항목입니다. 항공사가 모든 항목을 바꾼다는 뜻은 아니며, 기존 예약과 차이가 있는지 살펴보기 위한 표입니다.
 
@@ -57,7 +57,7 @@ tags: ["여행소식", "아시아나항공"]
 
 출발 전에 예약을 다시 열어보고 최신 전자항공권을 저장해두세요. 예전에 찍어둔 화면만 보면 변경된 내용을 놓칠 수 있습니다. 시간이나 공항이 달라져 있다면 픽업 예약과 숙소에도 수정할 내용이 있는지 확인해주세요.
 
-## 좌석과 수하물은 개별 확인이 필요합니다
+## 좌석·수하물 개별 확인
 
 <figure>
 <img src="/assets/images/news/asiana-reservation-transfer/asiana-cabin.jpg" alt="나리타공항 출발 전 아시아나 A380 상층 일반석, 2023년 12월." loading="lazy" width="1280" height="960" style="width:100%;height:auto" />
