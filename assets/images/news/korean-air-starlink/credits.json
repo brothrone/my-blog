@@ -1,0 +1,26 @@
+[
+  {
+    "file": "images/a350.webp",
+    "author": "Brothrone",
+    "source": "/posts/ke787/",
+    "license": "User-owned existing blog photo",
+    "visually_checked": true,
+    "note": "Aircraft type reference only; not confirmed Starlink-equipped aircraft"
+  },
+  {
+    "file": "images/777-exterior.jpg",
+    "author": "Minseong Kim",
+    "source": "https://commons.wikimedia.org/wiki/File:Korean_Air_777-300ER.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "visually_checked": true,
+    "note": "Aircraft type reference only; not confirmed Starlink-equipped aircraft"
+  },
+  {
+    "file": "images/777-cabin.jpg",
+    "author": "Simply Aviation",
+    "source": "https://commons.wikimedia.org/wiki/File:16-DEC-2022_-_KE938_VIE-ICN_(B777-300ER_-_HL8210)_(03).jpg",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "visually_checked": true,
+    "note": "Aircraft type reference only; not confirmed Starlink-equipped aircraft"
+  }
+]
