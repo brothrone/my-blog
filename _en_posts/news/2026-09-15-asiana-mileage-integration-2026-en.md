@@ -17,8 +17,7 @@ Asiana miles will convert to Korean Air SKYPASS at different rates: 1:1 for flig
 This guide uses [Korean Air’s September 15 announcement](https://news.koreanair.com/대한항공-아시아나항공-마일리지-통합방안-최종-승/) and its [integration website](https://oneskypass.koreanair.com/). Integrated operation starts on December 17, 2026; the announcement does not change your balance today.
 
 <figure>
-<img src="/assets/images/news/asiana-mileage-integration/airlines-incheon.jpg" alt="Korean Air and Asiana A380s at Incheon, 2014." loading="lazy" style="width:100%;height:auto" />
-<figcaption>Korean Air and Asiana A380s at Incheon, 2014. <a href="https://commons.wikimedia.org/wiki/File:Korean_Air_and_Asiana_Airlines_Airbus_A380_at_Incheon_Airport.jpg">Hyeonwoo Noh</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+<img src="/assets/images/news/asiana-mileage-integration/conversion.svg" alt="Asiana to SKYPASS: flight miles 1:1; partner miles 1:0.82" width="1200" height="630" loading="lazy" style="width:100%;height:auto" />
 </figure>
 
 ## Conversion by earning source
@@ -32,6 +31,10 @@ Partner-earned balances fall by 18% in numerical terms on conversion. That does 
 
 For a mixed balance of 40,000 flight miles and 60,000 partner miles, the illustrative calculation is **40,000 + 60,000 × 0.82 = 89,200 miles**. This is arithmetic based on the rates, not a quote for a personal account.
 
+<figure>
+<img src="/assets/images/news/asiana-mileage-integration/example-en.svg" alt="40,000 + 60,000 × 0.82 = 89,200 miles" width="1200" height="540" loading="lazy" style="width:100%;height:auto" />
+</figure>
+
 ## Conversion versus separate use
 
 | Choice | What to compare |
@@ -43,12 +46,13 @@ Asiana balances will be managed separately for ten years. Conversion can be requ
 
 **Ten years of separate operation is not a blanket extension of every mile’s expiry date.** Existing expiry rules remain relevant, so check your expiring balance first.
 
+## Checks before converting
+
 <figure>
-<img src="/assets/images/news/asiana-mileage-integration/airlines-lax.jpg" alt="Both airlines’ A380s at Los Angeles, 2015." loading="lazy" style="width:100%;height:auto" />
-<figcaption>Both airlines’ A380s at Los Angeles, 2015. <a href="https://commons.wikimedia.org/wiki/File:Asiana_Airlines_and_Korean_Air_Airbus_A380_at_LAX_(22922345152).jpg">Glenn Beltz</a> / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></figcaption>
+<img src="/assets/images/news/asiana-mileage-integration/choices-en.svg" alt="Compare award requirements, balances, availability and expiry" width="1200" height="540" loading="lazy" style="width:100%;height:auto" />
 </figure>
 
-## Checks before converting
+
 
 Start with the route and dates you want. Compare the miles required under separate Asiana use with SKYPASS. A conversion based only on the headline balance could leave you short for a trip you could otherwise book. In another case, combining the converted miles with an existing SKYPASS balance might help you reach an award threshold.
 
@@ -63,11 +67,6 @@ Start with the route and dates you want. Compare the miles required under separa
 Do not assume conversion can be reversed without checking the terms. Account linking and mileage conversion also serve different purposes; read what the screen asks you to accept.
 
 ## Award seats and elite status
-
-<figure>
-<img src="/assets/images/news/asiana-mileage-integration/asiana-business.jpg" alt="Asiana 747-400 business cabin at Kansai, 2023." loading="lazy" style="width:100%;height:auto" />
-<figcaption>Asiana 747-400 business cabin at Kansai, 2023. <a href="https://commons.wikimedia.org/wiki/File:01-NOV-2023_-_OZ113_KIX-ICN_(HL7428_-_B747-400)_(02).jpg">Simply Aviation</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
-</figure>
 
 The announcement includes measures to improve award access and match elite status. These do not guarantee a business-class seat on your chosen date. If your holiday dates are fixed, actual availability may matter more than the conversion rate.
 
