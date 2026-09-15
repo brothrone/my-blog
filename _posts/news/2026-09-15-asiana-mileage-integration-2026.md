@@ -1,0 +1,76 @@
+---
+layout: post
+title: "아시아나 마일리지 통합비율 확정, 10만 마일 전환 계산과 확인 사항"
+date: "2026-09-15 18:49:40 +0900"
+permalink: /posts/asiana-mileage-integration-2026/
+en_permalink: /en/news/asiana-mileage-integration-2026/
+category: news
+hidden: true
+sitemap: true
+lang: ko
+image: /assets/images/news/asiana-mileage-integration/conversion.svg
+description: "아시아나 마일리지 통합비율 확정, 10만 마일 전환 계산과 확인 사항"
+---
+
+아시아나 마일리지를 대한항공으로 바꿀 때 적용할 비율이 확정됐습니다. 탑승으로 쌓은 마일리지는 1:1, 카드 등 제휴 적립분은 1:0.82입니다. **아시아나 제휴 마일 10만 마일을 전환하면 스카이패스 8만 2천 마일이 되는 계산**입니다.
+
+[대한항공의 9월 15일 발표](https://news.koreanair.com/대한항공-아시아나항공-마일리지-통합방안-최종-승/)와 [공식 통합 안내](https://oneskypass.koreanair.com/)를 기준으로 정리했습니다. 통합 운영 시작일은 2026년 12월 17일입니다. 발표가 나왔다고 오늘 바로 잔액이 바뀌는 것은 아닙니다.
+
+<figure>
+<img src="/assets/images/news/asiana-mileage-integration/airlines-incheon.jpg" alt="인천공항의 대한항공·아시아나 A380, 2014년." loading="lazy" style="width:100%;height:auto" />
+<figcaption>인천공항의 대한항공·아시아나 A380, 2014년. <a href="https://commons.wikimedia.org/wiki/File:Korean_Air_and_Asiana_Airlines_Airbus_A380_at_Incheon_Airport.jpg">Hyeonwoo Noh</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+</figure>
+
+## 적립 종류별 전환 비율
+
+| 아시아나 적립 종류 | 아시아나 → 스카이패스 | 10만 마일 전환 예시 |
+| --- | --- | --- |
+| 항공편 탑승 적립분 | 1 → 1 | 100,000마일 |
+| 신용카드 등 제휴 적립분 | 1 → 0.82 | 82,000마일 |
+
+제휴 적립분은 전환 후 마일 수가 18% 줄어듭니다. 다만 이를 곧바로 여행에 쓸 수 있는 가치가 18% 줄었다고 해석하면 정확하지 않습니다. 필요한 공제 마일, 예약 가능한 좌석, 원하는 노선을 같이 봐야 하기 때문입니다.
+
+잔액이 10만 마일로 같아도 적립 구성이 다르면 결과가 달라집니다. 탑승 4만 마일과 제휴 6만 마일을 가지고 있다면 **40,000 + 60,000 × 0.82 = 89,200마일**입니다. 이 표와 계산은 비율을 설명하기 위한 예시이며 개인 계정의 실제 전환 견적은 아닙니다.
+
+## 전환과 별도 사용의 차이
+
+| 선택 | 확인할 점 |
+| --- | --- |
+| 아시아나 마일리지로 별도 사용 | 기존 공제 기준으로 원하는 여행에 사용할 수 있는지 비교 |
+| 스카이패스로 전환 | 전환 후 잔액과 스카이패스 공제 마일을 함께 비교 |
+
+통합 후 기존 아시아나 마일리지는 10년간 별도로 운영됩니다. 원하면 그 기간 중 전환을 신청할 수 있지만, [공정위 발표 자료](https://go.seoul.co.kr/news/prnewsView.php?id=447404)에 따르면 전환은 보유분 전량을 대상으로 합니다. 탑승 적립분만 먼저 바꾸고 제휴 적립분은 남기는 식으로 계산하지 않는 게 좋겠습니다.
+
+또한 **별도 운영 10년과 개별 마일리지의 소멸시효는 다른 이야기**입니다. 기존 소멸시효가 유지되므로, 만료가 가까운 마일이 모두 10년 연장된다고 생각하면 안 됩니다. 잔액을 보기 전에 소멸 예정 내역부터 확인해주세요.
+
+<figure>
+<img src="/assets/images/news/asiana-mileage-integration/airlines-lax.jpg" alt="로스앤젤레스공항의 두 항공사 A380, 2015년." loading="lazy" style="width:100%;height:auto" />
+<figcaption>로스앤젤레스공항의 두 항공사 A380, 2015년. <a href="https://commons.wikimedia.org/wiki/File:Asiana_Airlines_and_Korean_Air_Airbus_A380_at_LAX_(22922345152).jpg">Glenn Beltz</a> / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></figcaption>
+</figure>
+
+## 전환 전 비교 순서
+
+가고 싶은 노선과 날짜를 먼저 정한 뒤 아시아나 별도 사용과 스카이패스 사용에 각각 얼마나 필요한지 비교해보세요. 총액만 보고 전환하면, 원래 잔액으로 가능했던 여행에 오히려 마일이 부족해질 수도 있습니다. 반대로 기존 스카이패스 잔액에 합쳐야 필요한 수량을 채우는 경우도 있을 겁니다.
+
+| 순서 | 확인 내용 |
+| --- | --- |
+| 1 | 아시아나 잔액의 적립 종류와 소멸 예정일 |
+| 2 | 원하는 날짜·노선의 보너스 좌석 |
+| 3 | 각 방식의 공제 마일과 별도 현금 부담 |
+| 4 | 전환 후 잔액으로 예약 가능한지 |
+| 5 | 신청 화면의 전량 전환·취소 관련 조건 |
+
+취소나 되돌리기 가능 여부는 실제 신청 화면의 약관을 확인하기 전에는 단정하지 않겠습니다. 계정 연결과 마일리지 전환도 같은 절차로 생각하지 말고, 무엇에 동의하는 화면인지 확인해주세요.
+
+## 보너스 좌석과 우수회원
+
+<figure>
+<img src="/assets/images/news/asiana-mileage-integration/asiana-business.jpg" alt="아시아나 747-400 비즈니스석, 2023년 간사이공항." loading="lazy" style="width:100%;height:auto" />
+<figcaption>아시아나 747-400 비즈니스석, 2023년 간사이공항. <a href="https://commons.wikimedia.org/wiki/File:01-NOV-2023_-_OZ113_KIX-ICN_(HL7428_-_B747-400)_(02).jpg">Simply Aviation</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
+</figure>
+
+공식 발표에는 보너스 좌석 이용 기회를 늘리는 방안과 우수회원 등급 매칭도 포함됐습니다. 그렇다고 원하는 날짜의 비즈니스석이 보장된다는 뜻은 아닙니다. 특히 휴가 날짜가 고정돼 있다면 전환 비율보다 실제 좌석 유무가 먼저일 수 있습니다.
+
+전환을 서두를지 여부는 ‘몇 마일이 되느냐’와 ‘그 마일로 지금 무엇을 예약할 수 있느냐’를 함께 보고 판단하시는 게 좋겠습니다. 위 비교 순서는 예약을 위한 제안이며, 새로 정해진 항공사 규정은 아닙니다.
+
+확인일: 2026년 9월 15일.

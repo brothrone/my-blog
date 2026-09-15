@@ -22,5 +22,12 @@
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "visually_checked": true,
     "note": "Aircraft type reference only; not confirmed Starlink-equipped aircraft"
+  },
+  {
+    "file": "starlink-satellites.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926144123).jpg",
+    "author": "SpaceX",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "None"
   }
 ]

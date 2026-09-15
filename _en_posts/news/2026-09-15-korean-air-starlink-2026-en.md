@@ -8,15 +8,15 @@ layout: en-post
 date: "2026-09-15 17:42:31 +0900"
 permalink: /en/news/korean-air-starlink-2026/
 kr_permalink: /posts/korean-air-starlink-2026/
-image: /assets/images/news/korean-air-starlink/777-exterior.jpg
+image: /assets/images/news/korean-air-starlink/starlink-satellites.jpg
 description: "Initial aircraft, usage restrictions and practical checks for Korean Air’s free Starlink inflight Wi-Fi."
 ---
 
 Korean Air's free Starlink Wi-Fi launches on September 15, but it is not available across the fleet from day one. Check the service for your flight before planning to work online during the journey.
 
 <figure>
-<img src="/assets/images/news/korean-air-starlink/a350.webp" alt="Korean Air A350 at Incheon." loading="lazy" style="width:100%;height:auto" />
-<figcaption>Korean Air A350 at Incheon. <a href="/posts/ke787/">Brothrone</a></figcaption>
+<img src="/assets/images/news/korean-air-starlink/starlink-satellites.jpg" alt="Falcon 9 carrying Starlink satellites, May 2019." width="960" height="540" style="width:100%;height:auto" />
+<figcaption>Falcon 9 carrying Starlink satellites, May 2019. <a href="https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926144123).jpg">SpaceX</a> / <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></figcaption>
 </figure>
 
 ## Initial coverage
@@ -28,7 +28,7 @@ Korean Air's free Starlink Wi-Fi launches on September 15, but it is not availab
 | Price | Free in every cabin on equipped aircraft |
 | Restrictions | Internet voice/video calls and live broadcasting |
 
-Source: [Korean Air's September 11 announcement](https://news.koreanair.com/대한항공-9월-15일부터-스타링크-기반-기내-와이파이-서/). Aircraft type alone does not establish availability. The photos illustrate the aircraft types; they do not identify confirmed Starlink installations.
+Source: [Korean Air's September 11 announcement](https://news.koreanair.com/대한항공-9월-15일부터-스타링크-기반-기내-와이파이-서/). Aircraft type alone does not establish availability. The aircraft photos are type references, not confirmation of Starlink installation.
 
 ## Checks before booking
 

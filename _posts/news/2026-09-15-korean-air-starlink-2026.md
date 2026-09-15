@@ -8,15 +8,15 @@ layout: post
 date: "2026-09-15 17:42:31 +0900"
 permalink: /posts/korean-air-starlink-2026/
 en_permalink: /en/news/korean-air-starlink-2026/
-image: /assets/images/news/korean-air-starlink/777-exterior.jpg
+image: /assets/images/news/korean-air-starlink/starlink-satellites.jpg
 description: "대한항공 스타링크 무료 기내 와이파이의 초기 적용 항공기, 이용 제한과 탑승 전 확인 사항을 정리했습니다."
 ---
 
 대한항공의 스타링크 무료 기내 와이파이가 9월 15일 시작됩니다. 다만 모든 대한항공편에서 곧바로 이용할 수 있는 건 아닙니다. 예약한 비행기에 서비스가 적용되는지 먼저 확인하시는 게 좋겠습니다.
 
 <figure>
-<img src="/assets/images/news/korean-air-starlink/a350.webp" alt="인천공항의 대한항공 A350." loading="lazy" style="width:100%;height:auto" />
-<figcaption>인천공항의 대한항공 A350. <a href="/posts/ke787/">Brothrone</a></figcaption>
+<img src="/assets/images/news/korean-air-starlink/starlink-satellites.jpg" alt="팰컨 9에 실린 스타링크 위성, 2019년 5월." width="960" height="540" style="width:100%;height:auto" />
+<figcaption>팰컨 9에 실린 스타링크 위성, 2019년 5월. <a href="https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926144123).jpg">SpaceX</a> / <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></figcaption>
 </figure>
 
 ## 초기 적용 범위
@@ -28,7 +28,7 @@ description: "대한항공 스타링크 무료 기내 와이파이의 초기 적
 | 요금 | 해당 항공기 전 좌석 무료 |
 | 제한 | 인터넷 음성·영상 통화, 라이브 방송 송출 |
 
-[대한항공 9월 11일 공식 발표](https://news.koreanair.com/대한항공-9월-15일부터-스타링크-기반-기내-와이파이-서/) 기준입니다. 같은 기종이라는 이유만으로 무료 와이파이가 제공된다고 판단하면 안 됩니다. 사진은 해당 기종 참고용이며 서비스 개조를 확인한 항공기 사진은 아닙니다.
+[대한항공 9월 11일 공식 발표](https://news.koreanair.com/대한항공-9월-15일부터-스타링크-기반-기내-와이파이-서/) 기준입니다. 같은 기종이라는 이유만으로 무료 와이파이가 제공된다고 판단하면 안 됩니다. 항공기 사진은 기종 참고용입니다.
 
 ## 예약 전 확인 사항
 
