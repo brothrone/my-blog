@@ -1,0 +1,41 @@
+[
+  {
+    "file": "sapporo-winter.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Sapporo_city_winter.jpg",
+    "author": "Nkns",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "date": "2004-02-10",
+    "ko": "모이와산에서 본 삿포로, 2004년 2월.",
+    "en": "Sapporo from Mount Moiwa, February 2004.",
+    "height": 825,
+    "changes": "Wikimedia 1280px thumbnail; no crop or other visual changes",
+    "visually_verified": true
+  },
+  {
+    "file": "air-premia-787.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:(KOR-Incheon)_Air_Premia_Boeing_787-9_HL8702_@_RKSI_2026-06-04.jpg",
+    "author": "S5A-0043",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "date": "2026-06-04",
+    "ko": "인천공항의 에어프레미아 787-9, 2026년 6월.",
+    "en": "Air Premia 787-9 at Incheon, June 2026.",
+    "height": 720,
+    "changes": "Wikimedia 1280px thumbnail; no crop or other visual changes",
+    "visually_verified": true
+  },
+  {
+    "file": "new-chitose-terminal.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Chitose_Airport_inside_(International).jpg",
+    "author": "欅 (Keyaki)",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "date": "2010-04-11",
+    "ko": "신치토세공항 국제선 터미널, 2010년 4월.",
+    "en": "New Chitose international terminal, April 2010.",
+    "height": 960,
+    "changes": "Wikimedia 1280px thumbnail; no crop or other visual changes",
+    "visually_verified": true
+  }
+]
