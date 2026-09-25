@@ -6,7 +6,6 @@ lang: en
 kr_permalink: /hotel-review/hilton-sydney/
 category: hotel-review
 permalink: /en/hotel-review/hilton-sydney/
-canonical: https://brothrone.org/hotel-review/hilton-sydney/
 tags:
   - Hilton Sydney
   - Hotel
