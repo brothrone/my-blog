@@ -37,7 +37,7 @@ After a stay in Bangkok, the morning departure leaves more time in Da Nang but m
 In the other direction, the evening flight reaches Bangkok late. Check your hotel’s check-in arrangements and how you will get there. These are planning suggestions based on the timetable, not additional airline guarantees.
 
 <figure>
-<img src="/assets/images/news/thai-bangkok-danang/bangkok-airport.jpg" alt="Concourse E, Suvarnabhumi Airport, April 2017" width="4032" height="3024" loading="lazy" />
+<img src="/assets/images/news/thai-bangkok-danang/bangkok-airport.webp" alt="Concourse E, Suvarnabhumi Airport, April 2017" width="1200" height="900" loading="lazy" />
 <figcaption>Concourse E, Suvarnabhumi Airport, April 2017. <a href="https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_Terminal_E_interior_at_dusk.jpg">Grendelkhan</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ For a trip only to Da Nang, compare total journey time against nonstop flights f
 Do not assume that separate tickets have the same connection protection or baggage handling simply because the airline is the same. Ask about your actual itinerary.
 
 <figure>
-<img src="/assets/images/news/thai-bangkok-danang/danang-airport.jpg" alt="Da Nang Airport international terminal, August 2024" width="4032" height="3024" loading="lazy" />
+<img src="/assets/images/news/thai-bangkok-danang/danang-airport.webp" alt="Da Nang Airport international terminal, August 2024" width="1200" height="900" loading="lazy" />
 <figcaption>Da Nang Airport international terminal, August 2024. <a href="https://commons.wikimedia.org/wiki/File:2024_Da_Nang_International_Airport_(DAD)_-_international_terminal_-_img_13.jpg">Chainwit.</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 

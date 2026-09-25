@@ -37,7 +37,7 @@ description: "타이항공 방콕 수완나품–다낭 신규 노선 시간표�
 반대로 다낭에서 방콕으로 넘어가는 저녁편은 도착이 늦습니다. 숙소 체크인 가능 시간과 공항에서 이동할 방법을 먼저 확인해주세요. 이 내용은 발표된 시간표를 바탕으로 한 일정 제안입니다.
 
 <figure>
-<img src="/assets/images/news/thai-bangkok-danang/bangkok-airport.jpg" alt="방콕 수완나품공항 E 구역, 2017년 4월" width="4032" height="3024" loading="lazy" />
+<img src="/assets/images/news/thai-bangkok-danang/bangkok-airport.webp" alt="방콕 수완나품공항 E 구역, 2017년 4월" width="1200" height="900" loading="lazy" />
 <figcaption>방콕 수완나품공항 E 구역, 2017년 4월. <a href="https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_Terminal_E_interior_at_dusk.jpg">Grendelkhan</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ description: "타이항공 방콕 수완나품–다낭 신규 노선 시간표�
 같은 항공사를 이용하더라도 별도 발권한 표의 연결 보호나 수하물 처리가 같다고 가정하지 마세요. 예약한 여정 기준으로 항공사에 확인하는 편이 안전합니다.
 
 <figure>
-<img src="/assets/images/news/thai-bangkok-danang/danang-airport.jpg" alt="다낭공항 국제선 터미널, 2024년 8월" width="4032" height="3024" loading="lazy" />
+<img src="/assets/images/news/thai-bangkok-danang/danang-airport.webp" alt="다낭공항 국제선 터미널, 2024년 8월" width="1200" height="900" loading="lazy" />
 <figcaption>다낭공항 국제선 터미널, 2024년 8월. <a href="https://commons.wikimedia.org/wiki/File:2024_Da_Nang_International_Airport_(DAD)_-_international_terminal_-_img_13.jpg">Chainwit.</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 

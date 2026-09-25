@@ -2,7 +2,7 @@
 layout: "en-post"
 title: "Korean Air returns to Oita on October 25: dates and trip planning"
 date: "2026-09-14 09:00:00 +0900"
-image: /assets/images/news/korean-air-oita/korean-air-a321neo.jpg
+image: /assets/images/news/korean-air-oita/korean-air-a321neo.webp
 category: "news"
 hidden: true
 sitemap: true
@@ -20,7 +20,7 @@ If you're planning a winter trip to Yufuin or Beppu, Oita is another airport to 
 
 
 <figure style="margin: 28px 0; text-align: center;">
-<img src="/assets/images/news/korean-air-oita/korean-air-a321neo.jpg" alt="Korean Air Airbus A321neo at Haneda Airport" width="3648" height="2052" decoding="async" style="width:100%;height:auto;border-radius:12px;" />
+<img src="/assets/images/news/korean-air-oita/korean-air-a321neo.webp" alt="Korean Air Airbus A321neo at Haneda Airport" width="1200" height="675" decoding="async" style="width:100%;height:auto;border-radius:12px;" />
 <figcaption style="font-size:.8em;color:var(--muted,#777);margin-top:8px;">Korean Air A321neo (HL8557), Haneda Airport, September 2024. <a href="https://commons.wikimedia.org/wiki/File:Korean_Air_HL8557_A321-272NX_HND_26-09-2024_(1).jpg">BWard 1997</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
