@@ -85,3 +85,13 @@ Jekyll::Hooks.register [:posts, :documents, :pages], :post_render do |item|
     "<img #{before}src=\"#{src}\"#{rest} width=\"#{dim[0]}\" height=\"#{dim[1]}\"#{close}>"
   end
 end
+
+# 공유 이미지(og:image)의 실제 크기를 레이아웃에서 쓰기 위한 필터.
+# {{ '/assets/images/x.webp' | image_size }} → [가로, 세로] (못 읽으면 nil, SVG 포함)
+module ImgSizeFilter
+  def image_size(path)
+    return nil unless path.is_a?(String) && path.start_with?('/')
+    ImgSize.size(File.join(@context.registers[:site].source, path.split('?').first))
+  end
+end
+Liquid::Template.register_filter(ImgSizeFilter)

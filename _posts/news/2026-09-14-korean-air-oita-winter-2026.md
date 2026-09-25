@@ -2,7 +2,7 @@
 layout: "post"
 title: "대한항공 인천–오이타 10월 25일 운항 재개, 겨울 일정 잡기 전에 볼 것"
 date: "2026-09-14 09:00:00 +0900"
-image: /assets/images/news/korean-air-oita/korean-air-a321neo.jpg
+image: /assets/images/news/korean-air-oita/korean-air-a321neo.webp
 category: "news"
 hidden: true
 sitemap: true
@@ -20,7 +20,7 @@ en_permalink: "/en/news/korean-air-oita-winter-2026/"
 
 
 <figure style="margin: 28px 0; text-align: center;">
-<img src="/assets/images/news/korean-air-oita/korean-air-a321neo.jpg" alt="하네다공항의 대한항공 에어버스 A321neo" width="3648" height="2052" decoding="async" style="width:100%;height:auto;border-radius:12px;" />
+<img src="/assets/images/news/korean-air-oita/korean-air-a321neo.webp" alt="하네다공항의 대한항공 에어버스 A321neo" width="1200" height="675" decoding="async" style="width:100%;height:auto;border-radius:12px;" />
 <figcaption style="font-size:.8em;color:var(--muted,#777);margin-top:8px;">대한항공 A321neo(HL8557), 2024년 9월 하네다공항. <a href="https://commons.wikimedia.org/wiki/File:Korean_Air_HL8557_A321-272NX_HND_26-09-2024_(1).jpg">BWard 1997</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 

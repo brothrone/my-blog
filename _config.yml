@@ -51,7 +51,7 @@ kramdown:
 include:
   - _redirects
 
-# 사이트맵 제외: 카테고리 목록·페이지네이션·유틸리티 페이지
+# 사이트맵 제외: 카테고리 목록·유틸리티 페이지 (페이지네이션은 _plugins/pagination_sitemap.rb)
 defaults:
   - scope:
       path: "_posts/news"
@@ -67,10 +67,6 @@ defaults:
       sitemap: true
   - scope:
       path: "category"
-    values:
-      sitemap: false
-  - scope:
-      path: "page"
     values:
       sitemap: false
   - scope:

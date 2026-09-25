@@ -9,7 +9,8 @@ hidden: true
 sitemap: true
 lang: en
 image: /assets/images/news/asiana-mileage-integration/conversion.svg
-description: "Asiana mileage conversion: ratios, examples and checks before switching"
+og_image: /assets/images/news/asiana-mileage-integration/conversion-og.png
+description: "Asiana miles convert to SKYPASS at 1:1 for flight miles and 1:0.82 for partner miles. Worked examples for 100,000 miles and what to compare before converting."
 ---
 
 Asiana miles will convert to Korean Air SKYPASS at different rates: 1:1 for flight-earned miles and 1:0.82 for partner-earned miles. **100,000 partner miles therefore become 82,000 SKYPASS miles.**

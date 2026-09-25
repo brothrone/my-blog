@@ -215,7 +215,7 @@ layout: en-default
 <script>
   const pageUrl = {{ page.url | absolute_url | jsonify }};
   const pageTitle = {{ page.title | jsonify }};
-  const pageDescription = {{ page.excerpt | strip_html | truncate: 100 | jsonify }};
+  const pageDescription = {{ page.description | default: page.excerpt | strip_html | truncate: 100 | jsonify }};
 
   document.addEventListener('DOMContentLoaded', function() {
     const headings = document.querySelectorAll('.post-content h2, .post-content h3');

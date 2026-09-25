@@ -12,27 +12,27 @@
     "height": 1280
   },
   {
-    "file": "bangkok-airport.jpg",
+    "file": "bangkok-airport.webp",
     "source": "https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_Terminal_E_interior_at_dusk.jpg",
     "author": "Grendelkhan",
     "capture_date": "2017-04-22",
     "license": "CC BY-SA 3.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-    "changes": "GPS metadata removed; image pixels unchanged",
+    "changes": "GPS metadata removed; resized to 1200px width and converted to WebP for web delivery",
     "visually_verified": true,
-    "width": 4032,
-    "height": 3024
+    "width": 1200,
+    "height": 900
   },
   {
-    "file": "danang-airport.jpg",
+    "file": "danang-airport.webp",
     "source": "https://commons.wikimedia.org/wiki/File:2024_Da_Nang_International_Airport_(DAD)_-_international_terminal_-_img_13.jpg",
     "author": "Chainwit.",
     "capture_date": "2024-08-02",
     "license": "CC BY 4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "changes": "GPS metadata removed; image pixels unchanged",
+    "changes": "GPS metadata removed; resized to 1200px width and converted to WebP for web delivery",
     "visually_verified": true,
-    "width": 4032,
-    "height": 3024
+    "width": 1200,
+    "height": 900
   }
 ]

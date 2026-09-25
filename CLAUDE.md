@@ -13,11 +13,13 @@ my-blog/
 ├── _posts/              ← 한국어 포스트
 │   ├── airline-review/
 │   ├── hotel-review/
+│   ├── news/
 │   ├── tips/
 │   └── travel/
 ├── _en_posts/           ← 영어 포스트
 │   ├── airline-review/
 │   ├── hotel-review/
+│   ├── news/
 │   ├── tips/
 │   └── travel/
 ├── _layouts/
@@ -40,7 +42,8 @@ my-blog/
 
 ## 카테고리 규칙
 - **반드시 `category` 단수 사용** (`categories` 복수 쓰면 카테고리 페이지에 안 잡힘)
-- 사용 중인 카테고리: `airline-review`, `hotel-review`, `travel`, `tips`
+- 사용 중인 카테고리: `airline-review`, `hotel-review`, `travel`, `tips`, `news`
+- `news`(정보 및 뉴스)는 `_posts/news/`, `_en_posts/news/`에 두며 홈·검색에서 제외되고 카테고리 페이지(`/category/news/`, `/en/news/`)로만 노출 (작성 규칙: `tools/blog-editor/NEWS.md`)
 - 한국어 / 영어 이중 언어 포스팅 운영
 
 ## _config.yml 주요 설정 (적용 완료)
@@ -51,7 +54,8 @@ kramdown:
 plugins:
   - jekyll-sitemap
 ```
-- Sitemap 제외: 카테고리/태그/페이지네이션 목록 페이지, 네이버 인증 파일
+- Sitemap 제외: 카테고리/태그 목록 페이지, 네이버 인증 파일 (뉴스 카테고리는 포함)
+- 홈 페이지네이션(`/page/2/`~)은 noindex이므로 `_plugins/pagination_sitemap.rb`가 사이트맵에서 제외
 
 ## SEO — 메타 description 커스텀 방법
 프론트매터에 `description:` 필드를 추가하면 자동으로 `<meta name="description">`에 반영됨.  
