@@ -9,6 +9,7 @@ hidden: true
 sitemap: true
 lang: ko
 image: /assets/images/news/asiana-mileage-integration/conversion.svg
+og_image: /assets/images/news/asiana-mileage-integration/conversion-og.png
 description: "아시아나 마일리지의 스카이패스 전환 비율이 확정됐습니다. 탑승 적립 1:1, 제휴 적립 1:0.82 기준 10만 마일 계산 예시와 전환 전 비교할 공제 마일·소멸시효를 정리했습니다."
 ---
 

@@ -14,11 +14,9 @@
   {% assign og_title = page.title | default: site.title %}
   {% assign og_desc  = page.description | default: page.excerpt | default: "Travel blog covering airline reviews, hotel reviews, and travel tips." | strip_html | truncate: 160 %}
   {% assign og_url   = page.url | absolute_url %}
-  {% if page.image %}
-    {% assign og_image = page.image | absolute_url %}
-  {% else %}
-    {% assign og_image = "/assets/images/og-default.webp" | absolute_url %}
-  {% endif %}
+  {% assign og_image_path = page.og_image | default: page.image | default: site.og_image %}
+  {% assign og_image = og_image_path | absolute_url %}
+  {% assign og_image_size = og_image_path | image_size %}
 
   <meta property="og:site_name"   content="{{ site.title }}" />
   <meta property="og:locale"      content="en_US" />
@@ -27,23 +25,48 @@
   <meta property="og:description" content="{{ og_desc | escape }}" />
   <meta property="og:url"         content="{{ og_url }}" />
   <meta property="og:image"       content="{{ og_image }}" />
+  {% if og_image_size %}
+  <meta property="og:image:width"  content="{{ og_image_size[0] }}" />
+  <meta property="og:image:height" content="{{ og_image_size[1] }}" />
+  {% endif %}
+  <meta property="og:image:alt"   content="{{ og_title | escape }}" />
   <meta name="twitter:card"       content="summary_large_image" />
   <meta name="twitter:title"      content="{{ og_title | escape }}" />
   <meta name="twitter:description" content="{{ og_desc | escape }}" />
   <meta name="twitter:image"      content="{{ og_image }}" />
+  <meta name="twitter:image:alt"  content="{{ og_title | escape }}" />
 
   {% if page.layout == 'en-post' %}
+  {% capture cat_url %}/en/{{ page.category }}/{% endcapture %}
+  {% assign cat_page = site.pages | where: "url", cat_url | first %}
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "{{ page.title | escape }}",
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "author": {"@type": "Person", "name": "{{ site.author }}"},
-    "publisher": {"@type": "Organization", "name": "{{ site.title }}"},
-    {% if page.image %}"image": "{{ page.image | absolute_url }}",{% endif %}
-    "url": "{{ page.url | absolute_url }}"
-  }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": {{ page.title | jsonify }},
+      "description": {{ og_desc | jsonify }},
+      "inLanguage": "en-US",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      "author": {"@type": "Person", "name": {{ site.author | jsonify }}, "url": "{{ '/en/about/' | absolute_url }}"},
+      "publisher": {"@type": "Organization", "name": {{ site.title | jsonify }}, "url": "{{ '/en/' | absolute_url }}"},
+      "mainEntityOfPage": "{{ page.url | absolute_url }}",
+      {% if page.image %}"image": "{{ og_image }}",{% endif %}
+      {% if cat_page %}"articleSection": {{ cat_page.title | jsonify }},{% endif %}
+      {% if page.tags.size > 0 %}"keywords": {{ page.tags | join: ", " | jsonify }},{% endif %}
+      "url": "{{ page.url | absolute_url }}"
+    }{% if cat_page %},
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ '/en/' | absolute_url }}"},
+        {"@type": "ListItem", "position": 2, "name": {{ cat_page.title | jsonify }}, "item": "{{ cat_page.url | absolute_url }}"},
+        {"@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}}
+      ]
+    }{% endif %}
+  ]
   </script>
   {% endif %}
 
