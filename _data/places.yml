@@ -63,7 +63,7 @@
   coords: [33.5904, 130.4017]
   center: [36.2048, 138.2529]
   color: "#4ECDC4"
-  post_count: 4
+  post_count: 3
   posts:
     - title: KE787 인천-후쿠오카 탑승기
       url: /posts/ke787/
@@ -71,8 +71,6 @@
       url: /posts/fukuoka-ryokan/
     - title: 유후인 료칸 후기 (잇코텐)
       url: /posts/yufuin-ikkouten/
-    - title: 호텔 닛코 후쿠오카 숙박후기
-      url: /posts/hotel-nikko-fukuoka/
 
 - name: 도쿄 / 하네다
   country: 일본
@@ -86,19 +84,17 @@
     - title: KE2101 김포-하네다 탑승기
       url: /posts/ke2101/
 
-- name: 삿포로 / 조잔케이 / 오타루
+- name: 삿포로 / 조잔케이
   country: 일본
   flag: 🇯🇵
   data_country: japan
   coords: [43.0642, 141.3469]
   center: [36.2048, 138.2529]
   color: "#4ECDC4"
-  post_count: 2
+  post_count: 1
   posts:
     - title: 쿠리야 스이잔 료칸 후기 (조잔케이)
       url: /posts/kuriya-suizan/
-    - title: 오타루 고라쿠엔 료칸 후기
-      url: /posts/otaru-korakuen/
 
 # ─────────────────────────────────────────────
 # 싱가포르 (Singapore)

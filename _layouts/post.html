@@ -183,19 +183,7 @@ layout: default
   </div>
 
   <!-- 관련글 -->
-  {% comment %} 같은 여행지(_data/places.yml)의 글을 먼저, 남는 자리는 같은 카테고리 최신 글로 채운다 {% endcomment %}
-  {% assign place_urls = "" | split: "" %}
-  {% for place in site.data.places %}
-    {% assign urls = place.posts | map: "url" %}
-    {% if urls contains page.url %}{% assign place_urls = place_urls | concat: urls %}{% endif %}
-  {% endfor %}
-  {% assign related_posts = site.posts | where_exp: "post", "place_urls contains post.url" | where_exp: "post", "post.url != page.url" %}
-  {% assign same_category = site.posts | where: "category", page.category | where_exp: "post", "post.url != page.url" %}
-  {% for post in same_category %}
-    {% if related_posts.size >= 4 %}{% break %}{% endif %}
-    {% unless place_urls contains post.url %}{% assign related_posts = related_posts | push: post %}{% endunless %}
-  {% endfor %}
-  {% assign related_posts = related_posts | slice: 0, 4 %}
+  {% assign related_posts = site.posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | sort: "date" | reverse | slice: 0, 4 %}
   {% if related_posts.size > 0 %}
   <div class="related-posts">
     <h2>관련 글</h2>

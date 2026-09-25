@@ -171,19 +171,7 @@ layout: en-default
     </button>
   </div>
 
-  {% comment %} Same trip (site.data.en_places) first, then latest posts in the same category {% endcomment %}
-  {% assign place_urls = "" | split: "" %}
-  {% for place in site.data.en_places %}
-    {% assign urls = place.posts | map: "url" %}
-    {% if urls contains page.url %}{% assign place_urls = place_urls | concat: urls %}{% endif %}
-  {% endfor %}
-  {% assign related = site.en_posts | where_exp: "post", "place_urls contains post.url" | where_exp: "post", "post.url != page.url" | sort: "date" | reverse %}
-  {% assign same_category = site.en_posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | sort: "date" | reverse %}
-  {% for post in same_category %}
-    {% if related.size >= 4 %}{% break %}{% endif %}
-    {% unless place_urls contains post.url %}{% assign related = related | push: post %}{% endunless %}
-  {% endfor %}
-  {% assign related = related | slice: 0, 4 %}
+  {% assign related = site.en_posts | where: "category", page.category | where_exp: "post", "post.url != page.url" | sort: "date" | reverse | slice: 0, 4 %}
   {% if related.size > 0 %}
   <div class="related-posts">
     <h2>Related Posts</h2>
