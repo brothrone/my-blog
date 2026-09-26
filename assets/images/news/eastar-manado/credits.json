@@ -1,0 +1,35 @@
+[
+  {
+    "file": "eastar-737max.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:(KOR-Incheon)_Eastar_Jet_Boeing_737_MAX_8_HL8717_@_RKSI_2026-06-04.jpg",
+    "author": "S5A-0043",
+    "date": "2026-06-04 05:54:05",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "file": "bunaken-reef.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Bunaken_Marine_Park_(1).JPG",
+    "author": "Sakurai Midori",
+    "date": "2008-07-19",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "tangkoko-tarsier.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Gursky's_spectral_tarsier,_Tangkoko_Batuangus_Nature_Reserve_2016-04-02.jpg",
+    "author": "Riefza Vebriansyah",
+    "date": "2016-04-02",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 1812
+  }
+]
