@@ -1,0 +1,35 @@
+[
+  {
+    "file": "jeju-air-737.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Jeju_Air,_Boeing_737-82R(WL),_HL8263_(23595665062).jpg",
+    "author": "Masahiro TAKAGI",
+    "date": "2015-12-12 11:03",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 801
+  },
+  {
+    "file": "hallasan-snow.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Snowy_view_of_Hallasan_Baekrokdam.jpg",
+    "author": "한승협",
+    "date": "N/A",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 611
+  },
+  {
+    "file": "seongsan-ilchulbong.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Jeju_-_Seongsan_Ilchulbong_1.JPG",
+    "author": "J. Patrick Fischer",
+    "date": "2010-08-17 02:55:15",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  }
+]
