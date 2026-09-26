@@ -12,34 +12,38 @@ image: /assets/images/news/air-premia-sapporo/sapporo-winter.jpg
 description: "Flight days, local departure times and booking checks for Air Premia’s new Incheon–Sapporo route, starting December 2, 2026."
 ---
 
-Air Premia will launch **Incheon–Sapporo flights on December 2, 2026, four days a week**. It adds another option to compare for a winter trip to Hokkaido.
+Air Premia is launching **Seoul Incheon–Sapporo flights on December 2, four times a week.**
+
+There are already plenty of ways to get to Hokkaido in winter, from Korean Air and Asiana to the low-cost carriers.
+This one uses a 787 widebody, and Air Premia's seats are roomier than most low-cost airlines, so it is worth a look if you want a more comfortable ride.
 
 <figure>
 <img src="/assets/images/news/air-premia-sapporo/sapporo-winter.jpg" alt="Sapporo from Mount Moiwa, February 2004." width="1280" height="825" loading="lazy" />
 <figcaption>Sapporo from Mount Moiwa, February 2004. <a href="https://commons.wikimedia.org/wiki/File:Sapporo_city_winter.jpg">Nkns</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
 </figure>
 
-## Flight schedule
+## Schedule
 
-These details come from [Air Premia’s September 14 announcement](https://company.airpremia.com/117/?bmode=view&idx=174129800). All times are local to the airport.
+From [Air Premia's September 14 announcement](https://company.airpremia.com/117/?bmode=view&idx=174129800) (in Korean). Times are local.
 
-| Item | Announced details |
+| Item | Details |
 | --- | --- |
 | Launch | December 2, 2026 |
-| Operating days | Wednesday, Thursday, Saturday and Sunday |
+| Days | Wednesday, Thursday, Saturday, Sunday |
 | Incheon → New Chitose | 09:40 → 12:20 |
 | New Chitose → Incheon | 13:45 → 17:15 |
-| Planned aircraft | Boeing 787-9 |
-| Ticket sales | Website and app from September 14, 10:00 |
-| Launch promotion | 5% off tickets bought September 21–30 (see below) |
+| Aircraft | Boeing 787-9 |
+| Sales | Website and app from September 14, 10:00 |
+| Launch discount | 5% off tickets bought September 21–30 (below) |
 
-Check both flight dates before committing to a hotel. The route is not daily. These combinations illustrate possible trip lengths from the announced weekdays; they are not checked seat availability or bookable offers.
+It is not daily, so **sort out both flight dates before booking a hotel.**
+The operating days give trips like these. (I have not checked actual seat availability.)
 
-| Departure → return | Trip length |
+| Out → back | Length |
 | --- | --- |
-| Thursday → Sunday that week | 3 nights, 4 days |
-| Wednesday → Sunday that week | 4 nights, 5 days |
-| Saturday → Wednesday the following week | 4 nights, 5 days |
+| Thursday → Sunday | 3 nights |
+| Wednesday → Sunday | 4 nights |
+| Saturday → following Wednesday | 4 nights |
 
 <figure>
 <img src="/assets/images/news/air-premia-sapporo/air-premia-787.jpg" alt="Air Premia 787-9 at Incheon, June 2026." width="1280" height="720" loading="lazy" />
@@ -48,9 +52,13 @@ Check both flight dates before committing to a hotel. The route is not daily. Th
 
 ## Arrival and departure days
 
-Landing at New Chitose is not the same as reaching your hotel in Sapporo. Allow separately for immigration, baggage collection and onward transport. A prepaid tour or a restaurant booking with a strict cancellation rule needs a comfortable buffer on arrival day.
+Landing at 12:20 does not mean being in Sapporo at 12:20.
+Immigration, bags and the trip into town take a while.
+If you have a tour or a hard-to-change dinner booking on day one, leave plenty of room.
 
-For the return, work backwards from airport check-in and your transport connection before planning a final morning in town. How much time remains after hotel checkout depends on the journey and the airline’s check-in deadline. This article does not assume one transfer time for every hotel.
+Same on the way home.
+With a 13:45 departure, there is not much morning left in town.
+Work backwards from check-in closing time and the transfer to plan your last day.
 
 <figure>
 <img src="/assets/images/news/air-premia-sapporo/new-chitose-terminal.jpg" alt="New Chitose international terminal, April 2010." width="1280" height="960" loading="lazy" />
@@ -59,30 +67,37 @@ For the return, work backwards from airport check-in and your transport connecti
 
 ## Launch discount
 
-The promotion trailed in the September 14 release was detailed on September 21. It is a 5% discount, applied only when you enter a code.
+The promotion trailed on September 14 got its details on September 21.
+It is **5% off**, applied with a code at checkout.
 
 | Item | Details |
 | --- | --- |
-| Booking window | September 21, 10:00 to September 30 (Korea time) |
+| Booking window | September 21, 10:00 to **September 30** (Korea time) |
 | Where | Air Premia website and app |
-| Code | CTSNEW5 (Economy and Wide Premium) |
-| Travel dates | December 2, 2026 to February 28, 2027, no blackout dates |
-| Lowest round-trip total with code | From KRW 514,450 in Economy, KRW 762,400 in Wide Premium |
+| Code | **CTSNEW5** (Economy and Wide Premium) |
+| Travel dates | December 2 – February 28, 2027, no blackout dates |
+| Lowest round-trip total with code | From KRW 514,450 Economy, KRW 762,400 Wide Premium |
 
-Those are the cheapest dates. Christmas, New Year and Lunar New Year departures are likely to cost more, and 5% off a high fare can still be more than another airline’s regular price. Compare the total before and after the code, and against other flights on the same dates.
+Those are the cheapest dates.
+Christmas, New Year and Lunar New Year will likely cost more.
+And 5% off a high fare can still be more than another airline's normal price.
+Compare the **total before and after the code**, and **other airlines on the same dates**.
 
-The discount terms are taken from Korean press reports of September 21, including [Financial News](https://www.fnnews.com/news/202609210850595225) and [Shinailbo](https://www.shinailbo.co.kr/news/articleView.html?idxno=5064459). If the checkout page shows different conditions, the checkout page applies.
+The discount terms come from Korean press reports of September 21, including [Financial News](https://www.fnnews.com/news/202609210850595225) and [Shinailbo](https://www.shinailbo.co.kr/news/articleView.html?idxno=5064459).
+If the checkout page says something different, go with the checkout page.
 
 ## Before paying
 
-| Check | What to compare |
+| Check | What to look at |
 | --- | --- |
-| Round-trip total | Final price including taxes and fuel surcharges |
-| Baggage | Allowance in the selected fare and extra charges |
-| Seats and meals | What is included and what costs extra |
-| Changes and refunds | Fees and when each condition applies |
-| Selected flights | Dates, times, airports and ticketing conditions |
+| Round-trip total | Final price with taxes and fuel surcharges |
+| Baggage | What the fare includes, and extra charges |
+| Seats and meals | Included or extra |
+| Changes and refunds | Change fees, cancellation fees |
+| Your actual flights | Times, airport and ticket conditions for your dates |
 
-This is a booking checklist, not a new set of airline rules. The release does not specify a route end date or date-specific exceptions. Confirm both directions and the fare terms on the booking screen before paying.
+The release does not give an end date for the route or any date-specific exceptions.
+Double-check both flights and the fare rules before you pay.
 
-Official source: [Air Premia’s Sapporo launch announcement](https://company.airpremia.com/117/?bmode=view&idx=174129800) · Published September 14, 2026 · Checked September 16, 2026 · Promotion terms added September 26, 2026.
+Source: [Air Premia – Sapporo launch](https://company.airpremia.com/117/?bmode=view&idx=174129800)
+Announced September 14 · Checked September 16 · Discount terms added September 26

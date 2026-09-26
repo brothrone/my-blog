@@ -12,61 +12,79 @@ image: /assets/images/news/thai-bangkok-danang/dragon-bridge.jpg
 description: "Flight times and booking checks for THAI’s Bangkok–Da Nang service, including connections from Korea and trips combining Thailand and Vietnam."
 ---
 
-Thai Airways will fly **twice daily between Bangkok Suvarnabhumi and Da Nang from December 1, 2026**. It is an option for a trip combining Thailand and central Vietnam, rather than a new nonstop service from Korea.
+Thai Airways is starting **twice-daily Bangkok–Da Nang flights on December 1.**
+
+It is not a new nonstop from Korea. It is useful if you want to **combine Bangkok and Da Nang in one trip.**
 
 <figure>
 <img src="/assets/images/news/thai-bangkok-danang/dragon-bridge.jpg" alt="Dragon Bridge, Da Nang, September 2018" width="1920" height="1280" loading="lazy" />
 <figcaption>Dragon Bridge, Da Nang, September 2018. <a href="https://commons.wikimedia.org/wiki/File:Da_nang_dragon_bridge.jpg">Thangphan</a> / <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></figcaption>
 </figure>
 
-## Flight schedule
+## Timetable
 
-The following times are listed in [THAI’s official notice](https://www.thaiairways.com/en-mm/content/offers-Promotions/special-offers/flight-to-danang/) and are local to each airport.
+As listed in [THAI's official notice](https://www.thaiairways.com/en-mm/content/offers-Promotions/special-offers/flight-to-danang/). All times local.
 
-| Flight | Route | Departure | Arrival | Frequency |
+| Flight | Route | Departs | Arrives | Days |
 | --- | --- | --- | --- | --- |
-| TG558 | Bangkok BKK → Da Nang DAD | 08:00 | 09:45 | Daily |
-| TG594 | Bangkok BKK → Da Nang DAD | 16:15 | 18:00 | Daily |
-| TG559 | Da Nang DAD → Bangkok BKK | 10:45 | 12:40 | Daily |
-| TG595 | Da Nang DAD → Bangkok BKK | 19:00 | 20:55 | Daily |
+| TG558 | Bangkok → Da Nang | 08:00 | 09:45 | Daily |
+| TG594 | Bangkok → Da Nang | 16:15 | 18:00 | Daily |
+| TG559 | Da Nang → Bangkok | 10:45 | 12:40 | Daily |
+| TG595 | Da Nang → Bangkok | 19:00 | 20:55 | Daily |
 
-Some reports from mid-September, including [Da Nang's official tourism site](https://danangfantasticity.com/en/thai-airways-to-launch-direct-bangkok-da-nang-flights-from-december-1-2026), list the afternoon flights five minutes later: TG594 16:20→18:05 and TG595 19:05→21:00. If you are timing a connection or an airport pickup, go by the times shown in your booking.
+One catch.
+Some reports from mid-September, and [Da Nang's official tourism site](https://danangfantasticity.com/en/thai-airways-to-launch-direct-bangkok-da-nang-flights-from-december-1-2026), list the afternoon flights **five minutes later**:
+TG594 16:20→18:05, TG595 19:05→21:00.
 
-This is a return rather than a first for THAI. According to [AeroRoutes](https://www.aeroroutes.com/eng/260720-tgdec26dad), the airline last flew to Da Nang in March 2003, and the new service is planned with A320 aircraft.
+It is only five minutes, but if you are timing a connection or pickup, go by **what your booking shows**.
 
-## Combining Bangkok and Da Nang
+This is also a comeback rather than a first.
+According to [AeroRoutes](https://www.aeroroutes.com/eng/260720-tgdec26dad), THAI last flew to Da Nang in March 2003, and the new service is planned with A320s.
 
-After a stay in Bangkok, the morning departure leaves more time in Da Nang but means an early start from your hotel. The afternoon flight gives you a less rushed morning. Allow for immigration and the journey to your accommodation before booking dinner in Da Nang.
+## Planning Bangkok + Da Nang
 
-In the other direction, the evening flight reaches Bangkok late. Check your hotel’s check-in arrangements and how you will get there. These are planning suggestions based on the timetable, not additional airline guarantees.
+If you are spending a few days in Bangkok first, morning versus afternoon makes a real difference.
+
+- **Morning (08:00)**: almost a full day in Da Nang, but a very early start from your Bangkok hotel.
+- **Afternoon (16:15)**: a relaxed morning, but by the time you clear immigration in Da Nang the day is done.
+
+Going the other way, the evening flight lands in Bangkok around 9pm.
+Check late check-in at your hotel and how you will get into town.
 
 <figure>
 <img src="/assets/images/news/thai-bangkok-danang/bangkok-airport.webp" alt="Concourse E, Suvarnabhumi Airport, April 2017" width="1200" height="900" loading="lazy" />
 <figcaption>Concourse E, Suvarnabhumi Airport, April 2017. <a href="https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_Terminal_E_interior_at_dusk.jpg">Grendelkhan</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
 </figure>
 
-## Connections from Korea
+## Starting from Korea
 
-For a trip only to Da Nang, compare total journey time against nonstop flights from Korea. A lower connecting fare may be less attractive once a long wait or an overnight hotel is added.
+If Da Nang is the only stop, there is little reason to go via Bangkok.
+There are plenty of nonstops from Korea, and a cheaper connection can end up costing more once you add waiting time or a hotel night.
 
-| Booking arrangement | What to check before paying |
+If Bangkok is part of the trip, what to check depends on how you book.
+
+| How you book | Check before paying |
 | --- | --- |
-| Bangkok stay followed by Da Nang | Hotel departure time, airport code BKK and check-in deadline |
-| Korea–Bangkok–Da Nang on a connecting booking | Connection time and whether bags are checked through |
-| Separately ticketed flights | Missed-connection handling and whether bags need collecting and rechecking |
-| Return to Korea via Bangkok | Arrival and onward departure dates, overnight waits and accommodation |
+| Stay in Bangkok, then fly to Da Nang | Hotel departure time, airport (BKK), check-in cutoff |
+| Korea–Bangkok–Da Nang on one ticket | Total connection time, whether bags go through |
+| Separate tickets | What happens if a delay makes you miss the next flight, re-checking bags |
+| Da Nang → Bangkok → Korea | Arrival day in Bangkok vs. departure day home, overnight wait or hotel |
 
-Do not assume that separate tickets have the same connection protection or baggage handling simply because the airline is the same. Ask about your actual itinerary.
+Even on the same airline, **separate tickets** may not come with the same connection protection or through-checked bags.
+Ask the airline about your own itinerary.
 
 <figure>
 <img src="/assets/images/news/thai-bangkok-danang/danang-airport.webp" alt="Da Nang Airport international terminal, August 2024" width="1200" height="900" loading="lazy" />
 <figcaption>Da Nang Airport international terminal, August 2024. <a href="https://commons.wikimedia.org/wiki/File:2024_Da_Nang_International_Airport_(DAD)_-_international_terminal_-_img_13.jpg">Chainwit.</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
-## Booking terms and remaining uncertainties
+## Still unconfirmed
 
-The source is THAI’s Myanmar-market page. It specifies website/app booking and a 72-hour advance reservation condition. Its applicability to fares sold in Korea has not been confirmed. Check the purchase deadline, baggage allowance and change/refund rules of the fare you select.
+The official page I checked is THAI's **Myanmar** site.
+It mentions booking on the website or app and a 72-hour advance purchase rule, but I could not confirm the same applies to fares sold in Korea.
+If you are paying in Korea, check the change and refund rules, baggage and ticketing deadline.
 
-The page does not show a publication date, an end date for the service or the aircraft type; the A320 mentioned above comes from AeroRoutes. The announcement date remains unverified; the community-post date is not treated as an airline announcement date. Recheck the schedule and availability for your chosen travel date.
+The notice gives no publication date, end date or aircraft type. The A320 above comes from AeroRoutes.
 
-Source: [THAI’s Da Nang notice](https://www.thaiairways.com/en-mm/content/offers-Promotions/special-offers/flight-to-danang/). Checked September 25, 2026 · Timing note and aircraft added September 26, 2026. Photo dates, authors and licences are given in the captions.
+Source: [THAI Da Nang notice](https://www.thaiairways.com/en-mm/content/offers-Promotions/special-offers/flight-to-danang/)
+Checked September 25 · Timing note and aircraft added September 26

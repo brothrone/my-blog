@@ -13,26 +13,34 @@ description: "Asiana booking transfers and flight-number changes: who is affecte
 tags: ["Travel News", "Asiana"]
 ---
 
-If you have an Asiana flight booked for December 17 or later, look out for a reservation update from November. Here are the dates and a checklist for reviewing your booking before a year-end trip.
+Booked an Asiana flight departing on or after December 17?
+Expect a message in November. As Asiana bookings move over to Korean Air, **flight numbers change from OZ to KE**.
+
+A lot of people have year-end trips booked, so here is what changes and what to check.
 
 <figure>
 <img src="/assets/images/news/asiana-reservation-transfer/asiana-a350.jpg" alt="Asiana A350 at Incheon, June 2026." loading="lazy" width="1280" height="720" style="width:100%;height:auto" />
 <figcaption>Asiana A350 at Incheon, June 2026. <a href="https://commons.wikimedia.org/wiki/File:(KOR-Incheon)_Asiana_Airlines_Airbus_A350-941_HL8360_@_RKSI_2026-06-04.jpg">S5A-0043</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
-## Separate the processing dates from your travel date
+## Transfer schedule
 
-| Item | Announced details |
+From [Korean Air's September 14 announcement](https://news.koreanair.com/대한항공-통합-항공사-출범-준비-본격화-아시아나항/) (in Korean):
+
+| Item | Details |
 | --- | --- |
-| Affected bookings | Existing Asiana reservations and purchased tickets departing on or after December 17, 2026 |
-| Booking transfer and flight-number changes | November 2–December 3, 2026, in stages |
-| Flight numbers | Asiana (OZ) flight numbers change to Korean Air (KE) numbers |
-| Individual notices | New booking and ticket details sent by Kakao notification, text message or email |
-| General guidance | Integration FAQ on Korean Air's website and app |
+| Affected bookings | Existing Asiana bookings and tickets departing December 17 or later |
+| Transfer window | November 2 – December 3, in stages |
+| What changes | Asiana (OZ) flight numbers become Korean Air (KE) numbers |
+| How you are told | Kakao message, text or email, individually |
+| General info | Integration FAQ on Korean Air's website and app |
 
-These dates come from [Korean Air's September 14 announcement, in Korean](https://news.koreanair.com/대한항공-통합-항공사-출범-준비-본격화-아시아나항/). **The processing window is separate from the departure date.** Receiving a notice in November does not mean your trip has moved to November.
+One thing that is easy to misread:
+**November 2 – December 3 is when the bookings are moved**, not when you fly.
+Getting a message in November does not mean your trip has moved to November.
 
-If a round trip crosses December 17, review the outbound and return flights separately. Check each departure date against the individual notice instead of assuming both flights will be handled identically because they share a booking.
+If your round trip straddles December 17, check the outbound and return separately.
+Even on one booking, each leg may be handled by its own departure date.
 
 ## Before the notice arrives
 
@@ -41,35 +49,45 @@ If a round trip crosses December 17, review the outbound and return flights sepa
 <figcaption>Asiana check-in counters at Shanghai Pudong, August 2019. <a href="https://commons.wikimedia.org/wiki/File:201908_Asiana_Airlines_Check-in_Area_at_PVG.jpg">MNXANL</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
-Check the phone number and email address in your reservation. If an agency issued the ticket, ask where it will send updates.
+Make sure the **phone number and email** on your booking are ones you still use. That is where the notice goes.
+If you booked through a travel agent, ask whether the notice comes to you or to them.
 
-Keep the original e-ticket and payment receipts. They give you a record of the date, route and seat you booked when you compare the replacement details. Review separately booked family members or travel companions too.
+Screenshot your current e-ticket and payment record too.
+It makes comparing the new booking much easier: dates, routes and seats in one place.
+If family members are on separate bookings, keep one for each.
 
-## Compare the updated reservation
+## After the notice arrives
 
-This is a review checklist, not a list of changes the airline has announced for every booking.
+Put the new booking next to the old one and check these.
+This is not a list of things the airline will change, just what to look for.
 
-| Item | What to compare |
+| Check | What to compare |
 | --- | --- |
-| Flight | Number, departure date and time, departure and arrival airports |
-| Passengers | Names and booked sectors, including companions |
-| Connections | Missing sectors or changed connection times |
-| Seats and extras | Selected seats, purchased baggage and requested meals |
-| Other arrangements | Arrival details given to airport transfers or accommodation |
+| Flights | Flight number, date and time, departure and arrival airports |
+| Passengers | Names in English for everyone, each leg booked |
+| Connections | No missing legs, no changed times |
+| Seats and extras | Seat selection, extra baggage, special meals |
+| Your plans | Arrival times you gave to hotels or pickups |
 
-Open the reservation again before departure and save the latest e-ticket. An old screenshot may miss an update. If a time or airport differs, check whether your pickup or accommodation needs revised arrival details.
+Before you fly, open the booking again and **save the latest e-ticket**.
+An old screenshot can hide a change.
+If a time or airport changed, let your hotel or pickup know.
 
-## Check seats and extras individually
+## Seats and baggage
 
 <figure>
 <img src="/assets/images/news/asiana-reservation-transfer/asiana-cabin.jpg" alt="Asiana A380 upper-deck economy before departure from Narita, December 2023." loading="lazy" width="1280" height="960" style="width:100%;height:auto" />
 <figcaption>Asiana A380 upper-deck economy before departure from Narita, December 2023. <a href="https://commons.wikimedia.org/wiki/File:19-DEC-2023_-_OZ101_NRT-ICN_(HL7635_-_A380)_(02).jpg">Simply Aviation</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
-The announcement does not specify how selected seats, prepaid baggage or special meals will be handled. It does not establish that these will all carry over unchanged or require another payment.
+The announcement does not say how **seat selections, prepaid baggage or special meals** carry over.
+So it is too early to say whether they move automatically or need paying for again.
 
-Compare receipts and service confirmations with the updated booking. If an item is missing or different, contact the airline or ticket seller before paying again. Have your original booking reference, travel date and the missing item ready.
+If you paid for extras, check the receipts against the new booking.
+If something is missing or different, contact the airline or your booking agent before paying twice.
+Having the old booking reference, travel date and the missing item ready speeds things up.
 
-For change fees or refunds, check the instructions that apply to your own ticket. A flight-number change announcement alone does not establish eligibility for a free change or refund.
+Also worth knowing: **a flight-number change does not by itself mean free changes or refunds.** Your ticket's own rules still apply.
 
-Announced and checked September 14, 2026. The preparation steps and checklist above are suggestions for reviewing a booking, not additional airline policies.
+Announced and checked: September 14, 2026
+The checklist is my own, not airline policy.
