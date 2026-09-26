@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: ko
-image: /assets/images/airline-review/sq322/sq322-27.webp
+image: /assets/images/news/europe-entry/valencia-ees-kiosks.webp
 description: "EU가 ETIAS 공식 사이트에서 '2026년 4분기 시행' 문구를 내렸습니다. 올해 유럽 여행에는 ETIAS가 필요 없지만, 4월부터 전면 시행된 EES 생체정보 등록과 영국 ETA(20파운드)는 지금 바로 해당됩니다."
 tags: ["여행소식", "유럽여행"]
 ---
@@ -25,8 +25,8 @@ EU가 7월쯤 ETIAS 공식 사이트에서 "2026년 4분기 시행 예정"이라
 세 가지가 이름도 비슷하고 헷갈려서 한 번에 정리해봤습니다.
 
 <figure>
-<img src="/assets/images/airline-review/sq322/sq322-27.webp" alt="런던행 기내 모니터의 유럽 상공 비행 지도와 좌석 주머니의 한국 여권" width="1200" height="1600" loading="lazy" />
-<figcaption>싱가포르에서 런던으로 가는 기내, 유럽 상공을 지나는 중. 2024년 1월. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/europe-entry/valencia-ees-kiosks.webp" alt="스페인 발렌시아공항 입국 구역에 줄지어 설치된 EES 등록 키오스크" width="1200" height="900" loading="lazy" />
+<figcaption>스페인 발렌시아공항의 EES 등록 키오스크, 2025년 10월. 사진: <a href="https://commons.wikimedia.org/wiki/File:At_Valencia_2025_394_-_EES_kiosks.jpg">Mike Peel</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## 한눈에 보기
@@ -66,8 +66,8 @@ EES는 여권에 도장 찍던 걸 **전자 기록으로 바꾼 출입국 시스
 [EU 집행위원회 발표](https://home-affairs.ec.europa.eu/news/entryexit-system-will-become-fully-operational-10-april-2026-2026-03-30_en)대로 올해 4월 10일부터 솅겐 지역 모든 국경에서 전면 시행 중이고, 이제 여권 도장은 안 찍어줍니다.
 
 <figure>
-<img src="/assets/images/hotel-review/eiger/onway.webp" alt="스위스 그린델발트의 호텔과 상점이 늘어선 거리와 뒤편 설산" width="1200" height="1600" loading="lazy" />
-<figcaption>스위스 그린델발트, 2024년 1월. 스위스도 솅겐 지역이라 EES와 ETIAS 대상입니다. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/europe-entry/munich-auto-gate.webp" alt="독일 뮌헨공항 자동 출입국 심사대를 지나는 여행객" width="1200" height="900" loading="lazy" />
+<figcaption>독일 뮌헨공항의 자동 출입국 심사대, 2015년. 사진: <a href="https://commons.wikimedia.org/wiki/File:Man_using_the_automatic_gate_in_Munich_airport_02.jpg">Subhashish Panigrahi</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 | 항목 | 내용 |
@@ -91,8 +91,8 @@ EES는 여권에 도장 찍던 걸 **전자 기록으로 바꾼 출입국 시스
 한국인은 2025년 1월 8일부터 대상이고, [영국 내무부 자료](https://homeofficemedia.blog.gov.uk/electronic-travel-authorisation-eta-factsheet-april-2026/)를 보면 **올해 4월 8일부터 16파운드에서 20파운드로 올랐습니다.**
 
 <figure>
-<img src="/assets/images/airline-review/sq322/sq322-29.webp" alt="런던 히드로공항 도착 구역의 Welcome to the United Kingdom 안내 화면" width="1200" height="1600" loading="lazy" />
-<figcaption>런던 히드로공항 도착 구역, 2024년 1월. 이때는 ETA가 없었지만 지금은 입국 전 발급이 필요합니다. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/europe-entry/uk-border-control.webp" alt="영국 공항 도착 구역의 Passport control, UK Border 안내판" width="1200" height="900" loading="lazy" />
+<figcaption>영국 공항 도착 구역의 입국심사 안내판, 2018년. 사진: <a href="https://commons.wikimedia.org/wiki/File:Passport_control,_UK_Border_(42031045291).jpg">Eric Fischer</a> / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></figcaption>
 </figure>
 
 한 번 받으면 2년 동안(또는 여권 만료 전까지) 여러 번 쓸 수 있고, 한 번 갈 때 최대 6개월까지 있을 수 있습니다.

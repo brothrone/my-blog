@@ -1,0 +1,35 @@
+[
+  {
+    "file": "yufuin-yufumi-street.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Mount_Yufudake_and_Yufumi-dori_Street_in_front_of_Yufuin_Station.jpg",
+    "author": "そらみみ",
+    "date": "2018-03-31 13:46:08",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "kinrin-lake.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Kinrin-ko_by_~MVI~_in_Yufuin,_Oita.jpg",
+    "author": "~MVI~",
+    "date": "2007-11-21",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 921
+  },
+  {
+    "file": "jr-hakata-city.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:JR_Hakata_City_1-1_Hakata-eki-chūōgai_Hakata-ku_Fukuoka_20230725.jpg",
+    "author": "Hirho",
+    "date": "2023-07-25 17:38:15",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 677
+  }
+]

@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: en
-image: /assets/images/hotel-review/kuriya-suizan/kuriya-suizan-02.webp
+image: /assets/images/news/sapporo-snow-festival/snow-sculpture-night.webp
 description: "The 77th Sapporo Snow Festival runs February 4–11, 2027 at the Odori, Susukino and Tsudome sites. The dates overlap Korea's Lunar New Year holiday (February 6–9), so check flights and hotels early."
 tags: ["Travel News", "Hokkaido"]
 ---
@@ -22,8 +22,8 @@ Lunar New Year falls on Sunday, February 7, 2027, so **Korea's holiday (February
 That means you can go without using much leave. It also means flights and central Sapporo hotels will probably fill up faster than a normal February.
 
 <figure>
-<img src="/assets/images/hotel-review/kuriya-suizan/kuriya-suizan-02.webp" alt="Snowy road and petrol station in Hokkaido" width="768" height="1024" loading="lazy" />
-<figcaption>On the road from New Chitose Airport to Jozankei, February 10, 2026. Snow like this is normal around festival time. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/sapporo-snow-festival/snow-sculpture-night.webp" alt="Giant illuminated snow sculpture at the Sapporo Snow Festival" width="1200" height="801" loading="lazy" />
+<figcaption>A giant snow sculpture at the Odori site, 65th Sapporo Snow Festival, February 2014. <a href="https://commons.wikimedia.org/wiki/File:第65回さっぽろ雪まつり（SAPPORO_SNOW_FESTIVAL_65th）_-_panoramio.jpg">t-konno</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
 </figure>
 
 ## Dates and sites
@@ -39,6 +39,16 @@ From the [festival's official overview](https://www.snowfes.com/news/948.html) (
 
 The huge snow sculptures you see in photos are at **Odori**.
 Susukino is mostly ice sculptures, and Tsudome is outside the centre, reached by subway and shuttle bus.
+
+<figure>
+<img src="/assets/images/news/sapporo-snow-festival/odori-park.webp" alt="Odori Park during the snow festival seen from Sapporo TV Tower" width="1200" height="1800" loading="lazy" />
+<figcaption>Odori Park during the festival, February 2007. <a href="https://commons.wikimedia.org/wiki/File:Odori_Park_Sapporo_Snow_Festival_2007.JPG">Eckhard Pecher</a> / <a href="https://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></figcaption>
+</figure>
+
+<figure>
+<img src="/assets/images/news/sapporo-snow-festival/susukino-ice.webp" alt="Ice sculpture shaped like beer glasses at the Susukino site" width="1200" height="1600" loading="lazy" />
+<figcaption>Ice sculpture at the Susukino site, February 2016. <a href="https://commons.wikimedia.org/wiki/File:Sapporo_Beer_Ice_Sculpture.JPG">Ominae</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+</figure>
 
 Opening hours, illumination times and the full programme are not out yet.
 The official site will announce them later, so check back closer to the date.
@@ -77,21 +87,11 @@ If the city is full or too expensive, a night or two in a **nearby onsen town** 
 
 Jozankei is about an hour from Sapporo by car, and I stayed there at exactly this time of year in 2026.
 
-<figure>
-<img src="/assets/images/hotel-review/kuriya-suizan/kuriya-suizan-03.webp" alt="Snow-covered entrance of a Jozankei ryokan at night" width="768" height="1024" loading="lazy" />
-<figcaption>Entrance of Kuriya Suizan in Jozankei, evening of February 10, 2026. Photo: Brothrone.</figcaption>
-</figure>
-
 My notes are in the [Kuriya Suizan review](/en/hotel-review/kuriya-suizan/) and the [Otaru Korakuen review](/en/hotel-review/otaru-korakuen/).
 Both are February 2026 prices, so check current rates.
 
 Staying outside the city means more time getting to the festival.
 On the night you want to see the illuminations, a hotel in town is much easier.
-
-<figure>
-<img src="/assets/images/hotel-review/kuriya-suizan/kuriya-suizan-24.webp" alt="Outdoor hot spring bath in falling snow at Jozankei" width="768" height="1024" loading="lazy" />
-<figcaption>Outdoor bath in the snow at Jozankei, morning of February 11, 2026. Photo: Brothrone.</figcaption>
-</figure>
 
 ## Before you book
 

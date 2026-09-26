@@ -43,9 +43,9 @@ The aircraft is an A321neo with 182 seats: 8 in Prestige and 174 in economy.
 It is not a daily flight. If you already have a ryokan booked, **check your dates match the flight days** first.
 A cheap fare stops being cheap if moving the hotel costs you a cancellation fee.
 
-<figure style="margin: 28px 0; text-align: center;">
-  <img src="/assets/images/hotel-review/fuk_1/fuk_a_4.webp" alt="Snow at a ryokan entrance in Yufuin" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
-  <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">Ryokan entrance in Yufuin (Oyado Yufunoshou) after snowfall, January 2023. Photo: Brothrone.</figcaption>
+<figure>
+<img src="/assets/images/news/korean-air-oita/unaguhime-torii-yufudake.webp" alt="Large torii of Unaguhime Shrine in Yufuin with Mount Yufu behind" width="1200" height="900" loading="lazy" />
+<figcaption>The torii of Unaguhime Shrine and Mount Yufu, Yufuin, December 2014. Photo: <a href="https://commons.wikimedia.org/wiki/File:Mount_Yufudake_and_Grand_Torii_of_Unaguhime_Shrine.jpg">そらみみ</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 The 09:15 departure from Incheon is earlier than it looks.
@@ -57,9 +57,9 @@ If you are taking the airport bus, fit your plans around its timetable.
 
 Fares and baggage were not part of the announcement, so **compare the total with Fukuoka for the same dates** on the booking screen.
 
-<figure style="margin: 28px 0; text-align: center;">
-  <img src="/assets/images/hotel-review/fuk_1/fuk_a_20.webp" alt="Yufuin street and mountain view" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
-  <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">Yufuin Station. Photo: Brothrone.</figcaption>
+<figure>
+<img src="/assets/images/news/korean-air-oita/yufuin-station.webp" alt="Platforms at Yufuin Station surrounded by mountains" width="1200" height="900" loading="lazy" />
+<figcaption>Yufuin Station, January 2010. Photo: <a href="https://commons.wikimedia.org/wiki/File:2010-01-03_Yufuin_Station.jpg">Tomo</a> / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></figcaption>
 </figure>
 
 If you are choosing a place in Yufuin, my stays at [Ikkoten](/en/hotel-review/yufuin-ikkouten/) and [Oyado Yufunoshou](/en/hotel-review/yufunosho-ryokan/) might help.

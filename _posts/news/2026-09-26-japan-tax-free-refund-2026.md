@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: ko
-image: /assets/images/airline-review/ke2101/ke2101-17.webp
+image: /assets/images/news/japan-tax-free/tax-free-rules.webp
 description: "11월 1일부터 일본 면세가 환급 방식으로 바뀝니다. 매장에서는 소비세를 포함해 결제하고, 출국 때 짐을 부치기 전 공항 키오스크에서 여권을 스캔해야 환급됩니다. 달라지는 조건과 주의할 점을 정리했습니다."
 tags: ["여행소식", "일본여행"]
 ---
@@ -24,8 +24,8 @@ tags: ["여행소식", "일본여행"]
 연말이나 겨울에 일본 가시는 분들은 쇼핑보다 **출국하는 날 공항에서 움직이는 순서**가 더 많이 달라지니 이 부분 꼭 보고 가세요.
 
 <figure>
-<img src="/assets/images/airline-review/ke2101/ke2101-17.webp" alt="하네다공항 3터미널 국제선 청사와 주기된 항공기" width="1200" height="1600" loading="lazy" />
-<figcaption>하네다공항 3터미널(국제선). 새 제도에서는 출국 로비에서 면세 확인을 먼저 거쳐야 합니다. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/japan-tax-free/tax-free-rules.webp" alt="가게 유리문에 붙은 일본 면세점(Japan. Tax-free Shop) 스티커" width="1200" height="900" loading="lazy" />
+<figcaption>일본 면세점 표시가 붙은 과자점 입구, 2025년 1월 오키나와 나하. <a href="https://commons.wikimedia.org/wiki/File:JP_日本_Japan_沖繩_OKINAWA_那霸_Naha_國際通_Kokusai-dori_food_shop_御菓子御殿_おかしごてん_Okashigoten_January_2025_R12S_Tax_Free_rules_sign.jpg">Naha Mama Pavilionz</a> / <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></figcaption>
 </figure>
 
 ## 뭐가 바뀌나
@@ -72,8 +72,8 @@ tags: ["여행소식", "일본여행"]
 평소처럼 공항 도착하자마자 체크인 카운터로 가면 딱 놓치기 좋은 부분이에요.
 
 <figure>
-<img src="/assets/images/airline-review/ke2101/ke2101-18.webp" alt="하네다공항 3터미널 연결 통로를 걷는 여행객들" width="1200" height="1600" loading="lazy" />
-<figcaption>하네다공항 3터미널 통로. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/japan-tax-free/haneda-departure.webp" alt="하네다공항 국제선 터미널 출발 로비" width="1200" height="848" loading="lazy" />
+<figcaption>하네다공항 국제선 터미널 출발 로비, 2017년 8월. 새 제도에서는 출국 로비에서 면세 확인을 먼저 거칩니다. <a href="https://commons.wikimedia.org/wiki/File:Departure_Lobby_of_Haneda_Airport_International_Terminal_dllu.jpg">Daniel L. Lu</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 빨간색이 뜨면 세관 직원이 물건을 직접 봅니다.
@@ -92,8 +92,8 @@ tags: ["여행소식", "일본여행"]
 이건 제도 자체보다는 매장별 운영 방식이라 가게마다 다를 수 있습니다.
 
 <figure>
-<img src="/assets/images/airline-review/ke787/ke787-19.webp" alt="후쿠오카공항에 주기된 대한항공 A350" width="1200" height="1600" loading="lazy" />
-<figcaption>후쿠오카공항의 대한항공 A350, 2025년 7월. 새 절차는 지방 공항 국제선에도 똑같이 적용됩니다. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/japan-tax-free/tax-free-sign.webp" alt="의류 매장 입구의 TAX FREE 안내판" width="1200" height="900" loading="lazy" />
+<figcaption>의류 매장의 면세 안내판, 2025년 1월 오키나와. <a href="https://commons.wikimedia.org/wiki/File:JP_日本_Japan_沖繩_OKINAWA_Parco_City_Mall_shop_Right-On_Clothing_January_2025_R12S_Tax_Free_sign.jpg">Naha Mama Pavilionz</a> / <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></figcaption>
 </figure>
 
 ## 여행 전에 챙길 것

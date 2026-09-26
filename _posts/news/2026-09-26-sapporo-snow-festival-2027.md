@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: ko
-image: /assets/images/hotel-review/kuriya-suizan/kuriya-suizan-02.webp
+image: /assets/images/news/sapporo-snow-festival/snow-sculpture-night.webp
 description: "제77회 삿포로 눈축제가 2027년 2월 4일부터 11일까지 오도리·스스키노·쓰도무 3개 회장에서 열립니다. 한국 설 연휴(2월 6~9일)와 겹치는 일정이라 항공권과 숙소를 일찍 확인해야 합니다."
 tags: ["여행소식", "홋카이도"]
 ---
@@ -22,8 +22,8 @@ tags: ["여행소식", "홋카이도"]
 연차 안 쓰고 눈축제 보러 갈 수 있는 해라는 뜻인데, 반대로 말하면 항공권이랑 삿포로 시내 숙소는 평소 2월보다 훨씬 빨리 찰 가능성이 큽니다.
 
 <figure>
-<img src="/assets/images/hotel-review/kuriya-suizan/kuriya-suizan-02.webp" alt="눈이 쌓인 홋카이도 도로와 주유소" width="768" height="1024" loading="lazy" />
-<figcaption>신치토세공항에서 조잔케이로 가는 길, 2026년 2월 10일. 눈축제 기간 전후 홋카이도는 이 정도 눈이 보통입니다. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/sapporo-snow-festival/snow-sculpture-night.webp" alt="조명을 받은 삿포로 눈축제 대형 설상과 관람객" width="1200" height="801" loading="lazy" />
+<figcaption>제65회 삿포로 눈축제 오도리 회장의 대형 설상, 2014년 2월. <a href="https://commons.wikimedia.org/wiki/File:第65回さっぽろ雪まつり（SAPPORO_SNOW_FESTIVAL_65th）_-_panoramio.jpg">t-konno</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
 </figure>
 
 ## 일정과 장소
@@ -39,6 +39,16 @@ tags: ["여행소식", "홋카이도"]
 
 사진에서 많이 보는 거대한 눈 조각은 **오도리 회장**에 모여 있습니다.
 스스키노는 얼음 조각 위주이고, 쓰도무는 시내에서 좀 떨어져 있어서 지하철이랑 셔틀버스를 타고 가야 합니다.
+
+<figure>
+<img src="/assets/images/news/sapporo-snow-festival/odori-park.webp" alt="삿포로 TV탑에서 내려다본 눈축제 기간의 오도리공원" width="1200" height="1800" loading="lazy" />
+<figcaption>눈축제 기간의 오도리공원, 2007년 2월. <a href="https://commons.wikimedia.org/wiki/File:Odori_Park_Sapporo_Snow_Festival_2007.JPG">Eckhard Pecher</a> / <a href="https://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></figcaption>
+</figure>
+
+<figure>
+<img src="/assets/images/news/sapporo-snow-festival/susukino-ice.webp" alt="스스키노 얼음 축제의 맥주잔 모양 얼음 조각" width="1200" height="1600" loading="lazy" />
+<figcaption>스스키노 회장의 얼음 조각, 2016년 2월. <a href="https://commons.wikimedia.org/wiki/File:Sapporo_Beer_Ice_Sculpture.JPG">Ominae</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+</figure>
 
 회장별 운영 시간이랑 라이트업 시간, 세부 프로그램은 아직 안 나왔습니다.
 공식 사이트에서 나중에 따로 발표한다고 하니 가까워지면 다시 확인해보세요.
@@ -78,21 +88,11 @@ tags: ["여행소식", "홋카이도"]
 
 조잔케이는 삿포로에서 차로 한 시간 정도 걸리는 온천 마을인데, 저도 올해 2월 딱 이맘때 묵었습니다.
 
-<figure>
-<img src="/assets/images/hotel-review/kuriya-suizan/kuriya-suizan-03.webp" alt="눈 덮인 조잔케이 료칸 입구의 야경" width="768" height="1024" loading="lazy" />
-<figcaption>조잔케이 쿠리야 스이잔 입구, 2026년 2월 10일 저녁. 사진: Brothrone</figcaption>
-</figure>
-
 당시 묵었던 곳은 [쿠리야 스이잔 후기](/posts/kuriya-suizan/)랑 [오타루 고라쿠엔 후기](/posts/otaru-korakuen/)에 올려뒀습니다.
 둘 다 올해 2월 가격이라 내년 요금은 따로 확인하셔야 해요.
 
 근교에 묵으면 축제장 오가는 시간이 늘어나긴 합니다.
 라이트업까지 보고 늦게 들어올 날은 시내에서 자는 게 훨씬 편합니다.
-
-<figure>
-<img src="/assets/images/hotel-review/kuriya-suizan/kuriya-suizan-24.webp" alt="눈이 내리는 조잔케이 료칸 노천탕" width="768" height="1024" loading="lazy" />
-<figcaption>눈 내리는 조잔케이 노천탕, 2026년 2월 11일 아침. 사진: Brothrone</figcaption>
-</figure>
 
 ## 예약 전 체크
 

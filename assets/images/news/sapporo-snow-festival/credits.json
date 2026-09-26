@@ -1,0 +1,35 @@
+[
+  {
+    "file": "snow-sculpture-night.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:第65回さっぽろ雪まつり（SAPPORO_SNOW_FESTIVAL_65th）_-_panoramio.jpg",
+    "author": "t-konno",
+    "date": "2014-02-05",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 801
+  },
+  {
+    "file": "odori-park.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Odori_Park_Sapporo_Snow_Festival_2007.JPG",
+    "author": "Eckhard Pecher",
+    "date": "2007-02-12",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "susukino-ice.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Sapporo_Beer_Ice_Sculpture.JPG",
+    "author": "Ominae",
+    "date": "2016-02-08 15:15:13",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 1600
+  }
+]

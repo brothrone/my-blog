@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: en
-image: /assets/images/airline-review/ke787/ke787-17.webp
+image: /assets/images/news/narita-joint-kiosk/narita-t2-arrival.webp
 description: "Since September 24, Narita Terminals 1 and 2 have 177 joint kiosks that take your immigration and customs details in one go. You need a Visit Japan Web QR code and your passport. Haneda, Kansai and Fukuoka already use them."
 tags: ["Travel News", "Japan"]
 ---
@@ -20,8 +20,8 @@ Until now you showed your passport at immigration and again at customs.
 These kiosks take **the information for both in one go.**
 
 <figure>
-<img src="/assets/images/airline-review/ke787/ke787-17.webp" alt="Arrivals corridor at Fukuoka Airport with a welcome banner" width="768" height="1024" loading="lazy" />
-<figcaption>Arrivals corridor at Fukuoka Airport, July 2025. Fukuoka also uses joint kiosks. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/narita-joint-kiosk/narita-t2-arrival.webp" alt="Arrivals hall at Narita Airport Terminal 2" width="1200" height="800" loading="lazy" />
+<figcaption>Arrivals hall, Narita Airport Terminal 2, May 2018. <a href="https://commons.wikimedia.org/wiki/File:Narita_Airport_Terminal_2_Arrival_Hall_2018.jpg">Wpcpey</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## What changes
@@ -52,8 +52,8 @@ Narita T1 and T2 are the latest additions. These were already running:
 That covers almost every major Japanese airport people fly into from Korea.
 
 <figure>
-<img src="/assets/images/airline-review/ke2101/ke2101-19.webp" alt="Runway and aircraft seen from the Haneda Airport observation deck" width="1200" height="1600" loading="lazy" />
-<figcaption>View from the Haneda Terminal 3 observation deck. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/narita-joint-kiosk/narita-t2-front.webp" alt="Narita Airport Terminal 2 building and car park" width="1200" height="676" loading="lazy" />
+<figcaption>Narita Airport Terminal 2, May 2025. <a href="https://commons.wikimedia.org/wiki/File:Narita_Airport_Terminal_2_front_2025-05-28.jpg">LMP 2001</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## How it works for visitors
@@ -73,11 +73,11 @@ Most important: **finish your Visit Japan Web registration in advance.**
 No QR code, no kiosk.
 
 <figure>
-<img src="/assets/images/tips/visit-japan-web/vjw14.webp" alt="Visit Japan Web screen showing the immigration and customs declaration menu" width="1200" height="2186" loading="lazy" />
-<figcaption>Visit Japan Web's arrival screen. You only get the QR code once "Immigration and customs declaration" is completed.</figcaption>
+<img src="/assets/images/news/narita-joint-kiosk/narita-t1-interior.webp" alt="Travellers inside Narita Airport Terminal 1" width="1200" height="900" loading="lazy" />
+<figcaption>Inside Narita Airport Terminal 1, January 2023. <a href="https://commons.wikimedia.org/wiki/File:Interior_of_Narita_International_Airport_Terminal_1_20230130_090532.jpg">ウィ貴公子</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
-If **"Immigration and customs declaration" still shows as not registered**, there is no QR code yet.
+If the app's arrival screen shows **"Immigration and customs declaration" as not registered**, there is no QR code yet.
 Fill that part in and the code for the kiosk appears.
 
 I have a step-by-step guide with screenshots:

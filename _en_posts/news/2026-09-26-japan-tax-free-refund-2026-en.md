@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: en
-image: /assets/images/airline-review/ke2101/ke2101-17.webp
+image: /assets/images/news/japan-tax-free/tax-free-rules.webp
 description: "From November 1, 2026, visitors to Japan pay consumption tax at the till and claim it back at departure. Scan your passport at the airport kiosk before checking your bags, or you lose the refund."
 tags: ["Travel News", "Japan"]
 ---
@@ -24,8 +24,8 @@ There is no transition period.
 If you are visiting Japan this winter, the bigger change is not in the shops. It is **what you do at the airport on the way home**.
 
 <figure>
-<img src="/assets/images/airline-review/ke2101/ke2101-17.webp" alt="Haneda Airport Terminal 3 with an aircraft at the gate" width="1200" height="1600" loading="lazy" />
-<figcaption>Haneda Airport Terminal 3 (international). Under the new system, the tax-free check comes first in the departure lobby. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/japan-tax-free/tax-free-rules.webp" alt="Japan Tax-free Shop sticker on a shop door" width="1200" height="900" loading="lazy" />
+<figcaption>Japan Tax-free Shop sign at a sweets shop in Naha, Okinawa, January 2025. <a href="https://commons.wikimedia.org/wiki/File:JP_日本_Japan_沖繩_OKINAWA_那霸_Naha_國際通_Kokusai-dori_food_shop_御菓子御殿_おかしごてん_Okashigoten_January_2025_R12S_Tax_Free_rules_sign.jpg">Naha Mama Pavilionz</a> / <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></figcaption>
 </figure>
 
 ## What changes
@@ -71,8 +71,8 @@ If the suitcase with your purchases goes into the hold first, you cannot complet
 It is exactly the step you would skip if you head straight to the check-in counter out of habit.
 
 <figure>
-<img src="/assets/images/airline-review/ke2101/ke2101-18.webp" alt="Travellers walking along a corridor at Haneda Airport Terminal 3" width="1200" height="1600" loading="lazy" />
-<figcaption>A corridor at Haneda Airport Terminal 3. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/japan-tax-free/haneda-departure.webp" alt="Departure lobby of Haneda Airport international terminal" width="1200" height="848" loading="lazy" />
+<figcaption>Departure lobby, Haneda Airport international terminal, August 2017. Under the new system, the tax-free check comes first in the departure lobby. <a href="https://commons.wikimedia.org/wiki/File:Departure_Lobby_of_Haneda_Airport_International_Terminal_dllu.jpg">Daniel L. Lu</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 With a red result, a customs officer looks at the goods.
@@ -91,8 +91,8 @@ Some may deduct a fee, so on a big purchase check the expected refund amount on 
 That is down to each store rather than the rules themselves.
 
 <figure>
-<img src="/assets/images/airline-review/ke787/ke787-19.webp" alt="Korean Air A350 at the gate at Fukuoka Airport" width="1200" height="1600" loading="lazy" />
-<figcaption>Korean Air A350 at Fukuoka Airport, July 2025. The new process applies at regional international airports too. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/japan-tax-free/tax-free-sign.webp" alt="TAX FREE sign at a clothing store entrance" width="1200" height="900" loading="lazy" />
+<figcaption>Tax-free sign at a clothing store in Okinawa, January 2025. <a href="https://commons.wikimedia.org/wiki/File:JP_日本_Japan_沖繩_OKINAWA_Parco_City_Mall_shop_Right-On_Clothing_January_2025_R12S_Tax_Free_sign.jpg">Naha Mama Pavilionz</a> / <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></figcaption>
 </figure>
 
 ## Before you go

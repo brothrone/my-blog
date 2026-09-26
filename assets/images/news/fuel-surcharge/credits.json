@@ -1,0 +1,35 @@
+[
+  {
+    "file": "incheon-t2-checkin.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:인천공항T2_체크인_대한한공_수속_2024.jpg",
+    "author": "Narubaru7",
+    "date": "2024-10-13",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "jeju-air-737max.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:(KOR-Incheon)_Jeju_Air_Boeing_737_MAX_8_HL8523_@_RKSI_2026-06-04.jpg",
+    "author": "S5A-0043",
+    "date": "2026-06-04 06:16:28",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "file": "korean-air-a330-takeoff.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Korean_Air_-_HL8228_(8351584825).jpg",
+    "author": "InSapphoWeTrust from Los Angeles, California, USA",
+    "date": "2013-01-05 10:48",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 723
+  }
+]
