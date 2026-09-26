@@ -13,64 +13,87 @@ og_image: /assets/images/news/asiana-mileage-integration/conversion-og.png
 description: "Asiana miles convert to SKYPASS at 1:1 for flight miles and 1:0.82 for partner miles. Worked examples for 100,000 miles and what to compare before converting."
 ---
 
-Asiana miles will convert to Korean Air SKYPASS at different rates: 1:1 for flight-earned miles and 1:0.82 for partner-earned miles. **100,000 partner miles therefore become 82,000 SKYPASS miles.**
+The **conversion rates for moving Asiana miles to Korean Air SKYPASS are now final.**
 
-This guide uses [Korean Air’s September 15 announcement](https://news.koreanair.com/대한항공-아시아나항공-마일리지-통합방안-최종-승/) and its [integration website](https://oneskypass.koreanair.com/). Integrated operation starts on December 17, 2026; the announcement does not change your balance today.
+- Miles earned from flying: **1 : 1**
+- Miles earned from cards and other partners: **1 : 0.82**
+
+So 100,000 Asiana miles earned on a credit card become **82,000 SKYPASS miles**.
+
+This is based on [Korean Air's September 15 announcement](https://news.koreanair.com/대한항공-아시아나항공-마일리지-통합방안-최종-승/) and the [official integration page](https://oneskypass.koreanair.com/).
+The integration starts on December 17, so nothing happens to your balance today.
 
 <figure>
 <img src="/assets/images/news/asiana-mileage-integration/conversion.svg" alt="Asiana to SKYPASS: flight miles 1:1; partner miles 1:0.82" width="1200" height="630" loading="lazy" style="width:100%;height:auto" />
 </figure>
 
-## Conversion by earning source
+## Rates by how the miles were earned
 
-| Asiana earning source | Asiana → SKYPASS | Example: 100,000 miles |
+| How earned | Rate | 100,000 miles becomes |
 | --- | --- | --- |
-| Flights | 1 → 1 | 100,000 miles |
-| Partners, including credit cards | 1 → 0.82 | 82,000 miles |
+| Flying | 1 → 1 | 100,000 |
+| Cards and partners | 1 → 0.82 | 82,000 |
 
-Partner-earned balances fall by 18% in numerical terms on conversion. That does not establish an identical reduction in travel value: required miles, available seats and the route you want also matter.
+Partner miles lose 18% in number.
+That does not automatically mean your trips are worth 18% less, though.
+It depends on how many miles your route needs and whether there is a seat on your date.
 
-For a mixed balance of 40,000 flight miles and 60,000 partner miles, the illustrative calculation is **40,000 + 60,000 × 0.82 = 89,200 miles**. This is arithmetic based on the rates, not a quote for a personal account.
+The mix matters too. With 40,000 flight miles and 60,000 partner miles:
+
+**40,000 + 60,000 × 0.82 = 89,200 miles**
 
 <figure>
 <img src="/assets/images/news/asiana-mileage-integration/example-en.svg" alt="40,000 + 60,000 × 0.82 = 89,200 miles" width="1200" height="540" loading="lazy" style="width:100%;height:auto" />
 </figure>
 
-## Conversion versus separate use
+This is an example to explain the rates. Your own result will show on the conversion screen.
 
-| Choice | What to compare |
+## Convert now or keep them?
+
+| Option | What to check |
 | --- | --- |
-| Use Asiana miles separately | Whether the existing award rules cover your intended trip |
-| Convert to SKYPASS | The resulting balance against SKYPASS award requirements |
+| Keep using Asiana miles | Whether the trip you want works under Asiana's award chart |
+| Convert to SKYPASS | Whether your converted balance covers SKYPASS award prices |
 
-Asiana balances will be managed separately for ten years. Conversion can be requested during that period, but it covers the entire remaining balance according to the [FTC announcement reproduced here](https://go.seoul.co.kr/news/prnewsView.php?id=447404). Do not plan on converting only flight-earned miles while retaining partner miles.
+After the integration, Asiana miles will be **run separately for 10 years**, and you can convert whenever you like during that time.
 
-**Ten years of separate operation is not a blanket extension of every mile’s expiry date.** Existing expiry rules remain relevant, so check your expiring balance first.
+According to the [Fair Trade Commission release](https://go.seoul.co.kr/news/prnewsView.php?id=447404) (in Korean), though, **conversion covers your whole balance at once**.
+You cannot convert only the flight miles and keep the partner miles.
 
-## Checks before converting
+One more thing: **the 10-year period and the expiry of your miles are separate.**
+Existing expiry dates still apply, so miles about to expire do not get ten more years.
+Check your expiry schedule before anything else.
+
+## How to compare
 
 <figure>
 <img src="/assets/images/news/asiana-mileage-integration/choices-en.svg" alt="Compare award requirements, balances, availability and expiry" width="1200" height="540" loading="lazy" style="width:100%;height:auto" />
 </figure>
 
+The best way is to **start with the route and dates you actually want.**
+Then compare what it costs in Asiana miles and in SKYPASS miles.
 
+Converting just because the total looks bigger could leave you short for a trip your old balance would have covered.
+On the other hand, you may need to combine with an existing SKYPASS balance to reach an award.
 
-Start with the route and dates you want. Compare the miles required under separate Asiana use with SKYPASS. A conversion based only on the headline balance could leave you short for a trip you could otherwise book. In another case, combining the converted miles with an existing SKYPASS balance might help you reach an award threshold.
-
-| Order | Check |
+| Step | Check |
 | --- | --- |
-| 1 | Earning sources and expiry dates |
-| 2 | Award seats for your route and dates |
-| 3 | Required miles and additional cash charges |
-| 4 | Whether the resulting balance covers the award |
-| 5 | Full-balance conversion and cancellation terms on the application screen |
+| 1 | How your Asiana miles were earned, and when they expire |
+| 2 | Award seats on your dates and route |
+| 3 | Miles needed each way, plus taxes and surcharges |
+| 4 | Whether your converted balance can actually book it |
+| 5 | The all-at-once and cancellation terms on the conversion screen |
 
-Do not assume conversion can be reversed without checking the terms. Account linking and mileage conversion also serve different purposes; read what the screen asks you to accept.
+Whether a conversion can be reversed depends on the terms on that screen, so I will not guess.
+**Linking accounts and converting miles may be separate steps**, so read what you are agreeing to before tapping.
 
 ## Award seats and elite status
 
-The announcement includes measures to improve award access and match elite status. These do not guarantee a business-class seat on your chosen date. If your holiday dates are fixed, actual availability may matter more than the conversion rate.
+Korean Air also announced more award availability and status matching.
+That still does not guarantee a business seat on your date.
+If your holiday dates are fixed, seat availability may matter more than the rate.
 
-Compare both the resulting balance and what it can book before deciding. The checklist above is practical analysis, not an additional airline policy.
+In the end it comes down to two questions: how many miles you end up with, and what they can book right now.
 
-Checked September 15, 2026.
+Checked September 15, 2026
+The comparison steps are my own, not airline rules.

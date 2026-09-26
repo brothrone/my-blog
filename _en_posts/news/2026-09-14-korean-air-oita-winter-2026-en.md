@@ -14,48 +14,56 @@ tags: ["Travel News", "Korean Air"]
 kr_permalink: "/posts/korean-air-oita-winter-2026/"
 ---
 
-Korean Air is bringing back its Seoul Incheon–Oita flights on October 25, as part of the winter schedule announced on September 11.
+Korean Air is **bringing back Seoul Incheon–Oita flights from October 25.**
+It is part of the winter schedule announced on September 11.
 
-If you're planning a winter trip to Yufuin or Beppu, Oita is another airport to include in the fare search alongside Fukuoka.
-
+Oita is home to Yufuin and Beppu, so this is good news for a winter onsen trip.
+Most people fly into Fukuoka and take a bus or train from there. Now Oita is worth adding to the fare search.
 
 <figure style="margin: 28px 0; text-align: center;">
 <img src="/assets/images/news/korean-air-oita/korean-air-a321neo.webp" alt="Korean Air Airbus A321neo at Haneda Airport" width="1200" height="675" decoding="async" style="width:100%;height:auto;border-radius:12px;" />
 <figcaption style="font-size:.8em;color:var(--muted,#777);margin-top:8px;">Korean Air A321neo (HL8557), Haneda Airport, September 2024. <a href="https://commons.wikimedia.org/wiki/File:Korean_Air_HL8557_A321-272NX_HND_26-09-2024_(1).jpg">BWard 1997</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
-## Dates and flight times
+## Dates and times
 
-The announced season runs from **October 25, 2026 to March 26, 2027**, with flights on **Monday, Wednesday, Friday and Sunday**.
+The route runs **from October 25 to March 26, 2027**, four times a week on **Monday, Wednesday, Friday and Sunday**.
 
-| Route | Departure | Arrival |
+| Route | Departs | Arrives |
 |---|---|---|
 | Incheon → Oita | 09:15 | 10:50 |
 | Oita → Incheon | 12:00 | 13:45 |
 
-These are local airport times. Korean Air lists the A321neo for the route, with 182 seats: 8 in Prestige and 174 in economy. [Official announcement, in Korean](https://news.koreanair.com/대한항공-인천오이타-노선-운항-재개-동계-시즌-주-4/)
+Times are local.
+The aircraft is an A321neo with 182 seats: 8 in Prestige and 174 in economy.
+([Official announcement, in Korean](https://news.koreanair.com/대한항공-인천오이타-노선-운항-재개-동계-시즌-주-4/))
 
-## Check the rest of the trip before booking
+## Before you book the ryokan
 
-This isn't a daily flight. If you've already booked a ryokan, check that the flight days fit your stay. A cheaper ticket may not save much if moving the hotel booking comes with a cancellation fee.
+It is not a daily flight. If you already have a ryokan booked, **check your dates match the flight days** first.
+A cheap fare stops being cheap if moving the hotel costs you a cancellation fee.
 
 <figure style="margin: 28px 0; text-align: center;">
   <img src="/assets/images/hotel-review/fuk_1/fuk_a_4.webp" alt="Snow at a ryokan entrance in Yufuin" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
   <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">Ryokan entrance in Yufuin (Oyado Yufunoshou) after snowfall, January 2023. Photo: Brothrone.</figcaption>
 </figure>
 
-The morning departure also matters if you're travelling to Incheon from another part of Korea. Check whether the first train or bus gets you there in time, or whether you'd need a night near the airport.
+The 09:15 departure from Incheon is earlier than it looks.
+If you live outside Seoul, check whether the first train or bus gets you there, or whether you need a night near the airport.
 
-For the return, a noon departure means working backwards from the airport check-in time. If you want breakfast at the ryokan before leaving, check the transfer first. I haven't checked the airport bus timetable for this article, so the flight times alone aren't enough to plan that connection.
+The flight home leaves at noon.
+If you want breakfast at the ryokan before leaving, check how long the transfer to the airport takes.
+If you are taking the airport bus, fit your plans around its timetable.
 
-The announcement doesn't settle the fare or baggage allowance for your booking either. Compare the total price against Fukuoka for the same dates before deciding.
-
+Fares and baggage were not part of the announcement, so **compare the total with Fukuoka for the same dates** on the booking screen.
 
 <figure style="margin: 28px 0; text-align: center;">
   <img src="/assets/images/hotel-review/fuk_1/fuk_a_20.webp" alt="Yufuin street and mountain view" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
   <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">Yufuin Station. Photo: Brothrone.</figcaption>
 </figure>
 
-For accommodation, my earlier reviews cover [Ikkoten](/en/hotel-review/yufuin-ikkouten/) and [Oyado Yufunoshou](/en/hotel-review/yufunosho-ryokan/). They describe those past stays; check current rates separately.
+If you are choosing a place in Yufuin, my stays at [Ikkoten](/en/hotel-review/yufuin-ikkouten/) and [Oyado Yufunoshou](/en/hotel-review/yufunosho-ryokan/) might help.
+Both are past stays, so check current prices.
 
-Announced September 11, 2026. Checked September 14, 2026. Confirm the schedule for your date with Korean Air before booking.
+Announced September 11, 2026 · Checked September 14
+Check the times for your date on Korean Air's website before booking.
