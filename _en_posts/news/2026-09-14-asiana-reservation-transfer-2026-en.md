@@ -26,7 +26,9 @@ If you have an Asiana flight booked for December 17 or later, look out for a res
 | --- | --- |
 | Affected bookings | Existing Asiana reservations and purchased tickets departing on or after December 17, 2026 |
 | Booking transfer and flight-number changes | November 2–December 3, 2026, in stages |
-| Individual notices | Kakao notifications, text messages or email |
+| Flight numbers | Asiana (OZ) flight numbers change to Korean Air (KE) numbers |
+| Individual notices | New booking and ticket details sent by Kakao notification, text message or email |
+| General guidance | Integration FAQ on Korean Air's website and app |
 
 These dates come from [Korean Air's September 14 announcement, in Korean](https://news.koreanair.com/대한항공-통합-항공사-출범-준비-본격화-아시아나항/). **The processing window is separate from the departure date.** Receiving a notice in November does not mean your trip has moved to November.
 

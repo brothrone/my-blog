@@ -14,7 +14,7 @@ tags: ["Travel News", "Korean Air"]
 kr_permalink: "/posts/korean-air-oita-winter-2026/"
 ---
 
-Korean Air says its Seoul Incheon–Oita service will return on October 25. The announcement came out on September 11.
+Korean Air is bringing back its Seoul Incheon–Oita flights on October 25, as part of the winter schedule announced on September 11.
 
 If you're planning a winter trip to Yufuin or Beppu, Oita is another airport to include in the fare search alongside Fukuoka.
 
@@ -33,12 +33,16 @@ The announced season runs from **October 25, 2026 to March 26, 2027**, with flig
 | Incheon → Oita | 09:15 | 10:50 |
 | Oita → Incheon | 12:00 | 13:45 |
 
-These are local airport times. Korean Air lists the A321neo for the route. [Official announcement, in Korean](https://news.koreanair.com/대한항공-인천오이타-노선-운항-재개-동계-시즌-주-4/)
+These are local airport times. Korean Air lists the A321neo for the route, with 182 seats: 8 in Prestige and 174 in economy. [Official announcement, in Korean](https://news.koreanair.com/대한항공-인천오이타-노선-운항-재개-동계-시즌-주-4/)
 
 ## Check the rest of the trip before booking
 
 This isn't a daily flight. If you've already booked a ryokan, check that the flight days fit your stay. A cheaper ticket may not save much if moving the hotel booking comes with a cancellation fee.
 
+<figure style="margin: 28px 0; text-align: center;">
+  <img src="/assets/images/hotel-review/fuk_1/fuk_a_4.webp" alt="Snow at a ryokan entrance in Yufuin" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
+  <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">Ryokan entrance in Yufuin (Oyado Yufunoshou) after snowfall, January 2023. Photo: Brothrone.</figcaption>
+</figure>
 
 The morning departure also matters if you're travelling to Incheon from another part of Korea. Check whether the first train or bus gets you there in time, or whether you'd need a night near the airport.
 

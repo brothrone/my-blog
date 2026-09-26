@@ -14,7 +14,7 @@ tags: ["여행소식", "대한항공"]
 en_permalink: "/en/news/korean-air-oita-winter-2026/"
 ---
 
-대한항공이 10월 25일부터 인천–오이타 노선을 다시 운항한다고 합니다. 9월 11일에 나온 소식입니다.
+대한항공이 10월 25일부터 인천–오이타 노선을 다시 운항합니다. 9월 11일 발표된 동계 스케줄입니다.
 
 겨울에 유후인이나 벳부 쪽으로 가실 계획이라면 항공권 검색할 때 오이타도 같이 넣어보셔도 좋겠습니다. 후쿠오카로 들어가는 일정만 생각하고 있었다면 비교할 선택지가 하나 생긴 셈입니다.
 
@@ -33,12 +33,16 @@ en_permalink: "/en/news/korean-air-oita-winter-2026/"
 | 인천 → 오이타 | 09:15 | 10:50 |
 | 오이타 → 인천 | 12:00 | 13:45 |
 
-시간은 각 공항 현지 시각입니다. 기종은 A321neo로 안내됐습니다. [대한항공 공식 발표](https://news.koreanair.com/대한항공-인천오이타-노선-운항-재개-동계-시즌-주-4/)
+시간은 각 공항 현지 시각입니다. 기종은 A321neo로, 프레스티지석 8석과 일반석 174석 등 182석 규모입니다. [대한항공 공식 발표](https://news.koreanair.com/대한항공-인천오이타-노선-운항-재개-동계-시즌-주-4/)
 
 ## 숙소 예약 시 확인 사항
 
 매일 운항하는 편은 아니라서, 료칸을 예약하셨다면 체크인 날짜와 맞는지 먼저 확인해보세요. 항공권이 싸더라도 숙박일을 바꾸면서 취소 수수료가 붙으면 계산이 달라집니다.
 
+<figure style="margin: 28px 0; text-align: center;">
+  <img src="/assets/images/hotel-review/fuk_1/fuk_a_4.webp" alt="눈 내린 유후인 료칸 입구" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
+  <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">눈 내린 유후인의 료칸 입구(오야도 유후노쇼), 2023년 1월. 사진: Brothrone</figcaption>
+</figure>
 
 오전 출발이라 인천공항까지 이동하는 방법도 같이 보셔야 합니다. 지방에서 출발한다면 첫차로 가능한지, 전날 올라가야 하는지에 따라 비용이 달라질 수 있습니다.
 

@@ -30,6 +30,10 @@ The following times are listed in [THAI’s official notice](https://www.thaiair
 | TG559 | Da Nang DAD → Bangkok BKK | 10:45 | 12:40 | Daily |
 | TG595 | Da Nang DAD → Bangkok BKK | 19:00 | 20:55 | Daily |
 
+Some reports from mid-September, including [Da Nang's official tourism site](https://danangfantasticity.com/en/thai-airways-to-launch-direct-bangkok-da-nang-flights-from-december-1-2026), list the afternoon flights five minutes later: TG594 16:20→18:05 and TG595 19:05→21:00. If you are timing a connection or an airport pickup, go by the times shown in your booking.
+
+This is a return rather than a first for THAI. According to [AeroRoutes](https://www.aeroroutes.com/eng/260720-tgdec26dad), the airline last flew to Da Nang in March 2003, and the new service is planned with A320 aircraft.
+
 ## Combining Bangkok and Da Nang
 
 After a stay in Bangkok, the morning departure leaves more time in Da Nang but means an early start from your hotel. The afternoon flight gives you a less rushed morning. Allow for immigration and the journey to your accommodation before booking dinner in Da Nang.
@@ -63,6 +67,6 @@ Do not assume that separate tickets have the same connection protection or bagga
 
 The source is THAI’s Myanmar-market page. It specifies website/app booking and a 72-hour advance reservation condition. Its applicability to fares sold in Korea has not been confirmed. Check the purchase deadline, baggage allowance and change/refund rules of the fare you select.
 
-The page does not show a publication date, an end date for the service or the aircraft type. The announcement date remains unverified; the community-post date is not treated as an airline announcement date. Recheck the schedule and availability for your chosen travel date.
+The page does not show a publication date, an end date for the service or the aircraft type; the A320 mentioned above comes from AeroRoutes. The announcement date remains unverified; the community-post date is not treated as an airline announcement date. Recheck the schedule and availability for your chosen travel date.
 
-Source: [THAI’s Da Nang notice](https://www.thaiairways.com/en-mm/content/offers-Promotions/special-offers/flight-to-danang/). Checked September 25, 2026. Photo dates, authors and licences are given in the captions and [photo credits](/assets/images/news/thai-bangkok-danang/credits.json).
+Source: [THAI’s Da Nang notice](https://www.thaiairways.com/en-mm/content/offers-Promotions/special-offers/flight-to-danang/). Checked September 25, 2026 · Timing note and aircraft added September 26, 2026. Photo dates, authors and licences are given in the captions.
