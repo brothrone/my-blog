@@ -1,0 +1,35 @@
+[
+  {
+    "file": "pek-t3-arrival.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Beijing_Capital_International_Airport_Terminal_3_International_Arrival_20240604.jpg",
+    "author": "颐园居",
+    "capture_date": "2024-06-04 11:32:58",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Resized to 1200px width and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "file": "pek-t3.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Beijing_Capital_International_Airport_Terminal_3_20240604.jpg",
+    "author": "颐园居",
+    "capture_date": "2024-06-04 12:37:22",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Resized to 1200px width and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "file": "pek-t3-departure.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:20251026_Terminal_3_of_Beijing_Capital_International_Airport_-_Departure_Hall.jpg",
+    "author": "Windmemories",
+    "capture_date": "2025-10-26 19:38:05",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "changes": "Resized to 1200px width and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  }
+]
