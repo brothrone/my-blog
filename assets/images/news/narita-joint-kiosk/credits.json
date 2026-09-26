@@ -1,0 +1,35 @@
+[
+  {
+    "file": "narita-t2-front.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Narita_Airport_Terminal_2_front_2025-05-28.jpg",
+    "author": "LMP 2001",
+    "date": "2025-05-28 13:59:58",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 676
+  },
+  {
+    "file": "narita-t2-arrival.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Narita_Airport_Terminal_2_Arrival_Hall_2018.jpg",
+    "author": "Wpcpey",
+    "date": "2018-05-28",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "file": "narita-t1-interior.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Narita_International_Airport_Terminal_1_20230130_090532.jpg",
+    "author": "ウィ貴公子",
+    "date": "2023-01-30",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  }
+]

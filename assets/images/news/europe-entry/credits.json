@@ -1,0 +1,35 @@
+[
+  {
+    "file": "valencia-ees-kiosks.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:At_Valencia_2025_394_-_EES_kiosks.jpg",
+    "author": "Mike Peel",
+    "date": "2025-10-03 12:37:27.724+02:00",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "uk-border-control.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Passport_control,_UK_Border_(42031045291).jpg",
+    "author": "Eric Fischer",
+    "date": "2018-04-12 06:35",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "munich-auto-gate.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Man_using_the_automatic_gate_in_Munich_airport_02.jpg",
+    "author": "Subhashish Panigrahi",
+    "date": "2015-07-23",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  }
+]

@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: en
-image: /assets/images/airline-review/ke787/ke787-06.webp
+image: /assets/images/news/fuel-surcharge/korean-air-a330-takeoff.webp
 description: "International fuel surcharges on tickets issued in Korea rise to level 23 from October 1. Korean Air charges KRW 49,000–362,600 one way, Asiana KRW 53,400–301,200. The surcharge follows the ticketing date, so buying by September 30 keeps September's rate."
 tags: ["Travel News", "Flights"]
 ---
@@ -21,8 +21,8 @@ The useful part is that **the surcharge is based on when you buy, not when you f
 If you have not bought tickets for an October or year-end trip yet, **ticketing by September 30 keeps September's rate.**
 
 <figure>
-<img src="/assets/images/airline-review/ke787/ke787-06.webp" alt="Korean Air 747 parked at Incheon Airport Terminal 2" width="1200" height="900" loading="lazy" />
-<figcaption>Korean Air 747 at Incheon Terminal 2, July 2025. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/fuel-surcharge/korean-air-a330-takeoff.webp" alt="Korean Air Airbus A330 taking off past a control tower" width="1200" height="723" loading="lazy" />
+<figcaption>Korean Air A330 departing Los Angeles, 2013. Photo: <a href="https://commons.wikimedia.org/wiki/File:Korean_Air_-_HL8228_(8351584825).jpg">InSapphoWeTrust from Los Angeles, California, USA</a> / <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></figcaption>
 </figure>
 
 ## October surcharges (one way from Korea)
@@ -66,8 +66,8 @@ Still well below May's peak of 33, but noticeably higher than August.
 [Travel Times](https://www.traveltimes.co.kr/news/articleView.html?idxno=500426) calculates that a family of four flying Korean Air to Bangkok pays **KRW 252,800 more** in surcharges than in August.
 
 <figure>
-<img src="/assets/images/airline-review/ke787/ke787-01.webp" alt="Check-in area at Incheon Airport Terminal 2 at night" width="1200" height="900" loading="lazy" />
-<figcaption>Check-in hall at Incheon Terminal 2, July 2025. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/fuel-surcharge/incheon-t2-checkin.webp" alt="Korean Air check-in counters at Incheon Airport Terminal 2" width="1200" height="900" loading="lazy" />
+<figcaption>Korean Air check-in at Incheon Terminal 2, October 2024. Photo: <a href="https://commons.wikimedia.org/wiki/File:인천공항T2_체크인_대한한공_수속_2024.jpg">Narubaru7</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
 ## When buying before September 30 helps
@@ -90,8 +90,8 @@ Before rushing, check a few things:
 - **The total at checkout**: the surcharge is bundled in, so compare final prices.
 
 <figure>
-<img src="/assets/images/airline-review/ke2101/ke2101-03.webp" alt="International departures hall at Gimpo Airport" width="1200" height="1600" loading="lazy" />
-<figcaption>International departures at Gimpo Airport. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/fuel-surcharge/jeju-air-737max.webp" alt="Jeju Air Boeing 737 MAX 8 climbing out of Incheon" width="1200" height="675" loading="lazy" />
+<figcaption>Jeju Air 737 MAX 8 departing Incheon, June 2026. Photo: <a href="https://commons.wikimedia.org/wiki/File:(KOR-Incheon)_Jeju_Air_Boeing_737_MAX_8_HL8523_@_RKSI_2026-06-04.jpg">S5A-0043</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
 ## Low-cost carriers

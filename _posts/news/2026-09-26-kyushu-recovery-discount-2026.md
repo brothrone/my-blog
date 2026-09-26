@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: ko
-image: /assets/images/hotel-review/fuk_2/fuk2-13.webp
+image: /assets/images/news/kyushu-discount/yufuin-yufumi-street.webp
 description: "구마모토 지진 이후 일본이 규슈 7개현 숙박·여행 요금을 최대 50%(구마모토·가고시마 60%) 할인합니다. 10월 1일 숙박분부터이고 오이타현은 외국인도 대상이라고 밝혔습니다. 할인 한도와 예약 방법, 후쿠오카·오이타 일정을 정리했습니다."
 tags: ["여행소식", "일본여행"]
 ---
@@ -21,8 +21,8 @@ tags: ["여행소식", "일본여행"]
 유후인·벳부가 있는 **오이타현은 FAQ에서 "방일 외국인 여행자도 대상"이라고 분명히 밝혔습니다.**
 
 <figure>
-<img src="/assets/images/hotel-review/fuk_2/fuk2-13.webp" alt="눈 쌓인 지붕 너머로 보이는 유후다케" width="1200" height="1600" loading="lazy" />
-<figcaption>유후인에서 본 유후다케, 2023년 1월. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/kyushu-discount/yufuin-yufumi-street.webp" alt="유후인역 앞 유노쓰보 방향 거리와 뒤로 보이는 유후다케" width="1200" height="900" loading="lazy" />
+<figcaption>유후인역 앞 거리와 유후다케, 2018년 3월. 사진: <a href="https://commons.wikimedia.org/wiki/File:Mount_Yufudake_and_Yufumi-dori_Street_in_front_of_Yufuin_Station.jpg">そらみみ</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## 할인 내용
@@ -57,8 +57,8 @@ tags: ["여행소식", "일본여행"]
 | 숙소 직접 예약 | 10월 16일 | 10월 16일 ~ 12월 25일 |
 
 <figure>
-<img src="/assets/images/hotel-review/fuk_2/fuk2-20.webp" alt="해질녘 유후다케 아래 료칸 건물들" width="1200" height="1600" loading="lazy" />
-<figcaption>해질녘 유후인의 료칸, 2023년 1월. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/kyushu-discount/kinrin-lake.webp" alt="나무와 작은 신사 건물에 둘러싸인 유후인 긴린코 호수" width="1200" height="921" loading="lazy" />
+<figcaption>유후인 긴린코 호수, 2007년 11월. 사진: <a href="https://commons.wikimedia.org/wiki/File:Kinrin-ko_by_~MVI~_in_Yufuin,_Oita.jpg">~MVI~</a> / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></figcaption>
 </figure>
 
 FAQ에 나온 조건 중에 알아두면 좋은 것만 추렸습니다.
@@ -93,8 +93,8 @@ FAQ에 나온 조건 중에 알아두면 좋은 것만 추렸습니다.
 체크인할 때 대표자 신분 확인이랑 신청서 작성이 있습니다.
 
 <figure>
-<img src="/assets/images/hotel-review/hotel-nikko-fukuoka/view.webp" alt="호텔 객실에서 내려다본 하카타역 방향 도로와 빌딩" width="1200" height="1600" loading="lazy" />
-<figcaption>호텔 닛코 후쿠오카 객실에서 본 하카타역 방향, 2025년 7월. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/kyushu-discount/jr-hakata-city.webp" alt="후쿠오카 JR하카타시티 역 건물과 역 앞 광장" width="1200" height="677" loading="lazy" />
+<figcaption>후쿠오카 하카타역(JR하카타시티), 2023년 7월. 사진: <a href="https://commons.wikimedia.org/wiki/File:JR_Hakata_City_1-1_Hakata-eki-chūōgai_Hakata-ku_Fukuoka_20230725.jpg">Hirho</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## 한국에서 예약할 때 주의할 점

@@ -43,9 +43,9 @@ en_permalink: "/en/news/korean-air-oita-winter-2026/"
 매일 뜨는 노선이 아니라서, 료칸을 먼저 잡아두셨다면 **체크인 날짜랑 운항 요일이 맞는지**부터 보세요.
 항공권이 싸도 숙박 날짜를 옮기다가 취소 수수료가 붙으면 결국 비슷해집니다.
 
-<figure style="margin: 28px 0; text-align: center;">
-  <img src="/assets/images/hotel-review/fuk_1/fuk_a_4.webp" alt="눈 내린 유후인 료칸 입구" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
-  <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">눈 내린 유후인의 료칸 입구(오야도 유후노쇼), 2023년 1월. 사진: Brothrone</figcaption>
+<figure>
+<img src="/assets/images/news/korean-air-oita/unaguhime-torii-yufudake.webp" alt="유후인 우나구히메 신사 큰 도리이와 뒤로 보이는 유후다케" width="1200" height="900" loading="lazy" />
+<figcaption>유후인 우나구히메 신사 도리이와 유후다케, 2014년 12월. 사진: <a href="https://commons.wikimedia.org/wiki/File:Mount_Yufudake_and_Grand_Torii_of_Unaguhime_Shrine.jpg">そらみみ</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 인천 출발이 오전 9시 15분이라 생각보다 이릅니다.
@@ -57,9 +57,9 @@ en_permalink: "/en/news/korean-air-oita-winter-2026/"
 
 가격이나 수하물 조건은 이번 발표에 없어서, 예약 화면에서 **같은 날짜 후쿠오카편이랑 총액을 비교**해보시는 게 제일 확실합니다.
 
-<figure style="margin: 28px 0; text-align: center;">
-  <img src="/assets/images/hotel-review/fuk_1/fuk_a_20.webp" alt="유후인 역 앞 거리와 뒤로 보이는 산" loading="lazy" decoding="async" style="display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: 0 auto; border-radius: 12px;" />
-  <figcaption style="font-size:.85em;color:var(--muted,#777);margin-top:8px;">유후인 역 앞. 사진: Brothrone</figcaption>
+<figure>
+<img src="/assets/images/news/korean-air-oita/yufuin-station.webp" alt="산으로 둘러싸인 유후인역 승강장" width="1200" height="900" loading="lazy" />
+<figcaption>유후인역 승강장, 2010년 1월. 사진: <a href="https://commons.wikimedia.org/wiki/File:2010-01-03_Yufuin_Station.jpg">Tomo</a> / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></figcaption>
 </figure>
 
 유후인 숙소 고르고 계시면 제가 전에 묵었던 [잇코텐 후기](/posts/yufuin-ikkouten/)랑 [오야도 유후노쇼 후기](/posts/fukuoka-ryokan/)도 참고해보세요.

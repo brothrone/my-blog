@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: ko
-image: /assets/images/airline-review/ke787/ke787-17.webp
+image: /assets/images/news/narita-joint-kiosk/narita-t2-arrival.webp
 description: "9월 24일부터 나리타공항 제1·2터미널에 입국심사와 세관신고 정보를 한 번에 내는 '공동 키오스크' 177대가 운영됩니다. Visit Japan Web QR코드와 여권만 있으면 되고, 하네다·간사이·후쿠오카에서도 이미 쓰고 있습니다."
 tags: ["여행소식", "일본여행"]
 ---
@@ -20,8 +20,8 @@ tags: ["여행소식", "일본여행"]
 이 키오스크에서는 **입국심사랑 세관신고에 필요한 정보를 한 번에** 낼 수 있습니다.
 
 <figure>
-<img src="/assets/images/airline-review/ke787/ke787-17.webp" alt="후쿠오카공항 입국 통로의 한국어 환영 배너" width="768" height="1024" loading="lazy" />
-<figcaption>후쿠오카공항 입국 통로, 2025년 7월. 후쿠오카공항도 공동 키오스크를 운영하는 공항입니다. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/narita-joint-kiosk/narita-t2-arrival.webp" alt="나리타공항 제2터미널 도착 로비" width="1200" height="800" loading="lazy" />
+<figcaption>나리타공항 제2터미널 도착 로비, 2018년 5월. <a href="https://commons.wikimedia.org/wiki/File:Narita_Airport_Terminal_2_Arrival_Hall_2018.jpg">Wpcpey</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## 뭐가 바뀌나
@@ -52,8 +52,8 @@ tags: ["여행소식", "일본여행"]
 한국에서 많이 가는 일본 큰 공항은 이제 거의 다 된다고 보시면 됩니다.
 
 <figure>
-<img src="/assets/images/airline-review/ke2101/ke2101-19.webp" alt="하네다공항 전망대에서 본 활주로와 항공기" width="1200" height="1600" loading="lazy" />
-<figcaption>하네다공항 3터미널 전망대에서 본 모습. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/narita-joint-kiosk/narita-t2-front.webp" alt="나리타공항 제2터미널 외관과 주차장" width="1200" height="676" loading="lazy" />
+<figcaption>나리타공항 제2터미널, 2025년 5월. <a href="https://commons.wikimedia.org/wiki/File:Narita_Airport_Terminal_2_front_2025-05-28.jpg">LMP 2001</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## 입국 순서
@@ -75,11 +75,11 @@ tags: ["여행소식", "일본여행"]
 QR코드가 없으면 키오스크를 못 씁니다.
 
 <figure>
-<img src="/assets/images/tips/visit-japan-web/vjw14.webp" alt="Visit Japan Web 앱의 입국심사 및 세관신고 메뉴 화면" width="1200" height="2186" loading="lazy" />
-<figcaption>Visit Japan Web의 입국·귀국 수속 화면. '입국심사 및 세관신고'까지 등록해야 QR코드가 나옵니다.</figcaption>
+<img src="/assets/images/news/narita-joint-kiosk/narita-t1-interior.webp" alt="나리타공항 제1터미널 내부를 걷는 여행객" width="1200" height="900" loading="lazy" />
+<figcaption>나리타공항 제1터미널 내부, 2023년 1월. <a href="https://commons.wikimedia.org/wiki/File:Interior_of_Narita_International_Airport_Terminal_1_20230130_090532.jpg">ウィ貴公子</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
-위 화면처럼 **'입국심사 및 세관신고'가 미등록으로 떠 있으면 QR코드가 안 나옵니다.**
+앱의 입국·귀국 수속 화면에서 **'입국심사 및 세관신고'가 미등록으로 떠 있으면 QR코드가 안 나옵니다.**
 여기까지 다 채워야 키오스크에 찍을 QR코드가 생깁니다.
 
 등록 방법은 전에 화면 하나하나 찍어서 정리해둔 글이 있습니다.

@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: ko
-image: /assets/images/airline-review/ke787/ke787-06.webp
+image: /assets/images/news/fuel-surcharge/korean-air-a330-takeoff.webp
 description: "10월 1일 발권분부터 국제선 유류할증료가 23단계로 두 달 연속 오릅니다. 대한항공 편도 4만9천~36만2,600원, 아시아나 5만3,400~30만1,200원. 발권일 기준이라 9월 30일까지 사면 10월 출발도 9월 요금이 적용됩니다."
 tags: ["여행소식", "항공권"]
 ---
@@ -21,8 +21,8 @@ tags: ["여행소식", "항공권"]
 10월 연휴나 연말 여행 표를 아직 안 샀다면, **9월 30일까지 발권하면 9월 요금이 적용**됩니다.
 
 <figure>
-<img src="/assets/images/airline-review/ke787/ke787-06.webp" alt="인천공항 제2터미널에 주기된 대한항공 747" width="1200" height="900" loading="lazy" />
-<figcaption>인천공항 제2터미널의 대한항공 747, 2025년 7월. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/fuel-surcharge/korean-air-a330-takeoff.webp" alt="관제탑 옆으로 이륙하는 대한항공 에어버스 A330" width="1200" height="723" loading="lazy" />
+<figcaption>미국 LA공항에서 이륙하는 대한항공 A330, 2013년. 사진: <a href="https://commons.wikimedia.org/wiki/File:Korean_Air_-_HL8228_(8351584825).jpg">InSapphoWeTrust from Los Angeles, California, USA</a> / <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></figcaption>
 </figure>
 
 ## 10월 유류할증료 (한국 출발 편도)
@@ -66,8 +66,8 @@ tags: ["여행소식", "항공권"]
 [여행신문](https://www.traveltimes.co.kr/news/articleView.html?idxno=500426) 계산으로는 대한항공 방콕행 4인 가족 기준 유류할증료가 8월보다 **25만 2,800원** 늘었다고 합니다.
 
 <figure>
-<img src="/assets/images/airline-review/ke787/ke787-01.webp" alt="밤 시간 인천공항 제2터미널 체크인 카운터" width="1200" height="900" loading="lazy" />
-<figcaption>인천공항 제2터미널 출국장 체크인 구역, 2025년 7월. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/fuel-surcharge/incheon-t2-checkin.webp" alt="인천공항 제2터미널 대한항공 체크인 카운터" width="1200" height="900" loading="lazy" />
+<figcaption>인천공항 제2터미널 대한항공 체크인 카운터, 2024년 10월. 사진: <a href="https://commons.wikimedia.org/wiki/File:인천공항T2_체크인_대한한공_수속_2024.jpg">Narubaru7</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
 ## 9월 30일 전에 사면 좋은 경우
@@ -90,8 +90,8 @@ tags: ["여행소식", "항공권"]
 - **결제 화면 총액**: 유류할증료는 운임에 포함돼서 나오니까 최종 결제 금액으로 비교하세요.
 
 <figure>
-<img src="/assets/images/airline-review/ke2101/ke2101-03.webp" alt="김포공항 국제선 출발 로비" width="1200" height="1600" loading="lazy" />
-<figcaption>김포공항 국제선 출발 로비. 사진: Brothrone</figcaption>
+<img src="/assets/images/news/fuel-surcharge/jeju-air-737max.webp" alt="인천공항에서 이륙하는 제주항공 보잉 737 MAX 8" width="1200" height="675" loading="lazy" />
+<figcaption>인천공항에서 이륙하는 제주항공 737 MAX 8, 2026년 6월. 사진: <a href="https://commons.wikimedia.org/wiki/File:(KOR-Incheon)_Jeju_Air_Boeing_737_MAX_8_HL8523_@_RKSI_2026-06-04.jpg">S5A-0043</a> / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></figcaption>
 </figure>
 
 ## 저비용항공사는

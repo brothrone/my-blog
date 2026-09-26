@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: en
-image: /assets/images/airline-review/sq322/sq322-27.webp
+image: /assets/images/news/europe-entry/valencia-ees-kiosks.webp
 description: "The EU has dropped the 'last quarter of 2026' target from the ETIAS website. You don't need ETIAS yet, but EES biometric registration (fully live since April) and the £20 UK ETA apply right now."
 tags: ["Travel News", "Europe"]
 ---
@@ -25,8 +25,8 @@ What applies right now is the **Entry/Exit System (EES), fully live since April*
 The names are confusingly similar, so here are all three in one place.
 
 <figure>
-<img src="/assets/images/airline-review/sq322/sq322-27.webp" alt="Seatback flight map over Europe with a South Korean passport in the seat pocket" width="1200" height="1600" loading="lazy" />
-<figcaption>On the way from Singapore to London, over mainland Europe, January 2024. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/europe-entry/valencia-ees-kiosks.webp" alt="Row of EES registration kiosks in the arrivals area at Valencia Airport, Spain" width="1200" height="900" loading="lazy" />
+<figcaption>EES registration kiosks at Valencia Airport, Spain, October 2025. Photo: <a href="https://commons.wikimedia.org/wiki/File:At_Valencia_2025_394_-_EES_kiosks.jpg">Mike Peel</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## At a glance
@@ -65,8 +65,8 @@ EES **replaces passport stamps with an electronic record** of when you enter and
 As the [European Commission announced](https://home-affairs.ec.europa.eu/news/entryexit-system-will-become-fully-operational-10-april-2026-2026-03-30_en), it has been in full use at every Schengen external border since April 10, 2026. No more stamps.
 
 <figure>
-<img src="/assets/images/hotel-review/eiger/onway.webp" alt="Street of hotels and shops in Grindelwald with snowy mountains behind" width="1200" height="1600" loading="lazy" />
-<figcaption>Grindelwald, Switzerland, January 2024. Switzerland is in the Schengen area, so EES and ETIAS apply. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/europe-entry/munich-auto-gate.webp" alt="Traveller passing through an automated border gate at Munich Airport" width="1200" height="900" loading="lazy" />
+<figcaption>Automated border gate at Munich Airport, Germany, 2015. Photo: <a href="https://commons.wikimedia.org/wiki/File:Man_using_the_automatic_gate_in_Munich_airport_02.jpg">Subhashish Panigrahi</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 | Item | Details |
@@ -88,8 +88,8 @@ The UK is not in Schengen, so it runs its own Electronic Travel Authorisation se
 According to the [Home Office factsheet](https://homeofficemedia.blog.gov.uk/electronic-travel-authorisation-eta-factsheet-april-2026/), **the fee went up from £16 to £20 on April 8, 2026.**
 
 <figure>
-<img src="/assets/images/airline-review/sq322/sq322-29.webp" alt="Welcome to the United Kingdom screen in the arrivals area at London Heathrow" width="1200" height="1600" loading="lazy" />
-<figcaption>Arrivals at London Heathrow, January 2024. No ETA was needed then; it is now required before travel. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/europe-entry/uk-border-control.webp" alt="Passport control and UK Border signs in a British airport arrivals hall" width="1200" height="900" loading="lazy" />
+<figcaption>Passport control signs at a UK airport, 2018. Photo: <a href="https://commons.wikimedia.org/wiki/File:Passport_control,_UK_Border_(42031045291).jpg">Eric Fischer</a> / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></figcaption>
 </figure>
 
 One ETA covers multiple trips over two years (or until your passport expires), up to six months each time.

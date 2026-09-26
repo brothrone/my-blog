@@ -8,7 +8,7 @@ category: news
 hidden: true
 sitemap: true
 lang: en
-image: /assets/images/hotel-review/fuk_2/fuk2-13.webp
+image: /assets/images/news/kyushu-discount/yufuin-yufumi-street.webp
 description: "After the Kumamoto earthquake, Japan is discounting stays across Kyushu's seven prefectures by up to 50% (60% in Kumamoto and Kagoshima) from October 1. Oita says foreign visitors are eligible. Caps, booking channels and Fukuoka and Oita dates."
 tags: ["Travel News", "Japan"]
 ---
@@ -20,8 +20,8 @@ It follows this year's Kumamoto earthquake, which led to a wave of hotel cancell
 The key point for overseas travellers: **Oita, home of Yufuin and Beppu, states in its FAQ that foreign visitors to Japan are eligible.**
 
 <figure>
-<img src="/assets/images/hotel-review/fuk_2/fuk2-13.webp" alt="Mount Yufu seen over snowy rooftops in Yufuin" width="1200" height="1600" loading="lazy" />
-<figcaption>Mount Yufu from Yufuin, January 2023. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/kyushu-discount/yufuin-yufumi-street.webp" alt="Street in front of Yufuin Station with Mount Yufu behind" width="1200" height="900" loading="lazy" />
+<figcaption>The street outside Yufuin Station with Mount Yufu, March 2018. Photo: <a href="https://commons.wikimedia.org/wiki/File:Mount_Yufudake_and_Yufumi-dori_Street_in_front_of_Yufuin_Station.jpg">そらみみ</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## The discount
@@ -54,8 +54,8 @@ From [Oita Prefecture](https://www.pref.oita.jp/soshiki/14180/kyushu-oita.html) 
 | Direct with the hotel | October 16 | October 16 – December 25 |
 
 <figure>
-<img src="/assets/images/hotel-review/fuk_2/fuk2-20.webp" alt="Ryokan buildings below Mount Yufu at dusk" width="1200" height="1600" loading="lazy" />
-<figcaption>A ryokan in Yufuin at dusk, January 2023. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/kyushu-discount/kinrin-lake.webp" alt="Lake Kinrin in Yufuin surrounded by trees and a small shrine building" width="1200" height="921" loading="lazy" />
+<figcaption>Lake Kinrin, Yufuin, November 2007. Photo: <a href="https://commons.wikimedia.org/wiki/File:Kinrin-ko_by_~MVI~_in_Yufuin,_Oita.jpg">~MVI~</a> / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></figcaption>
 </figure>
 
 The FAQ points worth knowing:
@@ -89,8 +89,8 @@ For hotels that take direct bookings, book on their website or by phone and say 
 The lead guest's ID is checked and a form filled in at check-in.
 
 <figure>
-<img src="/assets/images/hotel-review/hotel-nikko-fukuoka/view.webp" alt="View from a hotel room towards Hakata Station" width="1200" height="1600" loading="lazy" />
-<figcaption>View towards Hakata Station from Hotel Nikko Fukuoka, July 2025. Photo: Brothrone.</figcaption>
+<img src="/assets/images/news/kyushu-discount/jr-hakata-city.webp" alt="JR Hakata City station building and plaza in Fukuoka" width="1200" height="677" loading="lazy" />
+<figcaption>Hakata Station (JR Hakata City), Fukuoka, July 2023. Photo: <a href="https://commons.wikimedia.org/wiki/File:JR_Hakata_City_1-1_Hakata-eki-chūōgai_Hakata-ku_Fukuoka_20230725.jpg">Hirho</a> / <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
 </figure>
 
 ## Booking from abroad
