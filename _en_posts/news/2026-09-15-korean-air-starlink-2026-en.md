@@ -12,7 +12,7 @@ image: /assets/images/news/korean-air-starlink/starlink-satellites.jpg
 description: "Initial aircraft, usage restrictions and practical checks for Korean Air’s free Starlink inflight Wi-Fi."
 ---
 
-Korean Air's free Starlink Wi-Fi launches on September 15, but it is not available across the fleet from day one. Check the service for your flight before planning to work online during the journey.
+Korean Air's free Starlink Wi-Fi went live on September 15, but it is not yet available across the fleet. Check the service for your flight before planning to work online during the journey.
 
 <figure>
 <img src="/assets/images/news/korean-air-starlink/starlink-satellites.jpg" alt="Falcon 9 carrying Starlink satellites, May 2019." width="960" height="540" style="width:100%;height:auto" />
@@ -26,9 +26,13 @@ Korean Air's free Starlink Wi-Fi launches on September 15, but it is not availab
 | Start date | September 15, 2026 |
 | Initial aircraft | Three modified A350-900s and one 777-300ER |
 | Price | Free in every cabin on equipped aircraft |
+| Initial routes | Mainly medium- and long-haul flights to the Americas, Europe and Southeast Asia, plus some short-haul routes |
 | Restrictions | Internet voice/video calls and live broadcasting |
+| Rollout | Most of the operating fleet by the end of 2027 |
 
 Source: [Korean Air's September 11 announcement](https://news.koreanair.com/대한항공-9월-15일부터-스타링크-기반-기내-와이파이-서/). Aircraft type alone does not establish availability. The aircraft photos are type references, not confirmation of Starlink installation.
+
+More aircraft will be added in stages. Korean Air says it plans to fit Starlink to most of its fleet by the end of 2027 ([One Mile at a Time](https://onemileatatime.com/news/korean-air-free-starlink-wi-fi/)). Until then, the same route can be flown by an equipped aircraft one day and a different one the next.
 
 ## Checks before booking
 
@@ -60,4 +64,4 @@ Free access in economy is useful, but an internet connection does not mean you c
 
 The checklist is practical advice, not an additional airline policy. Availability on a specific flight and actual connection performance have not been verified for this article.
 
-Checked September 15, 2026.
+Checked September 15, 2026 · Updated after launch September 26, 2026.

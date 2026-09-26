@@ -31,7 +31,7 @@ These details come from [Air Premia’s September 14 announcement](https://compa
 | New Chitose → Incheon | 13:45 → 17:15 |
 | Planned aircraft | Boeing 787-9 |
 | Ticket sales | Website and app from September 14, 10:00 |
-| Launch promotion | Planned from September 21 |
+| Launch promotion | 5% off tickets bought September 21–30 (see below) |
 
 Check both flight dates before committing to a hotel. The route is not daily. These combinations illustrate possible trip lengths from the announced weekdays; they are not checked seat availability or bookable offers.
 
@@ -57,9 +57,23 @@ For the return, work backwards from airport check-in and your transport connecti
 <figcaption>New Chitose international terminal, April 2010. <a href="https://commons.wikimedia.org/wiki/File:New_Chitose_Airport_inside_(International).jpg">欅 (Keyaki)</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></figcaption>
 </figure>
 
-## Before paying
+## Launch discount
 
-**The release does not give the promotion’s discount, closing date or eligible travel dates.** Do not assume every departure will become cheaper on September 21. If your dates are fixed, one option is to note the current total and fare conditions, then compare them with the promotion once its terms are available.
+The promotion trailed in the September 14 release was detailed on September 21. It is a 5% discount, applied only when you enter a code.
+
+| Item | Details |
+| --- | --- |
+| Booking window | September 21, 10:00 to September 30 (Korea time) |
+| Where | Air Premia website and app |
+| Code | CTSNEW5 (Economy and Wide Premium) |
+| Travel dates | December 2, 2026 to February 28, 2027, no blackout dates |
+| Lowest round-trip total with code | From KRW 514,450 in Economy, KRW 762,400 in Wide Premium |
+
+Those are the cheapest dates. Christmas, New Year and Lunar New Year departures are likely to cost more, and 5% off a high fare can still be more than another airline’s regular price. Compare the total before and after the code, and against other flights on the same dates.
+
+The discount terms are taken from Korean press reports of September 21, including [Financial News](https://www.fnnews.com/news/202609210850595225) and [Shinailbo](https://www.shinailbo.co.kr/news/articleView.html?idxno=5064459). If the checkout page shows different conditions, the checkout page applies.
+
+## Before paying
 
 | Check | What to compare |
 | --- | --- |
@@ -71,4 +85,4 @@ For the return, work backwards from airport check-in and your transport connecti
 
 This is a booking checklist, not a new set of airline rules. The release does not specify a route end date or date-specific exceptions. Confirm both directions and the fare terms on the booking screen before paying.
 
-Official source: [Air Premia’s Sapporo launch announcement](https://company.airpremia.com/117/?bmode=view&idx=174129800) · Published September 14, 2026 · Checked September 16, 2026.
+Official source: [Air Premia’s Sapporo launch announcement](https://company.airpremia.com/117/?bmode=view&idx=174129800) · Published September 14, 2026 · Checked September 16, 2026 · Promotion terms added September 26, 2026.
