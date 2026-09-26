@@ -1,0 +1,35 @@
+[
+  {
+    "file": "jin-air-737.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:HL8012_(36530261195).jpg",
+    "author": "redlegsfan21",
+    "date": "2017-03-09",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 902
+  },
+  {
+    "file": "yuanjiajie.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Stunning_rock_formations_from_the_top_of_Bailong_(白龙),_in_the_Yuanjiajie_（袁家界）scenic_area.jpg",
+    "author": "Rocio Gil",
+    "date": "2017-06-23 15:40:57",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "file": "three-gorges-dam.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Three_Gorges_Dam_2014.jpg",
+    "author": "Ekrem Canli",
+    "date": "2014-06-10",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  }
+]
