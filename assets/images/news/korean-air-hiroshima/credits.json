@@ -1,0 +1,46 @@
+[
+  {
+    "file": "korean-air-a321neo.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:(JPN-Chiba)_Korean_Air_Airbus_A321-272NX_HL8713_@_RJAA_2026-06-12.jpg",
+    "author": "S5A-0043",
+    "capture_date": "12 June 2026, 18:06:55",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "changes": "Resized to 1200px width and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "file": "hiroshima-airport.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Hiroshima-Airport_Inside.jpg",
+    "author": "MaedaAkihiko",
+    "capture_date": "2024-12-22",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "changes": "Resized to 1200px width and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "file": "itsukushima-torii.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:20181111_Itsukushima_Shrine_torii-2.jpg",
+    "author": "Balon Greyjoy",
+    "capture_date": "2018-11-11 15:54:54",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "changes": "Resized to 1200px width and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "file": "atomic-bomb-dome.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:20181111_Atomic_Bomb_Dome-5.jpg",
+    "author": "Balon Greyjoy",
+    "capture_date": "2018-11-11 10:39:16",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "changes": "Resized to 1200px width and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  }
+]
