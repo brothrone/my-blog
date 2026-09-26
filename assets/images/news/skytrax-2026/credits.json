@@ -1,0 +1,35 @@
+[
+  {
+    "file": "singapore-airlines-a350.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Singapore_Airlines_Airbus_A350-941_9V-SHL_@_WSSS_2025-11-19.jpg",
+    "author": "S5A-0043",
+    "date": "2025-11-19 15:09:05",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "file": "korean-air-787-10.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:(KOR-Incheon)_Korean_Air_Boeing_787-10_HL8572_@_RKSI_2026-06-04.jpg",
+    "author": "S5A-0043",
+    "date": "2026-06-04 09:05:34",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "file": "qatar-qsuite.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Qatar_Airways_Qsuite_Business_Class_ITB_2017_(02).JPG",
+    "author": "Travelarz",
+    "date": "2017-03-10 16:27:04",
+    "license": "CC BY-SA 3.0 PL",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/pl/deed.en",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  }
+]
