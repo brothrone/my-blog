@@ -1,0 +1,35 @@
+[
+  {
+    "file": "suvarnabhumi-concourse.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:202402_Concourse_A_of_Suvarnabhumi_International_Airport.jpg",
+    "author": "MNXANL",
+    "date": "2024-02-24 19:03:56",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "wat-arun.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Templo_Wat_Arun,_Bangkok,_Tailandia,_2013-08-22,_DD_04.jpg",
+    "author": "Diego Delso",
+    "date": "2013-08-22 15:58:33",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 1855
+  },
+  {
+    "file": "patong-beach.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Pa_Tong_Beach,Phuket_(1).jpg",
+    "author": "กสิณธร ราชโอรส",
+    "date": "2024-04-30 10:31:55",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 901
+  }
+]
