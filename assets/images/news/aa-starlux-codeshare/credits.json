@@ -1,0 +1,35 @@
+[
+  {
+    "file": "starlux.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Starlux_Airlines_Airbus_A350-900_B-58509_at_Taoyuan_February_2026.jpg",
+    "author": "4300streetcar",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "captured_at": "2026-02-04",
+    "description": "STARLUX A350, Taoyuan Airport, February 2026",
+    "visually_verified": true,
+    "changes": "Wikimedia 1280px thumbnail; no crop; no GPS metadata present"
+  },
+  {
+    "file": "american.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:American_Airlines%2C_Boeing_737-823%28WL%29%2C_N956NN_-_LAX.jpg",
+    "author": "Eric Salard",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "captured_at": "2015-04-15",
+    "description": "American Airlines 737, Los Angeles Airport, April 2015",
+    "visually_verified": true,
+    "changes": "Wikimedia 1280px thumbnail; no crop; no GPS metadata present"
+  },
+  {
+    "file": "taoyuan.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Taoyuan_Airport%2C_Main_Departures_Hall.jpg",
+    "author": "Thingreenline4546",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "captured_at": "2021-07-13",
+    "description": "Taoyuan Airport departures hall, July 2021",
+    "visually_verified": true,
+    "changes": "Wikimedia 1280px thumbnail; no crop; no GPS metadata present"
+  }
+]
