@@ -1,0 +1,35 @@
+[
+  {
+    "file": "asiana-a350.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:(GBR-London)_Asiana_Airlines_Airbus_A350-941_HL8362_@_EGLL_2025-06-17.jpg",
+    "author": "S5A-0043",
+    "date": "2025-06-17 21:05:59",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "file": "asiana-lounge-icn.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Asiana_Lounge_Central_at_ICN_(1).jpg",
+    "author": "David from Simply Aviation",
+    "date": "2023-12-19",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "asiana-checkin.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Asiana_Airlines_check-in_counters_at_ZGSZ_(20190717113334).jpg",
+    "author": "N509FZ",
+    "date": "2019-07-17 11:33:34",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 800
+  }
+]
