@@ -1,0 +1,35 @@
+[
+  {
+    "file": "daju-hutong-sign.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Beijing_Hutong_-_panoramio_(1).jpg",
+    "author": "The Erica Chang",
+    "date": "2012-01-01",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "beijing-hutong.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:A_Beijing_hutong_(2661851240).jpg",
+    "author": "Peter Dowley",
+    "date": "2008-06-12 20:29",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "file": "china-apartment-complex.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Apartment_Building_in_China.jpg",
+    "author": "Kong of Lasers",
+    "date": "2005-09-10 22:50:30",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 900
+  }
+]
