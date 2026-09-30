@@ -1,0 +1,35 @@
+[
+  {
+    "file": "osaka-dotonbori.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Dotonbori_(53067359216).jpg",
+    "author": "Romain Guy",
+    "date": "2023-06-16 02:56",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "file": "tokyo-yanaka-street.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Tokyo_-_Yanaka_141A.jpg",
+    "author": "Joe Mabel",
+    "date": "2014-11-14",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 797
+  },
+  {
+    "file": "kyoto-gion-night.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Streets_of_Gion,_Kyoto_-_Gion7708.jpg",
+    "author": "lumoplank",
+    "date": "2026-04-10",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Resized and converted to WebP; metadata removed",
+    "width": 1200,
+    "height": 810
+  }
+]
