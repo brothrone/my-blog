@@ -1,0 +1,64 @@
+{
+  "checked_at": "2026-10-02",
+  "photos": [
+    {
+      "file": "tpe.jpg",
+      "subject": "Taoyuan Airport Terminal 2",
+      "place": "Taoyuan, Taiwan",
+      "captured_at": "2024-08-25",
+      "author": "AirportTerminalGuy",
+      "source": "https://commons.wikimedia.org/wiki/File:TPE_T2_terminal.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/TPE_T2_terminal.jpg/1280px-TPE_T2_terminal.jpg",
+      "changes": "Wikimedia 1280px thumbnail; no crop or local visual changes",
+      "commercial_use_allowed": true,
+      "visually_checked": true,
+      "checked_at": "2026-10-02",
+      "gps_present": false,
+      "sha256": "de0e2fc224bab4e73402f26b8178c1726db72d05658be8df4821000843d98bcf"
+    },
+    {
+      "file": "tsa.jpg",
+      "subject": "Songshan Airport Terminal 1 exterior",
+      "place": "Taipei, Taiwan",
+      "captured_at": "2014-12-13",
+      "author": "Richard, enjoy my life!",
+      "source": "https://commons.wikimedia.org/wiki/File:Taipei_Songshan_Airport_Terminal_1_and_traffic_lights_at_yellow_state_20141213.jpg",
+      "original_source": "https://www.flickr.com/photos/ladyous/16271383975/",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Taipei_Songshan_Airport_Terminal_1_and_traffic_lights_at_yellow_state_20141213.jpg/1280px-Taipei_Songshan_Airport_Terminal_1_and_traffic_lights_at_yellow_state_20141213.jpg",
+      "changes": "Wikimedia 1280px thumbnail; no crop or local visual changes",
+      "commercial_use_allowed": true,
+      "visually_checked": true,
+      "checked_at": "2026-10-02",
+      "gps_present": false,
+      "sha256": "b128b1889f2cace662033a460c546e56a9c095a22a19bb15f540e28153a84b65"
+    },
+    {
+      "file": "khh.jpg",
+      "subject": "Kaohsiung Airport departure curb",
+      "place": "Kaohsiung, Taiwan",
+      "captured_at": "2025-02-12",
+      "author": "Ralff Nestor Nacor",
+      "source": "https://commons.wikimedia.org/wiki/File:Kaohsiung_Intl_Airport_Departure_Outside,_Feb_2025.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Kaohsiung_Intl_Airport_Departure_Outside%2C_Feb_2025.jpg/1280px-Kaohsiung_Intl_Airport_Departure_Outside%2C_Feb_2025.jpg",
+      "changes": "Wikimedia 1280px thumbnail; no crop or local visual changes",
+      "commercial_use_allowed": true,
+      "visually_checked": true,
+      "checked_at": "2026-10-02",
+      "gps_present": false,
+      "sha256": "6886828de8fc67e9a9bc38ecbf6f0e57c070045d9a5983427eaf83fc5329c562"
+    }
+  ],
+  "diagram": {
+    "file": "connections.png",
+    "author": "Brothrone Travel",
+    "type": "original route-group diagram",
+    "source": "https://www.trinityairways.com/app/customerCenter/notice/retrieve/12716",
+    "note": "Not a guarantee of every airport-pair combination or same-airport connection"
+  }
+}
