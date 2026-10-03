@@ -1,12 +1,43 @@
 {
-  "type": "original factual checklist diagram; not a product photograph",
-  "author": "Brothrone Travel",
-  "created_at": "2026-10-03",
-  "license": "Original artwork owned by Brothrone Travel; no external image copied",
-  "sources": [
-    "https://flyairseoul.com/CM/ko/noticeContent.do?board_id=notice&seq=11159",
-    "https://agent.jinair.com/announce/getDetail?seq=1511",
-    "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10022115"
+  "type": "direct official-site screenshots",
+  "checked_at": "2026-10-03",
+  "images": [
+    {
+      "file": "safetykorea-product.jpg",
+      "subject": "팬톤 PBP-100 제품 사진과 인증번호",
+      "source_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10022115",
+      "source_publisher": "Safety Korea",
+      "captured_at": "2026-10-03",
+      "capture_method": "Computer Use in-app browser screenshot of visible official page; relevant section only",
+      "original_photographer": "Not identified on source page",
+      "rights": "Source publisher retains rights; no CC or blanket commercial image license asserted. Limited attributed screen excerpt used to explain the reported notice, not a stock photograph.",
+      "visual_review": "Opened actual screenshot; relevant content readable; no blog photograph or generated image",
+      "sha256": "9397002c96f2b6e5486dc2cc4c2161e16f04456748b3b93938a343668c8bb309"
+    },
+    {
+      "file": "airseoul-restriction.jpg",
+      "subject": "에어서울 리콜 대상 제품 안내",
+      "source_url": "https://flyairseoul.com/CM/ko/noticeContent.do?board_id=notice&seq=11159",
+      "source_publisher": "Air Seoul",
+      "captured_at": "2026-10-03",
+      "capture_method": "Computer Use in-app browser screenshot of visible official page; relevant section only",
+      "original_photographer": "Not applicable: official information screen",
+      "rights": "Source publisher retains rights; no CC or blanket commercial image license asserted. Limited attributed screen excerpt used to explain the reported notice, not a stock photograph.",
+      "visual_review": "Opened actual screenshot; relevant content readable; no blog photograph or generated image",
+      "sha256": "8a4e49a1ac94a86bc01f3cb65d9e4c1bab4707d253a2b59b7929942d6c29ab93"
+    },
+    {
+      "file": "jinair-baggage-ban.jpg",
+      "subject": "진에어 기내·위탁 운송 금지 안내",
+      "source_url": "https://agent.jinair.com/announce/getDetail?seq=1511",
+      "source_publisher": "Jin Air",
+      "captured_at": "2026-10-03",
+      "capture_method": "Computer Use in-app browser screenshot of visible official page; relevant section only",
+      "original_photographer": "Not applicable: official information screen",
+      "rights": "Source publisher retains rights; no CC or blanket commercial image license asserted. Limited attributed screen excerpt used to explain the reported notice, not a stock photograph.",
+      "visual_review": "Opened actual screenshot; relevant content readable; no blog photograph or generated image",
+      "sha256": "c92206b0cd33e8694075b5720316706c86777266f14bec3fbf622bb2f3017f7e"
+    }
   ],
-  "image_exception": "Conditions and exact model identifiers are the substance; user Sep15 permits original comparison materials instead of three unrelated photographs."
+  "policy": "2026-10-03 user instruction: no self-made images or existing blog photos; three distinct directly relevant captures per article, no numerical-topic exemption"
 }

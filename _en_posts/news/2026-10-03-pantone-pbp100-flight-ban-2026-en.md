@@ -7,15 +7,15 @@ hidden: true
 sitemap: true
 lang: "en"
 description: "Air Seoul and Jin Air prohibit the recalled Pantone PBP-100. Check model identifiers, cabin and checked restrictions, and recall contacts."
-image: "/assets/images/news/pantone-pbp100-flight-ban/model-check.png"
+image: "/assets/images/news/pantone-pbp100-flight-ban/safetykorea-product.jpg"
 permalink: "/en/news/pantone-pbp100-flight-ban-2026/"
 kr_permalink: "/posts/pantone-pbp100-flight-ban-2026/"
 ---
 
 Check the model on your power bank before packing. Air Seoul and Jin Air issued notices on October 2 prohibiting carriage of the recalled Pantone PBP-100. Jin Air says the restriction applies immediately to both cabin baggage and checked baggage.
 
-![Model checklist for Pantone PBP-100, certification XU102998-24007: cabin and checked carriage prohibited](/assets/images/news/pantone-pbp100-flight-ban/model-check.png)
-*Original chart based on the official notices · Brothrone Travel*
+![PBP-100 product photos and certification number](/assets/images/news/pantone-pbp100-flight-ban/safetykorea-product.jpg)
+*PBP-100 product photos and certification number · [Source: Safety Korea](https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10022115)*
 
 ## Product identification
 
@@ -30,12 +30,18 @@ Compare the model and certification number on the device rather than relying on 
 
 Safety Korea describes internal short circuits caused by unexplained heating and a possible fire risk. It instructs owners to stop using the product and request a recall. This record does not identify every Pantone model as recalled; check any other device separately.
 
+![Air Seoul recalled-product notice](/assets/images/news/pantone-pbp100-flight-ban/airseoul-restriction.jpg)
+*Air Seoul recalled-product notice · [Source: Air Seoul](https://flyairseoul.com/CM/ko/noticeContent.do?board_id=notice&seq=11159)*
+
 ## Airline notices
 
 | Airline | Timing | Carriage and airport checks |
 | --- | --- | --- |
 | Jin Air | October 2 notice; immediate effect | Prohibits cabin and checked carriage; checks at departure formalities and boarding |
 | Air Seoul | October 2 notice | Prohibits cabin carriage and transport; devices found at the airport may be collected and disposed of |
+
+![Jin Air cabin and checked-baggage prohibition](/assets/images/news/pantone-pbp100-flight-ban/jinair-baggage-ban.jpg)
+*Jin Air cabin and checked-baggage prohibition · [Source: Jin Air](https://agent.jinair.com/announce/getDetail?seq=1511)*
 
 Moving the device into a checked suitcase is not a workaround. Neither notice gives an end date or an exemption for this product.
 

@@ -7,15 +7,15 @@ hidden: true
 sitemap: true
 lang: "ko"
 description: "에어서울·진에어의 팬톤 PBP-100 운송 금지 공지와 인증번호, 기내·위탁 제한, 리콜 접수 방법을 정리했습니다."
-image: "/assets/images/news/pantone-pbp100-flight-ban/model-check.png"
+image: "/assets/images/news/pantone-pbp100-flight-ban/safetykorea-product.jpg"
 permalink: "/posts/pantone-pbp100-flight-ban-2026/"
 en_permalink: "/en/news/pantone-pbp100-flight-ban-2026/"
 ---
 
 팬톤 보조배터리를 쓰고 계시면 여행 가방을 챙기기 전에 모델명을 확인해주세요. 에어서울과 진에어가 10월 2일 **PBP-100의 항공기 운송 금지**를 공지했습니다. 진에어는 즉시 적용하며, 기내 휴대와 위탁 수하물 모두 허용하지 않는다고 안내했어요.
 
-![팬톤 PBP-100 확인용 도표: 인증번호 XU102998-24007, 기내 휴대와 위탁 운송 금지](/assets/images/news/pantone-pbp100-flight-ban/model-check.png)
-*공식 공지 기준 자체 제작 · Brothrone Travel*
+![팬톤 PBP-100 제품 사진과 인증번호](/assets/images/news/pantone-pbp100-flight-ban/safetykorea-product.jpg)
+*팬톤 PBP-100 제품 사진과 인증번호 · [출처: 제품안전정보센터](https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10022115)*
 
 ## 대상 제품 확인
 
@@ -30,12 +30,18 @@ en_permalink: "/en/news/pantone-pbp100-flight-ban-2026/"
 
 제품안전정보센터는 원인 불명의 발열에 따른 내부 단락과 화재 가능성을 안내하고 있습니다. **해당 제품은 사용을 중지**하고 리콜을 접수하도록 안내했어요. 다른 팬톤 제품까지 모두 같은 리콜 대상이라고 단정한 내용은 아닙니다. 모델이 다르더라도 해당 제품의 리콜 여부는 따로 확인해주세요.
 
+![에어서울 리콜 대상 제품 안내](/assets/images/news/pantone-pbp100-flight-ban/airseoul-restriction.jpg)
+*에어서울 리콜 대상 제품 안내 · [출처: 에어서울](https://flyairseoul.com/CM/ko/noticeContent.do?board_id=notice&seq=11159)*
+
 ## 항공사별 안내 비교
 
 | 항공사 | 적용 안내 | 운송·공항 확인 |
 | --- | --- | --- |
 | 진에어 | 10월 2일 공지, 즉시 적용 | 기내 휴대와 위탁 운송 모두 금지, 수속·탑승 단계에서 확인 |
 | 에어서울 | 10월 2일 공지 | 기내 휴대·운송 불가, 현장에서 확인되면 수거·폐기될 수 있음 |
+
+![진에어 기내·위탁 운송 금지 안내](/assets/images/news/pantone-pbp100-flight-ban/jinair-baggage-ban.jpg)
+*진에어 기내·위탁 운송 금지 안내 · [출처: 진에어](https://agent.jinair.com/announce/getDetail?seq=1511)*
 
 금지된 제품을 위탁 가방에 옮겨 담으면 해결되는 문제가 아닙니다. 진에어 공지는 위탁 수하물도 명시적으로 금지하고 있어요. 두 공지에는 종료일이나 이 제품에 대한 반입 예외가 표시되어 있지 않습니다.
 

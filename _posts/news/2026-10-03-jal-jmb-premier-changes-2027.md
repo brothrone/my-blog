@@ -7,15 +7,15 @@ hidden: true
 sitemap: true
 lang: "ko"
 description: "JAL JMB 프리미어의 탑승 실적 기준과 2028년도 혜택 변경, 마일 유효기간 및 한국 출발 여행자가 확인할 사항을 정리했습니다."
-image: "/assets/images/news/jal-jmb-premier-changes/timeline.png"
+image: "/assets/images/news/jal-jmb-premier-changes/jal-2027-change.jpg"
 permalink: "/posts/jal-jmb-premier-changes-2027/"
 en_permalink: "/en/news/jal-jmb-premier-changes-2027/"
 ---
 
 JAL이 JGC 프리미어의 가입 조건과 혜택을 바꿉니다. 새 이름은 **JMB 프리미어**입니다. JGC 가입 조건을 없애는 대신 탑승 실적 기준은 유지하고, 혜택 일부는 별도로 조정해요. [JAL 공식 변경 안내](https://www.jal.co.jp/jp/ja/info/2026/jmb/jgc-premiere-services/)
 
-![JAL JMB 프리미어 변경 일정: 2027년 탑승부터 JGC 가입 조건 삭제, 2028년도 등급부터 혜택 변경](/assets/images/news/jal-jmb-premier-changes/timeline.png)
-*JAL 공식 변경 일정 기준 자체 제작 · Brothrone Travel*
+![JAL 프리미어 가입 조건 변경과 적용일](/assets/images/news/jal-jmb-premier-changes/jal-2027-change.jpg)
+*JAL 프리미어 가입 조건 변경과 적용일 · [출처: JAL](https://www.jal.co.jp/jp/ja/info/2026/jmb/jgc-premiere-services/)*
 
 ## 적용 일정과 변경 혜택
 
@@ -31,6 +31,11 @@ JAL이 JGC 프리미어의 가입 조건과 혜택을 바꿉니다. 새 이름�
 
 ## 탑승 실적 기준
 
+현행 JGC 프리미어 안내에는 JGC 회원만 대상이라고 나와 있습니다. 2026년 탑승 실적에는 이 기준이 적용되고, 위 변경 공지에 따라 2027년 탑승부터 가입 조건이 빠집니다.
+
+![JAL 현행 JGC 프리미어 기준](/assets/images/news/jal-jmb-premier-changes/jal-current-premier.jpg)
+*JAL 현행 JGC 프리미어 기준 · [출처: JAL](https://www.jal.co.jp/jp/ja/jalmile/flyon/status_conditions.html)*
+
 | 달성 경로 | 한 해 동안 필요한 실적 |
 | --- | --- |
 | 포인트 | 80,000 FLY ON 포인트 이상, 이 중 JAL 그룹 40,000 이상 |
@@ -39,6 +44,9 @@ JAL이 JGC 프리미어의 가입 조건과 혜택을 바꿉니다. 새 이름�
 가입 조건 삭제가 곧 무조건적인 등급 부여를 뜻하지는 않습니다. 위의 두 경로 중 하나를 충족해야 합니다. JMB 프리미어 달성과 JGC 가입을 같은 절차로 생각하지 마세요.
 
 FLY ON 포인트는 항공권에 쓰는 마일과 다릅니다. [JAL의 프로그램 설명](https://www.jal.co.jp/jp/ja/jalmile/flyon/guide.html)에 따르면 매년 실적을 따로 집계하며, 대상 항공편·운임의 적립 실적을 기준으로 계산합니다. 마일 잔액이나 쇼핑·호텔 적립 마일을 그대로 위 기준에 넣으면 안 돼요.
+
+![JAL FLY ON 포인트 계산 안내](/assets/images/news/jal-jmb-premier-changes/jal-flyon-calculation.jpg)
+*JAL FLY ON 포인트 계산 안내 · [출처: JAL](https://www.jal.co.jp/jp/ja/jalmile/flyon/guide.html)*
 
 예를 들어 포인트 경로를 목표로 한다면 총합만 보지 말고 JAL 그룹 실적도 함께 확인해야 합니다. 80,000포인트를 채웠어도 JAL 그룹 실적이 39,000이면 그 경로의 조건에는 못 미칩니다. 이는 포인트 기준의 비교 예시이며, 횟수 경로를 통한 달성 여부까지 판정한 결과는 아닙니다.
 
@@ -55,3 +63,4 @@ FLY ON 포인트는 항공권에 쓰는 마일과 다릅니다. [JAL의 프로�
 - [JAL — FLY ON 등급 기준·서비스 변경](https://www.jal.co.jp/jp/ja/info/2026/jmb/jgc-premiere-services/)
 - [JAL — FLY ON 프로그램과 포인트 계산](https://www.jal.co.jp/jp/ja/jalmile/flyon/guide.html)
 - [JAL — 마일리지 공지 목록](https://www.jal.co.jp/ja-jp/news/mileage.html)
+- [JAL — 현행 JGC 프리미어 자격 기준](https://www.jal.co.jp/jp/ja/jalmile/flyon/status_conditions.html)
